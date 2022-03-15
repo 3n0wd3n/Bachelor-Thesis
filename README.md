@@ -30,6 +30,8 @@ Do informačního systému by se přihlašovalo skrz standartní login. Žádná
 > Omluvenky na hodiny (maximálně týden dopředu)
 > 
 > Požadavek na přehození hodiny (opět maximálně týden dopředu)
+> 
+> Informace o č.ú a Bářín kalendář aby věděli na jaké dny už Bára někoho má a Bárou vyznačené dny, kdy si studenti mohou nahradit, nebo přesunout hodinu <-- tady toto je potřeba brát s rezervou a neřadil bych to do jednoho z bodů bakalářské práce pro případ, že by se mi to nepovedlo implementovat.
 
 * 3.typ (student mladší 18 let)
 
