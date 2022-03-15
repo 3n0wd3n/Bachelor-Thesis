@@ -11,6 +11,8 @@ Do informačního systému by se přihlašovalo skrz standartní login. Žádná
 
 * 1.typ (správce)
 
+*Správce
+
 * 2.typ (student starší 18 let/rodič)
 
 * 3.tyú (student mladší 18 let)
