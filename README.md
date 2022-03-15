@@ -9,7 +9,7 @@ Od začátku školního roku 2021/2022 se moje přítelkyně vydala cestou brig�
 
 Do informačního systému by se přihlašovalo skrz standartní login. Žádná registrace by nebyla, protože by správce (Bára) každému novému příchozímu dala jeho přihlašovací jméno a heslo (mohl bych generovat). Po zadání přihlašovacích údajů by se rozeznávali tři typy uživatelů. 
 
-* 1.typ (správce)
+1.typ (správce)
 
 > * Mazání studentů
 > 
@@ -21,7 +21,7 @@ Do informačního systému by se přihlašovalo skrz standartní login. Žádná
 >
 > * Individuální osnova/plán pro studenta, který lze měnit správcem podle aktuální potřeby studenta po domluvě
 
-* 2.typ (student starší 18 let/rodič)
+2.typ (student starší 18 let/rodič)
 
 > * Uvidí průběžné (nejespíš měsíční) zhodnocení práce studenta (jen v případě když to bude samozřejmě pro rodiče jinak studentovi staršímu 18 let to nemá moc vyznám tam psát, protože si za to zodpovídá sám).
 > 
@@ -33,7 +33,7 @@ Do informačního systému by se přihlašovalo skrz standartní login. Žádná
 > 
 > * Informace o č.ú a Bářín kalendář aby věděli na jaké dny už Bára někoho má a Bárou vyznačené dny, kdy si studenti mohou nahradit, nebo přesunout hodinu <-- tady toto je potřeba brát s rezervou a neřadil bych to do jednoho z bodů bakalářské práce pro případ, že by se mi to nepovedlo implementovat.
 
-* 3.typ (student mladší 18 let)
+3.typ (student mladší 18 let)
 
 > * Uvidí osnovu, která naznačuje cestu jakou studium bude probíhat
 >
