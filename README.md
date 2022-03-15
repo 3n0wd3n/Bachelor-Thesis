@@ -11,9 +11,37 @@ Do informačního systému by se přihlašovalo skrz standartní login. Žádná
 
 * 1.typ (správce)
 
+> Mazání studentů
+> 
+> Jednotlivým studentům možnost zapisovat/shrnout co bylo tématem minulé hodiny
+> 
+> Jednotlivým studentům psát domácí úkoly na další hodinu
+> 
+> Přikládat individuálně .PDF studentům do sekce s materiály
+>
+> Individuální osnova/plán pro studenta, který lze měnit správcem podle aktuální potřeby studenta po domluvě
+
 * 2.typ (student starší 18 let/rodič)
 
-* 3.tyú (student mladší 18 let)
+> Uvidí průběžné (nejespíš měsíční) zhodnocení práce studenta (jen v případě když to bude samozřejmě pro rodiče jinak studentovi staršímu 18 let to nemá moc vyznám tam psát, protože si za to zodpovídá sám).
+> 
+> Po zádání administrátorem/správcem kolik hodin týdně proběhlo jednoduchý algoritmus pro výpočet tojčlenky vyhodi číslo kolik to dělá za tu hodinu a posčíta s počet hodin, které proběhly --> závěrem se vždy ukáže v sekci pro administrativni informace počet kolonek odpovídajících nesplaceným týdnům (je to spíš takových provizorní check-list pro rodiče aby věděli co už poplatili a co jim ještě zbývá, protože se často stává, že Bára, řeší, že si rodiče nepamatují, které týdny už zaplatilia které ne a dohledává se to v mailech).
+> 
+> Omluvenky na hodiny (maximálně týden dopředu)
+> 
+> Požadavek na přehození hodiny (opět maximálně týden dopředu)
+
+* 3.typ (student mladší 18 let)
+
+> Uvidí osnovu, která naznačuje cestu jakou studium bude probíhat
+>
+> Krátké shrnutí minulé hodiny
+> 
+> Domácí úkoly
+> 
+> PDF soubory pro tisk na hodiny
+>
+> Čas na kterém se domluvili, že hodina bude probíhat 
 
 Pro všechny jsou samozřejmě jiná práva a každý uvidí něco jiného.
 
