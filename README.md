@@ -56,10 +56,10 @@ Nad technologiemi ještě přemýšlím co by bylo lepší použít. Výhodou je
 
 **Jak bych chtěl postupovat**
 
-- [] prokonzultovat rozdělení Informačního systému s vedoucím práce, tak abych věděl, že už od začátku nebudu dělat něco špatně
-- [] vybrat technologie, které budou pro projekt a po mě co nejvíce adekvátní
-- [] uděůat diagram, který bude reprezentovat komunikaci jednotlivých stran/typů uživatelů s databází případně se serverem
-- [] ve Figmě navrhnout design celé stránky (s viditelnou responzivitou a naznačenými klikacími úkony)
-- [] nakonfigurovat server
-- [] rozvrhnout databáze
-- [] samotné propojení a programování
+- [ ] prokonzultovat rozdělení Informačního systému s vedoucím práce, tak abych věděl, že už od začátku nebudu dělat něco špatně
+- [ ] vybrat technologie, které budou pro projekt a po mě co nejvíce adekvátní
+- [ ] uděůat diagram, který bude reprezentovat komunikaci jednotlivých stran/typů uživatelů s databází případně se serverem
+- [ ] ve Figmě navrhnout design celé stránky (s viditelnou responzivitou a naznačenými klikacími úkony)
+- [ ] nakonfigurovat server
+- [ ] rozvrhnout databáze
+- [ ] samotné propojení a programování
