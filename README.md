@@ -54,4 +54,12 @@ Pro všechny jsou samozřejmě jiná práva a každý uvidí něco jiného.
 Nad technologiemi ještě přemýšlím co by bylo lepší použít. Výhodou je(možná ne), že ještě na nic nejsem zvyklý a jsem v tomto tak trochu nepopsaná kniha, protože jsem ještě back-end, nebo tady ten server-site nikdy nedělal, takže když se do něčeho pustím, tak asi nebude problém s neustálým porovnávním syntaxí co je horší, nebo lepší. Vlastně teď uvažuju nad tím, u čeho se nejmíň můžu spálit. Přemýšlel jsem jak nad standartní cestou HTML5, CSS3, VanillaJS, SQL + PHP a školní server, tak i ReactJS, MongoDB + NodeJS (speciálně Express) v kombinaci s Heroku serverem. Jednu z těchto serií technologií bych si rád vybral a teď zvažuju co bude nejlepší, protože je pravda, že pro menší aplikaci by ta druhá varianta mohla být trochu overkill, ale zase když by se teda všechno objevovalo na jedné strance potom ta reaktivita a možnost generování akorát nového obsahu není špatný nápad. Nadruhou stranu co se týče PHP je tu všude plno dokumentace a je dost velká pravděpodobnost, že to co chci dělat už někdo dělal a na některé chyby narazil místo mě a jsou už vyřešené. 
 
 
+**Jak bych chtěl postupovat**
 
+- [] prokonzultovat rozdělení Informačního systému s vedoucím práce, tak abych věděl, že už od začátku nebudu dělat něco špatně
+- [] vybrat technologie, které budou pro projekt a po mě co nejvíce adekvátní
+- [] uděůat diagram, který bude reprezentovat komunikaci jednotlivých stran/typů uživatelů s databází případně se serverem
+- [] ve Figmě navrhnout design celé stránky (s viditelnou responzivitou a naznačenými klikacími úkony)
+- [] nakonfigurovat server
+- [] rozvrhnout databáze
+- [] samotné propojení a programování
