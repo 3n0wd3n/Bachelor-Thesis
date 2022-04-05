@@ -25,3 +25,4 @@ https://fontawesome.com/icons/right-from-bracket?s=light
 https://fontawesome.com/icons/right-from-bracket?s=solid
 
 [FONT AWESOME](https://fontawesome.com/)
+[ICONS WITH ANIMATION](https://lordicon.com/)
