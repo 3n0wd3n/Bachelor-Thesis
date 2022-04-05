@@ -1,6 +1,6 @@
 # Informační systém pro soukromé učitele angličtiny
 
-Cílem této bakalářské práce je navrhnout a vytvořit informační systém (IS) usnadňující agendu soukromého učitele angličtiny. Zejména půjde evidenci klientů a jejich plateb; plánování lekcí; komunikace s klienty; sdílení materiálů a zadávání úkolů. IS bude realizován jako webová aplikace a bude vhodně řešit evidenci zákonného zástupce v případech, kdy klientem bude nezletilá osoba.
+Cílem této bakalářské práce je navrhnout a vytvořit informační systém (IS) usnadňující agendu soukromého učitele angličtiny. Zejména půjde o evidenci klientů a jejich plateb; plánování lekcí (možnost omluvy studenta); komunikace s klienty; sdílení materiálů a zadávání úkolů. IS bude realizován jako webová aplikace a bude vhodně řešit evidenci zákonného zástupce v případech, kdy klientem bude nezletilá osoba.
 
 Literatura:
 
