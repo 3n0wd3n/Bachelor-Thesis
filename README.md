@@ -59,10 +59,10 @@ Nad technologiemi ještě přemýšlím co by bylo lepší použít. Výhodou je
 - [ ] prokonzultovat rozdělení Informačního systému s vedoucím práce, tak abych věděl, že už od začátku nebudu dělat něco špatně
 - [ ] domluvit se na návrhu bakalářské práce
 - [ ] vygenerovat PDF dokument ze STAGU s formálním zadáním práce
-- [ ] vybrat technologie, které budou pro projekt a po mě co nejvíce adekvátní
+- [ ] vybrat technologie, které budou pro projekt a pro mě co nejvíce adekvátní
 - [ ] udělat diagram, který bude reprezentovat komunikaci jednotlivých stran/typů uživatelů s databází případně se serverem
 - [ ] ve Figmě navrhnout design celé stránky (s viditelnou responzivitou a naznačenými klikacími úkony) --> pro možnost sledování průběhu návrhu přikládám odkaz https://www.figma.com/file/EsdxbekJrScMOYiIbjaQNq/Bachelor-Thesis?node-id=0%3A1
 - [ ] ER diagram
-- [ ] nakonfigurovat server
+- [ ] nakonfigurovat Express server
 - [ ] rozvrhnout databáze
 - [ ] samotné propojení a programování
