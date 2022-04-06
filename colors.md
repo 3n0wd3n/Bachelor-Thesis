@@ -15,7 +15,7 @@ WINTERGREEN
     
     #55917F
     
-![image](https://user-images.githubusercontent.com/47132583/162014994-1c225d92-55b1-48ef-a501-1ff819e35835.png)
+![image](https://user-images.githubusercontent.com/47132583/162015434-79d279e1-a7bd-4400-9747-c39bc791bf33.png)
 
 APRICOT
 
@@ -34,6 +34,23 @@ WHITE
     #FFFFFF
     
 ![image](https://user-images.githubusercontent.com/47132583/161419832-c3788cb4-8199-4dcd-b562-7f5cca2ae420.png)
+
+APRICOT
+
+    #FFCAB1
+DUTCH WHITE
+
+    #ECDCB0  
+TEA GREEN
+
+    #C1D7AE
+DARK SEA GREEN   
+    
+    #8CC084
+WHITE   
+    
+    #FFFFFF
+
 ![image](https://user-images.githubusercontent.com/47132583/161420066-4fe21f2f-24ad-4978-a3bf-df121d171d5a.png)
 
 [COLORS PALLETES](https://coolors.co/)
