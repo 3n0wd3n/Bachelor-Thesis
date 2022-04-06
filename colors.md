@@ -1,6 +1,6 @@
 # COLORS
 
-![image](https://user-images.githubusercontent.com/47132583/161419661-f0d9ad60-11fc-4cca-96d3-7093ecbd2df8.png)
+![image](https://user-images.githubusercontent.com/47132583/162014606-50c29c33-6bc4-41aa-a168-6d8f234ca6d1.png)
 
 CHARCOAL
 
