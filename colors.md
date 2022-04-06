@@ -51,6 +51,22 @@ WHITE
     
     #FFFFFF
 
-![image](https://user-images.githubusercontent.com/47132583/161420066-4fe21f2f-24ad-4978-a3bf-df121d171d5a.png)
+![image](https://user-images.githubusercontent.com/47132583/162016152-7b1e8fbe-2917-48f7-b9c0-050e9337d369.png)
+
+SAFFRON
+
+    #EABB1F
+POLISHED PINE
+
+    #6BAB90
+HOOKERS GREEN
+
+    #427660
+DEEP JUNGLE GREEN
+    
+    #204E4A
+WHITE   
+    
+    #FFFFFF
 
 [COLORS PALLETES](https://coolors.co/)
