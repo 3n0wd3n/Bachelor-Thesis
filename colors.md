@@ -33,20 +33,20 @@ WHITE
     
     #FFFFFF
     
-![image](https://user-images.githubusercontent.com/47132583/161419832-c3788cb4-8199-4dcd-b562-7f5cca2ae420.png)
+![image](https://user-images.githubusercontent.com/47132583/162015711-84782776-ee99-4c17-969b-3ff826e15c86.png)
 
-APRICOT
+DESERT SAND
 
-    #FFCAB1
-DUTCH WHITE
+    #EDCBB1
+POLISHED PINE
 
-    #ECDCB0  
-TEA GREEN
+    #6BAB90
+HOOKERS GREEN
 
-    #C1D7AE
-DARK SEA GREEN   
+    #427660
+DEEP JUNGLE GREEN
     
-    #8CC084
+    #204E4A
 WHITE   
     
     #FFFFFF
