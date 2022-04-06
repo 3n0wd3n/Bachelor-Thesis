@@ -24,9 +24,17 @@ https://fontawesome.com/icons/right-from-bracket?s=light
 
 https://fontawesome.com/icons/right-from-bracket?s=solid
 
+> folder with materials 
+
+https://fontawesome.com/icons/folder-open?s=solid
+
 [FONT AWESOME](https://fontawesome.com/)
 
 [ICONS WITH ANIMATION](https://lordicon.com/)
+
+> folder with materials
+
+https://lordicon.com/icons/wired/outline
 
 *for example, this code contains a home icon that has animation*
 
