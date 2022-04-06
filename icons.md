@@ -30,7 +30,21 @@ https://fontawesome.com/icons/folder-open?s=solid
 
 [FONT AWESOME](https://fontawesome.com/)
 
+****
+
 [ICONS WITH ANIMATION](https://lordicon.com/)
+
+> phone
+
+https://lordicon.com/icons/system/outline
+
+> mail
+
+https://lordicon.com/icons/system/outline
+
+> home
+
+https://lordicon.com/icons/system/outline
 
 > folder with materials
 
