@@ -28,6 +28,8 @@ https://fontawesome.com/icons/right-from-bracket?s=solid
 
 [ICONS WITH ANIMATION](https://lordicon.com/)
 
+*for exaple this code contains home icon that has animation 
+
     <!DOCTYPE html>
     <html>
       <head>
