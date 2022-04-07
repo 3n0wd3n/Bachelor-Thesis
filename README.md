@@ -61,7 +61,7 @@ Nad technologiemi ještě přemýšlím co by bylo lepší použít. Výhodou je
 - [x] vygenerovat PDF dokument ze STAGU s formálním zadáním práce
 - [ ] vybrat technologie, které budou pro projekt a pro mě co nejvíce adekvátní
 - [ ] udělat diagram, který bude reprezentovat komunikaci jednotlivých stran/typů uživatelů s databází případně se serverem
-- [ ] ve Figmě navrhnout design celé stránky (s viditelnou responzivitou a naznačenými klikacími úkony) --> pro možnost sledování průběhu návrhu přikládám odkaz https://www.figma.com/file/EsdxbekJrScMOYiIbjaQNq/Bachelor-Thesis?node-id=0%3A1
+- [ ] ve Figmě navrhnout design celé stránky (s viditelnou responzivitou a naznačenými klikacími úkony) --> pro možnost sledování průběhu návrhu přikládám odkaz [][][][PROTOTYP ve Figmě](https://www.figma.com/file/EsdxbekJrScMOYiIbjaQNq/Bachelor-Thesis?node-id=0%3A1)
 - [ ] ER diagram
 - [ ] nakonfigurovat Express server
 - [ ] rozvrhnout databáze
