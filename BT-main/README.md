@@ -17,6 +17,11 @@ __*Package.json*__ nedělá nic jiného, než, že si v sobě uchovává __*depe
 * express --> to je ten malý vysoce škálovatelný framework, který nám poskytuje soubor nějákých funkcionalit pro konstrukci toho serveru
 * mongoose --> knihovna pro MongoDB a Node.js, která spravuje vazby mezi daty a poskytnutými schématy, často se používá jako překladač mezi objekty použítými v kodu a jejich reprezentaci v MongoDB
 
+**package-lock.json (v server složce)**
+--
+
+Uzamyká jednotlivé verze těch našich __*dependencies*__, pro případ, že by se přešlo na verzi, která havaruje abychom se mohli rátit k poslední, která byla __OK__
+
 **index.js**
 --
 
