@@ -12,7 +12,7 @@ Ve složce __*server*__ jsou složky __*handlers a models*__ + soubory __*gitign
 __*Package.json*__ nedělá nic jiného, než, že si v sobě uchovává __*dependencies*__, které jsou nutné pro správné fungování toho našeho serveru (pozor jsou tu jen  __*dependencies*__, které se týkají __*serveru*__, ne složky __*client*__ --> tam je zase jiný package.json). V __*package.json*__ se dají dělat i drobné scripty, které nám třeba při nějákem __*command*__ spustí __*npm i*__ v obou složkách (__*client*__ a __*server*__). V našel serverovém __*package.json*__ máme tyhle __*dependencies*__ :
 
 * bcrypt --> stará se o hashování hesel
-* cors --> node.js package, který zajišťuje aby bylo zajištěno správné komunikování v HTTPS
+* cors --> node.js package, který zajišťuje správné komunikování v HTTPS
 * dotenv --> v překladu environmental variables, nejčástěji využiváno pro uložení proměnné nutné pro funci databázového serveru
 * express --> to je ten malý vysoce škálovatelný framework, který nám poskytuje soubor nějákých funkcionalit pro konstrukci toho serveru
 * mongoose --> knihovna pro MongoDB a Node.js, která spravuje vazby mezi daty a poskytnutými schématy, často se používá jako překladač mezi objekty použítými v kodu a jejich reprezentaci v MongoDB
