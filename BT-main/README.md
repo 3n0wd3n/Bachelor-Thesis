@@ -13,7 +13,7 @@ __*Package.json*__ nedělá nic jiného, než, že si v sobě uchovává __*depe
 
 * bcrypt --> stará se o hashování hesel
 * cors --> node.js package, který zajišťuje správné komunikování v HTTPS
-* dotenv --> v překladu environmental variables, nejčástěji využiváno pro uložení proměnné nutné pro funci databázového serveru
+* dotenv --> v překladu environmental variables, nejčástěji využiváno pro uložení proměnné nutné pro funkci databázového serveru
 * express --> to je ten malý vysoce škálovatelný framework, který nám poskytuje soubor nějákých funkcionalit pro konstrukci toho serveru
 * mongoose --> knihovna pro MongoDB a Node.js, která spravuje vazby mezi daty a poskytnutými schématy, často se používá jako překladač mezi objekty použítými v kodu a jejich reprezentaci v MongoDB
 
