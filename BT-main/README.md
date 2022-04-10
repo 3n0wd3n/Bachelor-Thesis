@@ -37,9 +37,9 @@ Stará se o to, aby se na github __*nepushovali*__ soubory a složky, které obs
 
 Ve složce model jsou deifnované kolekce dat (a každé kolekce má v sobě schéma toho dokumnetu --> v SQL databázích je to to stejné co schéma tabulky), tak jak je uvidíme pak v MongoDB ATLAS a jak s nimi budeme pracovat.
 
+# SCRIPTS 
 
+$ npm run server (ve složce server --> localhost3000)
 
-
----------------
-$ npm run server
+$ npm start (ve složce client --> localhost:4000)
 
