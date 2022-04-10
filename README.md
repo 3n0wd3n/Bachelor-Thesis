@@ -66,4 +66,5 @@ Nad technologiemi ještě přemýšlím co by bylo lepší použít. Výhodou je
 - [ ] ER diagram
 - [x] nakonfigurovat Express server
 - [x] rozvrhnout databáze
+- [x] propojit databázi s MongoDB ATLAS
 - [ ] samotné propojení a programování
