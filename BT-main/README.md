@@ -4,4 +4,4 @@ Webová aplikace je rozdělena obecně na dvě složky CLIENT a SERVER, přičem
 
 ## server
 
-Ve složce server jsou složky *handlers a models* + soubory *gitignore, index.js, package-lock.json a package.json* --> pokusím se rozebrat všechny
+Ve složce server jsou složky __*handlers a models*__ + soubory __*gitignore, index.js, package-lock.json a package.json*__ --> pokusím se rozebrat všechny.
