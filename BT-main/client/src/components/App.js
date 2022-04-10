@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import { ButtonStyled, InputStyled } from './App.style'
+import { ButtonStyled, ContainerStyled, InputStyled } from './App.style'
 
 export const App = () => {
   const [usernameInput, setUsernameInput] = React.useState('')
@@ -28,19 +28,21 @@ export const App = () => {
 
   return (
     <>
-      <InputStyled
-        type='text'
-        placeholder='username'
-        value={usernameInput}
-        onChange={(e) => setUsernameInput(e.target.value)}
-      />
-      <InputStyled
-        type='test'
-        placeholder='password'
-        value={passwordInput}
-        onChange={(e) => setPasswordInput(e.target.value)}
-      />
-      <ButtonStyled onClick={login}>Login</ButtonStyled>
+      <ContainerStyled>
+        <InputStyled
+          type='text'
+          placeholder='username'
+          value={usernameInput}
+          onChange={(e) => setUsernameInput(e.target.value)}
+        />
+        <InputStyled
+          type='test'
+          placeholder='password'
+          value={passwordInput}
+          onChange={(e) => setPasswordInput(e.target.value)}
+        />
+        <ButtonStyled onClick={login}>Login</ButtonStyled>
+      </ContainerStyled>
     </>
   )
 }
