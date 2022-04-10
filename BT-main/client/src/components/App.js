@@ -1,10 +1,12 @@
 import React from 'react'
 import axios from 'axios'
+import { Logged } from './Logged'
 import { ButtonStyled, ContainerStyled, InputStyled } from './App.style'
 
 export const App = () => {
   const [usernameInput, setUsernameInput] = React.useState('')
   const [passwordInput, setPasswordInput] = React.useState('')
+  const [data, setData] = React.useState(false)
 
   function fetchData({ url, method, headers, data }) {
     return axios({
@@ -22,12 +24,15 @@ export const App = () => {
       url: '/login',
       data: { username: usernameInput, password: passwordInput },
     }).then((data) => {
-      console.log(data)
+      setData(data.data)
     })
   }
 
+  // console.log(data)
+
   return (
     <>
+      {data === false ? (
       <ContainerStyled>
         <InputStyled
           type='text'
@@ -42,7 +47,7 @@ export const App = () => {
           onChange={(e) => setPasswordInput(e.target.value)}
         />
         <ButtonStyled onClick={login}>Login</ButtonStyled>
-      </ContainerStyled>
+      </ContainerStyled>) : <Logged data={data} />}
     </>
   )
 }
