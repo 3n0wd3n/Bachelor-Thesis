@@ -31,3 +31,9 @@ Tak tady je definovaný náš server. Obecně se dost často dělá to, že se z
 --
 
 Stará se o to, aby se na github __*nepushovali*__ soubory a složky, které obsahuji buď obrovské množství lokálních proměnných (nebo jen zbytečných dat) a nebo modulů, které si pak mužeme stáhnout sami (automaticky), když už víme jaké (díky __*package.json*__) přes __*npm i*__.
+
+**.models (složka)**
+--
+
+Ve složce model jsou deifnované kolekce dat (a každé kolekce má v sobě schéma toho dokumnetu --> v SQL databázích je to to stejné co schéma tabulky), tak jak je uvidíme pak v MongoDB ATLAS a jak s nimi budeme pracovat.
+
