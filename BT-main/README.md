@@ -26,3 +26,8 @@ Uzamyká jednotlivé verze těch našich __*dependencies*__, pro případ, že b
 --
 
 Tak tady je definovaný náš server. Obecně se dost často dělá to, že se zde definujou i __*routy*__, ale abychom předešli pádu celého serveru v případě drobné chyby v definování jednotlivých __*rout*__, tak uděláme odkaz na soubor __*const router = require("./handlers/routes");*__, kde se routy budou psát aby nám, kdyžtak spadly jen ty cesty, kde se dopustíme chyby.
+
+**.gitignore**
+--
+
+Stará se o to, aby se na github __*nepushovali*__ soubory a složky, které obsahuji buď obrovské množství lokálních proměnných (nebo jen zbytečných dat) a nebo modulů, které si pak mužeme stáhnout sami (automaticky), když už víme jaké (díky __*package.json*__) přes __*npm i*__.
