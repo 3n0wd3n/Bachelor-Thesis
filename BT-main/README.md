@@ -9,3 +9,4 @@ Ve složce __*server*__ jsou složky __*handlers a models*__ + soubory __*gitign
 **index.js**
 --
 
+Tak tady je definovaný náš server. Obecně se dost často dělá to, že se zde definujou i __*routy*__, ale abychom předešli pádu celého serveru v případě drobné chyby v definování jednotlivých __*rout*__, tak uděláme odkaz na soubor __*const router = require("./handlers/routes");*__, kde se routy budou psát aby nám, kdyžtak spadla jen ty cesty, kde se dopustíme chyby.
