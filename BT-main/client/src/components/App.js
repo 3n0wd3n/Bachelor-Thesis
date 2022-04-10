@@ -7,7 +7,7 @@ export const App = () => {
   const [passwordInput, setPasswordInput] = React.useState('')
 
   function fetchData({ url, method, headers, data }) {
-    axios({
+    return axios({
       url: 'http://localhost:4000' + url,
       method: method || 'POST',
       headers: headers || {
@@ -17,21 +17,12 @@ export const App = () => {
     })
   }
 
-  function login() {
-    // fetchData({
-    //   url: '/login',
-    //   data: { username: usernameInput, password: passwordInput },
-    // })
-
-    axios({
-      url: 'http://localhost:4000/login',
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8',
-      },
+  async function login() {
+    fetchData({
+      url: '/login',
       data: { username: usernameInput, password: passwordInput },
     }).then((data) => {
-      console.log(data.data)
+      console.log(data)
     })
   }
 
