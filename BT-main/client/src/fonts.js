@@ -7,6 +7,7 @@ export const FontStyled = styled.div`
 
   & h1 {
     font-weight: 700;
+    font-size: 64px;
   }
 
   & h2 {

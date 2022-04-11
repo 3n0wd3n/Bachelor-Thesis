@@ -1,5 +1,5 @@
 export const Logged = ({ data }) => {
-  console.log(data)
+  console.log(data);
   return (
     <>
       <h1>{data._id}</h1>

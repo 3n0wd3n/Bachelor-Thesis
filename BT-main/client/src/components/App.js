@@ -35,10 +35,10 @@ export const App = () => {
     <>
       {data === false ? (
       <ContainerStyled>
-        <LoginContainerStyled>
-          <FontStyled>
+        <FontStyled>
             <h1>login</h1>
-          </FontStyled>
+        </FontStyled>
+        <LoginContainerStyled>
           <InputStyled
             type='text'
             placeholder='username'
@@ -51,7 +51,7 @@ export const App = () => {
             value={passwordInput}
             onChange={(e) => setPasswordInput(e.target.value)}
           />
-          <ButtonStyled onClick={login}>Login</ButtonStyled>
+          <ButtonStyled onClick={login}>sign in</ButtonStyled>
         </LoginContainerStyled>
       </ContainerStyled>) : <Logged data={data} />}
     </>
