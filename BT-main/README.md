@@ -56,6 +56,47 @@ O souborech __*package.json*__ a __*package-lock.js*__ už jsem mluvil, ale rozd
 * styled-components --> je to knihovna pro React, která nám umožňuje stylovat komponenty v naší aplikaci
 
 > Odbočka k __JSX__. Je to rozšíření React sysntaxe jazyka JavaScript, které poskytuje způsob, jak strukturovat vykreslování komponent pomocí syntaxe známé mnoha vývojářům. Vzhledem se podobá HTML. React komponenty jsou obvykle psány pomocí JS, ikdyž to tak nemusí být, protože je můžeme psát klidně ve VanillaJS. 
+
+**public (client složka)**
+--
+ 
+ Standartně obsahuje jen jedinný soubor a to je __*index.html*__, který ve svém těle má jediný __div__ a ten obsahuje odkaz pomocí __id__ na __root__.
+ 
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8" />
+        <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="description"
+          content="Web site created using create-react-app"
+        />
+        <title>Login</title>
+      </head>
+      <body>
+        <noscript>You need to enable JavaScript to run this app.</noscript>
+        <div id="root"></div>
+      </body>
+    </html>
+ 
+ To se projevuje tak, že ve složce __*src*__ máme hlavní soubor __*index.js*__, který obsahuje odkazy na komponenty ve složce __*components*__. A ten soubor __*index.js*__ je zodpovědný za rendrování jednotlivých komponent, které pak vrací tomu soubor __*index.html*__, který je vykreslý. 
+ 
+    import React from 'react'
+    import ReactDOM from 'react-dom/client'
+    import { App } from './components/App'
+    import { GlobalStyle } from './global.style'
+
+    const root = ReactDOM.createRoot(document.getElementById('root'))
+
+    root.render(
+      <>
+        <GlobalStyle />
+        <App />
+      </>,
+    )
+    
+Důvod proč to v klientovi rozdělujeme ještě do složek __*public*__ a __*src*__ je ten, že klient vidí jen to co je v __*public*__ složce a je tak odstíněný od dat a manipulce s nimi, tím přecházíme nepadení té naší aplikace a stává se tak robustnější.
  
 # SCRIPTS for running servers
 
