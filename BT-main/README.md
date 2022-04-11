@@ -109,7 +109,7 @@ Důvod proč to v klientovi rozdělujeme ještě do složek __*public*__ a __*sr
     $ cd BT-main/server
     $ npm run server (ve složce server --> localhost3000)
     
-**Druhý terminal s clientem
+**Druhý terminal s clientem**
 
     $ cd BT-main/client
     $ npm start (ve složce client --> localhost:4000)
