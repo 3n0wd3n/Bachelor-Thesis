@@ -2,8 +2,7 @@
 
 Webová aplikace je rozdělena obecně na dvě složky CLIENT a SERVER, přičemž na straně serveru jsou zastoupeny technologie MONGODB (databáze), NODEJS (systém, pro psaní serverů), EXPRESS (back-endový webový aplikační framework pro Node.js). Na straně clienta je potom REACTJS.
 
-![image](https://user-images.githubusercontent.com/47132583/162704515-9b8dfca4-f356-48e6-a3b8-977d472ba4d5.png)
-  
+![image](https://user-images.githubusercontent.com/47132583/162705186-d9d711df-1f91-47f4-be53-a80b226c1728.png)
 
 ## SERVER
 
