@@ -55,7 +55,7 @@ O souborech __*package.json*__ a __*package-lock.js*__ už jsem mluvil, ale rozd
 * react --> javascriptová knihovna, pro tvorbu uživatelského rozhranní
 * styled-components --> je to knihovna pro React, která nám umožňuje stylovat komponenty v naší aplikaci
 
-> Odbočka k __JSX__. Je to rozšíření React sysntaxe jazyka JavaScript, které poskytuje způsob, jak strukturovat vykreslování komponent pomocí syntaxe známé mnoha vývojářům. Vzhledem se podobá HTML. React komponenty jsou obvykle psány pomocí JS, ikdyž to tak nemusí být, protože je můžeme psát klidně ve VanillaJS. 
+> Odbočka k __JSX__. Je to rozšíření React syntaxe jazyka JavaScript, které poskytuje způsob, jak strukturovat vykreslování komponent pomocí syntaxe známé mnoha vývojářům. Vzhledem se podobá HTML. React komponenty jsou obvykle psány pomocí JS, ikdyž to tak nemusí být, protože je můžeme psát klidně ve VanillaJS. 
 
 **public (client složka)**
 --
