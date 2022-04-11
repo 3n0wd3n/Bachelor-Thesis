@@ -102,9 +102,15 @@ Důvod proč to v klientovi rozdělujeme ještě do složek __*public*__ a __*sr
  
 # SCRIPTS for running servers
 
+> Pro testování stránek se musí otevřít dva terminály a v každém si najet do jiné složky
+
+**První terminal se serverem**
+
     $ cd BT-main/server
     $ npm run server (ve složce server --> localhost3000)
-    $ cd ..
-    $ cd client
+    
+**Druhý terminal s clientem
+
+    $ cd BT-main/client
     $ npm start (ve složce client --> localhost:4000)
 
