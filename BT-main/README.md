@@ -4,7 +4,7 @@ Webová aplikace je rozdělena obecně na dvě složky CLIENT a SERVER, přičem
 
 ## SERVER
 
-Ve složce __*server*__ jsou složky __*handlers a models*__ + soubory __*gitignore, index.js, package-lock.json a package.json*__. Po stažení obou hlavních souborů (__*client*__ a __*server*__) do svého pc by člověk měl v příkazové řádce použít __*npm i*__ v každé složce, která obsahuje __*package.json*__ což jednoduše dělá to, že stáhne všechny __*dependecies*__, které projekt vyžaduje uložené právě v tom __*package.json*__ souboru do složky (která se vygeneruje) zvané __*node_modules*__ --> pokusím se rozebrat všechny
+Ve složce __*server*__ jsou složky __*handlers*__ a __*models*__ + soubory __*gitignore, index.js, package-lock.json a package.json*__. Po stažení obou hlavních souborů (__*client*__ a __*server*__) do svého pc by člověk měl v příkazové řádce použít __*npm i*__ v každé složce, která obsahuje __*package.json*__ což jednoduše dělá to, že stáhne všechny __*dependecies*__, které projekt vyžaduje uložené právě v tom __*package.json*__ souboru do složky (která se vygeneruje) zvané __*node_modules*__ --> pokusím se rozebrat všechny
 
 **package.json (v server složce)**
 --
@@ -32,11 +32,31 @@ Tak tady je definovaný náš server. Obecně se dost často dělá to, že se z
 
 Stará se o to, aby se na github __*nepushovali*__ soubory a složky, které obsahuji buď obrovské množství lokálních proměnných (nebo jen zbytečných dat) a nebo modulů, které si pak mužeme stáhnout sami (automaticky), když už víme jaké (díky __*package.json*__) přes __*npm i*__.
 
-**.models (složka)**
+**models (složka)**
 --
 
 Ve složce model jsou deifnované kolekce dat (a každé kolekce má v sobě schéma toho dokumnetu --> v SQL databázích je to to stejné co schéma tabulky), tak jak je uvidíme pak v MongoDB ATLAS a jak s nimi budeme pracovat.
 
+**handlers (složka)**
+--
+
+Složka obsahuje dva soubory __*mongo.js*__ a __*routes.js*__. Ten první soubor __*mongo.js*__ nám pomáhá utvářet dotazy na data z databáze --> tvoříme si zde funkce na práci s databází. Soubor __*routes.js*__ tvoří na základě těchto dotazů cesty.
+
+## CLIENT
+
+Ve složce __*client*__ jsou složky __*public*__ a __*src*__ + soubory __*gitignore, package-lock.json a package.json*__. Po stažení obou hlavních souborů (__*client*__ a __*server*__) do svého pc by člověk měl v příkazové řádce použít __*npm i*__ v každé složce, která obsahuje __*package.json*__ což jednoduše dělá to, že stáhne všechny __*dependecies*__, které projekt vyžaduje uložené právě v tom __*package.json*__ souboru do složky (která se vygeneruje) zvané __*node_modules*__ --> pokusím se rozebrat všechny
+
+O souborech __*package.json*__ a __*package-lock.js*__ už jsem mluvil, ale rozdil tu i tak je. Zatímco ve složce __*server*__ jsme v dependencies měli knihovny zaměřené na serverovou část, tak v případě __*package.json*__ v rámci __*client*__ složky máme knihovny pro část klientskou.
+
+**package.json (v client složce)**
+--
+
+* axios --> novější náhrada za defaultní __*fetch*__, který je vrámci javascriptu již implementovaný (axios a fetch dostaávají data ze serverové části do klientské)
+* react --> javascriptová knihovna, pro tvorbu uživatelského rozhranní
+* styled-components --> je to knihovna pro React, která nám umožňuje stylovat komponenty v naší aplikaci
+
+> Odbočka k __JSX__. Je to rozšíření React sysntaxe jazyka JavaScript, které poskytuje způsob, jak strukturovat vykreslování komponent pomocí syntaxe známé mnoha vývojářům. Vzhledem se podobá HTML. React komponenty jsou obvykle psány pomocí JS, ikdyž to tak nemusí být, protože je můžeme psát klidně ve VanillaJS. 
+ 
 # SCRIPTS for running servers
 
     $ cd BT-main/server
