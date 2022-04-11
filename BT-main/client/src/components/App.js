@@ -1,7 +1,8 @@
 import React from 'react'
 import axios from 'axios'
 import { Logged } from './Logged'
-import { ButtonStyled, ContainerStyled, InputStyled } from './App.style'
+import { FontStyled } from "../fonts.js";
+import { ButtonStyled, ContainerStyled, InputStyled, LoginContainerStyled } from './App.style'
 
 export const App = () => {
   const [usernameInput, setUsernameInput] = React.useState('')
@@ -34,19 +35,24 @@ export const App = () => {
     <>
       {data === false ? (
       <ContainerStyled>
-        <InputStyled
-          type='text'
-          placeholder='username'
-          value={usernameInput}
-          onChange={(e) => setUsernameInput(e.target.value)}
-        />
-        <InputStyled
-          type='test'
-          placeholder='password'
-          value={passwordInput}
-          onChange={(e) => setPasswordInput(e.target.value)}
-        />
-        <ButtonStyled onClick={login}>Login</ButtonStyled>
+        <LoginContainerStyled>
+          <FontStyled>
+            <h1>login</h1>
+          </FontStyled>
+          <InputStyled
+            type='text'
+            placeholder='username'
+            value={usernameInput}
+            onChange={(e) => setUsernameInput(e.target.value)}
+          />
+          <InputStyled
+            type='test'
+            placeholder='password'
+            value={passwordInput}
+            onChange={(e) => setPasswordInput(e.target.value)}
+          />
+          <ButtonStyled onClick={login}>Login</ButtonStyled>
+        </LoginContainerStyled>
       </ContainerStyled>) : <Logged data={data} />}
     </>
   )
