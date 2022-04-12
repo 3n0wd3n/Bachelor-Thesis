@@ -132,3 +132,6 @@ Důvod proč to v klientovi rozdělujeme ještě do složek __*public*__ a __*sr
     $ cd BT-main/client
     $ npm start (ve složce client --> localhost:4000)
 
+# Generally good resources
+
+[MERN stack course](https://www.youtube.com/watch?v=mrHNSanmqQ4)
