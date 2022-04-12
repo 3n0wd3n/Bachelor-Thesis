@@ -106,7 +106,13 @@ Důvod proč to v klientovi rozdělujeme ještě do složek __*public*__ a __*sr
  
 [Media Queries in SC](https://jsramblings.com/how-to-use-media-queries-with-styled-components/)
 
+# MongoDB (doc)
+
+[MongoDB Documentation](https://www.mongodb.com/docs/manual/reference/command/)
+
 # Node.js Mongoose (doc)
+
+[Mongoose Documentation](https://mongoosejs.com/docs/api.html)
 
 [Insert Document to MongoDB using save()](https://www.tutorialkart.com/nodejs/mongoose/insert-document-to-mongodb/)
 
