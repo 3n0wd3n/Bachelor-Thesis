@@ -99,6 +99,10 @@ O souborech __*package.json*__ a __*package-lock.js*__ už jsem mluvil, ale rozd
     )
     
 Důvod proč to v klientovi rozdělujeme ještě do složek __*public*__ a __*src*__ je ten, že klient vidí jen to co je v __*public*__ složce a je tak odstíněný od dat a manipulce s nimi, tím přecházíme nepadení té naší aplikace a stává se tak robustnější.
+
+# Dokumentace ke styled components
+
+https://styled-components.com/docs/basics
  
 # SCRIPTS for running servers
 
