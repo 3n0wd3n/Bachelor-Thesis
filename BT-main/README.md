@@ -106,6 +106,12 @@ Důvod proč to v klientovi rozdělujeme ještě do složek __*public*__ a __*sr
  
 [Media Queries in SC](https://jsramblings.com/how-to-use-media-queries-with-styled-components/)
 
+# Node.js Mongoose (doc)
+
+[Insert Document to MongoDB using save()](https://www.tutorialkart.com/nodejs/mongoose/insert-document-to-mongodb/)
+
+[Inser Document to MongoDB (different source)](https://www.tutsmake.com/insert-data-into-mongodb-using-node-js/)
+
 # SCRIPTS for running servers
 
 > Pro testování stránek se musí otevřít dva terminály a v každém si najet do jiné složky
