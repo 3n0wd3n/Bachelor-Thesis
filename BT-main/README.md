@@ -104,6 +104,8 @@ Důvod proč to v klientovi rozdělujeme ještě do složek __*public*__ a __*sr
 
 [Documentation for SC](https://styled-components.com/docs/basics)
  
+[Media Quries in SC](https://www.google.com/amp/s/jsramblings.com/how-to-use-media-queries-with-styled-components/amp/)
+
 # SCRIPTS for running servers
 
 > Pro testování stránek se musí otevřít dva terminály a v každém si najet do jiné složky
