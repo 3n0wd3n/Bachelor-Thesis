@@ -104,7 +104,9 @@ Důvod proč to v klientovi rozdělujeme ještě do složek __*public*__ a __*sr
 
 [Documentation for SC](https://styled-components.com/docs/basics)
  
-[Media Quries in SC](https://www.google.com/amp/s/jsramblings.com/how-to-use-media-queries-with-styled-components/amp/)
+[Media Queries in SC](https://www.google.com/amp/s/jsramblings.com/how-to-use-media-queries-with-styled-components/amp/)
+
+[Another Media Queries doc in SC]()
 
 # SCRIPTS for running servers
 
