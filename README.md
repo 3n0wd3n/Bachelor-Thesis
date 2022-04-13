@@ -67,4 +67,4 @@ Nad technologiemi ještě přemýšlím co by bylo lepší použít. Výhodou je
 - [x] nakonfigurovat Express server
 - [x] rozvrhnout databáze
 - [x] propojit databázi s MongoDB ATLAS
-- [ ] samotné propojení a programování
+- [ ] samotné propojení a naprogramování webové aplikace
