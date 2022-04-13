@@ -1,33 +1,8 @@
 import styled from 'styled-components'
 
-
-export const InputStyled = styled.input`
-    margin-left: 10rem;
-    margin-right: 10rem;
-    background-color: #ededed;
-    border-radius: 30px;
-    height: 80px;
-    width: 465px;
-    border: none;
-`
-
-export const ButtonStyled = styled.button`
-    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;500;700&display=swap');
-    font-family: 'Raleway', sans-serif; 
-    background-color: #C4C4C4;
-    border: none;
-    color: #F9F9F9;
-    border-radius: 30px;
-    height: 60px;
-    width: 224px;
-    font-size: 24px;
-    font-weight: 700;
-`
-
-export const ContainerStyled = styled.div`
+export const ContainerStyled = styled.section`
     display: flex;
     height: 100vh;
-    width: 100vw;
     justify-content: center;
     flex-direction: column;
     align-items: center;
@@ -40,9 +15,50 @@ export const LoginContainerStyled = styled.div`
     align-items: center;
     background-color: #f9f9f9;
     border: none;
-    border-radius: 25px;
-    width: 761px;
-    height: 506px;
+    border-radius: 15px;
     color: #f9f9f9;
-    gap: 6px;
+    gap: 1rem;
+    margin-top: 3vh;
+    padding-top: 5vh;
+    box-shadow: -3px 3px 6px rgba(0, 0, 0, 0.01), 0 6px 20px 0 rgba(0, 0, 0, 0.11);
 `
+
+export const LabelStyled = styled.p`
+    color: black;
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;500;700&display=swap');
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+`
+
+export const InputContainerStyled = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-left: 14vh;
+    margin-right: 14vh;
+`
+
+export const InputStyled = styled.input`
+    background-color: #ededed;
+    border-radius: 15px;
+    border: none;
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+`
+
+export const ButtonStyled = styled.button`
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;500;700&display=swap');
+    font-family: 'Raleway', sans-serif; 
+    background-color: #C4C4C4;
+    border: none;
+    color: #F9F9F9;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 700;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 35px;
+    padding-left: 35px;
+    margin-bottom: 5vh;
+`
+

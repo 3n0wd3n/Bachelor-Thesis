@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { Logged } from './Logged'
 import { FontStyled } from "../fonts.js";
-import { ButtonStyled, ContainerStyled, InputStyled, LoginContainerStyled } from './App.style'
+import { ButtonStyled, ContainerStyled, InputStyled, LoginContainerStyled, LabelStyled, InputContainerStyled } from './App.style'
 
 export const App = () => {
   const [usernameInput, setUsernameInput] = React.useState('')
@@ -39,18 +39,24 @@ export const App = () => {
             <h1>login</h1>
         </FontStyled>
         <LoginContainerStyled>
-          <InputStyled
-            type='text'
-            placeholder='username'
-            value={usernameInput}
-            onChange={(e) => setUsernameInput(e.target.value)}
-          />
-          <InputStyled
-            type='test'
-            placeholder='password'
-            value={passwordInput}
-            onChange={(e) => setPasswordInput(e.target.value)}
-          />
+          <InputContainerStyled>
+            <LabelStyled>username</LabelStyled>
+            <InputStyled
+              type='text'
+              // placeholder='username'
+              value={usernameInput}
+              onChange={(e) => setUsernameInput(e.target.value)}
+            />
+          </InputContainerStyled>
+          <InputContainerStyled>
+            <LabelStyled>password</LabelStyled>
+            <InputStyled
+              type='test'
+              // placeholder='password'
+              value={passwordInput}
+              onChange={(e) => setPasswordInput(e.target.value)}
+            />
+          </InputContainerStyled>
           <ButtonStyled onClick={login}>sign in</ButtonStyled>
         </LoginContainerStyled>
       </ContainerStyled>) : <Logged data={data} />}
