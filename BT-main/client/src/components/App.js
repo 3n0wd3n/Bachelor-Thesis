@@ -51,7 +51,7 @@ export const App = () => {
           <InputContainerStyled>
             <LabelStyled>password</LabelStyled>
             <InputStyled
-              type='test'
+              type='password'
               // placeholder='password'
               value={passwordInput}
               onChange={(e) => setPasswordInput(e.target.value)}

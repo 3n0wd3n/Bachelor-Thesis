@@ -49,7 +49,7 @@ export const InputStyled = styled.input`
 export const ButtonStyled = styled.button`
     @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;500;700&display=swap');
     font-family: 'Raleway', sans-serif; 
-    background-color: #C4C4C4;
+    background-color: #61C9A8;
     border: none;
     color: #F9F9F9;
     border-radius: 30px;
@@ -60,5 +60,9 @@ export const ButtonStyled = styled.button`
     padding-right: 35px;
     padding-left: 35px;
     margin-bottom: 5vh;
+    &:hover {
+    background-color: #69ffcf;
+    transition:.6s;
+  }
 `
 
