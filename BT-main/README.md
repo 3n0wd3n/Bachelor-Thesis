@@ -118,6 +118,10 @@ Důvod proč to v klientovi rozdělujeme ještě do složek __*public*__ a __*sr
 
 [Inser Document to MongoDB (different source)](https://www.tutsmake.com/insert-data-into-mongodb-using-node-js/)
 
+# React (doc)
+
+[REACT Documentation](https://reactjs.org/docs/getting-started.html#learn-react)
+
 # SCRIPTS for running servers
 
 > Pro testování stránek se musí otevřít dva terminály a v každém si najet do jiné složky
