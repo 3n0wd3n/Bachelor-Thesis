@@ -44,7 +44,7 @@ Do informačního systému by se přihlašovalo skrz standartní login. Žádná
 > 
 > * PDF soubory pro tisk na hodiny
 >
-> * Čas na kterém se domluvili, že hodina bude probíhat 
+> * Čas, na kterém se domluvili, že hodina bude probíhat 
 
 Pro všechny jsou samozřejmě jiná práva a každý uvidí něco jiného.
 
