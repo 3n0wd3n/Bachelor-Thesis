@@ -1,6 +1,6 @@
 # Bachelor-Thesis
 
-Bachelor thesis at University of Palacky 2021/2022
+Bachelor thesis at University of Palacky 2021/2022/2023
 
 **Vznik nápadu na bakálřskou práci** (spíš pro mě jako záznam)
 
