@@ -42,7 +42,7 @@ Do informačního systému by se přihlašovalo skrz standartní login. Žádná
 > 
 > * Domácí úkoly
 > 
-> * PDF soubory pro tisk na hodiny
+> * .PDF soubory pro tisk na hodiny
 >
 > * Čas, na kterém se domluvili, že hodina bude probíhat 
 
