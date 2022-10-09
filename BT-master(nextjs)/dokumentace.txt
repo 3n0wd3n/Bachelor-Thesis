@@ -25,10 +25,13 @@ const nextConfig = {
 ZAJÍMAJÍ NAS JEN SLOŽKY PUBLIC, PAGES
 
 # public 
-- složka, která zpřístupnuje ostatní věci (hostuje je)
+- složka, která zpřístupnuje ostatní věci (hostuje je), ale v zásadě je to složka, která v sobě obsahuje icony, favicony, obrázky apod.
 
 # pages 
-- složka, 
+- složka, kde jsou stránky, na které se budeme routovat
 
 # pages/api
 - tady bude běžet náš server
+
+# components
+- tady jsou react componenty se svou strukturou a stylováním, které potom voláme v pages v jednotlových stránkách
