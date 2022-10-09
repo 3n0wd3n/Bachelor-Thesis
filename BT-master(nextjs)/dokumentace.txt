@@ -1,0 +1,34 @@
+# soubor struktura.js
+- návrh na příchozí na poskládání dat různých rolí ze serveru
+# app složka
+- obsahuje celou aplikaci
+
+# použité pluginy -> nejdřív je potřeba stáhnout node.js
+
+npx create-next-app@latest 
+
+npm i styled-components axios
+
+# v app/next.config.js musíme říct, že budeme používat styled componenty
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
+  compiler: {
+    styledComponents: true,
+  }
+}
+
+# spuštění serveru 
+    npm run dev, nebo next dev
+    + otevření na localhost:3000 v prohlížeči
+
+ZAJÍMAJÍ NAS JEN SLOŽKY PUBLIC, PAGES
+
+# public 
+- složka, která zpřístupnuje ostatní věci (hostuje je)
+
+# pages 
+- složka, 
+
+# pages/api
+- tady bude běžet náš server
