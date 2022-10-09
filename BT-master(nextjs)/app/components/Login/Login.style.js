@@ -5,10 +5,6 @@ export const LoginFormStyled = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  @media (max-width: 700px) {
-    /* we write media query into constants */
-  }
 `;
 
 export const LoginButtonContainer = styled.div`
@@ -27,8 +23,12 @@ export const LoginContainer = styled.div`
   box-shadow: -4px 4px 6px rgba(155, 155, 155, 0.15);
   border-radius: 20px;
   /* padding: top right bottom left; */
-  padding: 3em 1em 3em 1em;
+  padding: 3em 10em 3em 10em;
   margin-top: 2em;
+  @media (max-width: 700px) {
+    /* we write media query into constants */
+    padding: 3em 1em 3em 1em;
+  }
 `;
 
 export const LoginButtonBottomContainer = styled(LoginButtonContainer)`
@@ -41,16 +41,22 @@ export const LoginInputStyled= styled.input`
     color: grey;
     border-radius: 18px;
     background-color: #EDEDED;
-    padding: 1.5em;
+    padding: 1.5em 5em 1.5em 5em;
+    @media (max-width: 700px) {
+      /* we write media query into constants */
+      padding: 1.5em;
+    }
 `;
 
 export const LoginLabelStyled = styled.label`
   cursor: pointer;
-  justify-content: flex-start;
+  margin-top: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const LoginInputCheckboxStyled = styled.input`
-  margin-top: 2em;
   margin-right: 0.5em;
 `;
 
@@ -61,12 +67,15 @@ export const LoginButtonStyled = styled.button`
   border-radius: 30px;
   background: #C4C4C4;
   color: white;
-  padding: 1em 4em 1em 4em;
+  padding: 1.2em 6em 1.2em 6em;
   :hover{
-    background-color: white;
-    border: 1px solid #C4C4C4;
+    background-color: #61C9A8;
+    border: 1px solid #61C9A8;
     transition: 0.7s;
-    color: #C4C4C4;
   }
+  @media (max-width: 700px) {
+      /* we write media query into constants */
+      padding: 1em 4em 1em 4em;
+    }
 `;
 
