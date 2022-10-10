@@ -16,11 +16,17 @@ Do informačního systému by se přihlašovalo skrz standartní login. Žádná
 >
 > - Jednotlivým studentům možnost zapisovat/shrnout co bylo tématem minulé hodiny
 >
-> - Jednotlivým studentům psát domácí úkoly na další hodinu
+> - Jednotlivým studentům psát domácí úkoly
 >
 > - Přikládat individuálně .PDF studentům do sekce s materiály
 >
-> - Individuální osnova/plán pro studenta, který lze měnit správcem podle aktuální potřeby studenta po domluvě
+> * Jednotlivým studentům možnost zapisovat/shrnout co bylo tématem minulé hodiny
+>
+> * Jednotlivým studentům psát domácí úkoly na další hodinu
+>
+> * Přikládat individuálně .PDF studentům do sekce s materiály
+>
+> * Individuální osnova/plán pro studenta, který lze měnit správcem podle aktuální potřeby studenta po domluvě
 
 2. typ (student starší 18 let/rodič)
 
@@ -32,13 +38,17 @@ Do informačního systému by se přihlašovalo skrz standartní login. Žádná
 >
 > - Požadavek na přehození hodiny (opět maximálně týden dopředu)
 >
-> - Informace o č.ú a Bářín kalendář aby věděli na jaké dny už Bára někoho má a Bárou vyznačené dny, kdy si studenti mohou nahradit, nebo přesunout hodinu <-- tady toto je potřeba brát s rezervou a neřadil bych to do jednoho z bodů bakalářské práce pro případ, že by se mi to nepovedlo implementovat.
+> - Informace o č.ú případně Bářín kalendář aby věděli na jaké dny už Bára někoho má a Bárou vyznačené dny, kdy si studenti mohou nahradit, nebo přesunout hodinu <-- tady toto je potřeba brát s rezervou a neřadil bych to do jednoho z bodů bakalářské práce pro případ, že by se mi to nepovedlo implementovat.
 
 3. typ (student mladší 18 let)
 
 > - Uvidí osnovu, která naznačuje cestu jakou studium bude probíhat
 >
-> - Krátké shrnutí minulé hodiny
+> * Krátké shrnutí
+>
+> * Domácí úkoly
+>
+> * .PDF soubory pro tisk na hodiny
 >
 > - Domácí úkoly
 >
@@ -64,7 +74,7 @@ Nad technologiemi ještě přemýšlím co by bylo lepší použít. Výhodou je
 - [ ] udělat diagram, který bude reprezentovat komunikaci jednotlivých stran/typů uživatelů s databází případně se serverem
 - [ ] ve Figmě navrhnout design celé stránky (s viditelnou responzivitou a naznačenými klikacími úkony) --> pro možnost sledování průběhu návrhu přikládám odkaz na [PROTOTYP ve Figmě](https://www.figma.com/file/EsdxbekJrScMOYiIbjaQNq/Bachelor-Thesis?node-id=0%3A1)
 - [ ] ER diagram
-- [x] nakonfigurovat Express server
-- [x] rozvrhnout databáze
-- [x] propojit databázi s MongoDB ATLAS
+- [ ] nakonfigurovat Express server
+- [ ] rozvrhnout databáze
+- [ ] propojit databázi s MongoDB ATLAS
 - [ ] samotné propojení a naprogramování webové aplikace
