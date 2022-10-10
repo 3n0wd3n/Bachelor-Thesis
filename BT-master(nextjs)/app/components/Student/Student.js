@@ -1,8 +1,13 @@
 import React from 'react'
-import { LastNameStyled } from '../Header.style.js'
+import InfoPanel from './StudentInfoPanel'
 
-export default function Student() {
+import { FontsHeaderBold } from '../CommonStyles'
+
+export default function Student({ data }) {
+  console.log(data)
   return (
-    <LastNameStyled >Student</LastNameStyled>
+    <>
+      <InfoPanel data={data} />
+    </>
   )
 }

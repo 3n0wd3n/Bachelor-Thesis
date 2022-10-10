@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 
-export const WrapperStyled = styled.footer`
+export const FooterContainerStyled = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 3vh;
+  width: 100vw;
+  height: 10vh;
 `;

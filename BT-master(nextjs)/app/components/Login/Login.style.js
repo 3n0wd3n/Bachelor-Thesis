@@ -25,6 +25,10 @@ export const LoginContainer = styled.div`
   /* padding: top right bottom left; */
   padding: 3em 10em 3em 10em;
   margin-top: 2em;
+  transition: 0.7s;
+  :hover{
+    box-shadow: -8px 8px 10px rgba(155, 155, 155, 0.3);
+  }
   @media (max-width: 700px) {
     /* we write media query into constants */
     padding: 3em 1em 3em 1em;
@@ -37,11 +41,16 @@ export const LoginButtonBottomContainer = styled(LoginButtonContainer)`
 
 export const LoginInputStyled= styled.input`
     cursor: pointer;
-    border: none;
+    border: 1px solid #EDEDED;
     color: grey;
+    font-family: 'Raleway', sans-serif;
     border-radius: 18px;
     background-color: #EDEDED;
     padding: 1.5em 5em 1.5em 5em;
+    transition: 0.7s;
+    :focus{
+      border: 1px solid #61C9A8;
+    }
     @media (max-width: 700px) {
       /* we write media query into constants */
       padding: 1.5em;
@@ -68,10 +77,10 @@ export const LoginButtonStyled = styled.button`
   background: #C4C4C4;
   color: white;
   padding: 1.2em 6em 1.2em 6em;
+  transition: 0.7s;
   :hover{
     background-color: #61C9A8;
     border: 1px solid #61C9A8;
-    transition: 0.7s;
   }
   @media (max-width: 700px) {
       /* we write media query into constants */

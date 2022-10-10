@@ -1,5 +1,4 @@
 import { GlobalStyle } from '../styles/global.style'
-import Footer from '../components/Footer'
 
 const data = {
   'student': {
@@ -209,7 +208,6 @@ function MyApp({ Component, pageProps }) {
       <GlobalStyle />
       {/* můžu měnit role admin, student, parent */}
       <Component {...pageProps} data={data['student']} />
-      <Footer />
     </>
   )
 }

@@ -1,10 +1,11 @@
 import React from 'react'
-import { WrapperStyled } from './Footer.style'
+import { FooterContainerStyled } from './Footer.style'
+import { FontsThin } from '../components/CommonStyles'
 
 export default function Footer() {
   return (
-    <WrapperStyled>
-      <>&copy;2022eEnglish</>
-    </WrapperStyled>
+    <FooterContainerStyled>
+      <FontsThin>&copy;2022eEnglish</FontsThin>
+    </FooterContainerStyled>
   )
 }

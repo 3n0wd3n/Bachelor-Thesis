@@ -1,39 +1,31 @@
 import React from 'react';
 import Router from 'next/router'
-import { Fonts } from '../CommonStyles'
+import { FontsHeaderBold, FontsLight, FontsExtraThin, FontsBold } from '../CommonStyles'
 import { LoginButtonStyled, LoginInputStyled, LoginFormStyled, LoginLabelStyled, LoginInputCheckboxStyled, LoginButtonContainer, LoginButtonBottomContainer, LoginContainer } from './Login.style'
 
 export default function LoginForm(){
     return(
             <LoginFormStyled>
-                <Fonts>
-                    <h1>login</h1>
-                </Fonts>
+                <FontsHeaderBold >login</FontsHeaderBold >
 
                 <LoginContainer>
                     <LoginButtonContainer >
-                        <Fonts>
-                            <p>username</p>
-                        </Fonts>
+                        <FontsLight>username</FontsLight>
                         <LoginInputStyled type="text" name="username" placeholder=""></LoginInputStyled>
                     </LoginButtonContainer >
 
                     <LoginButtonBottomContainer>
-                        <Fonts>
-                            <p>password</p>
-                        </Fonts>
+                        <FontsLight>password</FontsLight>
                         <LoginInputStyled type="password" name="password" placeholder=""></LoginInputStyled>
                         
                     </LoginButtonBottomContainer>
 
                     <LoginLabelStyled>
                         <LoginInputCheckboxStyled type="checkbox"></LoginInputCheckboxStyled>
-                        <Fonts>
-                            <p>login as parent</p>
-                        </Fonts>
+                        <FontsExtraThin>login as parent</FontsExtraThin>
                     </LoginLabelStyled>
                     
-                    <LoginButtonStyled onClick={() => Router.push('/dashboard')}>login</LoginButtonStyled>     
+                    <LoginButtonStyled onClick={() => Router.push('/dashboard')}><FontsBold>login</FontsBold></LoginButtonStyled>     
                     {/* <button onClick={() => Router.push('/dashboard')}>Login</button> */}
                     
                 </LoginContainer>

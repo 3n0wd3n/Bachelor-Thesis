@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import { Container } from '../components/CommonStyles'
-// import Header from '../components/Header'
 import LoginForm from '../components/Login/Login'
+import Footer from '../components/Footer'
 
-export default function Home({ data }) {
+export default function Home() {
   return (
     <>
         <Head>
@@ -12,9 +12,9 @@ export default function Home({ data }) {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <Container>
-          {/* <Header data={data} /> */}
           <LoginForm/>
         </Container>
+        <Footer />
     </>
   )
 }

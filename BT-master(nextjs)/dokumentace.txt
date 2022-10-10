@@ -22,6 +22,12 @@ const nextConfig = {
     npm run dev, nebo next dev
     + otevření na localhost:3000 v prohlížeči
 
+# při testování na webu přistupuju skrz URL
+
+základní login -> http://localhost:3000/ 
+
+admin, nebo student podle toho jak se budu přihlašovat -> http://localhost:3000/dashboard
+
 ZAJÍMAJÍ NAS JEN SLOŽKY PUBLIC, PAGES
 
 # public 

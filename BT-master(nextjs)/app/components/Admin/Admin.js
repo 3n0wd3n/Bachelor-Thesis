@@ -1,8 +1,8 @@
 import React from 'react'
-import { FirstNameStyled } from '../Header.style.js'
+import { FontsHeaderBold } from '../CommonStyles'
 
 export default function Admin() {
   return (
-    <FirstNameStyled>Admin</FirstNameStyled>
+    <FontsHeaderBold>Admin</FontsHeaderBold>
   )
 }
