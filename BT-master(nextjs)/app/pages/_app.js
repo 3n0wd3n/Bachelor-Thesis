@@ -18,6 +18,12 @@ const data = {
         date: '2022-09-30T09:24:50.696Z',
       },
     ],
+    plan: [
+      'Present simple',
+      'Present continuous',
+      'Prepositions',
+      'Past simple',
+    ],
     homeworks: [
       {
         id: 4,
@@ -66,6 +72,12 @@ const data = {
             status: 'cancelled',
             date: '2022-09-30T09:24:50.696Z',
           },
+        ],
+        plan: [
+          'Present simple',
+          'Present continuous',
+          'Prepositions',
+          'Past simple',
         ],
         homeworks: [
           {
