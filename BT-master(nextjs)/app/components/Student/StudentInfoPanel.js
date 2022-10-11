@@ -26,7 +26,6 @@ export default function InfoPanel({ data }) {
       <StudentFontsHeaderBold>{data.plan[3]}</StudentFontsHeaderBold>
       <StudentFontsHeaderBold>{data.plan[4]}</StudentFontsHeaderBold>
       <StudentFontsHeaderBold>{test()}</StudentFontsHeaderBold>
-
     </>
   )
 }

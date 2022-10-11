@@ -41,3 +41,10 @@ ZAJÍMAJÍ NAS JEN SLOŽKY PUBLIC, PAGES
 
 # components
 - tady jsou react componenty se svou strukturou a stylováním, které potom voláme v pages v jednotlových stránkách
+
+(\_/)   (\_/)
+(- -)   (- -)_/
+  V     /|  |
+/|  |\   //\\
+ //\\
+ 
