@@ -46,7 +46,7 @@ export const LoginInputStyled= styled.input`
     font-family: 'Raleway', sans-serif;
     border-radius: 18px;
     background-color: #EDEDED;
-    padding: 1.5em 5em 1.5em 5em;
+    padding: 1.5em 7em 1.5em 3em;
     transition: 0.7s;
     :focus{
       border: 1px solid #61C9A8;

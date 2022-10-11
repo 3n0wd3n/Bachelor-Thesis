@@ -17,12 +17,23 @@ const data = {
         status: 'cancelled',
         date: '2022-09-30T09:24:50.696Z',
       },
+      {
+        id: 41,
+        status: 'cancelled',
+        date: '2022-09-30T09:24:50.696Z',
+      },
+      {
+        id: 42,
+        status: 'cancelled',
+        date: '2022-09-30T09:24:50.696Z',
+      },
     ],
     plan: [
       'Present simple',
       'Present continuous',
       'Prepositions',
       'Past simple',
+      'Past perfect'
     ],
     homeworks: [
       {
@@ -77,7 +88,7 @@ const data = {
           'Present simple',
           'Present continuous',
           'Prepositions',
-          'Past simple',
+          'Past simple'
         ],
         homeworks: [
           {

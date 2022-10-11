@@ -27,7 +27,7 @@ export default function LoginForm(){
                     
                     <LoginButtonStyled onClick={() => Router.push('/dashboard')}><FontsBold>login</FontsBold></LoginButtonStyled>     
                     {/* <button onClick={() => Router.push('/dashboard')}>Login</button> */}
-                    
+                
                 </LoginContainer>
             </LoginFormStyled>
     )
