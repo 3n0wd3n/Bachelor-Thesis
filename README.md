@@ -73,7 +73,7 @@ Nad technologiemi ještě přemýšlím co by bylo lepší použít. Výhodou je
   > technologie, které budou webovou aplikaci absluhovat jsou na straně clienta REACTJS a na straně serveru MONGODB (běží na atlasu), NODEJS, EXPRESS (bude běžet na HEROKU)
 - [ ] udělat diagram, který bude reprezentovat komunikaci jednotlivých stran/typů uživatelů s databází případně se serverem
 - [ ] ve Figmě navrhnout design celé stránky (s viditelnou responzivitou a naznačenými klikacími úkony) --> pro možnost sledování průběhu návrhu přikládám odkaz na [PROTOTYP ve Figmě](https://www.figma.com/file/EsdxbekJrScMOYiIbjaQNq/Bachelor-Thesis?node-id=0%3A1)
-- [ ] ER diagram
+- [ ] ER diagram, UML diagram
 - [ ] nakonfigurovat Express server
 - [ ] rozvrhnout databáze
 - [ ] propojit databázi s MongoDB ATLAS
