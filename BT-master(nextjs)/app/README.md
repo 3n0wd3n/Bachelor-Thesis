@@ -1,3 +1,11 @@
+# APP-ROZVRŽENÍ README
+
+Webová aplikace je co se týče složek rozdělena na COMPONENTS, PAGES, PUBLIC, STYLES a soubory, které se nachází mimo tyto složky jako .gitignore, next.config.js, package-lock.json, package.json. Níže budu popisovat jednotlivé složky a soubory a kním jejich význam
+
+## COMPONENTS
+
+Ve složce __*components*__  se nachází další podsložky ADMIN, LOGIN, STUDENT -> tři hlavní role, které se na stránce objevují. Každá z nich má jednoduchý vyznám: je zde hlavní soubor, který se volá někde výš a jeposkládaný z koponent, které se nacházejí ve stejné složce. Například ve složce COMPONENTS je další složka STUDENT a v ní je soubor Student.js, ale taky několi dalších souborů s příponou .js. Pro nás je hlavní soubor Student.js, který poskládáme z těch ostatních .js souborů. 
+
 # NEXTJS README
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
