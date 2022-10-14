@@ -4,7 +4,7 @@ Webová aplikace je co se týče složek rozdělena na COMPONENTS, PAGES, PUBLIC
 
 ## COMPONENTS
 
-Ve složce __*components*__  se nachází další podsložky ADMIN, LOGIN, STUDENT -> tři hlavní role, které se na stránce objevují. Každá z nich má jednoduchý vyznám: je zde hlavní soubor, který se volá někde výš a jeposkládaný z koponent, které se nacházejí ve stejné složce. Například ve složce COMPONENTS je další složka STUDENT a v ní je soubor Student.js, ale taky několi dalších souborů s příponou .js. Pro nás je hlavní soubor Student.js, který poskládáme z těch ostatních .js souborů. 
+Ve složce __*components*__  se nachází další podsložky ADMIN, LOGIN, STUDENT -> tři hlavní role, které se na stránce objevují. Každá z nich má jednoduchý vyznám: je zde hlavní soubor, který se volá někde výš a je poskládaný z koponent, které se nacházejí ve stejné složce. Například ve složce COMPONENTS je další složka STUDENT a v ní je soubor Student.js, ale taky několi dalších souborů s příponou .js. Pro nás je hlavní soubor Student.js, který poskládáme z těch ostatních .js souborů. 
 
 # NEXTJS README
 
