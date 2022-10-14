@@ -28,7 +28,7 @@ Složka __*styles*__ má jediný účel a to ten, že v ní definujeme stylován
 
 ---
 
-SECTION BREAK
+    SECTION BREAK
 
 ---
 
