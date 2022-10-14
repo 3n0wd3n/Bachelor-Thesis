@@ -13,3 +13,6 @@ V souboru se nachází role uživatelů s jejich daty, které očekávám, že v
 ## app
 
 V této složce se nachází samotná aplikace. Její dělení uvádím jako obrázek níže.
+
+![struktura](https://user-images.githubusercontent.com/47132583/195800119-3a13f160-4956-4664-b323-5e4b40568111.png)
+
