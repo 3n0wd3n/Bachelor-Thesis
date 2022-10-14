@@ -8,6 +8,9 @@ Ve složce __*components*__  se nachází další podsložky __*ADMIN*__ , __*LO
 
 ![components](https://user-images.githubusercontent.com/47132583/195803207-3ec83d83-5cc0-4364-bad9-9f065084c452.png)
 
+## PAGES
+
+Ve složce __*pages*__ najdeme jednak další složku s názvem __*api*__ , ve které se bude běžet náš server, ale ve složce pages jsou také čtyři důležité soubory. Výčtově se jedná o __*_app.js*__ ,  __*_document.js*__ , __*dashboard.js*__ , __*index.js*__ 
 
 # NEXTJS README
 
