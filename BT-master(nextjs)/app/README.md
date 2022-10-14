@@ -27,7 +27,7 @@ Složka __*styles*__ má jediný účel a to ten, že v ní definujeme stylován
 ![styles](https://user-images.githubusercontent.com/47132583/195807404-c363f29c-985b-4bbd-88f0-0b26fcd9c997.png)
 
 ---
----
+                                                                          SECTION BREAK
 ---
 
 # NEXTJS README
