@@ -229,7 +229,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />
-      {/* můžu měnit role admin, student, parent */}
+      {/* we can change the role by input student or admin to data[]*/}
       <Component {...pageProps} data={data['student']} />
     </>
   )
