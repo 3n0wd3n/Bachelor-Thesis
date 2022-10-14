@@ -26,10 +26,16 @@ Složka __*styles*__ má jediný účel a to ten, že v ní definujeme stylován
 
 ![styles](https://user-images.githubusercontent.com/47132583/195807404-c363f29c-985b-4bbd-88f0-0b26fcd9c997.png)
 
+# OSTATNÍ SOUBORY VE SLOŽCE APP
+
+Jedná se o soubory __*.gitignore*__, __*.next.config.js*__, __*package-lock.json*__, __*package.json*__. Soubor __*.gitignore*__ slouží pro blokování určitých věcí, pří komitování na Git. Dále soubor __*.next.config.js*__ nám umožňuje zvolit si, které věci budeme chtít navíc používat v NEXTJS (například já používám styledcomponents, které umožňují vytvářet si vlastní HTML tagy už s nadefinovaným stylování, které se programátor vytvoří). V neposlední řadě tu jsou dva .json soubory, z nichž jeden hlídá verze balíčků (__*package-lock.json*__) a druhý v sobě má seznam těch balíčků (__*package.json*__). 
+
+![files](https://user-images.githubusercontent.com/47132583/195809618-ff0989c8-9f3b-4125-8640-8c3919b88675.png)
+
+
 ---
 
     SECTION BREAK
-
 ---
 
 # NEXTJS README
