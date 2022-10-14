@@ -10,7 +10,23 @@ Ve složce __*components*__  se nachází další podsložky __*ADMIN*__ , __*LO
 
 ## PAGES
 
-Ve složce __*pages*__ najdeme jednak další složku s názvem __*api*__ , ve které budeběžet náš server, ale dále ve složce pages najdeme čtyři důležité soubory a výčtově se jedná o __*_app.js*__, __*_document.js*__, __*dashboard.js*__, __*index.js*__,
+Ve složce __*pages*__ najdeme jednak další složku s názvem __*api*__ , ve které budeběžet náš server, ale dále ve složce pages najdeme čtyři důležité soubory a výčtově se jedná o __*_app.js*__, __*_document.js*__, __*dashboard.js*__, __*index.js*__, kde __*_app.js*__ je soubor, který je hlavním v celé struktuře a stará se o změnu rolí. Dallé je tu __*_document.js*__, což je speciáln soubor z NEXTJS frameworku, který nám umožňuje updatovat tagy v HTML. Tenhle soubor má úžasnou vlastnost a to tu, že tah <head /> uvnitř tohoto souboru není stejný jako v ostatních. Používáme tento souboru a speciálně hlavičkovou část pro importování kodu, který je stejný pro všechny stránky. Například když si tady nalinkujeme nějaký font můžeme ho používat pak ve všech souborech. Dalším v pořadí je soubor __*dashboard.js*__, který podle role, která přijde ze serveru vegeneruje buď komponentu s adminem, nebo ze studentem (zkrátka slouží jako rozcestník). Poslední v pořadí je __*index.js*__, který slouží jako nultá stránka, neboli login -> generují se zde komponenty pro přihlášení uživatele. 
+
+![pages](https://user-images.githubusercontent.com/47132583/195806664-e311d6cf-d197-445c-9402-8f8d0903877d.png)
+
+## PUBLICK
+
+Složka __*publick*__ slouží jako místo, kde jsou soubory týkající se obrázků a pod.
+
+![publick](https://user-images.githubusercontent.com/47132583/195807038-9d50d3e9-63c3-40a5-b6aa-d719b0f048b6.png)
+
+## STLYES
+
+Složka __*styles*__ má jediný účel a to ten, že v ní definujeme stylování, které je pro celý projekt stejné (nastavujeme zde default).
+
+![styles](https://user-images.githubusercontent.com/47132583/195807404-c363f29c-985b-4bbd-88f0-0b26fcd9c997.png)
+
+
 
 # NEXTJS README
 
