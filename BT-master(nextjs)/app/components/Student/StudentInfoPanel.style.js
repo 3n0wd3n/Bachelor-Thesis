@@ -2,27 +2,28 @@ import styled from 'styled-components'
 import { FontsHeaderBold, FontsThin, FontsBold } from '../CommonStyles'
 
 // little help ->  ``; 
+// StudentIP = StudentInfoPanel
 
-export const StudentFontsHeaderBold = styled(FontsHeaderBold)`
+export const StudentIPFontsHeaderBold = styled(FontsHeaderBold)`
   font-size: 1.8rem;
 `;
 
-export const StudentFontsThin = styled(FontsThin)`
+export const StudentIPFontsThin = styled(FontsThin)`
   font-size: 1.8rem;
 `;
 
-export const StudentButtonFontsBold = styled(FontsBold)`
+export const StudentIPButtonFontsBold = styled(FontsBold)`
   font-size: 1.2rem;
   color: white;
 `;
 
-export const StudentItemContainer = styled.div`
+export const StudentIPItemContainer = styled.div`
   margin: 0 0 2em 0;
   padding: 0 0 2em 2em;
   border-bottom: 1px solid black;
 `;
 
-export const StudentContainer = styled.div`
+export const StudentIPContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 350px;
@@ -31,7 +32,7 @@ export const StudentContainer = styled.div`
   margin-top: 2em;
 `; 
 
-export const StudentButton = styled.button`
+export const StudentIPButton = styled.button`
   border: 1px solid white;
   cursor: pointer;
   border-radius: 30px;

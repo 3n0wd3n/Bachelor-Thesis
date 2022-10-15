@@ -1,39 +1,40 @@
 import React from 'react'
-import { StudentFontsHeaderBold, StudentFontsThin, StudentItemContainer, StudentContainer, StudentButton, StudentButtonFontsBold  } from './StudentInfoPanel.style'
-// import { Container } from '../CommonStyles'
+import { StudentIPFontsHeaderBold, StudentIPFontsThin, StudentIPItemContainer, StudentIPContainer, StudentIPButton, StudentIPButtonFontsBold  } from './StudentInfoPanel.style'
+
+// StudentIP = StudentInfoPanel
 
 export default function InfoPanel({ data }) {
   console.log(data)
 
   return (
     <>
-      <StudentContainer>
-        <StudentItemContainer>
-          <StudentFontsThin>{data.firstName}</StudentFontsThin>
-          <StudentFontsHeaderBold>{data.lastName}</StudentFontsHeaderBold>
-        </StudentItemContainer>
-        <StudentItemContainer>
-          <StudentFontsThin>role</StudentFontsThin>
-          <StudentFontsHeaderBold>{data.role}</StudentFontsHeaderBold>
-        </StudentItemContainer>
-        <StudentItemContainer>
-          <StudentFontsThin>total count of lessons</StudentFontsThin>
-          <StudentFontsHeaderBold>{data.lessons.length}</StudentFontsHeaderBold>
-        </StudentItemContainer>
-        <StudentItemContainer>
-          <StudentFontsThin>count of homeworks</StudentFontsThin>
-          <StudentFontsHeaderBold>{data.homeworks.length}</StudentFontsHeaderBold>
-        </StudentItemContainer>
-        <StudentItemContainer>
-          <StudentFontsThin>your study plan</StudentFontsThin>
-          {/*<StudentFontsHeaderBold>{data.plan[0]}</StudentFontsHeaderBold>
+      <StudentIPContainer>
+        <StudentIPItemContainer>
+          <StudentIPFontsThin>{data.firstName}</StudentIPFontsThin>
+          <StudentIPFontsHeaderBold>{data.lastName}</StudentIPFontsHeaderBold>
+        </StudentIPItemContainer>
+        <StudentIPItemContainer>
+          <StudentIPFontsThin>role</StudentIPFontsThin>
+          <StudentIPFontsHeaderBold>{data.role}</StudentIPFontsHeaderBold>
+        </StudentIPItemContainer>
+        <StudentIPItemContainer>
+          <StudentIPFontsThin>total count of lessons</StudentIPFontsThin>
+          <StudentIPFontsHeaderBold>{data.lessons.length}</StudentIPFontsHeaderBold>
+        </StudentIPItemContainer>
+        <StudentIPItemContainer>
+          <StudentIPFontsThin>count of homeworks</StudentIPFontsThin>
+          <StudentIPFontsHeaderBold>{data.homeworks.length}</StudentIPFontsHeaderBold>
+        </StudentIPItemContainer>
+        <StudentIPItemContainer>
+          <StudentIPFontsThin>your study plan</StudentIPFontsThin>
+          {/*<StudentIPFontsHeaderBold>{data.plan[0]}</StudentIPFontsHeaderBold>
           How to render values from list in data https://www.youtube.com/watch?v=_kVJnN2e4tw */}
           {data.plan.map((item, key) => {
-            return <StudentFontsHeaderBold key={key}><Item name={item}/></StudentFontsHeaderBold>
+            return <StudentIPFontsHeaderBold key={key}><Item name={item}/></StudentIPFontsHeaderBold>
           })}
-        </StudentItemContainer>
-        <StudentButton><StudentButtonFontsBold>appologize</StudentButtonFontsBold></StudentButton>
-      </StudentContainer>
+        </StudentIPItemContainer>
+        <StudentIPButton><StudentIPButtonFontsBold>appologize</StudentIPButtonFontsBold></StudentIPButton>
+      </StudentIPContainer>
       
     </>
   )
