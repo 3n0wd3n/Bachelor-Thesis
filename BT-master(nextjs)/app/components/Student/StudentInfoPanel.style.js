@@ -2,10 +2,10 @@ import styled from 'styled-components'
 import { FontsHeaderBold, FontsThin, FontsBold } from '../CommonStyles'
 
 // little help ->  ``; 
-// StudentIP = StudentInfoPanel
+// StudentIP =StudentInfoPanel
 
 export const StudentIPFontsHeaderBold = styled(FontsHeaderBold)`
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 `;
 
 export const StudentIPFontsThin = styled(FontsThin)`
@@ -26,10 +26,9 @@ export const StudentIPItemContainer = styled.div`
 export const StudentIPContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 350px;
+  width: 25vw;
   min-height: 100vh;
-  margin-left: 2em;
-  margin-top: 2em;
+  margin: 2em 2em 0 2em
 `; 
 
 export const StudentIPButton = styled.button`

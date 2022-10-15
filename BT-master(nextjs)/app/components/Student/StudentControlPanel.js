@@ -1,4 +1,5 @@
 import React from 'react'
+import { StudentCPContainer } from './StudentControlPanel.style'
 
 // StudentCP = StudentControlPanel
 
@@ -7,7 +8,9 @@ export default function ControlPanel({ data }) {
 
   return (
     <>
-      ControlPanel     
+      <StudentCPContainer>
+        ControlPanel   
+      </StudentCPContainer>  
     </>
   )
 }

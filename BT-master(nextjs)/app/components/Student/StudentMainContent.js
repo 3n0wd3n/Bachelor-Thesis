@@ -1,4 +1,5 @@
 import React from 'react'
+import { StudentMCContainer } from './StudentMainContent.style'
 
 // StudentMC = StudentMainContent
 
@@ -7,7 +8,9 @@ export default function MainContent({ data }) {
 
   return (
     <>
-      Main Content      
+      <StudentMCContainer>
+        Main Content      
+      </StudentMCContainer>
     </>
   )
 }

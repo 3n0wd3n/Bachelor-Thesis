@@ -41,5 +41,5 @@ export default function InfoPanel({ data }) {
 }
 
 const Item = ({name}) => {
-  return <div>{name}</div>
+  return <div>-{name}</div>
 }
