@@ -11,4 +11,10 @@ export const StudentCPContainer = styled.div`
     width: 15vw;
     min-height: 90vh;
     background-color: lightgreen;
+    // transition: 0.7s;
+    @media (max-width: 1000px) {
+        /* we write media query into constants */
+        width: 100%;
+        min-height: 20vh;
+    }
 `;

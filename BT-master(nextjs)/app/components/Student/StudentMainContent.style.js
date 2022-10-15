@@ -10,4 +10,8 @@ export const StudentMCContainer = styled.div`
     width: 60vw;
     min-height: 90vh;
     background-color: lightblue;
+    @media (max-width: 1000px) {
+        /* we write media query into constants */
+        width: 100%;
+    }
 `;
