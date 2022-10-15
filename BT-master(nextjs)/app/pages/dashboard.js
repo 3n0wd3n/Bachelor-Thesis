@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Admin from '../components/Admin/Admin'
 import Student from '../components/Student/Student'
-
 export default function Home({ data }) {
   console.log(data)
   
@@ -21,7 +20,7 @@ export default function Home({ data }) {
           <Student data={data} />
         :
           <></>
-        }
+      }
     </>
   )
 }

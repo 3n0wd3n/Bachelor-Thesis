@@ -28,6 +28,7 @@ export const StudentContainer = styled.div`
   width: 350px;
   min-height: 100vh;
   margin-left: 2em;
+  margin-top: 2em;
 `; 
 
 export const StudentButton = styled.button`

@@ -11,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
     scroll-behavior: smooth;
   }
   body {
-    overflow: hidden;
+    overflow: auto;
   }
   button {
     cursor: pointer;
