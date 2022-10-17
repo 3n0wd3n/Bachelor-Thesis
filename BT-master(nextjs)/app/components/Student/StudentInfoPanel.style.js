@@ -43,11 +43,12 @@ export const StudentIPButton = styled.button`
   cursor: pointer;
   border-radius: 30px;
   background-color: #E8986B;
-  margin: 0 2em 0 2em;
+  margin: 0 2em 1em 2em;
   padding: 1.2em 0 1.2em 0;
   transition: 0.7s;
   :hover{
     background-color: rgba(232, 152, 107, 0.7);
+    margin: 0 2em 0em 2em;
   }
   @media (max-width: 1000px) {
     /* we write media query into constants */
