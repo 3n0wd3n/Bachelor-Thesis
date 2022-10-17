@@ -1,5 +1,5 @@
 import React from 'react'
-import { StudentCPContainer } from './StudentControlPanel.style'
+import { StudentCPContainer, StudentCPFontsBold } from './StudentControlPanel.style'
 
 // StudentCP = StudentControlPanel
 
@@ -9,7 +9,9 @@ export default function ControlPanel({ data }) {
   return (
     <>
       <StudentCPContainer>
-        ControlPanel   
+          <StudentCPFontsBold>payment</StudentCPFontsBold>
+          <StudentCPFontsBold>logout</StudentCPFontsBold>
+          <StudentCPFontsBold>settings</StudentCPFontsBold>
       </StudentCPContainer>  
     </>
   )

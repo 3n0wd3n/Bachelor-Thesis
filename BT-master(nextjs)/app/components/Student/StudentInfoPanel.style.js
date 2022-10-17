@@ -28,8 +28,9 @@ export const StudentIPContainer = styled.div`
   flex-direction: column;
   width: 25vw;
   min-height: 100vh;
-  margin: 2em 2em 2em 2em;
+  margin: 1em 1em 0em 0em;
   transition: 0.4s;
+  /* background: green; */
   @media (max-width: 1000px) {
     /* we write media query into constants */
     width: 100%;

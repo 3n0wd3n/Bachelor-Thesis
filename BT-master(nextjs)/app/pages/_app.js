@@ -44,13 +44,31 @@ const data = {
         id: 4,
         title: 'Letter',
         completed: true,
-        description: 'Write letter about how my cock is huge.',
+        description: 'Write letter to your frined with all requisities, that we have spoken about.  ',
       },
       {
         id: 69,
-        title: 'Yo mama',
+        title: 'Sheet',
         completed: false,
-        description: 'Revision of yo mama sheets.',
+        description: 'Revision of your sheets.',
+      },
+      {
+        id: 3,
+        title: 'Wordlist',
+        completed: true,
+        description: 'Reading excersie in wordlist section with dogs and household.',
+      },
+      {
+        id: 6,
+        title: 'Grammar',
+        completed: false,
+        description: 'Revision of PS',
+      },
+      {
+        id: 6,
+        title: 'PDF',
+        completed: false,
+        description: 'Print out  new  work list from PDF section.',
       },
     ],
     files: [
@@ -64,7 +82,7 @@ const data = {
       },
     ],
     wordList:
-      'https://www.figma.com/file/EsdxbekJrScMOYiIbjaQNq/Bachelor-Thesis?node-id=0%3A1',
+      'https://www.vocabulary.com/lists/137174/flashcards',
   },
   'parent': {
     id: 47,
