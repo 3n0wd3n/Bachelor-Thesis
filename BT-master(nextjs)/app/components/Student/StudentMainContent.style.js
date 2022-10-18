@@ -70,11 +70,7 @@ export const StudentMCFontsHomeworksItem = styled(FontsThin)`
     font-size: 1.1rem;
     color: black;
     text-shadow: -2px 2px 4px rgba(0, 0, 0, 0.25);
-    margin: 0em 1.5em 0.3em 0em;
-`;
-
-export const StudentMCFontsHomeworksItemUl = styled.ul`
-    padding-left: 1.5em;
+    margin: 0em 0.7em 0.3em 0em;
 `;
 
 export const StudentMCFontsSectionItems = styled(FontsThin)`
@@ -91,7 +87,7 @@ export const StudentMCHomeworks = styled.div`
     background-color: white;
     border-radius: 25px;
     margin: 0em 1em 1em 1em;
-    padding: 1em 0 1em 0;
+    padding: 1em 2em 1em 2em;
     box-shadow: -4px 4px 6px rgba(155, 155, 155, 0.25);
 `;
 

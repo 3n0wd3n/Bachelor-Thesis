@@ -2,12 +2,17 @@ import React from 'react'
 import {useState} from 'react';
 // import { BsGrid3X3GapFill } from 'react-icons/bs';
 import { FaRegSmileBeam } from "react-icons/fa";
-import { StudentMCFontsHomeworksItemUl, SimpleContainer, SimpleDiv, StudentMCFilesItems, StudentMCFontsWordList, StudentMCFontsFiles, StudentMCWordList, StudentMCFiles, StudentMCContainer, StudentMCNextLesson, StudentMCFontsDate, StudentMCFontsBold, StudentMCHomeworks, StudentMCFontsHomeworks, StudentMCFontsHomeworksItem, StudentMCFontsSectionItems } from './StudentMainContent.style'
+import { SimpleContainer, SimpleDiv, StudentMCFilesItems, StudentMCFontsWordList, StudentMCFontsFiles, StudentMCWordList, StudentMCFiles, StudentMCContainer, StudentMCNextLesson, StudentMCFontsDate, StudentMCFontsBold, StudentMCHomeworks, StudentMCFontsHomeworks, StudentMCFontsHomeworksItem, StudentMCFontsSectionItems } from './StudentMainContent.style'
 // StudentMC = StudentMainContent
 
 export default function MainContent({ data }) {
   // Set styling to icons
   const style = { color: "#61C9A8", fontSize: "3em" }
+
+  // Mapping items from array to styled components 
+  const Description = ({name}) => {
+    return <StudentMCFontsHomeworksItem>{name}</StudentMCFontsHomeworksItem>
+  }
 
   // Getting properties from date
   const lessonDate = new Date(data.lessons[0].date);
@@ -41,9 +46,11 @@ export default function MainContent({ data }) {
               :
               data.homeworks.map((homework, key) => {
                   return (
-                    <StudentMCFontsHomeworksItemUl key={key}>
-                      <Description name={homework.description} />
-                    </StudentMCFontsHomeworksItemUl>
+                    <ul key={key}>
+                      <li>
+                          <Description name={homework.description} /><input type="checkbox"></input>
+                      </li>
+                    </ul>
                   )
                 })
               // <></>
@@ -94,8 +101,4 @@ export default function MainContent({ data }) {
       </StudentMCContainer>
     </>
   )
-}
-
-const Description = ({name}) => {
-  return <li><StudentMCFontsHomeworksItem>{name}</StudentMCFontsHomeworksItem></li>
 }

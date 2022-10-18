@@ -14,8 +14,13 @@ export default function Student({ data }) {
     <>
       {openModal ?
         <>
-          BLA
-          <button onClick={() => setOpenModal(false)}>Dashboard</button>
+          <h1>Apologies from lecture</h1><br/>
+          <form>
+            <label>Students name: </label><br/>
+            <input type="text" name="name" placeholder="who"></input><br/>
+            <input type="date" name="date"></input><br/>
+            <button onClick={() => setOpenModal(false)}>Back to dashboard</button>
+          </form>
         </>
       :
       <>
