@@ -1,18 +1,40 @@
 import React from 'react';
+import {useState} from 'react';
 import Router from 'next/router'
 import { FontsHeaderBold, FontsLight, FontsExtraThin, FontsBold } from '../CommonStyles'
 import { LoginButtonStyled, LoginInputStyled, LoginFormStyled, LoginLabelStyled, LoginInputCheckboxStyled, LoginButtonContainer, LoginButtonBottomContainer, LoginContainer } from './Login.style'
 
 export default function LoginForm(){
+    const [isParent, setisParent] = useState(false);
+
+    const handleChange = event => {
+        if (event.target.checked) {
+          console.log('Checkbox is checked');
+        } else {
+          console.log('Checkbox is NOT checked');
+        }
+        setisParent(current => !current);
+    };
+    console.log(isParent);
+
     return(
             <LoginFormStyled>
                 <FontsHeaderBold >login</FontsHeaderBold >
 
                 <LoginContainer>
-                    <LoginButtonContainer >
-                        <FontsLight>username</FontsLight>
-                        <LoginInputStyled type="text" name="username" placeholder=""></LoginInputStyled>
-                    </LoginButtonContainer >
+                    { isParent === true
+                        ?
+                        <LoginButtonContainer >
+                            <FontsLight>telephone</FontsLight>
+                            <LoginInputStyled type="number" name="phone" placeholder=""></LoginInputStyled>
+                        </LoginButtonContainer >
+                        :
+                        <LoginButtonContainer >
+                            <FontsLight>username</FontsLight>
+                            <LoginInputStyled type="text"   name="username" placeholder=""></LoginInputStyled>
+                        </LoginButtonContainer >
+
+                    }
 
                     <LoginButtonBottomContainer>
                         <FontsLight>password</FontsLight>
@@ -21,7 +43,7 @@ export default function LoginForm(){
                     </LoginButtonBottomContainer>
 
                     <LoginLabelStyled>
-                        <LoginInputCheckboxStyled type="checkbox"></LoginInputCheckboxStyled>
+                        <LoginInputCheckboxStyled type="checkbox" value={isParent} onChange={handleChange}></LoginInputCheckboxStyled>
                         <FontsExtraThin>login as parent</FontsExtraThin>
                     </LoginLabelStyled>
                     

@@ -9,9 +9,14 @@ export default function ControlPanel({ data }) {
   return (
     <>
       <StudentCPContainer>
-          <StudentCPFontsBold>payment</StudentCPFontsBold>
+          {data.legalRepresentative === false
+            ?
+            <StudentCPFontsBold>payment</StudentCPFontsBold>
+            :    
+            <></>      
+          }
           <StudentCPFontsBold>logout</StudentCPFontsBold>
-          <StudentCPFontsBold>settings</StudentCPFontsBold>
+          {/* <StudentCPFontsBold>settings</StudentCPFontsBold> */}
       </StudentCPContainer>  
     </>
   )

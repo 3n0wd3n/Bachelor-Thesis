@@ -6,6 +6,7 @@ const data = {
     role: 'student',
     firstName: 'Jana',
     lastName: 'Slavíková',
+    legalRepresentative: false,
     lessons: [
       {
         id: 47,
