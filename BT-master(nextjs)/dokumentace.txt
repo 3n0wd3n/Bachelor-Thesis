@@ -47,4 +47,8 @@ ZAJÍMAJÍ NAS JEN SLOŽKY PUBLIC, PAGES
   V     /|  |
 /|  |\   //\\
  //\\
+
+ #přidávání icon
+ https://daily-dev-tips.com/posts/how-to-use-react-icons-in-nextjs/
+ https://react-icons.github.io/react-icons
  

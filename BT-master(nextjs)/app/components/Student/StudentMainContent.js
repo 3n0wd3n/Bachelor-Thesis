@@ -1,11 +1,15 @@
 import React from 'react'
 import {useState} from 'react';
-import { SimpleDiv, StudentMCFilesItems, StudentMCFontsWordList, StudentMCFontsFiles, StudentMCWordList, StudentMCFiles, StudentMCContainer, StudentMCNextLesson, StudentMCFontsDate, StudentMCFontsBold, StudentMCHomeworks, StudentMCFontsHomeworks, StudentMCFontsHomeworksItem, StudentMCFontsSectionItems } from './StudentMainContent.style'
-
+// import { BsGrid3X3GapFill } from 'react-icons/bs';
+import { FaRegSmileBeam } from "react-icons/fa";
+import { SimpleContainer, SimpleDiv, StudentMCFilesItems, StudentMCFontsWordList, StudentMCFontsFiles, StudentMCWordList, StudentMCFiles, StudentMCContainer, StudentMCNextLesson, StudentMCFontsDate, StudentMCFontsBold, StudentMCHomeworks, StudentMCFontsHomeworks, StudentMCFontsHomeworksItem, StudentMCFontsSectionItems } from './StudentMainContent.style'
 // StudentMC = StudentMainContent
 
 export default function MainContent({ data }) {
   console.log(data);
+
+  // Set styling to icons
+  const style = { color: "#61C9A8", fontSize: "3em" }
 
   // Getting properties from date
   const lessonDate = new Date(data.lessons[0].date);
@@ -55,8 +59,12 @@ export default function MainContent({ data }) {
             {
               data.homeworks.length === 0
               ?
-              <StudentMCFontsHomeworksItem>looks like you have everything done</StudentMCFontsHomeworksItem>
+              <SimpleContainer>
+                <StudentMCFontsHomeworksItem>looks like you have everything done</StudentMCFontsHomeworksItem>
+                <FaRegSmileBeam style={style} />
+              </ SimpleContainer>
               :
+              
               descriptions.map((item, key) => {
                   return <StudentMCFontsHomeworksItem key={key}><Description name={item}/></StudentMCFontsHomeworksItem>
                 })}

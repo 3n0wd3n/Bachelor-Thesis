@@ -3,6 +3,13 @@ import { FontsHeaderBold, FontsThin, FontsBold } from '../CommonStyles'
 
 // little help ->  ``; 
 
+export const SimpleContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+`;
+
 export const StudentMCContainer = styled.div`
     display: flex;
     justify-content: flex-start;
