@@ -4,8 +4,6 @@ import { StudentCPContainer, StudentCPFontsBold } from './StudentControlPanel.st
 // StudentCP = StudentControlPanel
 
 export default function ControlPanel({ data }) {
-  console.log(data)
-
   return (
     <>
       <StudentCPContainer>

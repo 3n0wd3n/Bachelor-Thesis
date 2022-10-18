@@ -70,7 +70,11 @@ export const StudentMCFontsHomeworksItem = styled(FontsThin)`
     font-size: 1.1rem;
     color: black;
     text-shadow: -2px 2px 4px rgba(0, 0, 0, 0.25);
-    margin: 0em 1.5em 0.3em 1.5em;
+    margin: 0em 1.5em 0.3em 0em;
+`;
+
+export const StudentMCFontsHomeworksItemUl = styled.ul`
+    padding-left: 1.5em;
 `;
 
 export const StudentMCFontsSectionItems = styled(FontsThin)`
