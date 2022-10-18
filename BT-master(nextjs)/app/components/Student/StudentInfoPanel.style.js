@@ -46,13 +46,12 @@ export const StudentIPButton = styled.button`
   margin: 0 2em 1em 2em;
   padding: 1.2em 0 1.2em 0;
   transition: 0.7s;
-  :hover{
-    background-color: rgba(232, 152, 107, 0.7);
-    margin: 0 2em 0em 2em;
-  }
   @media (max-width: 1000px) {
     /* we write media query into constants */
     margin: 0 6em 0 6em;
   }
-
+  :hover{
+    background-color: rgba(232, 152, 107, 0.7);
+    margin: 0 2em 0em 2em;
+  }
 `

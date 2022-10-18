@@ -92,7 +92,7 @@ export const StudentMCFiles = styled.div`
     background-color: #61C9A8;
     border-radius: 25px;
     margin: 0em 1em 1em 1em;
-    padding-top: 1em;
+    padding: 1.5em 0em 1.5em 0em;
     box-shadow: -4px 4px 6px rgba(155, 155, 155, 0.5);
 `;
 
@@ -113,5 +113,9 @@ export const StudentMCFilesItems = styled.div`
     justify-content: center;
     align-content: flex-start;
     flex-wrap: wrap;
-    margin: 0em 5em 1.5em 5em;
+    margin: 0em 5em 0em 5em;
+`;
+
+export const SimpleDiv = styled.div`
+
 `;

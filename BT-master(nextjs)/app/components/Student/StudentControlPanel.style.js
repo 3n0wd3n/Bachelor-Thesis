@@ -32,4 +32,8 @@ export const StudentCPFontsBold = styled(FontsBold)`
     font-size: 1.5rem;
     color: white;
     text-shadow: -4px 5px 8px rgba(0, 0, 0, 0.25);
+    transition: 0.3s;
+    :hover{
+        font-size: 1.55rem;
+    }
 `;

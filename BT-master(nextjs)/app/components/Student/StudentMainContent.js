@@ -1,11 +1,12 @@
 import React from 'react'
 import {useState} from 'react';
-import { StudentMCFilesItems, StudentMCFontsWordList, StudentMCFontsFiles, StudentMCWordList, StudentMCFiles, StudentMCContainer, StudentMCNextLesson, StudentMCFontsDate, StudentMCFontsBold, StudentMCHomeworks, StudentMCFontsHomeworks, StudentMCFontsHomeworksItem, StudentMCFontsSectionItems } from './StudentMainContent.style'
+import { SimpleDiv, StudentMCFilesItems, StudentMCFontsWordList, StudentMCFontsFiles, StudentMCWordList, StudentMCFiles, StudentMCContainer, StudentMCNextLesson, StudentMCFontsDate, StudentMCFontsBold, StudentMCHomeworks, StudentMCFontsHomeworks, StudentMCFontsHomeworksItem, StudentMCFontsSectionItems } from './StudentMainContent.style'
 
 // StudentMC = StudentMainContent
 
 export default function MainContent({ data }) {
   console.log(data);
+
   // Getting properties from date
   const lessonDate = new Date(data.lessons[0].date);
   const daysOfTheWeekEnglish = ["mon", "tue", "wed", "thu", "fri", "sat", "san"];
@@ -34,8 +35,6 @@ export default function MainContent({ data }) {
   }
   console.log("Title", titles);
   console.log("Description", descriptions);
-  
-  
 
   return (
     <>
@@ -52,17 +51,26 @@ export default function MainContent({ data }) {
                 return <div key={key}><Title name={item}/></div>
               })}
             </div> */}
-            <div>
-              {
+            <SimpleDiv>
+            {
+              data.homeworks.length === 0
+              ?
+              <StudentMCFontsHomeworksItem>looks like you have everything done</StudentMCFontsHomeworksItem>
+              :
               descriptions.map((item, key) => {
-                return <StudentMCFontsHomeworksItem key={key}><Description name={item}/></StudentMCFontsHomeworksItem>
-              })}
-            </div>
+                  return <StudentMCFontsHomeworksItem key={key}><Description name={item}/></StudentMCFontsHomeworksItem>
+                })}
+            </SimpleDiv>
         </StudentMCHomeworks> 
         <StudentMCFiles>
           <StudentMCFontsFiles>files</StudentMCFontsFiles>
           <StudentMCFontsSectionItems>
-            <StudentMCFilesItems>
+            {
+              data.files.length === 0
+              ?
+              <StudentMCFontsSectionItems >no file has not been added</StudentMCFontsSectionItems>
+              :
+              <StudentMCFilesItems>
                 prvni_soubor
                 druhý_soubor
                 třetí_soubor
@@ -79,12 +87,20 @@ export default function MainContent({ data }) {
                 druhý_soubor
                 třetí_soubor
                 čtvrty_soubor
-            </StudentMCFilesItems>
+              </StudentMCFilesItems>
+
+            }
           </StudentMCFontsSectionItems>
         </StudentMCFiles>
         <StudentMCWordList>
-          <StudentMCFontsWordList>wordList</StudentMCFontsWordList>
-          <StudentMCFontsSectionItems >{data.wordList}</StudentMCFontsSectionItems>  
+          <StudentMCFontsWordList>weekly word list</StudentMCFontsWordList>
+          {
+            data.wordList.length === 0
+            ?
+            <StudentMCFontsSectionItems >this week is your lucky week</StudentMCFontsSectionItems> 
+            :
+            <StudentMCFontsSectionItems >{data.wordList}</StudentMCFontsSectionItems>  
+          }
         </StudentMCWordList>
       </StudentMCContainer>
     </>

@@ -118,13 +118,31 @@ const data = {
             id: 4,
             title: 'Letter',
             completed: true,
-            description: 'Write letter about how my cock is huge.',
+            description: 'Write letter to your frined with all requisities, that we have spoken about.  ',
           },
           {
             id: 69,
-            title: 'Yo mama',
+            title: 'Sheet',
             completed: false,
-            description: 'Revision of yo mama sheets.',
+            description: 'Revision of your sheets.',
+          },
+          {
+            id: 3,
+            title: 'Wordlist',
+            completed: true,
+            description: 'Reading excersie in wordlist section with dogs and household.',
+          },
+          {
+            id: 6,
+            title: 'Grammar',
+            completed: false,
+            description: 'Revision of PS',
+          },
+          {
+            id: 6,
+            title: 'PDF',
+            completed: false,
+            description: 'Print out  new  work list from PDF section.',
           },
         ],
         files: [
@@ -159,10 +177,10 @@ const data = {
     students: [
       {
         id: 178,
+        role: 'student',
         firstName: 'Jana',
         lastName: 'Slavíková',
-        password: 'anna.honova',
-        parent: 47,
+        legalRepresentative: false,
         lessons: [
           {
             id: 47,
@@ -170,61 +188,76 @@ const data = {
             date: '2022-09-27T09:24:50.696Z',
           },
           {
+            id: 48,
+            status: 'cancelled',
+            date: '2022-09-30T09:24:50.696Z',
+          },
+          {
+            id: 41,
+            status: 'cancelled',
+            date: '2022-09-30T09:24:50.696Z',
+          },
+          {
             id: 42,
-            status: 'success',
-            date: '2022-09-27T09:24:50.696Z',
-          }
+            status: 'cancelled',
+            date: '2022-09-30T09:24:50.696Z',
+          },
         ],
         plan: [
           'Present simple',
           'Present continuous',
           'Prepositions',
           'Past simple',
-        ],
-        lessonSummaries: [
-          {
-            id: 64,
-            lessonId: 47,
-            summary: 'present simple, exercise on the present simple tenses',
-          },
-          {
-            id: 65,
-            lessonId: 41,
-            summary: 'past simple, exercise on the present simple tenses',
-          }
-        ],
-        files: [
-          {
-            name: 'text',
-            url: 'https://cloud.mongodb.com/v2/612a1ea5b432cc61c2fb551a#metrics/replicaSet/62b867019f2f9b04f65af6e4/explorer/nej-kamos/baskets/find'
-          },
-          {
-            name: 'doc',
-            url: 'https://ews-tactical.atlassian.net/jira/software/c/projects/OFE/boards/1496?selectedIssue=OFE-56996'
-          },
+          'Past continuou',
+          'Present perfect',
+          'Past perfect',
+          'Past perfect continuou',
+          'Future perfect continuous'
         ],
         homeworks: [
           {
             id: 4,
             title: 'Letter',
             completed: true,
-            description: 'Write letter about how my cock is huge.',
+            description: 'Write letter to your frined with all requisities, that we have spoken about.  ',
           },
           {
             id: 69,
-            title: 'Yo mama',
+            title: 'Sheet',
             completed: false,
-            description: 'Revision of yo mama sheets.',
+            description: 'Revision of your sheets.',
           },
-        ],
-        wordList: [
           {
-            id: 4,
+            id: 3,
+            title: 'Wordlist',
             completed: true,
-            words:
-              'https://www.figma.com/file/EsdxbekJrScMOYiIbjaQNq/Bachelor-Thesis?node-id=0%3A1',
+            description: 'Reading excersie in wordlist section with dogs and household.',
+          },
+          {
+            id: 6,
+            title: 'Grammar',
+            completed: false,
+            description: 'Revision of PS',
+          },
+          {
+            id: 6,
+            title: 'PDF',
+            completed: false,
+            description: 'Print out  new  work list from PDF section.',
           },
         ],
+        files: [
+          {
+            name: 'food',
+            url: 'https://cloud.mongodb.com/v2/612a1ea5b432cc61c2fb551a#metrics/replicaSet/62b867019f2f9b04f65af6e4/explorer/nej-kamos/baskets/find',
+          },
+          {
+            name: 'hello',
+            url: 'https://ews-tactical.atlassian.net/jira/software/c/projects/OFE/boards/1496?selectedIssue=OFE-56996',
+          },
+        ],
+        wordList:
+          'https://www.vocabulary.com/lists/137174/flashcards',
       },
     ],
     post: [
