@@ -18,7 +18,7 @@ const nextConfig = {
   }
 }
 
-# spuštění serveru 
+# spuštění serveru (člověk musí být v app složce)
     npm run dev, nebo next dev
     + otevření na localhost:3000 v prohlížeči
 

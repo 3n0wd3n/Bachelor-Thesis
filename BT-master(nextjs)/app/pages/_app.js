@@ -4,7 +4,7 @@ const data = {
   'student': {
     id: 178,
     role: 'student',
-    firstName: 'Jana',
+    firstName: 'Janna',
     lastName: 'Slavíková',
     legalRepresentative: false,
     lessons: [
@@ -286,7 +286,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <GlobalStyle />
       {/* we can change the role by input student or admin to data[]*/}
-      <Component {...pageProps} data={data['student']} />
+      <Component {...pageProps} data={data['admin']} />
     </>
   )
 }

@@ -1,5 +1,4 @@
 import React from 'react'
-import {useState} from 'react';
 // import { BsGrid3X3GapFill } from 'react-icons/bs';
 import { FaRegSmileBeam } from "react-icons/fa";
 import { SimpleContainer, SimpleDiv, StudentMCFilesItems, StudentMCFontsWordList, StudentMCFontsFiles, StudentMCWordList, StudentMCFiles, StudentMCContainer, StudentMCNextLesson, StudentMCFontsDate, StudentMCFontsBold, StudentMCHomeworks, StudentMCFontsHomeworks, StudentMCFontsHomeworksItem, StudentMCFontsSectionItems } from './StudentMainContent.style'
