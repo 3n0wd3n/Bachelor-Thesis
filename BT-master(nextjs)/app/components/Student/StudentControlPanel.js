@@ -3,18 +3,18 @@ import { StudentCPContainer, StudentCPFontsBold } from './StudentControlPanel.st
 
 // StudentCP = StudentControlPanel
 
-export default function ControlPanel({ data }) {
+export default function ControlPanel({ data, setPaymentPage, setLogoutPage }) {
   return (
     <>
       <StudentCPContainer>
           {/* we ask if student has legal representative and if not he can do payments */}
           {data.legalRepresentative === false
             ?
-            <StudentCPFontsBold>payment</StudentCPFontsBold>
+            <StudentCPFontsBold onClick={() => setPaymentPage(true)}>payment</StudentCPFontsBold>
             :    
             <></>      
           }
-          <StudentCPFontsBold>logout</StudentCPFontsBold>
+          <StudentCPFontsBold onClick={() => setLogoutPage(true)}>logout</StudentCPFontsBold>
           {/* <StudentCPFontsBold>settings</StudentCPFontsBold> */}
       </StudentCPContainer>  
     </>
