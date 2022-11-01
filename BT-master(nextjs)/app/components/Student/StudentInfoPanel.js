@@ -3,7 +3,7 @@ import { StudentIPFontsHeaderBold, StudentIPFontsThin, StudentIPItemContainer, S
 
 // StudentIP = StudentInfoPanel
 
-export default function InfoPanel({ data, setOpenModal }) {
+export default function InfoPanel({ data, setOpenApologize }) {
   return (
     <>
       <StudentIPContainer>
@@ -31,7 +31,7 @@ export default function InfoPanel({ data, setOpenModal }) {
             return <StudentIPFontsHeaderBold key={key}><Item name={item}/></StudentIPFontsHeaderBold>
           })}
         </StudentIPItemContainer>
-        <StudentIPButton><StudentIPButtonFontsBold onClick={() => setOpenModal(true)}>apologize</StudentIPButtonFontsBold></StudentIPButton>
+        <StudentIPButton><StudentIPButtonFontsBold onClick={() => setOpenApologize(true)}>apologize</StudentIPButtonFontsBold></StudentIPButton>
       </StudentIPContainer>
       
     </>

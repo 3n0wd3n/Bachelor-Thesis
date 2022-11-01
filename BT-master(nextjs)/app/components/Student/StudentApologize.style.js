@@ -32,10 +32,17 @@ export const ApologizeInput = styled.input`
   font-weight: 300;
   font-size: 1.3rem;
   margin: 0 0 2rem 0; 
+  border: 1px solid #D3D0CB;
+  padding: .5rem 1rem .5rem 1rem;
+  border-radius: 18px;
+  transition: 0.7s;
   @media (max-width: 700px) {
       /* we write media query into constants */
       font-size: 1rem;
   }
+  :hover{
+      border-color: #61C9A8;
+    }
 `;
 
 export const ApologizeForm = styled.form`

@@ -10,18 +10,18 @@ import { StudentContainer } from './Student.style'
 
 
 export default function Student({ data }) {
-  const [openModal, setOpenModal] = useState(false);
+  const [openApologize, setOpenApologize] = useState(false);
 
   return (
     <>
-      {openModal ?
+      {openApologize ?
         <Apologize data={data}/>
       :
       <>
         <StudentContainer>
           <ControlPanel data={data}/>
           <MainContent data={data}/>
-          <InfoPanel data={data} setOpenModal={setOpenModal}/>
+          <InfoPanel data={data} setOpenApologize={setOpenApologize}/>
         </StudentContainer>
         <Footer />
       </>
