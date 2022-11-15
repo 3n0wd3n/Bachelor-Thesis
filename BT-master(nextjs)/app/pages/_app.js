@@ -5,7 +5,7 @@ const data = {
     id: 178,
     role: 'student',
     firstName: 'Janna',
-    lastName: 'Slavíková',
+    lastName: 'Gregory',
     legalRepresentative: false,
     lessons: [
       {
@@ -34,10 +34,10 @@ const data = {
       'Present continuous',
       'Prepositions',
       'Past simple',
-      'Past continuou',
+      'Past continuous',
       'Present perfect',
       'Past perfect',
-      'Past perfect continuou',
+      'Past perfect continuous',
       'Future perfect continuous'
     ],
     homeworks: [
@@ -45,7 +45,7 @@ const data = {
         id: 4,
         title: 'Letter',
         completed: true,
-        description: 'Write letter to your frined with all requisities, that we have spoken about.  ',
+        description: 'Write letter to your friend with all requisites, that we have spoken about.  ',
       },
       {
         id: 69,
@@ -55,9 +55,9 @@ const data = {
       },
       {
         id: 3,
-        title: 'Wordlist',
+        title: 'Word list',
         completed: true,
-        description: 'Reading excersie in wordlist section with dogs and household.',
+        description: 'Reading exercise in word list section with dogs and household.',
       },
       {
         id: 6,
@@ -94,7 +94,7 @@ const data = {
       {
         id: 178,
         firstName: 'Jana',
-        lastName: 'Slavíková',
+        lastName: 'Gregory',
         lessons: [
           {
             id: 47,
@@ -118,7 +118,7 @@ const data = {
             id: 4,
             title: 'Letter',
             completed: true,
-            description: 'Write letter to your frined with all requisities, that we have spoken about.  ',
+            description: 'Write letter to your friend with all requisites, that we have spoken about.  ',
           },
           {
             id: 69,
@@ -128,9 +128,9 @@ const data = {
           },
           {
             id: 3,
-            title: 'Wordlist',
+            title: 'Word list',
             completed: true,
-            description: 'Reading excersie in wordlist section with dogs and household.',
+            description: 'Reading exercise in word list section with dogs and household.',
           },
           {
             id: 6,
@@ -179,7 +179,7 @@ const data = {
         id: 178,
         role: 'student',
         firstName: 'Jana',
-        lastName: 'Slavíková',
+        lastName: 'Gregory',
         legalRepresentative: false,
         lessons: [
           {
@@ -208,10 +208,10 @@ const data = {
           'Present continuous',
           'Prepositions',
           'Past simple',
-          'Past continuou',
+          'Past continuous',
           'Present perfect',
           'Past perfect',
-          'Past perfect continuou',
+          'Past perfect continuous',
           'Future perfect continuous'
         ],
         homeworks: [
@@ -219,7 +219,7 @@ const data = {
             id: 4,
             title: 'Letter',
             completed: true,
-            description: 'Write letter to your frined with all requisities, that we have spoken about.  ',
+            description: 'Write letter to your friend with all requisites, that we have spoken about.  ',
           },
           {
             id: 69,
@@ -229,9 +229,9 @@ const data = {
           },
           {
             id: 3,
-            title: 'Wordlist',
+            title: 'Word list',
             completed: true,
-            description: 'Reading excersie in wordlist section with dogs and household.',
+            description: 'Reading exercise in word list section with dogs and household.',
           },
           {
             id: 6,
