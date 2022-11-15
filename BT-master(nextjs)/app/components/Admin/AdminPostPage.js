@@ -8,13 +8,14 @@ export default function PostPage({setPostPage, data}) {
   const [isToggle, setisParent] = useState(false);
   var countApologize = 0;
   var countPayments = 0;
+  
   for (var i = 0; i < Object.keys(data.post).length; i++) {
     for (var key of Object.keys(data.post[i])) {
       console.log(key + " -> " + data.post[i][key])
       if (data.post[i][key] == "payment"){
         countPayments += 1;
       }
-      if (data.post[i][key] == "apology"){
+      else if (data.post[i][key] == "apology"){
         countApologize += 1;
       }
     }
