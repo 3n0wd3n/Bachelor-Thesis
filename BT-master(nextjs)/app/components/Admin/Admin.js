@@ -17,7 +17,7 @@ export default function Admin( { data } ) {
     subPage = <LogoutPage setLogoutPage={setLogoutPage}/>;
   }
   if (openPostPage){
-    subPage = <PostPage setPostPage={setPostPage}/>;
+    subPage = <PostPage setPostPage={setPostPage} data={data}/>;
   }
   if (openAddPage){
     subPage = <AddPage setAddPage={setAddPage}/>;

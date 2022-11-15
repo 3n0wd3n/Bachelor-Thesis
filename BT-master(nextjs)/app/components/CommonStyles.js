@@ -22,8 +22,8 @@ export const FontsHeaderBold = styled.h1`
 export const FontsBold = styled.p`
   /* text-align: center; */
   font-family: 'Raleway', sans-serif;
-  font-size: 14px;
   font-weight: 700;
+  font-size: 1.29rem;
 `;
 
 export const FontsMedium = styled.p`
@@ -48,4 +48,5 @@ export const FontsThin = styled.p`
   /* text-align: center; */
   font-family: 'Raleway', sans-serif;
   font-weight: 100;
+  font-size: 1.29rem;
 `;
