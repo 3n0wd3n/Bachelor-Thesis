@@ -26,6 +26,7 @@ export const LoginContainer = styled.div`
   padding: 3em 10em 3em 10em;
   margin-top: 2em;
   transition: 0.7s;
+  border: 1px solid rgba(155, 155, 155, 0.05);
   :hover{
     box-shadow: -8px 8px 10px rgba(155, 155, 155, 0.3);
   }

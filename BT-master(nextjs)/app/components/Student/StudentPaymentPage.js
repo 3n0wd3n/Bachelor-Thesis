@@ -1,10 +1,16 @@
 import React from 'react'
+import Footer from '../Footer'
+import { FontsHeaderBold, FontsThin, FontsBold } from '../CommonStyles'
+import { StudentPaymentContainer } from './StudentPaymentPage.style'
 
 export default function PaymentPage({setPaymentPage}) {
   return (
     <>
-      PaymentPage     
-      <button onClick={() => setPaymentPage(false)}>no</button>
+      <StudentPaymentContainer>
+        <FontsHeaderBold>Payments</FontsHeaderBold>    
+        <button onClick={() => setPaymentPage(false)}><FontsBold>back to dashboard</FontsBold></button>
+      </StudentPaymentContainer>
+      <Footer />
     </>
   )
 }
