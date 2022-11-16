@@ -123,8 +123,7 @@ export default function PostPage({setPostPage, data}) {
             <label><FontsBold>all:</FontsBold></label>
             <input type="radio" id="all" name="toggle_post" value={isToggle}></input>
           </AdminListItems> 
-          {newData.getMessages().map((item) => {
-            return <Item name={item}/>})}
+          {newData.getMessages().map((item) => {return <Item name={item}/>})}
         </AdminMainContent>
         <button onClick={() => setPostPage(false)}>back to dashboard</button>
       </AdminPostContainer>
