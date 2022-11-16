@@ -2,10 +2,11 @@ import React from 'react'
 import Footer from '../Footer'
 import { useState } from 'react';
 import { FontsHeaderBold, FontsThin, FontsBold } from '../CommonStyles'
-import { AdminPostContainer, AdminMainContent, AdminListItems, AdminItem } from './AdminPostPage.style'
+import { PostBackButton, AdminPostContainer, AdminMainContent, AdminListItems, AdminItem, AdminUnorderedList, AdminMessages } from './AdminPostPage.style'
 
 export default function PostPage({setPostPage, data}) {
   const [isToggle, setisParent] = useState(false);
+  const colorDate = {color: "#C96161"}
 
   class Data{
     countApologize = 0;
@@ -68,7 +69,7 @@ export default function PostPage({setPostPage, data}) {
       for (var i = 0; i < Object.keys(data.post).length; i++) {
         for (var key of Object.keys(data.post[i])) {
           if (key == "type"){
-            message += `${data.post[i][key]} from user `;
+            message += `${data.post[i][key][0].toUpperCase() + data.post[i][key].substring(1)} from user `;
           }
           if (key == "personId"){
             message += `${data.post[i][key]} to lecture on `;
@@ -123,9 +124,9 @@ export default function PostPage({setPostPage, data}) {
             <label><FontsBold>all:</FontsBold></label>
             <input type="radio" id="all" name="toggle_post" value={isToggle}></input>
           </AdminListItems> 
-          {newData.getMessages().map((item) => {return <Item name={item}/>})}
+          {newData.getMessages().map((item) => {return <AdminMessages><FontsThin><Item name={item.slice(0, -13)}/></FontsThin><FontsBold style={colorDate}><Item name={item.slice(-13)}/></FontsBold> <input type="checkbox" value=""></input></AdminMessages>})}
         </AdminMainContent>
-        <button onClick={() => setPostPage(false)}>back to dashboard</button>
+        <PostBackButton onClick={() => setPostPage(false)}>back to dashboard</PostBackButton>
       </AdminPostContainer>
       <Footer />
     </>
@@ -133,5 +134,5 @@ export default function PostPage({setPostPage, data}) {
 }
 
 const Item = ({name}) => {
-  return <ul>{name}</ul>
+  return <AdminUnorderedList>{name}</AdminUnorderedList>
 }

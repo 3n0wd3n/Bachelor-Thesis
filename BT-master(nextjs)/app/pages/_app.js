@@ -290,7 +290,7 @@ const data = {
         type: 'payment',
         personId: 48,
         lesson: 36,
-        date: '2020-06-13T18:30:00.000Z',
+        date: '2020-06-01T18:30:00.000Z',
         seen: false,
       },
     ],
