@@ -1,7 +1,7 @@
 import React from 'react'
 // import { BsGrid3X3GapFill } from 'react-icons/bs';
 import { FaRegSmileBeam } from "react-icons/fa";
-import { SimpleContainer, SimpleDiv, StudentMCFilesItems, StudentMCFontsWordList, StudentMCFontsFiles, StudentMCWordList, StudentMCFiles, StudentMCContainer, StudentMCNextLesson, StudentMCFontsDate, StudentMCFontsBold, StudentMCHomeworks, StudentMCFontsHomeworks, StudentMCFontsHomeworksItem, StudentMCFontsSectionItems } from './StudentMainContent.style'
+import { StudentUnorderedList, StudentListItem, SimpleContainer, SimpleDiv, StudentMCFilesItems, StudentMCFontsWordList, StudentMCFontsFiles, StudentMCWordList, StudentMCFiles, StudentMCContainer, StudentMCNextLesson, StudentMCFontsDate, StudentMCFontsBold, StudentMCHomeworks, StudentMCFontsHomeworks, StudentMCFontsHomeworksItem, StudentMCFontsSectionItems } from './StudentMainContent.style'
 // StudentMC = StudentMainContent
 
 export default function MainContent({ data }) {
@@ -45,11 +45,11 @@ export default function MainContent({ data }) {
               :
               data.homeworks.map((homework, key) => {
                   return (
-                    <ul key={key}>
-                      <li>
+                    <StudentUnorderedList key={key}>
+                      <StudentListItem>
                           <Description name={homework.description} /><input type="checkbox"></input>
-                      </li>
-                    </ul>
+                      </StudentListItem>
+                    </StudentUnorderedList>
                   )
                 })
               // <></>

@@ -70,7 +70,7 @@ export const StudentMCFontsHomeworksItem = styled(FontsThin)`
     font-size: 1.1rem;
     color: black;
     text-shadow: -2px 2px 4px rgba(0, 0, 0, 0.25);
-    margin: 0em 0.7em 0.3em 0em;
+    margin: 0em 0.7em 0.5em 0em;
 `;
 
 export const StudentMCFontsSectionItems = styled(FontsThin)`
@@ -124,5 +124,21 @@ export const StudentMCFilesItems = styled.div`
 `;
 
 export const SimpleDiv = styled.div`
-
+    // zatím nic
 `;
+
+export const StudentListItem = styled.li`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+`;
+
+export const StudentUnorderedList = styled.ul`
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+`;
+
+
