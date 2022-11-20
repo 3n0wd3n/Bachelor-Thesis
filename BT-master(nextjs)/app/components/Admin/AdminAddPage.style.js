@@ -74,9 +74,12 @@ export const AdminDayItem = styled.div`
     border-radius: 15px;
     cursor: pointer;
     transition: 0.7s;
+    // background-color: #EDEDED;
     border: 1px solid rgba(155, 155, 155, 0.05);
     box-shadow: -2px 2px 3px rgba(155, 155, 155, 0.15);
     :hover{
+        color: white;
+        background-color: #A9A9A9;
         box-shadow: -3px 3px 4px rgba(155, 155, 155, 0.3);
     }
 `;

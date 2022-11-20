@@ -22,14 +22,14 @@ export default function AddPage({setAddPage}) {
         <AdminLabel><FontsThin>lesson days</FontsThin></AdminLabel>
         <AdminDaysContainer>
           <AdminRowDays>
-            <AdminDayItem><AdminCustonFontBold>mon</AdminCustonFontBold></AdminDayItem>
-            <AdminDayItem><AdminCustonFontBold>tue</AdminCustonFontBold></AdminDayItem>
-            <AdminDayItem><AdminCustonFontBold>wed</AdminCustonFontBold></AdminDayItem>
+            <AdminDayItem><AdminCustonFontBold>Mon</AdminCustonFontBold></AdminDayItem>
+            <AdminDayItem><AdminCustonFontBold>Tue</AdminCustonFontBold></AdminDayItem>
+            <AdminDayItem><AdminCustonFontBold>Wed</AdminCustonFontBold></AdminDayItem>
           </AdminRowDays>
           <AdminRowDays>
-            <AdminDayItem><AdminCustonFontBold>thu</AdminCustonFontBold></AdminDayItem>
-            <AdminDayItem><AdminCustonFontBold>fri</AdminCustonFontBold></AdminDayItem>
-            <AdminDayItem><AdminCustonFontBold>sat</AdminCustonFontBold></AdminDayItem>
+            <AdminDayItem><AdminCustonFontBold>Thu</AdminCustonFontBold></AdminDayItem>
+            <AdminDayItem><AdminCustonFontBold>Fri</AdminCustonFontBold></AdminDayItem>
+            <AdminDayItem><AdminCustonFontBold>Sat</AdminCustonFontBold></AdminDayItem>
           </AdminRowDays>
         </AdminDaysContainer>
         <AdminLabel><FontsThin>count of hours</FontsThin></AdminLabel>
