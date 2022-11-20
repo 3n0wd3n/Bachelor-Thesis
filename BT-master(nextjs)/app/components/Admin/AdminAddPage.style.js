@@ -97,3 +97,18 @@ export const AdminCustonFontBold = styled(FontsBold)`
 export const AdminCustonFontThin = styled(FontsThin)`
     font-size: 0.9em;
 `;
+
+export const AdminLessonsContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+`;
+
+export const AdminLesson = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    gap: 1em;
+`;

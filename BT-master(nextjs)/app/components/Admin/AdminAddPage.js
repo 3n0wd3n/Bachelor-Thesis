@@ -1,7 +1,10 @@
 import React from 'react'
+import { FaMinusCircle, FaPlusCircle } from 'react-icons/fa'
 import { FontsHeaderBold, FontsThin, FontsBold } from '../CommonStyles'
-import { AdminCustonFontThin, AdminCustonFontBold, AdminRowDays, AdminDayItem, AdminDaysContainer, AdminLabel, AdminInputStyled, AdminButtonContainer, AdminFormContainer, AddBackButton, AdminAddContainer } from './AdminAddPage.style'
+import { AdminLessonsContainer, AdminLesson, AdminCustonFontThin, AdminCustonFontBold, AdminRowDays, AdminDayItem, AdminDaysContainer, AdminLabel, AdminInputStyled, AdminButtonContainer, AdminFormContainer, AddBackButton, AdminAddContainer } from './AdminAddPage.style'
 export default function AddPage({setAddPage}) {
+  const styleMinus = { color: "#C96161", fontSize: "1.2em", cursor: "pointer" };
+  const stylePlus = { color: "#61C9A8", fontSize: "1.2em", cursor: "pointer" };
   return (
     <>
     <AdminAddContainer>
@@ -33,9 +36,19 @@ export default function AddPage({setAddPage}) {
           </AdminRowDays>
         </AdminDaysContainer>
         <AdminLabel><FontsThin>count of hours</FontsThin></AdminLabel>
-        <div>
-          {/* hours in particular day */}
-        </div>
+        <AdminLessonsContainer>
+          <AdminLesson>
+              <span><AdminCustonFontBold>Mon</AdminCustonFontBold></span>
+              <span><FaMinusCircle style={styleMinus} /></span>
+              <span><FaPlusCircle style={stylePlus} /></span>
+              <span><AdminCustonFontBold>start lecture: </AdminCustonFontBold></span>
+          </AdminLesson>
+          <AdminLesson>Tue</AdminLesson>
+          <AdminLesson>Wed</AdminLesson>
+          <AdminLesson>Thu</AdminLesson>
+          <AdminLesson>Fri</AdminLesson>
+          <AdminLesson>Sat</AdminLesson>
+        </AdminLessonsContainer>
         <div>
               <AdminCustonFontThin>
                 <AdminInputStyled type="checkbox" id="under-age" name="under-age" value="" />

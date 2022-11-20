@@ -2,29 +2,29 @@ import { GlobalStyle } from '../styles/global.style'
 
 const data = {
   'student': {
-    id: 178,
+    id: 1,
     role: 'student',
     firstName: 'Janna',
     lastName: 'Gregory',
     legalRepresentative: false,
     lessons: [
       {
-        id: 47,
+        id: 1,
         status: 'success',
         date: '2022-09-27T09:24:50.696Z',
       },
       {
-        id: 48,
+        id: 2,
         status: 'cancelled',
         date: '2022-09-30T09:24:50.696Z',
       },
       {
-        id: 41,
+        id: 3,
         status: 'cancelled',
         date: '2022-09-30T09:24:50.696Z',
       },
       {
-        id: 42,
+        id: 4,
         status: 'cancelled',
         date: '2022-09-30T09:24:50.696Z',
       },
@@ -42,13 +42,13 @@ const data = {
     ],
     homeworks: [
       {
-        id: 4,
+        id: 1,
         title: 'Letter',
         completed: true,
         description: 'Write letter to your friend with all requisites, that we have spoken about.  ',
       },
       {
-        id: 69,
+        id: 2,
         title: 'Sheet',
         completed: false,
         description: 'Revision of your sheets.',
@@ -60,13 +60,13 @@ const data = {
         description: 'Reading exercise in word list section with dogs and household.',
       },
       {
-        id: 6,
+        id: 4,
         title: 'Grammar',
         completed: false,
         description: 'Revision of PS',
       },
       {
-        id: 6,
+        id: 5,
         title: 'PDF',
         completed: false,
         description: 'Print out  new  work list from PDF section.',
@@ -84,25 +84,34 @@ const data = {
     ],
     wordList:
       'https://www.vocabulary.com/lists/137174/flashcards',
-  },
+    payments: [
+        {
+          id: 1,
+          lessonId: 3,
+          status: 'waiting',
+          amount: 360,
+          paidAt: null,
+        },
+      ],
+    },
   'parent': {
-    id: 47,
+    id: 1,
     role: 'parent',
-    firstName: 'Anna',
-    lastName: 'Honova',
+    firstName: 'Jordan',
+    lastName: 'Huberman',
     children: [
       {
-        id: 178,
-        firstName: 'Jana',
-        lastName: 'Gregory',
+        id: 1,
+        firstName: 'Lex',
+        lastName: 'Gordon',
         lessons: [
           {
-            id: 47,
+            id: 1,
             status: 'success',
             date: '2022-09-27T09:24:50.696Z',
           },
           {
-            id: 48,
+            id: 2,
             status: 'cancelled',
             date: '2022-09-30T09:24:50.696Z',
           },
@@ -115,13 +124,13 @@ const data = {
         ],
         homeworks: [
           {
-            id: 4,
+            id: 1,
             title: 'Letter',
             completed: true,
             description: 'Write letter to your friend with all requisites, that we have spoken about.  ',
           },
           {
-            id: 69,
+            id: 2,
             title: 'Sheet',
             completed: false,
             description: 'Revision of your sheets.',
@@ -133,13 +142,13 @@ const data = {
             description: 'Reading exercise in word list section with dogs and household.',
           },
           {
-            id: 6,
+            id: 4,
             title: 'Grammar',
             completed: false,
             description: 'Revision of PS',
           },
           {
-            id: 6,
+            id: 5,
             title: 'PDF',
             completed: false,
             description: 'Print out  new  work list from PDF section.',
@@ -170,7 +179,7 @@ const data = {
     ],
   },
   'admin': {
-    id: 27,
+    id: 1,
     role: 'admin',
     firstName: 'Bára',
     lastName: 'Macháčková',
