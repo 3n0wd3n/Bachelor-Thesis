@@ -1,19 +1,25 @@
 import React from 'react'
 import { FontsHeaderBold, FontsThin, FontsBold } from '../CommonStyles'
-import { AdminFormContainer, AddBackButton, AdminAddContainer } from './AdminAddPage.style'
+import { AdminLabel, AdminInputStyled, AdminButtonContainer, AdminFormContainer, AddBackButton, AdminAddContainer } from './AdminAddPage.style'
 export default function AddPage({setAddPage}) {
   return (
     <>
     <AdminAddContainer>
       <AdminFormContainer>
         <FontsHeaderBold>add student</FontsHeaderBold>
-        <label>name</label>
-        <input type="text" placeholder="name"></input>
-        <label>surname</label>
-        <input type="text" placeholder="surname"></input>
-        <label>password</label>
-        <input type="password" placeholder="password"></input>
-        <label>day(choose from days)</label>
+        <AdminButtonContainer>
+          <AdminLabel><FontsThin>name</FontsThin></AdminLabel>
+          <AdminInputStyled type="text" placeholder="name"></AdminInputStyled>
+        </AdminButtonContainer>
+        <AdminButtonContainer>
+          <AdminLabel><FontsThin>surname</FontsThin></AdminLabel>
+          <AdminInputStyled type="text" placeholder="surname"></AdminInputStyled>
+        </AdminButtonContainer>
+        <AdminButtonContainer>
+          <AdminLabel><FontsThin>password</FontsThin></AdminLabel>
+          <AdminInputStyled type="password" placeholder="password"></AdminInputStyled>
+        </AdminButtonContainer>
+        <AdminLabel>day(choose from days)</AdminLabel>
         <div>
           <span>mon</span>
           <span>tue</span>
@@ -23,25 +29,33 @@ export default function AddPage({setAddPage}) {
           <span>sat</span>
           <span>sun</span>
         </div>
-        <label>count of hours</label>
+        <AdminLabel><FontsThin>count of hours</FontsThin></AdminLabel>
         <div>
           {/* hours in particular day */}
         </div>
         <fieldset>
             <div>
-              <input type="checkbox" id="under-age" name="under-age" value="" />
-              <label for="under-age">if student is under aged or need legal representative </label>
+              <AdminInputStyled type="checkbox" id="under-age" name="under-age" value="" />
+              <AdminLabel for="under-age">if student is under aged or need legal representative </AdminLabel>
             </div>
         </fieldset>
         <FontsHeaderBold>representative</FontsHeaderBold>
-        <label>name</label>
-        <input type="text" placeholder="name"></input>
-        <label>surname</label>
-        <input type="text" placeholder="surname"></input>
-        <label>password</label>
-        <input type="password" placeholder="password"></input>
-        <label>phone number</label>
-        <input type="tel"></input>
+        <AdminButtonContainer>
+          <AdminLabel><FontsThin>name</FontsThin></AdminLabel>
+          <AdminInputStyled type="text" placeholder="name"></AdminInputStyled>
+        </AdminButtonContainer>
+        <AdminButtonContainer>
+          <AdminLabel><FontsThin>surname</FontsThin></AdminLabel>
+          <AdminInputStyled type="text" placeholder="surname"></AdminInputStyled>
+        </AdminButtonContainer>
+        <AdminButtonContainer>
+          <AdminLabel><FontsThin>password</FontsThin></AdminLabel>
+          <AdminInputStyled type="password" placeholder="password"></AdminInputStyled>
+        </AdminButtonContainer>
+        <AdminButtonContainer>
+          <AdminLabel><FontsThin>phone number</FontsThin></AdminLabel>
+          <AdminInputStyled type="tel"></AdminInputStyled>
+        </AdminButtonContainer>
       </AdminFormContainer>
       <AddBackButton onClick={() => setAddPage(false)}>back to dashboard</AddBackButton>
     </AdminAddContainer>

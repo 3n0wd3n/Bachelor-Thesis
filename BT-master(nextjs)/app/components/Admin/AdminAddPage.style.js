@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import { LoginButtonContainer, LoginInputStyled } from '../Login/Login.style'
+
 
 // little help ``;
 
@@ -30,4 +32,26 @@ export const AdminFormContainer = styled.form`
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    // background-color: grey;
+    margin: 2em 0em 2em 0em;
+    padding: 2em;
+    transition: 0.7s;
+    border-radius: 25px;
+    border: 1px solid rgba(155, 155, 155, 0.05);
+    box-shadow: -3px 3px 5px rgba(155, 155, 155, 0.15);
+    :hover{
+        box-shadow: -5px 5px 7px rgba(155, 155, 155, 0.3);
+    }
+`;
+
+export const AdminButtonContainer = styled(LoginButtonContainer)`
+    // nothing changed yet
+`;
+
+export const AdminInputStyled = styled(LoginInputStyled)`
+    // nothing changed yet
+`;
+
+export const AdminLabel = styled.label`
+    // nothing to change
 `;
