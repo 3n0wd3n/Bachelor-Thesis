@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontsHeaderBold, FontsThin, FontsBold } from '../CommonStyles'
-import { AdminLabel, AdminInputStyled, AdminButtonContainer, AdminFormContainer, AddBackButton, AdminAddContainer } from './AdminAddPage.style'
+import { AdminCustonFontThin, AdminCustonFontBold, AdminRowDays, AdminDayItem, AdminDaysContainer, AdminLabel, AdminInputStyled, AdminButtonContainer, AdminFormContainer, AddBackButton, AdminAddContainer } from './AdminAddPage.style'
 export default function AddPage({setAddPage}) {
   return (
     <>
@@ -20,27 +20,28 @@ export default function AddPage({setAddPage}) {
           <AdminInputStyled type="password" placeholder="password"></AdminInputStyled>
         </AdminButtonContainer>
         <AdminLabel><FontsThin>lesson days</FontsThin></AdminLabel>
-        <div>
-          <span>mon</span>
-          <span>tue</span>
-          <span>wed</span>
-          <span>thu</span>
-          <span>fri</span>
-          <span>sat</span>
-          <span>sun</span>
-        </div>
+        <AdminDaysContainer>
+          <AdminRowDays>
+            <AdminDayItem><AdminCustonFontBold>mon</AdminCustonFontBold></AdminDayItem>
+            <AdminDayItem><AdminCustonFontBold>tue</AdminCustonFontBold></AdminDayItem>
+            <AdminDayItem><AdminCustonFontBold>wed</AdminCustonFontBold></AdminDayItem>
+          </AdminRowDays>
+          <AdminRowDays>
+            <AdminDayItem><AdminCustonFontBold>thu</AdminCustonFontBold></AdminDayItem>
+            <AdminDayItem><AdminCustonFontBold>fri</AdminCustonFontBold></AdminDayItem>
+            <AdminDayItem><AdminCustonFontBold>sat</AdminCustonFontBold></AdminDayItem>
+          </AdminRowDays>
+        </AdminDaysContainer>
         <AdminLabel><FontsThin>count of hours</FontsThin></AdminLabel>
         <div>
           {/* hours in particular day */}
         </div>
-        <fieldset>
-            <div>
-              <FontsThin>
+        <div>
+              <AdminCustonFontThin>
                 <AdminInputStyled type="checkbox" id="under-age" name="under-age" value="" />
                 <AdminLabel for="under-age">if student is under aged or need legal representative</AdminLabel>
-              </FontsThin>
-            </div>
-        </fieldset>
+              </AdminCustonFontThin>
+        </div>
         <FontsHeaderBold>representative</FontsHeaderBold>
         <AdminButtonContainer>
           <AdminLabel><FontsThin>name</FontsThin></AdminLabel>

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { LoginButtonContainer, LoginInputStyled } from '../Login/Login.style'
-
+import { FontsBold,FontsThin } from '../CommonStyles'
 
 // little help ``;
 
@@ -54,4 +54,43 @@ export const AdminInputStyled = styled(LoginInputStyled)`
 
 export const AdminLabel = styled.label`
     margin: 1em 0em 0em 0em;
+`;
+
+export const AdminDaysContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 1em;
+    gap: 0.7em
+`;
+
+export const AdminDayItem = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    height: 50px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.7s;
+    border: 1px solid rgba(155, 155, 155, 0.05);
+    box-shadow: -2px 2px 3px rgba(155, 155, 155, 0.15);
+    :hover{
+        box-shadow: -3px 3px 4px rgba(155, 155, 155, 0.3);
+    }
+`;
+
+export const AdminRowDays = styled.div`
+    display: flex;
+    flex-direction: row;
+    gap: 0.7em;
+`;
+
+export const AdminCustonFontBold = styled(FontsBold)`
+    font-size: 0.8em;
+`;
+
+export const AdminCustonFontThin = styled(FontsThin)`
+    font-size: 0.9em;
 `;
