@@ -45,7 +45,7 @@ export const AdminFormContainer = styled.form`
 `;
 
 export const AdminButtonContainer = styled(LoginButtonContainer)`
-    // nothing changed yet
+    //nothing to change
 `;
 
 export const AdminInputStyled = styled(LoginInputStyled)`
@@ -53,5 +53,5 @@ export const AdminInputStyled = styled(LoginInputStyled)`
 `;
 
 export const AdminLabel = styled.label`
-    // nothing to change
+    margin: 1em 0em 0em 0em;
 `;

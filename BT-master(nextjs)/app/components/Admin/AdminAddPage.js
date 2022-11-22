@@ -19,7 +19,7 @@ export default function AddPage({setAddPage}) {
           <AdminLabel><FontsThin>password</FontsThin></AdminLabel>
           <AdminInputStyled type="password" placeholder="password"></AdminInputStyled>
         </AdminButtonContainer>
-        <AdminLabel>day(choose from days)</AdminLabel>
+        <AdminLabel><FontsThin>lesson days</FontsThin></AdminLabel>
         <div>
           <span>mon</span>
           <span>tue</span>
@@ -35,8 +35,10 @@ export default function AddPage({setAddPage}) {
         </div>
         <fieldset>
             <div>
-              <AdminInputStyled type="checkbox" id="under-age" name="under-age" value="" />
-              <AdminLabel for="under-age">if student is under aged or need legal representative </AdminLabel>
+              <FontsThin>
+                <AdminInputStyled type="checkbox" id="under-age" name="under-age" value="" />
+                <AdminLabel for="under-age">if student is under aged or need legal representative</AdminLabel>
+              </FontsThin>
             </div>
         </fieldset>
         <FontsHeaderBold>representative</FontsHeaderBold>

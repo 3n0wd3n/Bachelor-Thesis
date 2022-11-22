@@ -69,6 +69,6 @@ export const PostBackButton = styled.button`
     transition: 0.7s;
     :hover{
         color: white;
-        background-color: #61C9A8;
+        background-color: #E8986B;
     }
 `;
