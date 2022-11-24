@@ -1,19 +1,14 @@
 import styled from 'styled-components'
+import { CommonDisplayFlexColumn, CommonDisplayFlex } from '../CommonStyles'
+
 
 // little help ->  ``; 
 
-export const StudentLogoutContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
+export const StudentLogoutContainer = styled(CommonDisplayFlex)`
     height: 100vh;
 `;
 
-export const StudentMainContent = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+export const StudentMainContent = styled(CommonDisplayFlexColumn)`
     padding: 6em 8.5em 6em 8.5em;
     border-radius: 25px;
     border-radius: 15px;

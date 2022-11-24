@@ -1,14 +1,12 @@
 import styled from 'styled-components'
-import { FontsHeaderBold, FontsThin, FontsBold } from '../CommonStyles'
+import { FontsBold, CommonDisplayFlexColumn } from '../CommonStyles'
+
 
 // little help ->  ``; 
 // StudentCP = StudentControlPanel
 
-export const StudentCPContainer = styled.div`
-    display: flex;
+export const StudentCPContainer = styled(CommonDisplayFlexColumn)`
     justify-content: flex-start;
-    flex-flow: column;
-    align-items: center;
     width: 15vw;
     min-height: 90vh;
     background-color: #2F3E46;

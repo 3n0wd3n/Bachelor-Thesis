@@ -1,13 +1,10 @@
 import styled from 'styled-components'
-import { FontsHeaderBold, FontsThin, FontsBold } from '../CommonStyles'
+import { FontsHeaderBold, FontsBold, CommonDisplayFlexColumn } from '../CommonStyles'
 
-export const StudentApologizeContainer = styled.div`
-  display: flex;
+export const StudentApologizeContainer = styled(CommonDisplayFlexColumn)`
   justify-content: flex-start;
-  align-items: center;
   width: 100%;
   min-height: 100vh;
-  flex-flow: column;
   margin: 5rem 0 0 0;
 `;
 

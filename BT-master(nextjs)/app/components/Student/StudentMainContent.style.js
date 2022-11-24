@@ -1,20 +1,15 @@
 import styled from 'styled-components'
-import { FontsHeaderBold, FontsThin, FontsBold } from '../CommonStyles'
+import { FontsHeaderBold, FontsThin, FontsBold, CommonDisplayFlexColumn, CommonDisplayFlex } from '../CommonStyles'
 
 // little help ->  ``; 
 
-export const SimpleContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: column;
+export const SimpleContainer = styled(CommonDisplayFlexColumn)`
+    /* nothing to do here */
 `;
 
-export const StudentMCContainer = styled.div`
-    display: flex;
+export const StudentMCContainer = styled(CommonDisplayFlexColumn)`
     justify-content: flex-start;
     align-items: stretch;
-    flex-flow: column;
     width: 60vw;
     min-height: 100vh;
     /* background-color: #55917F; */
@@ -25,11 +20,7 @@ export const StudentMCContainer = styled.div`
     }
 `;
 
-export const StudentMCNextLesson = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: column;
+export const StudentMCNextLesson = styled(CommonDisplayFlexColumn)`
     background-color: #E8D16B;
     border-radius: 25px;
     margin: 1em 1em 1em 1em;
@@ -79,11 +70,7 @@ export const StudentMCFontsSectionItems = styled(FontsThin)`
     text-shadow: -2px 2px 4px rgba(0, 0, 0, 0.25);  
 `;
 
-export const StudentMCHomeworks = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: column;
+export const StudentMCHomeworks = styled(CommonDisplayFlexColumn)`
     background-color: white;
     border-radius: 25px;
     margin: 0em 1em 1em 1em;
@@ -91,11 +78,7 @@ export const StudentMCHomeworks = styled.div`
     box-shadow: -4px 4px 6px rgba(155, 155, 155, 0.25);
 `;
 
-export const StudentMCFiles = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: column;
+export const StudentMCFiles = styled(CommonDisplayFlexColumn)`
     background-color: #61C9A8;
     border-radius: 25px;
     margin: 0em 1em 1em 1em;
@@ -103,11 +86,7 @@ export const StudentMCFiles = styled.div`
     box-shadow: -4px 4px 6px rgba(155, 155, 155, 0.5);
 `;
 
-export const StudentMCWordList = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: column;
+export const StudentMCWordList = styled(CommonDisplayFlexColumn)`
     background-color: #61B6C9;
     border-radius: 25px;
     padding: 1em 2em 1.5em 2em;
@@ -115,16 +94,14 @@ export const StudentMCWordList = styled.div`
     box-shadow: -4px 4px 6px rgba(155, 155, 155, 0.5);
 `;
 
-export const StudentMCFilesItems = styled.div`
-    display: flex;
-    justify-content: center;
+export const StudentMCFilesItems = styled(CommonDisplayFlex)`
     align-content: flex-start;
     flex-wrap: wrap;
     margin: 0em 5em 0em 5em;
 `;
 
 export const SimpleDiv = styled.div`
-    // zatím nic
+    // nothing yet
 `;
 
 export const StudentListItem = styled.li`

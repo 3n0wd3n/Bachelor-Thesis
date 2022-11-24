@@ -1,10 +1,8 @@
 import styled from 'styled-components'
+import { CommonDisplayFlexRow } from '../CommonStyles'
 
-export const AdminContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: row;
+
+export const AdminContainer = styled(CommonDisplayFlexRow)`
   min-height: 100vh;
   @media (max-width: 700px) {
       /* we write media query into constants */
