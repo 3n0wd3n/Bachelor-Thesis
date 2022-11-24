@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from '../Footer'
 import { FaMinusCircle, FaPlusCircle } from 'react-icons/fa'
 import { FontsHeaderBold, FontsThin, FontsBold } from '../CommonStyles'
 import { AdminLessonCountContainer, AdminLessonCountInput, AdminLessonTimeInput,AdminLessonsContainer, AdminLesson, AdminCustomFontThin, AdminCustomFontBold, AdminRowDays, AdminDayItem, AdminDaysContainer, AdminLabel, AdminInputStyled, AdminButtonContainer, AdminFormContainer, AddBackButton, AdminAddContainer } from './AdminAddPage.style'
@@ -22,19 +23,6 @@ export default function AddPage({setAddPage}) {
           <AdminLabel><FontsThin>password</FontsThin></AdminLabel>
           <AdminInputStyled type="password" placeholder="password"></AdminInputStyled>
         </AdminButtonContainer>
-        {/* <AdminLabel><FontsThin>lesson days</FontsThin></AdminLabel>
-        <AdminDaysContainer>
-          <AdminRowDays>
-            <AdminDayItem><AdminCustomFontBold>Mon</AdminCustomFontBold></AdminDayItem>
-            <AdminDayItem><AdminCustomFontBold>Tue</AdminCustomFontBold></AdminDayItem>
-            <AdminDayItem><AdminCustomFontBold>Wed</AdminCustomFontBold></AdminDayItem>
-          </AdminRowDays>
-          <AdminRowDays>
-            <AdminDayItem><AdminCustomFontBold>Thu</AdminCustomFontBold></AdminDayItem>
-            <AdminDayItem><AdminCustomFontBold>Fri</AdminCustomFontBold></AdminDayItem>
-            <AdminDayItem><AdminCustomFontBold>Sat</AdminCustomFontBold></AdminDayItem>
-          </AdminRowDays>
-        </AdminDaysContainer> */}
         <AdminLabel><FontsThin>count of hours</FontsThin></AdminLabel>
         <AdminLessonsContainer>
           <AdminLesson>
@@ -124,6 +112,7 @@ export default function AddPage({setAddPage}) {
       </AdminFormContainer>
       <AddBackButton onClick={() => setAddPage(false)}>back to dashboard</AddBackButton>
     </AdminAddContainer>
+    <Footer/>
     </>
   )
 }

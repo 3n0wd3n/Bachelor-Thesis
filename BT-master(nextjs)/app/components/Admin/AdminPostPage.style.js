@@ -1,18 +1,12 @@
 import styled from 'styled-components'
+import { CommonDisplayFlexColumn, CommonDisplayFlexRow, CommonDisplayFlex } from '../CommonStyles'
 
-export const AdminPostContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+export const AdminPostContainer = styled(CommonDisplayFlexColumn)`
     min-height: 100vh;
-    flex-direction: column;
 `;
 
-export const AdminMainContent = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+export const AdminMainContent = styled(CommonDisplayFlexColumn)`
     padding: 4em 4em 4em 4em;
     box-shadow: -4px 4px 6px rgba(155, 155, 155, 0.15);
     border: 1px solid rgba(155, 155, 155, 0.05);
@@ -23,11 +17,7 @@ export const AdminMainContent = styled.div`
     }
 `;
 
-export const AdminListItems = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
+export const AdminListItems = styled(CommonDisplayFlexRow)`
     flex-wrap: wrap; 
     gap: 1em;
     margin: 2em 0em 1em 0em;

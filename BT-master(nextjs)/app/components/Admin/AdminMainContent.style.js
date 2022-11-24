@@ -1,11 +1,8 @@
 import styled from 'styled-components'
-import { FontsHeaderBold, FontsThin, FontsBold } from '../CommonStyles'
+import { FontsHeaderBold, FontsThin, FontsBold, CommonDisplayFlexColumn, CommonDisplayFlexRow, CommonDisplayFlex } from '../CommonStyles'
 
-export const MainContainer = styled.div`
-  display: flex;
+export const MainContainer = styled(CommonDisplayFlexColumn)`
   justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
   min-height: 100vh;
   width: 90vw;
   transition: 0.7s;
@@ -16,10 +13,7 @@ export const MainContainer = styled.div`
   }
 `;
 
-export const MainHeaderContainer = styled.div`
-  display: flex;
-  flex-flow: row;
-  align-items: center;
+export const MainHeaderContainer = styled(CommonDisplayFlexRow)`
   justify-content: space-around;
   width: 90vw;
   @media (max-width: 1000px) {
@@ -30,13 +24,9 @@ export const MainHeaderContainer = styled.div`
   }
 `
 
-export const MainHeaderUser = styled.div`
-  display: flex;
-  flex-direction: row;
+export const MainHeaderUser = styled(CommonDisplayFlexRow)`
   gap: 1em;
   height: 10vh;
-  justify-content: center;
-  align-items: center;
 `
 
 export const MainHeaderRole = styled.div`
@@ -63,11 +53,7 @@ export const MainHeaderTitleRole = styled(FontsThin)`
   }
 `
 
-export const MainHeaderNextLesson = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+export const MainHeaderNextLesson = styled(CommonDisplayFlexColumn)`
   background-color: #61C9A8;
   padding: 0.5em 2em 0.5em 2em;
   border-radius: 25px;

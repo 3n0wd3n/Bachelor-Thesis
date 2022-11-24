@@ -1,15 +1,11 @@
 import styled from 'styled-components'
 import { LoginButtonContainer, LoginInputStyled } from '../Login/Login.style'
-import { FontsBold,FontsThin } from '../CommonStyles'
+import { FontsBold, FontsThin, CommonDisplayFlexColumn, CommonDisplayFlexRow, CommonDisplayFlex } from '../CommonStyles'
 
 // little help ``;
 
-export const AdminAddContainer = styled.div`
-    display: flex;
+export const AdminAddContainer = styled(CommonDisplayFlexColumn)`
     min-height: 100vh;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
 `;
 export const AddBackButton = styled.button`
     font-family: 'Raleway', sans-serif;
@@ -59,40 +55,6 @@ export const AdminLabel = styled.label`
     margin: 1em 0em 0em 0em;
 `;
 
-export const AdminDaysContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 1em;
-    gap: 0.7em;
-`;
-
-export const AdminDayItem = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 90px;
-    height: 50px;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: 0.7s;
-    // background-color: #EDEDED;
-    border: 1px solid rgba(155, 155, 155, 0.05);
-    box-shadow: -2px 2px 3px rgba(155, 155, 155, 0.35);
-    :hover{
-        color: white;
-        background-color: #A9A9A9;
-        box-shadow: -3px 3px 4px rgba(155, 155, 155, 0.3);
-    }
-`;
-
-export const AdminRowDays = styled.div`
-    display: flex;
-    flex-direction: row;
-    gap: 0.7em;
-`;
-
 export const AdminCustomFontBold = styled(FontsBold)`
     font-size: 0.8em;
 `;
@@ -101,21 +63,17 @@ export const AdminCustomFontThin = styled(FontsThin)`
     font-size: 0.9em;
 `;
 
-export const AdminLessonsContainer = styled.div`
-    display: flex;
-    justify-content: center;
+export const AdminLessonsContainer = styled(CommonDisplayFlexColumn)`
     align-items: flex-end;
-    flex-direction: column;
     gap: 1em;
-    margin: 0em 0em 1em 0em;
+    margin: 1em 0em 1em 0em;
 `;
 
-export const AdminLesson = styled.div`
-    display: flex;
+export const AdminLesson = styled(CommonDisplayFlexRow)`
     justify-content: flex-start;
-    align-items: center;
-    flex-direction: row;
     gap: 1em;
+    transition: 0.7s;
+    color: rgba(0, 0, 0, 0.45);
     @media (max-width: 700px) {
         gap: 0.5em;
         flex-direction: column;
@@ -123,12 +81,12 @@ export const AdminLesson = styled.div`
         padding: 1em 2em 1em 2em;
         border-radius: 15px;
     }
+    :hover{
+        color: black;
+    }
 `;
 
-export const AdminLessonCountContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
+export const AdminLessonCountContainer = styled(CommonDisplayFlex)`
     gap: 1em;
 `;
 

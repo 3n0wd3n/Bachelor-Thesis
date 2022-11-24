@@ -1,10 +1,8 @@
 import styled from 'styled-components'
+import { CommonDisplayFlexColumn } from '../CommonStyles'
 
-export const SideContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: column;
+
+export const SideContainer = styled(CommonDisplayFlexColumn)`
   width: 10vw;
   min-height: 100vh;
   gap: 3em;

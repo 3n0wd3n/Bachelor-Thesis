@@ -1,19 +1,14 @@
 import styled from 'styled-components'
+import { CommonDisplayFlexColumn, CommonDisplayFlexRow, CommonDisplayFlex } from '../CommonStyles'
+
 
 // little help ->  ``; 
 
-export const AdminLogoutContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
+export const AdminLogoutContainer = styled(CommonDisplayFlex)`
     height: 100vh;
 `;
 
-export const AdminMainContent = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+export const AdminMainContent = styled(CommonDisplayFlexColumn)`
     padding: 6em 8.5em 6em 8.5em;
     border-radius: 25px;
     border-radius: 15px;
@@ -25,10 +20,8 @@ export const AdminMainContent = styled.div`
     }
 `;
 
-export const AdminContentContainer = styled.div`
+export const AdminContentContainer = styled(CommonDisplayFlexRow)`
     margin-top: 2em;
-    display: flex;
-    flex-direction: row;
     gap: 4em;
     transition: 0.7s;
     @media (max-width: 666px) {

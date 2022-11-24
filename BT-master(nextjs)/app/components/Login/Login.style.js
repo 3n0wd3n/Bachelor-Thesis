@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import { CommonDisplayFlexColumn, CommonDisplayFlexRow, CommonDisplayFlex } from '../CommonStyles'
+
 
 export const LoginFormStyled = styled.form`
   display: flex;
@@ -7,18 +9,12 @@ export const LoginFormStyled = styled.form`
   align-items: center;
 `;
 
-export const LoginButtonContainer = styled.div`
-  display: flex;
+export const LoginButtonContainer = styled(CommonDisplayFlexColumn)`
   justify-content: flex-start;
   align-items: flex-start;
-  flex-direction: column;
 `;
 
-export const LoginContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+export const LoginContainer = styled(CommonDisplayFlexColumn)`
   background-color: white;
   box-shadow: -4px 4px 6px rgba(155, 155, 155, 0.15);
   border-radius: 20px;
