@@ -42,6 +42,9 @@ export const AdminFormContainer = styled.form`
     :hover{
         box-shadow: -5px 5px 7px rgba(155, 155, 155, 0.3);
     }
+    @media (max-width: 700px) {
+        padding: 1em;
+    }
 `;
 
 export const AdminButtonContainer = styled(LoginButtonContainer)`
@@ -62,7 +65,7 @@ export const AdminDaysContainer = styled.div`
     align-items: center;
     flex-direction: column;
     margin-top: 1em;
-    gap: 0.7em
+    gap: 0.7em;
 `;
 
 export const AdminDayItem = styled.div`
@@ -76,7 +79,7 @@ export const AdminDayItem = styled.div`
     transition: 0.7s;
     // background-color: #EDEDED;
     border: 1px solid rgba(155, 155, 155, 0.05);
-    box-shadow: -2px 2px 3px rgba(155, 155, 155, 0.15);
+    box-shadow: -2px 2px 3px rgba(155, 155, 155, 0.35);
     :hover{
         color: white;
         background-color: #A9A9A9;
@@ -90,19 +93,21 @@ export const AdminRowDays = styled.div`
     gap: 0.7em;
 `;
 
-export const AdminCustonFontBold = styled(FontsBold)`
+export const AdminCustomFontBold = styled(FontsBold)`
     font-size: 0.8em;
 `;
 
-export const AdminCustonFontThin = styled(FontsThin)`
+export const AdminCustomFontThin = styled(FontsThin)`
     font-size: 0.9em;
 `;
 
 export const AdminLessonsContainer = styled.div`
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     flex-direction: column;
+    gap: 1em;
+    margin: 0em 0em 1em 0em;
 `;
 
 export const AdminLesson = styled.div`
@@ -111,4 +116,34 @@ export const AdminLesson = styled.div`
     align-items: center;
     flex-direction: row;
     gap: 1em;
+    @media (max-width: 700px) {
+        gap: 0.5em;
+        flex-direction: column;
+        box-shadow: -1px 1px 10px rgba(155, 155, 155, 0.45);
+        padding: 1em 2em 1em 2em;
+        border-radius: 15px;
+    }
+`;
+
+export const AdminLessonCountContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+`;
+
+export const AdminLessonCountInput = styled.input`
+    box-shadow: -1px 1px 10px rgba(155, 155, 155, 0.45);
+    padding-left: 10px;
+    width: 45px;
+    height: 30px;
+    border-radius: 8px;
+`;
+
+export const AdminLessonTimeInput = styled(AdminLessonCountInput)`
+    box-shadow: -1px 1px 10px rgba(155, 155, 155, 0.45);
+    padding-left: 10px;
+    width: 80px;
+    height: 30px;
+    border-radius: 8px;
 `;
