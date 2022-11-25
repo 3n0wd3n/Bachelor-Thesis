@@ -17,8 +17,9 @@ const userSchema = new Schema(
     },
     username: {
       type: String,
-      required: true,
-      unique: true
+    },
+    phone: {
+      type: String,
     },
     password: {
       type: String,
@@ -39,14 +40,6 @@ const userSchema = new Schema(
     legalRepresentative: {
       type: String,
       default: ""
-    },
-    totalLectures: {
-      type: [String],
-      default: []
-    },
-    lecturePrice: {
-      type: Number,
-      default: 0
     },
     homework: {
       type: [{
