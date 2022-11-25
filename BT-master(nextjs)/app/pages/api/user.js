@@ -51,12 +51,12 @@ export default async function handler(req, res) {
           from: lecture.from,
           to: lecture.to,
           studentId: student._id,
-        })
+        }).save();
 
-        await UpdateOneFromMongo(User, { _id: student._id }, { $push: { lectures: lecture } })
+        await UpdateOneFromMongo(User, { _id: student._id }, { $push: { lectures: lectureDb._id } })
       });
 
-      res.status(200);
+      res.status(200).json();
       break;
     default:
       break;

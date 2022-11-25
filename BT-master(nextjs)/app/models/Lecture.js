@@ -8,11 +8,11 @@ const lectureSchema = new Schema(
       default: 'waiting',
     },
     from: {
-      type: Date,
+      type: String,
       required: true,
     },
     to: {
-      type: Date,
+      type: String,
       required: true,
     },
     studentId: {
