@@ -23,6 +23,13 @@ export const AddBackButton = styled.button`
     }
 `;
 
+export const AddSendButton = styled(AddBackButton)`
+    :hover{
+        color: white;
+        background-color: #61C9A8;
+    }
+`;
+
 export const AdminFormContainer = styled.form`
     display: flex;
     justify-content: center;
@@ -104,4 +111,13 @@ export const AdminLessonTimeInput = styled(AdminLessonCountInput)`
     width: 80px;
     height: 30px;
     border-radius: 8px;
+`;
+
+export const AdminAddLesson = styled(CommonDisplayFlexRow)`
+    margin: 0em 0em 1em 0em;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    gap: 0.5em;
+    cursor: pointer;
 `;

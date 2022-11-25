@@ -80,3 +80,22 @@ export const MainHeaderNextLessonTitle = styled(FontsBold)`
 export const MainHeaderLessonTitleTime = styled(FontsThin)`
   font-size: 1rem;
 `
+
+export const AdminListItem = styled.li`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+`;
+
+export const AdminUnorderedList = styled.ul`
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+`;
+
+export const AdminStudentsContainer = styled(CommonDisplayFlexColumn)`
+    min-height: 100vh;
+    gap: 2em;
+`;

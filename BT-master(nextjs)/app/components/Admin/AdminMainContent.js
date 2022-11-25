@@ -1,9 +1,14 @@
 import React from 'react'
 import { FaAngleDown } from 'react-icons/fa'
-import { MainContainer, MainHeaderContainer, MainHeaderUser, MainHeaderRole, MainHeaderName, MainHeaderTitle, MainHeaderTitleRole, MainHeaderNextLesson, MainHeaderNextLessonTitle, MainHeaderLessonTitleTime } from './AdminMainContent.style'
+import { FontsHeaderBold, FontsThin, FontsBold } from '../CommonStyles'
 
-export default function MainContent( { data} ) {
+import { AdminStudentsContainer, AdminUnorderedList, AdminListItem, MainContainer, MainHeaderContainer, MainHeaderUser, MainHeaderRole, MainHeaderName, MainHeaderTitle, MainHeaderTitleRole, MainHeaderNextLesson, MainHeaderNextLessonTitle, MainHeaderLessonTitleTime } from './AdminMainContent.style'
+
+export default function MainContent( { data } ) {
     const styleArrow = { color: "gray", fontSize: "3em" };
+    const Description = ({name}) => {
+        return <FontsBold>{name}</FontsBold>
+      }
 
     return (
         // <FaAngleDown style={styleArrow} />
@@ -18,6 +23,18 @@ export default function MainContent( { data} ) {
                     <MainHeaderLessonTitleTime>monday 3pm</MainHeaderLessonTitleTime>
                 </MainHeaderNextLesson>
             </MainHeaderContainer>
+            <AdminStudentsContainer>
+            {data.students.map((students, key) => {
+                  return (
+                    <AdminUnorderedList key={key}>
+                      <AdminListItem>
+                          <Description name={students.firstName + " " + students.lastName} />
+                      </AdminListItem>
+                    </AdminUnorderedList>
+                  )
+                })
+            }
+            </AdminStudentsContainer>
         </MainContainer>
 
     )

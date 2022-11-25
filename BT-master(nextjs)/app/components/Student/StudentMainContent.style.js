@@ -12,7 +12,7 @@ export const StudentMCContainer = styled(CommonDisplayFlexColumn)`
     align-items: stretch;
     width: 60vw;
     min-height: 100vh;
-    /* background-color: #55917F; */
+    background-color: #55917F;
     @media (max-width: 1000px) {
         /* we write media query into constants */
         width: 100%;
