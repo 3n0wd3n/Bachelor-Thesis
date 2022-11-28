@@ -26,3 +26,6 @@ https://user-images.githubusercontent.com/47132583/204303468-ec5c8217-9c68-4f36-
 
 ![image](https://user-images.githubusercontent.com/47132583/204356076-3732e1e4-791e-4db3-a963-2a7119fcf027.png)
 
+## MongoDB Atlas
+
+    {"_id":{"$oid":"638501fa2ab29a2e99bc3d06"},"role":"representative","name":"Radmila","surname":"Hajná","phone":"604929978","password":"o7iOvOQ0xX","students":[],"lectures":[],"legalRepresentative":"","child":"638501fa2ab29a2e99bc3d08","homework":[],"plan":[],"createdAt":{"$date":{"$numberLong":"1669661178418"}},"updatedAt":{"$date":{"$numberLong":"1669661178560"}},"__v":{"$numberInt":"0"}}
