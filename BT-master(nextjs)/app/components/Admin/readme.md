@@ -22,3 +22,59 @@ https://user-images.githubusercontent.com/47132583/203822051-a86c53e5-912c-4fbf-
 
 https://user-images.githubusercontent.com/47132583/204303468-ec5c8217-9c68-4f36-ba0b-d7696331d40a.mp4
 
+## Inserted Student
+
+![image](https://user-images.githubusercontent.com/47132583/204356076-3732e1e4-791e-4db3-a963-2a7119fcf027.png)
+
+## MongoDB Atlas
+
+    LECTURE 
+    {
+        "_id":{"$oid":"638501fa2ab29a2e99bc3d0a"},
+        "status":"waiting",
+        "from":"2022-11-29T13:00:00.000Z",
+        "to":"2022-11-29T14:00:00.000Z",
+        "studentId":"638501fa2ab29a2e99bc3d08",
+        "createdAt":{"$date":{"$numberLong":"1669661178561"}},
+        "updatedAt":{"$date":{"$numberLong":"1669661178561"}},
+        "__v":{"$numberInt":"0"}
+    }
+    
+    REPRESENTATIVE
+    {
+        "_id":{"$oid":"638501fa2ab29a2e99bc3d06"},
+        "role":"representative",
+        "name":"Radmila",
+        "surname":"Hajná",
+        "phone":"604929978",
+        "password":"o7iOvOQ0xX",
+        "students":[],
+        "lectures":[],
+        "legalRepresentative":"",
+        "child":"638501fa2ab29a2e99bc3d08",
+        "homework":[],
+        "plan":[],
+        "createdAt":{"$date":{"$numberLong":"1669661178418"}},
+        "updatedAt":{"$date":{"$numberLong":"1669661178560"}},
+        "__v":{"$numberInt":"0"}
+    }
+    
+    STUDENT
+    {
+        "_id":{"$oid":"638501fa2ab29a2e99bc3d08"},
+        "role":"student",
+        "name":"Michael",
+        "surname":"Hajný",
+        "username":"michaj",
+        "phone":"",
+        "password":"xA65bj8t6p",
+        "students":[],
+        "lectures":["638501fa2ab29a2e99bc3d0a"],
+        "legalRepresentative":"638501fa2ab29a2e99bc3d06",
+        "child":"",
+        "homework":[],
+        "plan":["přítomný čas prostý, přítomný čas průběhový, minulý čas prostý, minulý čas průběhový"],
+        "createdAt":{"$date":{"$numberLong":"1669661178521"}},
+        "updatedAt":{"$date":{"$numberLong":"1669661178918"}},
+        "__v":{"$numberInt":"0"}
+    }
