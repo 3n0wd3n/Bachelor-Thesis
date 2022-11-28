@@ -24,6 +24,7 @@ export default function AddPage({setAddPage}) {
   const studentNameRef = React.useRef();
   const studentSurnameRef = React.useRef();
   const studentUsernameRef = React.useRef();
+  const studentPlanRef = React.useRef();
   // representative
   const [representativePassword] = React.useState(generateRandomString(10));
   const representativeNameRef = React.useRef();
@@ -36,14 +37,22 @@ export default function AddPage({setAddPage}) {
   const lessonDate = new Date().toJSON().slice(0, 10);
   
   const addStudent = () => {
+    console.log(isRepresentative) 
     const name = studentNameRef.current.value;
     const surname = studentSurnameRef.current.value;
     const username = studentUsernameRef.current.value;
+    const plan = studentPlanRef.current.value;
     const password = studentPassword;
-
-    const representativeName = representativeNameRef.current.value;
-    const representativeSurname = representativeSurnameRef.current.value;
-    const representativePhone = representativePhoneRef.current.value;
+    let representativeName = " ";
+    let representativeSurname = " ";
+    let representativePhone = " ";
+    if (isRepresentative) {
+      representativeName = representativeNameRef.current.value;
+      representativeSurname = representativeSurnameRef.current.value;
+      representativePhone = representativePhoneRef.current.value;
+      console.log(representativeName)
+    }
+    console.log(representativeName)
 
     // if (name.length > 0) return;
 
@@ -78,7 +87,8 @@ export default function AddPage({setAddPage}) {
         representativeSurname,
         representativePhone,
         representativePassword,
-        lectures
+        lectures,
+        plan,
       }
     })
       .then((data) => console.log(data.data))
@@ -105,6 +115,10 @@ export default function AddPage({setAddPage}) {
           <AdminLabel><FontsThin>password (auto)</FontsThin></AdminLabel>
           <AdminInputStyled type="text" placeholder="password" value={studentPassword} readOnly></AdminInputStyled>
         </AdminButtonContainer>
+        <AdminButtonContainer>
+          <AdminLabel><FontsThin>study plan</FontsThin></AdminLabel>
+          <AdminInputStyled type="text" placeholder="(separate string with commas)" ref={studentPlanRef} onChange={() => studentPlanRef.current.value = studentPlanRef.current.value.split(',')}></AdminInputStyled>
+        </AdminButtonContainer>
         <AdminLabel><FontsThin>count of hours</FontsThin></AdminLabel>
         <AdminLessonsContainer>
           {[...Array(lessonCount)].map((el, index) =>
@@ -130,7 +144,6 @@ export default function AddPage({setAddPage}) {
               ></AdminLessonTimeInput>
             </AdminLesson>
           )}
-          
         </AdminLessonsContainer>
         <AdminAddLesson onClick={() => setLessonCount(prevCount => prevCount + 1)}>
           <span>add new lesson day</span><FaPlusCircle style={stylePlus} />
@@ -165,10 +178,37 @@ export default function AddPage({setAddPage}) {
         :
         <></>}
       </AdminFormContainer>
-      <AddSendButton onClick={() => addStudent()}>create</AddSendButton>
+      <AddSendButton onClick={() => 
+      {
+        if (!(studentNameRef.current.value.length > 0)){
+          window.alert("Student Name Not Inserted");
+        }
+        else if (!(studentSurnameRef.current.value.length > 0)){
+          window.alert("Student Surname Not Inserted");
+        }
+        else if (!(studentPlanRef.current.value.length > 0)){
+          window.alert("Student Plan Not Inserted");
+        }
+        else if (!(lessonRefs.current[0].day.value.length > 0)){
+          window.alert("Date Is Not Defined");
+        }
+        else if (!(lessonRefs.current[0].from.value.length > 0)){
+          window.alert("Date Time 'From' Is Not Defined");
+        }
+        else if (!(lessonRefs.current[0].to.value.length > 0)){
+          window.alert("Date Time 'To' Is Not Defined");
+        }
+        else{
+          addStudent()
+          window.alert("Student Was Created!");
+          document.location.reload()
+        }        
+      }
+        }>create</AddSendButton>
       <AddBackButton onClick={() => setAddPage(false)}>back to dashboard</AddBackButton>
     </AdminAddContainer>
     <Footer/>
     </>
   )
 }
+
