@@ -1,6 +1,10 @@
 # Admin GUI
 
+Admin's Dashboard
+
 ![image](https://user-images.githubusercontent.com/47132583/202997237-79dac485-59f5-4219-85af-0a244564cf57.png)
+
+Logout
 
 ![image](https://user-images.githubusercontent.com/47132583/202997319-27dff1e2-6470-4d13-a307-16c7ebd68d88.png)
 
