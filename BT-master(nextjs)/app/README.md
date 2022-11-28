@@ -18,7 +18,7 @@ Ve složce __*models*__  se nachází soubory se schématy databázových kolekc
 
 Ve složce __*pages*__ najdeme jednak další složku s názvem __*api*__ , ve které budeběžet náš server, ale dále ve složce pages najdeme čtyři důležité soubory a výčtově se jedná o __*_app.js*__, __*_document.js*__, __*dashboard.js*__, __*index.js*__, kde __*_app.js*__ je soubor, který je hlavním v celé struktuře a stará se o změnu rolí. Dallé je tu __*_document.js*__, což je speciáln soubor z NEXTJS frameworku, který nám umožňuje updatovat tagy v HTML. Tenhle soubor má úžasnou vlastnost a to tu, že tah <head /> uvnitř tohoto souboru není stejný jako v ostatních. Používáme tento souboru a speciálně hlavičkovou část pro importování kodu, který je stejný pro všechny stránky. Například když si tady nalinkujeme nějaký font můžeme ho používat pak ve všech souborech. Dalším v pořadí je soubor __*dashboard.js*__, který podle role, která přijde ze serveru vegeneruje buď komponentu s adminem, nebo ze studentem (zkrátka slouží jako rozcestník). Poslední v pořadí je __*index.js*__, který slouží jako nultá stránka, neboli login -> generují se zde komponenty pro přihlášení uživatele. 
 
-![pages](https://user-images.githubusercontent.com/47132583/195806664-e311d6cf-d197-445c-9402-8f8d0903877d.png)
+![image](https://user-images.githubusercontent.com/47132583/204301361-4e84ffd0-8cac-45c9-b849-d250d8b9dcc3.png)
 
 ## PUBLICK
 
