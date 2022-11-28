@@ -22,3 +22,7 @@ https://user-images.githubusercontent.com/47132583/203822051-a86c53e5-912c-4fbf-
 
 https://user-images.githubusercontent.com/47132583/204303468-ec5c8217-9c68-4f36-ba0b-d7696331d40a.mp4
 
+## Inserted Student
+
+![image](https://user-images.githubusercontent.com/47132583/204356076-3732e1e4-791e-4db3-a963-2a7119fcf027.png)
+
