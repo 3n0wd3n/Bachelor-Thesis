@@ -198,6 +198,22 @@ export default function AddPage({setAddPage}) {
         else if (!(lessonRefs.current[0].to.value.length > 0)){
           window.alert("Date Time 'To' Is Not Defined");
         }
+        else if (isRepresentative){
+          if (!(representativeNameRef.current.value.length > 0)){
+            window.alert("Representative Name Not Inserted");
+          }
+          else if (!(representativeSurnameRef.current.value.length > 0)){
+            window.alert("Representative Surname Not Inserted");
+          }
+          else if (!(representativePhoneRef.current.value.length > 0)){
+            window.alert("Student Phone Not Inserted");
+          }
+          else{
+            addStudent()
+            window.alert("Student Was Created!");
+            document.location.reload()
+          }    
+        }
         else{
           addStudent()
           window.alert("Student Was Created!");
