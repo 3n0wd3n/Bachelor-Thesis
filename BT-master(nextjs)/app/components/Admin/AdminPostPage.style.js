@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Colors } from '../../utils/Colors'
 import { CommonDisplayFlexColumn, CommonDisplayFlexRow, CommonDisplayFlex } from '../CommonStyles'
 
 
@@ -52,13 +53,13 @@ export const PostBackButton = styled.button`
     font-weight: 400;
     font-size: 1rem;
     color: black;
-    background-color: #F0F0F0;
+    background-color: ${Colors.white};
     border-radius: 25px;
     padding: 1rem 4rem 1rem 4rem;
     margin: 0 0 3rem 0;
     transition: 0.7s;
     :hover{
         color: white;
-        background-color: #E8986B;
+        background-color: ${Colors.orange};
     }
 `;

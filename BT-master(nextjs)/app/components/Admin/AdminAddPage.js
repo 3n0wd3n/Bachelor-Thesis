@@ -1,7 +1,8 @@
 import React from 'react'
 import axios from 'axios'
 import Footer from '../Footer'
-import { FaMinusCircle, FaPlusCircle } from 'react-icons/fa'
+import { Colors } from '../../utils/Colors'
+import { FaPlusCircle } from 'react-icons/fa'
 import { FontsHeaderBold, FontsThin, FontsBold } from '../CommonStyles'
 import { AddSendButton, AdminAddLesson, AdminLessonCountContainer, AdminLessonCountInput, AdminLessonTimeInput,AdminLessonsContainer, AdminLesson, AdminCustomFontThin, AdminCustomFontBold, AdminRowDays, AdminDayItem, AdminDaysContainer, AdminLabel, AdminInputStyled, AdminButtonContainer, AdminFormContainer, AddBackButton, AdminAddContainer } from './AdminAddPage.style'
 
@@ -17,8 +18,8 @@ function generateRandomString(length) {
 
 export default function AddPage({setAddPage}) {
   // style button 
-  const styleMinus = { color: "#C96161", fontSize: "1.2em", cursor: "pointer" };
-  const stylePlus = { color: "#61C9A8", fontSize: "1.2em", cursor: "pointer" };
+  const styleMinus = { color: Colors.red, fontSize: "1.2em", cursor: "pointer" };
+  const stylePlus = { color: Colors.lightGreen, fontSize: "1.2em", cursor: "pointer" };
   // student
   const [studentPassword] = React.useState(generateRandomString(10));
   const studentNameRef = React.useRef();

@@ -1,11 +1,12 @@
 import React from 'react'
 import { FaAngleDown } from 'react-icons/fa'
+import { Colors } from '../../utils/Colors'
 import { FontsHeaderBold, FontsThin, FontsBold } from '../CommonStyles'
 
 import { AdminStudentsContainer, AdminUnorderedList, AdminListItem, MainContainer, MainHeaderContainer, MainHeaderUser, MainHeaderRole, MainHeaderName, MainHeaderTitle, MainHeaderTitleRole, MainHeaderNextLesson, MainHeaderNextLessonTitle, MainHeaderLessonTitleTime } from './AdminMainContent.style'
 
 export default function MainContent( { data } ) {
-    const styleArrow = { color: "gray", fontSize: "3em" };
+    const styleArrow = { color: Colors.lightBrown, fontSize: "3em" };
     const Description = ({name}) => {
         return <FontsBold>{name}</FontsBold>
       }

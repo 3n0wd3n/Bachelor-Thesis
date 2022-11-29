@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Colors } from '../../utils/Colors'
 import { FontsBold, CommonDisplayFlexColumn } from '../CommonStyles'
 
 
@@ -9,7 +10,7 @@ export const StudentCPContainer = styled(CommonDisplayFlexColumn)`
     justify-content: flex-start;
     width: 15vw;
     min-height: 90vh;
-    background-color: #2F3E46;
+    background-color: ${Colors.darkGray};
     padding-top: 1em;
     gap: 2em;
     box-shadow: 4px 4px 7px rgba(155, 155, 155, 0.35);

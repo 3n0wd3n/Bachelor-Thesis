@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Colors } from '../../utils/Colors'
 import { CommonDisplayFlexColumn } from '../CommonStyles'
 
 
@@ -38,15 +39,15 @@ export const LoginButtonBottomContainer = styled(LoginButtonContainer)`
 
 export const LoginInputStyled= styled.input`
     cursor: pointer;
-    border: 1px solid #EDEDED;
+    border: 1px solid ${Colors.creme};
     color: grey;
     font-family: 'Raleway', sans-serif;
     border-radius: 18px;
-    background-color: #EDEDED;
+    background-color: ${Colors.creme};
     padding: 1.5em 7em 1.5em 3em;
     transition: 0.7s;
     :focus{
-      border: 1px solid #61C9A8;
+      border: 1px solid ${Colors.lightGreen};
     }
     @media (max-width: 700px) {
       /* we write media query into constants */
@@ -71,13 +72,13 @@ export const LoginButtonStyled = styled.button`
   cursor: pointer;
   margin-top: 2em;
   border-radius: 30px;
-  background: #C4C4C4;
+  background: ${Colors.lightBrown};
   color: white;
   padding: 1.2em 6em 1.2em 6em;
   transition: 0.7s;
   :hover{
-    background-color: #61C9A8;
-    border: 1px solid #61C9A8;
+    background-color: ${Colors.lightGreen};
+    border: 1px solid ${Colors.lightGreen};
   }
   @media (max-width: 700px) {
       /* we write media query into constants */

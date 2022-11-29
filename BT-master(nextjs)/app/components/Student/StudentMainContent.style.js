@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Colors } from '../../utils/Colors'
 import { FontsHeaderBold, FontsThin, FontsBold, CommonDisplayFlexColumn, CommonDisplayFlex } from '../CommonStyles'
 
 // little help ->  ``; 
@@ -12,7 +13,7 @@ export const StudentMCContainer = styled(CommonDisplayFlexColumn)`
     align-items: stretch;
     width: 60vw;
     min-height: 100vh;
-    background-color: #55917F;
+    /* background-color: #55917F; */
     @media (max-width: 1000px) {
         /* we write media query into constants */
         width: 100%;
@@ -21,7 +22,7 @@ export const StudentMCContainer = styled(CommonDisplayFlexColumn)`
 `;
 
 export const StudentMCNextLesson = styled(CommonDisplayFlexColumn)`
-    background-color: #E8D16B;
+    background-color: ${Colors.yellow};
     border-radius: 25px;
     margin: 1em 1em 1em 1em;
     padding: 4em 0 4em 0;
@@ -79,7 +80,7 @@ export const StudentMCHomeworks = styled(CommonDisplayFlexColumn)`
 `;
 
 export const StudentMCFiles = styled(CommonDisplayFlexColumn)`
-    background-color: #61C9A8;
+    background-color: ${Colors.lightGreen};
     border-radius: 25px;
     margin: 0em 1em 1em 1em;
     padding: 1.5em 0em 1.5em 0em;
@@ -87,7 +88,7 @@ export const StudentMCFiles = styled(CommonDisplayFlexColumn)`
 `;
 
 export const StudentMCWordList = styled(CommonDisplayFlexColumn)`
-    background-color: #61B6C9;
+    background-color: ${Colors.blue};
     border-radius: 25px;
     padding: 1em 2em 1.5em 2em;
     margin: 0em 1em 1em 1em;

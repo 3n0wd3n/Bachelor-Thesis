@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Colors } from '../../utils/Colors'
 import { FontsHeaderBold, FontsBold, CommonDisplayFlexColumn } from '../CommonStyles'
 
 export const StudentApologizeContainer = styled(CommonDisplayFlexColumn)`
@@ -29,7 +30,7 @@ export const ApologizeInput = styled.input`
   font-weight: 300;
   font-size: 1.3rem;
   margin: 0 0 2rem 0; 
-  border: 1px solid #D3D0CB;
+  border: 1px solid ${Colors.beige};
   padding: .5rem 1rem .5rem 1rem;
   border-radius: 18px;
   transition: 0.7s;
@@ -38,7 +39,7 @@ export const ApologizeInput = styled.input`
       font-size: 1rem;
   }
   :hover{
-      border-color: #61C9A8;
+      border-color: ${Colors.lightGreen};
     }
 `;
 
@@ -53,19 +54,19 @@ export const ApologizeSendButton = styled.button`
     font-weight: 400;
     font-size: 1rem;
     color: black;
-    background-color: #F0F0F0;
+    background-color: ${Colors.white};
     border-radius: 25px;
     padding: 1rem 4rem 1rem 4rem;
     margin: 0 0 3rem 0;
     transition: 0.7s;
     :hover{
         color: white;
-        background-color: #61C9A8;
+        background-color: ${Colors.lightGreen};
     }
 `;
 
 export const ApologizeBackButton = styled(ApologizeSendButton)`
     :hover{
-        background-color: #E8986B;
+        background-color: ${Colors.orange};
     }
 `;

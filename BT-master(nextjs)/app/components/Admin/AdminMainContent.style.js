@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Colors } from '../../utils/Colors'
 import { FontsHeaderBold, FontsThin, FontsBold, CommonDisplayFlexColumn, CommonDisplayFlexRow, CommonDisplayFlex } from '../CommonStyles'
 
 export const MainContainer = styled(CommonDisplayFlexColumn)`
@@ -54,7 +55,7 @@ export const MainHeaderTitleRole = styled(FontsThin)`
 `
 
 export const MainHeaderNextLesson = styled(CommonDisplayFlexColumn)`
-  background-color: #61C9A8;
+  background-color: ${Colors.lightGreen};
   padding: 0.5em 2em 0.5em 2em;
   border-radius: 25px;
   color: white;

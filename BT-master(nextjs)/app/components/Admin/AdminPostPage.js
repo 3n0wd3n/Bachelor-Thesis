@@ -1,12 +1,13 @@
 import React from 'react'
 import Footer from '../Footer'
 import { useState } from 'react';
+import { Colors } from '../../utils/Colors'
 import { FontsHeaderBold, FontsThin, FontsBold } from '../CommonStyles'
 import { PostBackButton, AdminPostContainer, AdminMainContent, AdminListItems, AdminItem, AdminUnorderedList, AdminMessages } from './AdminPostPage.style'
 
 export default function PostPage({setPostPage, data}) {
   const [isToggle, setisParent] = useState(false);
-  const colorDate = {color: "#C96161"}
+  const colorDate = {color: Colors.red}
 
   class Data{
     countApologize = 0;

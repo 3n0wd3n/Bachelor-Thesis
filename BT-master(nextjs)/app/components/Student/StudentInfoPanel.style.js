@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Colors } from '../../utils/Colors'
 import { FontsHeaderBold, FontsThin, FontsBold } from '../CommonStyles'
 
 
@@ -43,7 +44,7 @@ export const StudentIPButton = styled.button`
   border: 1px solid white;
   cursor: pointer;
   border-radius: 30px;
-  background-color: #E8986B;
+  background-color: ${Colors.orange};
   margin: 0 2em 1em 2em;
   padding: 1.2em 0 1.2em 0;
   transition: 0.7s;

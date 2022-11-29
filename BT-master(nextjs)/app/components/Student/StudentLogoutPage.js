@@ -1,12 +1,13 @@
 import React from 'react'
 import Footer from '../Footer'
+import { Colors } from '../../utils/Colors'
 import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 import { FontsHeaderBold, FontsThin, FontsBold } from '../CommonStyles'
 import { StudentButton, StudentLogoutContainer, StudentMainContent, StudentContentContainer } from './StudentLogoutPage.style'
 
 export default function LogoutPage({setLogoutPage}) {
-  const styleIconCheck = { color: "#61C9A8", fontSize: "2em", marginLeft: "0.3em"}
-  const styleIconTimes = { color: "#C96161", fontSize: "2em", marginLeft: "0.3em"}
+  const styleIconCheck = { color: Colors.darkGreen, fontSize: "2em", marginLeft: "0.3em"}
+  const styleIconTimes = { color: Colors.red, fontSize: "2em", marginLeft: "0.3em"}
   return (
     <>
       <StudentLogoutContainer>
