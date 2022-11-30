@@ -1,11 +1,26 @@
 import React from 'react';
 import { useState } from 'react';
+import axios from 'axios'
 import Router from 'next/router'
+import { dbConnect, findOneFromMongo } from '../../utils/dbMongo'
 import { FontsHeaderBold, FontsLight, FontsExtraThin, FontsBold } from '../CommonStyles'
 import { LoginButtonStyled, LoginInputStyled, LoginFormStyled, LoginLabelStyled, LoginInputCheckboxStyled, LoginButtonContainer, LoginButtonBottomContainer, LoginContainer } from './Login.style'
 
 export default function LoginForm(){
-    const [isParent, setisParent] = useState(false);
+    // let data = axios.get('http://localhost:3000/api/user').then(resp => {
+    //     console.log(resp.data);
+    //     return resp.data
+    // });
+    // console.log(data)
+
+    async function get_status() {
+        return await axios.get("http://localhost:3000/api/user");
+    }
+    get_status().then((data) => 
+        console.log(data.data)
+    );
+
+    const [isParent, setIsParent] = useState(false);
     const [userName, setUserName] = useState("");
     const [userNumber, setNumber] = useState("");
 
@@ -15,7 +30,7 @@ export default function LoginForm(){
         } else {
           console.log('Checkbox is NOT checked');
         }
-        setisParent(current => !current);
+        setIsParent(current => !current);
     };
 
     console.log(userName)
