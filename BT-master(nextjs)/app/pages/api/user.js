@@ -1,17 +1,45 @@
 import User from '../../models/User'
 import Lecture from '../../models/Lecture'
-import { dbConnect, UpdateOneFromMongo, getCollectionFromMongo } from '../../utils/dbMongo'
+import { dbConnect, UpdateOneFromMongo, getCollectionFromMongo, findOneFromMongo } from '../../utils/dbMongo'
 
 dbConnect();
+
+const getUser = async (filter) => {
+  const userDb = await findOneFromMongo(User, filter);
+
+  return {
+    id: userDb._id,
+    role: userDb.role,
+    firstName: userDb.name,
+    lastName: userDb.surname,
+    legalRepresentative: userDb.userRepresentative !== '',
+    lessons: [],
+    plan: userDb.plan,
+    homeworks: [],
+    files: [],
+    wordList: userDb.wordList,
+    payments: [],
+  }
+}
 
 export default async function handler(req, res) {
   const { method, body } = req;
 
   switch (method) {
     // http://localhost:3000/api/user
-    case 'GET':
-      const allUsers = await getCollectionFromMongo(User);
-      res.status(200).json({ allUsers });
+    case 'PUT':
+      // getting data from login about user
+      const { userName, userNumber, userPassword } = body;
+      let user;
+      // find user in collection if exists
+      if (userNumber){
+        user = await getUser({ phone: userNumber, password: userPassword });
+      }else{
+        user = await getUser({ username: userName, password: userPassword });
+      }
+
+      // return null or object to login
+      res.status(200).json( user );
       break;
     case 'POST':
       try {

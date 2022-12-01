@@ -3,7 +3,7 @@ import { Colors } from '../../utils/Colors'
 import { CommonDisplayFlexColumn } from '../CommonStyles'
 
 
-export const LoginFormStyled = styled.form`
+export const LoginFormStyled = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;

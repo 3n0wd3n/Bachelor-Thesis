@@ -46,7 +46,7 @@ const userSchema = new Schema(
       type: String,
       default: ""
     },
-    homework: {
+    homeworks: {
       type: [{
         type: String,
         checked: Boolean
@@ -56,7 +56,15 @@ const userSchema = new Schema(
     plan: {
       type: [String],
       default: []
-    }
+    },
+    wordList: {
+      type: String,
+      default: ''
+    },
+    files: {
+      type: [String],
+      default: []
+    },
   },
   { timestamps: true }
 );

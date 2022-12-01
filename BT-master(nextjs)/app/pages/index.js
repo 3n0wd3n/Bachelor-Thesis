@@ -3,7 +3,7 @@ import { Container } from '../components/CommonStyles'
 import LoginForm from '../components/Login/Login'
 import Footer from '../components/Footer'
 
-export default function Home() {
+export default function Home({ setData }) {
   return (
     <>
         <Head>
@@ -12,7 +12,7 @@ export default function Home() {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <Container>
-          <LoginForm/>
+          <LoginForm setData={setData} />
         </Container>
         <Footer />
     </>

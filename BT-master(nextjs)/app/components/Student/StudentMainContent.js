@@ -15,10 +15,10 @@ export default function MainContent({ data }) {
   }
 
   // Getting properties from date
-  const lessonDate = new Date(data.lessons[0].date);
   const daysOfTheWeek = ["pondělí", "úterý", "středa", "čtvrtek", "pátek", "sobota", "neděle"];
-  var lessonDay = lessonDate.getDay();
-  var lessonHour = lessonDate.getHours();
+  const lessonDate = new Date(data.lessons[0]?.date);
+  var lessonDay = lessonDate?.getDay();
+  var lessonHour = lessonDate?.getHours();
   var day;
   for (var i = 0; i < daysOfTheWeek.length; i++) {
     if (i == lessonDay){
@@ -29,9 +29,9 @@ export default function MainContent({ data }) {
   return (
     <>
       <StudentMCContainer>
-         <StudentMCNextLesson>
+        <StudentMCNextLesson>
           <StudentMCFontsDate>next lesson</StudentMCFontsDate>
-          <StudentMCFontsBold>{day + ' ' + ' ' + lessonHour + 'h'}</StudentMCFontsBold>
+          <StudentMCFontsBold>{`${day ? day + ' ' + ' ' + lessonHour + 'h' : 'No next lesson'}`}</StudentMCFontsBold>
         </StudentMCNextLesson>
         <StudentMCHomeworks>
           <StudentMCFontsHomeworks>homeworks</StudentMCFontsHomeworks>

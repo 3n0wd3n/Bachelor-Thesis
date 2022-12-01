@@ -6,34 +6,33 @@ import { dbConnect, findOneFromMongo } from '../../utils/dbMongo'
 import { FontsHeaderBold, FontsLight, FontsExtraThin, FontsBold } from '../CommonStyles'
 import { LoginButtonStyled, LoginInputStyled, LoginFormStyled, LoginLabelStyled, LoginInputCheckboxStyled, LoginButtonContainer, LoginButtonBottomContainer, LoginContainer } from './Login.style'
 
-export default function LoginForm(){
-    // let data = axios.get('http://localhost:3000/api/user').then(resp => {
-    //     console.log(resp.data);
-    //     return resp.data
-    // });
-    // console.log(data)
-
-    async function get_status() {
-        return await axios.get("http://localhost:3000/api/user");
-    }
-    get_status().then((data) => 
-        console.log(data.data)
-    );
-
+export default function LoginForm({ setData }){
     const [isParent, setIsParent] = useState(false);
     const [userName, setUserName] = useState("");
     const [userNumber, setNumber] = useState("");
+    const [userPassword, setPassword] = useState("");
 
+    function sendData(){
+        axios('http://localhost:3000/api/user', {
+          method: 'PUT',
+          data: {
+            userName,
+            userNumber,
+            userPassword
+          }
+        })
+        .then((data) => {
+            if (data.data != null){
+                setData(data.data);
+                Router.push('/dashboard')
+            }
+        })
+    }
+    
+    
     const handleChange = event => {
-        if (!isParent) {
-          console.log('Checkbox is checked');
-        } else {
-          console.log('Checkbox is NOT checked');
-        }
         setIsParent(current => !current);
     };
-
-    console.log(userName)
 
     return(
             <LoginFormStyled>
@@ -56,7 +55,7 @@ export default function LoginForm(){
 
                     <LoginButtonBottomContainer>
                         <FontsLight>password</FontsLight>
-                        <LoginInputStyled type="password" name="password" placeholder=""></LoginInputStyled>
+                        <LoginInputStyled type="password" name="password" placeholder="" value={userPassword} onChange={({ target }) => setPassword(target.value)}></LoginInputStyled>
                         
                     </LoginButtonBottomContainer>
 
@@ -65,8 +64,7 @@ export default function LoginForm(){
                         <FontsExtraThin>login as parent</FontsExtraThin>
                     </LoginLabelStyled>
                     
-                    <LoginButtonStyled onClick={() => Router.push('/dashboard')}><FontsBold>login</FontsBold></LoginButtonStyled>     
-                    {/* <button onClick={() => Router.push('/dashboard')}>Login</button> */}
+                    <LoginButtonStyled onClick={() => sendData()}><FontsBold>login</FontsBold></LoginButtonStyled>     
                 
                 </LoginContainer>
             </LoginFormStyled>
