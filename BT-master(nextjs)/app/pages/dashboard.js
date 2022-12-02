@@ -1,7 +1,15 @@
 import Head from 'next/head'
+import React from 'react';
 import Admin from '../components/Admin/Admin'
 import Student from '../components/Student/Student'
-export default function Home({ data }) {
+
+export { getServerSideProps } from '../components/getDataFromCookies'
+
+export default function Home({ data, userData }) {
+  React.useEffect(() => {
+    if (userData) setData(userData)
+  }, [userData])
+
   if (!data) return <>Not authorized</>
 
   return (

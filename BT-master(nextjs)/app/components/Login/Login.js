@@ -22,9 +22,11 @@ export default function LoginForm({ setData }){
           }
         })
         .then((data) => {
-            if (data.data != null){
+            if (data.data){
                 setData(data.data);
                 Router.push('/dashboard')
+            } else {
+                alert('wrong credentials')
             }
         })
     }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { setCookie } from 'cookies-next';
 import { GlobalStyle } from '../styles/global.style'
 
 // const data = {

@@ -1,9 +1,16 @@
 import Head from 'next/head'
+import React from 'react';
 import { Container } from '../components/CommonStyles'
 import LoginForm from '../components/Login/Login'
 import Footer from '../components/Footer'
 
-export default function Home({ setData }) {
+export { getServerSideProps } from '../components/getDataFromCookies'
+
+export default function Home({ setData, userData }) {
+  React.useEffect(() => {
+    if (userData) setData(userData)
+  }, [userData])
+
   return (
     <>
         <Head>

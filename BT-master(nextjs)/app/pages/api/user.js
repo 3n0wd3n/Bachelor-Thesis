@@ -6,6 +6,7 @@ dbConnect();
 
 const getUser = async (filter) => {
   const userDb = await findOneFromMongo(User, filter);
+  if (!userDb) return;
 
   return {
     id: userDb._id,
@@ -23,13 +24,21 @@ const getUser = async (filter) => {
 }
 
 export default async function handler(req, res) {
-  const { method, body } = req;
+  const { method, body, query } = req;
 
   switch (method) {
     // http://localhost:3000/api/user
+    case 'GET':
+      const { userCookie } = query;
+      
+      const userData = await getUser({ _id: userCookie })
+
+      res.status(200).json( userData );
+      break;
     case 'PUT':
       // getting data from login about user
       const { userName, userNumber, userPassword } = body;
+
       let user;
       // find user in collection if exists
       if (userNumber){
