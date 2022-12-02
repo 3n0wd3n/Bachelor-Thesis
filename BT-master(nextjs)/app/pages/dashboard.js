@@ -9,14 +9,12 @@ export { getServerSideProps } from '../components/getDataFromCookies'
 export default function Home({ data, setData, userData }) {
   React.useEffect(() => {
     if (userData) setData(userData)
-  }, [userData])
+    if (!data) Router.push('/');
+  }, [userData, data])
 
-  if (!data) {
-    return <>
-    Fuck you! Login again :*
-    <button onClick={() => Router.push('/')}>back to login</button>
-    </>
-  }
+  if (!data) return <></>
+
+  console.log(data)
 
   return (
     <>
@@ -27,11 +25,11 @@ export default function Home({ data, setData, userData }) {
 
       {data.role === 'admin'
         ?
-          <Admin data={data} />
+          <Admin data={data} setData={setData} />
         :
         data.role === 'student'
         ?
-          <Student data={data} />
+          <Student data={data} setData={setData} />
         :
           <></>
       }

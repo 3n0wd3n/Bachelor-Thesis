@@ -4,14 +4,15 @@ import { dbConnect, UpdateOneFromMongo, findAllFromMongo, findOneFromMongo } fro
 
 dbConnect();
 
-const filterLessons = async (lessonIds) => {
+const filterLessons = async (lessonIds, admin) => {
   // getting array of lessons from database
   const lessonsDb = await findAllFromMongo(Lecture, { $and: [{ _id: lessonIds }, { status: 'waiting' }] });
   // format lessons
   const lessons = lessonsDb.map(lesson => ({
     id: lesson._id,
     status: lesson.status,
-    date: lesson.from
+    date: lesson.from,
+    ... (admin ? { endDate: lesson.to } : [])
   }));
 
   let now = new Date().getTime();
@@ -37,8 +38,8 @@ const getUser = async(filter) => {
   else return getStudent(userDb);
 }
 
-const getStudent = async (userDb) => {
-  const filteredLessons = await filterLessons(userDb.lectures);
+const getStudent = async (userDb, admin=false) => {
+  const filteredLessons = await filterLessons(userDb.lectures, admin);
 
   return {
     id: userDb._id,
@@ -55,15 +56,16 @@ const getStudent = async (userDb) => {
   }
 }
 
-
-
 const getAdmin = async (userDb) => {
+  const studentsDb = await findAllFromMongo(User, {role: 'student'})
+  const filteredStudents = await Promise.all(studentsDb.map(async student => await getStudent(student, true)));
+
   return {
     id: userDb._id,
     role: userDb.role,
     firstName: userDb.name,
     lastName: userDb.surname,
-    students: [],
+    students: filteredStudents,
     post: [],
   }
 }

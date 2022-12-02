@@ -8,13 +8,13 @@ import MainContent from './AdminMainContent'
 import Footer from '../Footer'
 import { AdminContainer } from './Admin.style'
 
-export default function Admin( { data } ) {
+export default function Admin( { data, setData } ) {
   const [openLogoutPage, setLogoutPage] = useState(false);
   const [openPostPage, setPostPage] = useState(false);
   const [openAddPage, setAddPage] = useState(false);
   var subPage;
   if (openLogoutPage){
-    subPage = <LogoutPage setLogoutPage={setLogoutPage}/>;
+    subPage = <LogoutPage setLogoutPage={setLogoutPage} setData={setData}/>;
   }
   if (openPostPage){
     subPage = <PostPage setPostPage={setPostPage} data={data}/>;

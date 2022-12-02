@@ -11,13 +11,13 @@ import { StudentContainer } from './Student.style'
 
 
 
-export default function Student({ data }) {
+export default function Student({ data, setData }) {
   const [openApologize, setOpenApologize] = useState(false);
   const [openLogoutPage, setLogoutPage] = useState(false);
   const [openPaymentPage, setPaymentPage] = useState(false);
   var subPage;
   if (openLogoutPage){
-    subPage = <LogoutPage setLogoutPage={setLogoutPage}/>;
+    subPage = <LogoutPage setLogoutPage={setLogoutPage} setData={setData}/>;
   }
   if (openPaymentPage){
     subPage = <PaymentPage setPaymentPage={setPaymentPage}/>;
