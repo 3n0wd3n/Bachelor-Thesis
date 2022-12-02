@@ -1,16 +1,22 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import Router from 'next/router';
 import React from 'react';
-import Admin from '../components/Admin/Admin'
-import Student from '../components/Student/Student'
+import Admin from '../components/Admin/Admin';
+import Student from '../components/Student/Student';
 
 export { getServerSideProps } from '../components/getDataFromCookies'
 
-export default function Home({ data, userData }) {
+export default function Home({ data, setData, userData }) {
   React.useEffect(() => {
     if (userData) setData(userData)
   }, [userData])
 
-  if (!data) return <>Not authorized</>
+  if (!data) {
+    return <>
+    Fuck you! Login again :*
+    <button onClick={() => Router.push('/')}>back to login</button>
+    </>
+  }
 
   return (
     <>

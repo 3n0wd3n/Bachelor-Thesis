@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import axios from 'axios'
 import Router from 'next/router'
-import { dbConnect, findOneFromMongo } from '../../utils/dbMongo'
+import { setCookie } from 'cookies-next';
 import { FontsHeaderBold, FontsLight, FontsExtraThin, FontsBold } from '../CommonStyles'
 import { LoginButtonStyled, LoginInputStyled, LoginFormStyled, LoginLabelStyled, LoginInputCheckboxStyled, LoginButtonContainer, LoginButtonBottomContainer, LoginContainer } from './Login.style'
 
@@ -23,6 +23,7 @@ export default function LoginForm({ setData }){
         })
         .then((data) => {
             if (data.data){
+                setCookie('userCookie', data.data.id, { maxAge: 600000});
                 setData(data.data);
                 Router.push('/dashboard')
             } else {

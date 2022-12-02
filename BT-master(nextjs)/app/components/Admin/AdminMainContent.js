@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaAngleDown } from 'react-icons/fa'
 import { Colors } from '../../utils/Colors'
-import { FontsHeaderBold, FontsThin, FontsBold } from '../CommonStyles'
+import { FontsBold } from '../CommonStyles'
 
 import { AdminStudentsContainer, AdminUnorderedList, AdminListItem, MainContainer, MainHeaderContainer, MainHeaderUser, MainHeaderRole, MainHeaderName, MainHeaderTitle, MainHeaderTitleRole, MainHeaderNextLesson, MainHeaderNextLessonTitle, MainHeaderLessonTitleTime } from './AdminMainContent.style'
 

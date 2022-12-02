@@ -1,12 +1,44 @@
 import User from '../../models/User'
 import Lecture from '../../models/Lecture'
-import { dbConnect, UpdateOneFromMongo, getCollectionFromMongo, findOneFromMongo } from '../../utils/dbMongo'
+import { dbConnect, UpdateOneFromMongo, findAllFromMongo, findOneFromMongo } from '../../utils/dbMongo'
 
 dbConnect();
 
-const getUser = async (filter) => {
+const filterLessons = async (lessonIds) => {
+  // getting array of lessons from database
+  const lessonsDb = await findAllFromMongo(Lecture, { $and: [{ _id: lessonIds }, { status: 'waiting' }] });
+  // format lessons
+  const lessons = lessonsDb.map(lesson => ({
+    id: lesson._id,
+    status: lesson.status,
+    date: lesson.from
+  }));
+
+  let now = new Date().getTime();
+  const filteredLessons = await Promise.all(
+    lessons.filter(async lesson => {
+      const lessonDate = new Date(lesson.to).getTime();
+      if (now > lessonDate) {
+        // update status
+        await UpdateOneFromMongo(Lecture, { _id: lesson.id }, { status: "done" })
+        return false
+      } else return true
+    })
+  )
+
+  return filteredLessons
+}
+
+const getUser = async(filter) => {
   const userDb = await findOneFromMongo(User, filter);
   if (!userDb) return;
+  
+  if (userDb.role === 'admin') return getAdmin(userDb);
+  else return getStudent(userDb);
+}
+
+const getStudent = async (userDb) => {
+  const filteredLessons = await filterLessons(userDb.lectures);
 
   return {
     id: userDb._id,
@@ -14,12 +46,25 @@ const getUser = async (filter) => {
     firstName: userDb.name,
     lastName: userDb.surname,
     legalRepresentative: userDb.userRepresentative !== '',
-    lessons: [],
+    lessons: filteredLessons,
     plan: userDb.plan,
     homeworks: [],
     files: [],
     wordList: userDb.wordList,
     payments: [],
+  }
+}
+
+
+
+const getAdmin = async (userDb) => {
+  return {
+    id: userDb._id,
+    role: userDb.role,
+    firstName: userDb.name,
+    lastName: userDb.surname,
+    students: [],
+    post: [],
   }
 }
 
