@@ -12,6 +12,7 @@ const filterLessons = async (lessonIds, admin) => {
     id: lesson._id,
     status: lesson.status,
     date: lesson.from,
+    // fucking destruktivnost => ...
     ... (admin ? { endDate: lesson.to } : [])
   }));
 
