@@ -2,8 +2,9 @@ import React from 'react'
 import { FaAngleDown } from 'react-icons/fa'
 import { Colors } from '../../utils/Colors'
 import { FontsBold } from '../CommonStyles'
+import AdminStudentContent from './AdminStudentContent'
 
-import { AdminStudentsContainer, AdminUnorderedList, AdminListItem, MainContainer, MainHeaderContainer, MainHeaderUser, MainHeaderRole, MainHeaderName, MainHeaderTitle, MainHeaderTitleRole, MainHeaderNextLesson, MainHeaderNextLessonTitle, MainHeaderLessonTitleTime } from './AdminMainContent.style'
+import { AdminStudentsContainer, MainContainer, MainHeaderContainer, MainHeaderUser, MainHeaderRole, MainHeaderName, MainHeaderTitle, MainHeaderTitleRole, MainHeaderNextLesson, MainHeaderNextLessonTitle, MainHeaderLessonTitleTime } from './AdminMainContent.style'
 
 export default function MainContent( { data } ) {
     const styleArrow = { color: Colors.lightBrown, fontSize: "3em" };
@@ -25,13 +26,9 @@ export default function MainContent( { data } ) {
                 </MainHeaderNextLesson>
             </MainHeaderContainer>
             <AdminStudentsContainer>
-            {data.students.map((students, key) => {
+            {data.students.map((student, key) => {
                   return (
-                    <AdminUnorderedList key={key}>
-                      <AdminListItem>
-                          <Description name={students.firstName + " " + students.lastName} />
-                      </AdminListItem>
-                    </AdminUnorderedList>
+                    <AdminStudentContent student={student} key={key}/>
                   )
                 })
             }

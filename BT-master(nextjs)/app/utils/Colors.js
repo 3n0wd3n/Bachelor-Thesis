@@ -11,4 +11,5 @@ export const Colors = {
   darkGray: '#2F3E46',
   yellow: '#E8D16B',
   beige: '#D3D0CB',
+  creameWhite: '#F9F9F9',
 }

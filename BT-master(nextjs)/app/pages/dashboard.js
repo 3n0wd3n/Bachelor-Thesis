@@ -14,8 +14,6 @@ export default function Home({ data, setData, userData }) {
 
   if (!data) return <></>
 
-  console.log(data)
-
   return (
     <>
       <Head>
