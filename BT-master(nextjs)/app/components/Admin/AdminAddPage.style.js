@@ -31,7 +31,7 @@ export const AddSendButton = styled(AddBackButton)`
     }
 `;
 
-export const AdminFormContainer = styled.form`
+export const AdminFormContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;

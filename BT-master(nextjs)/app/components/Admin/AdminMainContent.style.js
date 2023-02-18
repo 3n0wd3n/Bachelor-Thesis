@@ -100,6 +100,7 @@ export const AdminStudentsContainer = styled(CommonDisplayFlexColumn)`
     display: flex;
     flex-direction: column;
     gap: 6px;
-    min-height: 100vh;
+    height: calc(100vh - 94px - 2em);
     gap: 2em;
+    overflow-y: auto;
 `;

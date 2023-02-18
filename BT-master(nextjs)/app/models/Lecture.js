@@ -3,9 +3,26 @@ const Schema = mongoose.Schema;
 
 const lectureSchema = new Schema(
   {
-    status: {
-      type: String,
-      default: 'waiting',
+    statuses: {
+      type: [
+        {
+          from: Date,
+          to: Date,
+          status: String,
+        }
+      ],
+      default: [],
+    },
+    changes: {
+      type: [
+        {
+          from: Date,
+          to: Date,
+          newFrom: Date,
+          newTo: Date,
+        }
+      ],
+      default: [],
     },
     from: {
       type: String,

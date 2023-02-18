@@ -8,7 +8,9 @@ export const DropDown = styled(CommonDisplayFlexColumn)`
 
 export const StudentContainer = styled(CommonDisplayFlexRow)`
     justify-content: space-between;
-    width: 35vw;
+    min-width: 40vw;
+    transition: 0.7s;
+    width: 100%;
     border-bottom: 1px solid black;
     cursor: pointer;
     `;
@@ -29,9 +31,17 @@ export const MenuItem = styled.span`
     cursor: pointer;
 `;
 
-export const ContentContainer = styled(CommonDisplayFlexColumn)`
+export const ContentContainer = styled(CommonDisplayFlexRow)`
+    position: relative;
+    padding-bottom: 1rem;
     width: 95%;
-    padding: 3em;
+    /* padding: 3em; */
     background-color: ${Colors.creameWhite};
     border-radius: 10px;
+    justify-content: space-between;
+    @media (max-width: 1000px) {
+      /* we write media query into constants */
+      flex-direction: column;
+      align-items: flex-start;
+    }
 `;

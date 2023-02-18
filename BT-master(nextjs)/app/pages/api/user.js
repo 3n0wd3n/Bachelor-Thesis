@@ -113,9 +113,10 @@ export default async function handler(req, res) {
           lectures,
           plan,
         } = body;
-        const legalRepresentative = !!representativeName;
+        const legalRepresentative = representativeName.length > 0;
         let representative;
-        
+        let student;
+
         if (legalRepresentative) {
           representative = await User({
             role: 'representative',
@@ -124,19 +125,25 @@ export default async function handler(req, res) {
             phone: representativePhone,
             password: representativePassword,
           }).save();
+          student = await User({
+            role,
+            name,
+            surname,
+            username,
+            password,
+            plan,
+            legalRepresentative: representative._id
+          }).save();
+        } else {
+          student = await User({
+            role,
+            name,
+            surname,
+            username,
+            password,
+            plan,
+          }).save();
         }
-
-        const student = await User({
-          role,
-          name,
-          surname,
-          username,
-          password,
-          plan,
-          legalRepresentative: representative._id,
-        }).save();
-        
-        let studentTmp = student._id
 
         lectures.forEach(async (lecture) => {
           const lectureDb = await Lecture({
@@ -148,7 +155,7 @@ export default async function handler(req, res) {
           await UpdateOneFromMongo(User, { _id: student._id }, { $push: { lectures: lectureDb._id } })
         });
         // TODO: probrat s Trnečkou
-        await UpdateOneFromMongo(User, { _id: representative._id }, { child: studentTmp })
+        if (legalRepresentative) await UpdateOneFromMongo(User, { _id: representative._id }, { child: student._id })
 
         
         res.status(200).json({ data: 'updated data' });

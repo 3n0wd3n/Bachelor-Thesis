@@ -42,18 +42,16 @@ export default function AddPage({setAddPage}) {
     const name = studentNameRef.current.value;
     const surname = studentSurnameRef.current.value;
     const username = studentUsernameRef.current.value;
-    const plan = studentPlanRef.current.value;
+    const plan = studentPlanRef.current.value.split(',');
     const password = studentPassword;
-    let representativeName = " ";
-    let representativeSurname = " ";
-    let representativePhone = " ";
+    let representativeName = "";
+    let representativeSurname = "";
+    let representativePhone = "";
     if (isRepresentative) {
       representativeName = representativeNameRef.current.value;
       representativeSurname = representativeSurnameRef.current.value;
       representativePhone = representativePhoneRef.current.value;
-      console.log(representativeName)
     }
-    console.log(representativeName)
 
     // if (name.length > 0) return;
 
