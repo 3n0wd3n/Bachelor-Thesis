@@ -9,8 +9,6 @@ import ControlPanel from './StudentControlPanel'
 import { useState } from 'react'
 import { StudentContainer } from './Student.style'
 
-
-
 export default function Student({ data, setData }) {
   const [openApologize, setOpenApologize] = useState(false);
   const [openLogoutPage, setLogoutPage] = useState(false);

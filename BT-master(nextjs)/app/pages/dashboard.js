@@ -8,7 +8,10 @@ export { getServerSideProps } from '../components/getDataFromCookies'
 
 export default function Home({ data, setData, userData }) {
   React.useEffect(() => {
-    if (userData) setData(userData)
+    if (userData) {
+      if (data) setData(data)
+      else setData(userData)
+    }
     if (!data) Router.push('/');
   }, [userData, data])
 

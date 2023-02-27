@@ -5,14 +5,14 @@ import { StudentContainer, DropDown, MenuItems, MenuItem, ContentContainer } fro
 import { FontsThin } from '../CommonStyles'
 import FilesContent from './ContentOfStudent/FilesContent'
 
-export default function AdminStudentContent({ student }) {
+export default function AdminStudentContent({ student, setData }) {
     const [state, setState] = React.useState(false);
     const styleAngleDown = { color: Colors.lightGreen, fontSize: "2.3em", transform: `rotate(${state ? 180 : 0}deg)` };
     const menuItems = React.useMemo(() =>
       [
         {
           title: 'info/edit',
-          component: <FilesContent student={student} />
+          component: <FilesContent setData={setData} student={student} />
         },
         {
           title: 'files',

@@ -31,7 +31,7 @@ const filterLessons = async (lessonIds, admin) => {
   return filteredLessons
 }
 
-const getUser = async(filter) => {
+export const getUser = async(filter) => {
   const userDb = await findOneFromMongo(User, filter);
   if (!userDb) return;
   
@@ -89,11 +89,8 @@ export default async function handler(req, res) {
 
       let user;
       // find user in collection if exists
-      if (userNumber){
-        user = await getUser({ phone: userNumber, password: userPassword });
-      }else{
-        user = await getUser({ username: userName, password: userPassword });
-      }
+      if (userNumber) user = await getUser({ phone: userNumber, password: userPassword })
+      else user = await getUser({ username: userName, password: userPassword })
 
       // return null or object to login
       res.status(200).json( user );

@@ -22,6 +22,20 @@ export const StudentInfoContainerTwo = styled(CommonDisplayFlexColumn)`
 `;
 
 export const StudentAttributes = styled.div`
+    
+`;
+
+export const PlanAttributes = styled.div`
+    position: relative;
+    background-color: white;
+    border: 1px solid ${Colors.darkGray};
+    border-radius: 12px;
+    display: flex;
+    padding: 4px 15px 4px 6px;
+
+    input {
+        width: fit-content;
+    }
 `;
 
 export const StudentKeyAttribute = styled.span`
@@ -48,10 +62,19 @@ export const StudentPlanContent = styled(CommonDisplayFlexRow)`
 `;
 
 export const StudentPlanValues = styled(CommonDisplayFlexRow)`
+    flex-direction: column;
     align-items: flex-start;
 `;
 
-export const StudentEditContainer = styled.button`
+export const StudentPlansValues = styled(CommonDisplayFlexRow)`
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 4px;
+`;
+
+export const StudentEditContainer = styled.div`
     display: flex;
     position: absolute;
     bottom: 4px;
@@ -76,4 +99,30 @@ export const StudentKeyInputAttribute = styled.input`
 
 export const StudentCheckInputAttribute = styled(StudentEditContainer)`
     right: 28px;
+`;
+
+export const StudentEditAttributes = styled.div`
+    position: relative;
+    font-size: 0.6rem;
+    cursor: pointer;
+    transition: 0.7s;
+    & > svg {
+        background: ${Colors.creameWhite};
+        color: ${Colors.lightGreen};
+        font-size: 3em
+    }
+
+    &:hover {
+        filter: opacity(.6)
+    }
+`;
+
+export const StudentRemoveAttributes = styled(StudentEditAttributes)`
+    & > svg {
+        position: absolute;
+        color: ${Colors.red};
+        right: -9px;
+        top: 0;
+        font-size: 1.5em;
+    }
 `;

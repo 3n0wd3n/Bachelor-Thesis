@@ -32,8 +32,8 @@ export default function Admin( { data, setData } ) {
       :
       <>
       <AdminContainer>
-        <SidePanel setLogoutPage={setLogoutPage} setPostPage={setPostPage} setAddPage={setAddPage}></SidePanel>
-        <MainContent data={data}></MainContent>
+        <SidePanel setLogoutPage={setLogoutPage} setPostPage={setPostPage} setAddPage={setAddPage} />
+        <MainContent data={data} setData={setData} />
       </AdminContainer>
       <Footer />
       </>

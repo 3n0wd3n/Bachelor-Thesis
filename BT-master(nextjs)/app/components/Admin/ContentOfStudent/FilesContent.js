@@ -1,9 +1,11 @@
 import React from 'react'
 import moment from 'moment'
-import { FaRegEdit,FaCheck } from 'react-icons/fa'
+import { FaRegEdit, FaCheck, FaPlusCircle, FaMinusCircle } from 'react-icons/fa'
 import { Colors } from '../../../utils/Colors'
+import axios from 'axios'
+import { getCookie } from 'cookies-next';
 
-import { StudentCheckInputAttribute, StudentKeyInputAttribute, StudentEditContainer, StudentPlanContent, StudentPlanValues,StudentInfoContainerOne, StudentInfoContainerTwo, StudentAttributes, StudentKeyAttribute, StudentValueAttribute } from './FilesContent.style'
+import { StudentPlansValues, PlanAttributes, StudentRemoveAttributes, StudentEditAttributes, StudentCheckInputAttribute, StudentKeyInputAttribute, StudentEditContainer, StudentPlanContent, StudentPlanValues, StudentInfoContainerOne, StudentInfoContainerTwo, StudentAttributes, StudentKeyAttribute, StudentValueAttribute } from './FilesContent.style'
 
 const constructWeek = (lessons) => {
     const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
@@ -20,13 +22,54 @@ const constructWeek = (lessons) => {
     return Object.entries(week).reverse()
 }
 
-export default function FilesContent({ student }) {
+const arrayEquals = (a, b) => {
+    return Array.isArray(a) &&
+        Array.isArray(b) &&
+        a.length === b.length &&
+        a.every((val, index) => val === b[index]);
+}
+
+export default function FilesContent({ student, setData }) {
     const lessons = React.useMemo(() => constructWeek(student.lessons), [student])
     const [edit, setEdit] = React.useState(false)
+    const [plan, setPlan] = React.useState(student.plan)
     const nameRef = React.useRef(null)
     const surnameRef = React.useRef(null)
+    const planRef = React.useRef([])
 
+    const addArrayAttribute = () =>{
+        setPlan(prevPlan => [...prevPlan, 'set plan...'])
+    }
 
+    const removeArrayAttribute = (index) =>{
+        // setPlan(prevPlan => prevPlan.splice(index, 1))
+    }
+
+    const changeInfo = async () => {
+        const changedName = nameRef.current.value
+        const changedSurname = surnameRef.current.value
+        const id = getCookie('userCookie')
+        const studentId = student.id
+        const plan = planRef.current.map(el => el.value)
+
+        if (changedName === student.firstName && changedSurname === student.lastName && arrayEquals(plan, student.plan)) return
+
+        await axios('http://localhost:3000/api/user.change', {
+            method: 'POST',
+            data: {
+                id,
+                studentId,
+                changedName,
+                changedSurname,
+                plan
+            }
+        })
+            .then(({ data }) => {
+                if (data) setData(data)
+                else alert('Change failed.')
+            })
+            .finally(() => setEdit(false))
+    }
 
     return (
         <>
@@ -45,11 +88,19 @@ export default function FilesContent({ student }) {
                 </StudentAttributes>
                 <StudentPlanValues>
                     <StudentKeyAttribute>plan: </StudentKeyAttribute>
-                    {student.plan.map((value, key) =>
-                        <StudentAttributes key={key}>
-                            <StudentValueAttribute>{value}</StudentValueAttribute>
-                        </StudentAttributes>
-                    )}
+                    <StudentPlansValues>
+                        {plan.map((value, key) =>
+                            <PlanAttributes key={key}>
+                                <StudentKeyInputAttribute ref={el => planRef.current[key] = el} defaultValue={value} disabled={!edit} readOnly={!edit} editable={edit} />
+                                <StudentRemoveAttributes onClick={() => removeArrayAttribute(key)}>
+                                    <FaMinusCircle />
+                                </StudentRemoveAttributes>
+                            </PlanAttributes>
+                        )}
+                        <StudentEditAttributes onClick={() => addArrayAttribute()}>
+                            <FaPlusCircle/>
+                        </StudentEditAttributes>
+                    </ StudentPlansValues>
                 </StudentPlanValues>
             </StudentInfoContainerOne>
             <StudentInfoContainerTwo>
@@ -57,7 +108,7 @@ export default function FilesContent({ student }) {
                     <div key={key}>
                         <StudentValueAttribute>{lesson[0]}</StudentValueAttribute>
                         {lesson[1].map((day, key) =>
-                            <StudentPlanContent>
+                            <StudentPlanContent key={key}>
                                 <StudentKeyAttribute>from: </StudentKeyAttribute><StudentValueAttribute>{`${moment(day.date).format('HH:mm')}`}</StudentValueAttribute>
                                 <StudentKeyAttribute>to: </StudentKeyAttribute><StudentValueAttribute>{`${moment(day.endDate).format('HH:mm')}`}</StudentValueAttribute>
                             </StudentPlanContent>
@@ -65,10 +116,14 @@ export default function FilesContent({ student }) {
                     </div>
                 )}
             </StudentInfoContainerTwo>
-            <StudentEditContainer onClick={() => setEdit(prevState => !prevState)}><FaRegEdit></FaRegEdit></StudentEditContainer>
+            <StudentEditContainer onClick={() => setEdit(prevState => !prevState)}>
+                <FaRegEdit />
+            </StudentEditContainer>
             {
-            edit &&
-                <StudentCheckInputAttribute><FaCheck></FaCheck></StudentCheckInputAttribute>
+                edit &&
+                <StudentCheckInputAttribute onClick={() => changeInfo()}>
+                    <FaCheck />
+                </StudentCheckInputAttribute>
             }
         </>
     )

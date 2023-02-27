@@ -6,14 +6,13 @@ import AdminStudentContent from './AdminStudentContent'
 
 import { AdminStudentsContainer, MainContainer, MainHeaderContainer, MainHeaderUser, MainHeaderRole, MainHeaderName, MainHeaderTitle, MainHeaderTitleRole, MainHeaderNextLesson, MainHeaderNextLessonTitle, MainHeaderLessonTitleTime } from './AdminMainContent.style'
 
-export default function MainContent({ data }) {
+export default function MainContent({ data, setData}) {
     const styleArrow = { color: Colors.lightBrown, fontSize: "3em" };
     const Description = ({ name }) => {
         return <FontsBold>{name}</FontsBold>
     }
 
     return (
-        // <FaAngleDown style={styleArrow} />
         <MainContainer>
             <MainHeaderContainer>
                 <MainHeaderUser>
@@ -28,7 +27,7 @@ export default function MainContent({ data }) {
             <AdminStudentsContainer>
                 {data.students.map((student, key) => {
                     return (
-                        <AdminStudentContent student={student} key={key} />
+                        <AdminStudentContent student={student} key={key} setData={setData}/>
                     )
                 })
                 }
