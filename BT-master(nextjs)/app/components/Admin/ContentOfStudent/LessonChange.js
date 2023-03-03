@@ -1,6 +1,8 @@
 import React from 'react'
-import { WrapperStyled, DayStyled } from './LessonChange.style'
+import { WrapperStyled, DayStyled, LessonStyled } from './LessonChange.style'
 import { constructWeek } from './FilesContent';
+
+const week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
 const generateNextLessons = (lessons, weeks) => {
   function addDays(date, days) {
@@ -10,7 +12,6 @@ const generateNextLessons = (lessons, weeks) => {
   }
 
   const nextLessons = []
-  // for (let i = 0; i < weeks; i++) {
   let i = 0
   while (nextLessons.length < weeks) {
     const weekLessons = []
@@ -18,39 +19,39 @@ const generateNextLessons = (lessons, weeks) => {
     lessons.map(lesson => {
       const newDate = addDays(lesson.date, (i + 1) * 7)
       const newEndDate = addDays(lesson.endDate, (i + 1) * 7)
+      const dayIndex = newDate.getDay() === 0 ? days.length - 1 : newDate.getDay() - 1
 
       if (newDate.getTime() < new Date().getTime()) return
-      weekLessons.push({ id: lesson.id, date: newDate, endDate: newEndDate })
+      weekLessons.push([dayIndex, { id: lesson.id, date: newDate, endDate: newEndDate }])
     })
 
     if (weekLessons.length) nextLessons.push(weekLessons)
     i++
   }
 
-  return nextLessons
+  const formatedNextLessons = []
+
+  nextLessons.map(week => {
+    week.map(nextLesson => {
+      const dayIndex = nextLesson[1].date.getDay() === 0 ? days.length - 1 : nextLesson[1].date.getDay() - 1
+
+      console.log(dayIndex)
+    })
+  })
+
+  return formatedNextLessons
 }
 
 export default function LessonChange({ student }) {
-  const week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
   const [nextWeeks, setNextWeeks] = React.useState(5)
-  const nextLessons = React.useMemo(() => generateNextLessons(student.lessons, nextWeeks).map(lesson => constructWeek(lesson)), [nextWeeks])
+  const nextLessons = React.useMemo(() => generateNextLessons(student.lessons, nextWeeks), [nextWeeks])
+  console.log(nextLessons)
 
   return (
     <WrapperStyled>
       {week.map((day, key) =>
         <DayStyled key={key}>{day}</DayStyled>
       )}
-
-      {/* {nextLessons.map((nextWeek, key) => {
-        return nextWeek.map((nextLesson, lessonKey) => {
-          return week.map((day, weekKey) => {
-            const lesson = nextLesson[1][0];
-            console.log(nextLesson[0], day, nextLesson[0] === day ? nextLesson[1][0] : 'nothing')
-            // return nextLesson[0] === day ? <DayStyled key={weekKey}>{nextLesson[1][0].date}</DayStyled> : <>Nothing</>
-            return nextLesson[0] === day ? <span key={weekKey}>Found</span> : <span key={weekKey}>Nothing</span>
-          })
-        })
-      })} */}
     </WrapperStyled>
   )
 }

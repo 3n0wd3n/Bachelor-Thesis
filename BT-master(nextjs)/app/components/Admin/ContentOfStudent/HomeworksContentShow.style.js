@@ -5,11 +5,6 @@ import { Colors } from '../../../utils/Colors'
 export const HomeworksContentShowMainContainer = styled(CommonDisplayFlexColumn)`
     width: 100%;
     align-items: flex-end;
-    & > svg {
-        color: ${Colors.lightGreen};
-        font-size: 1.5em;
-        cursor: pointer;
-    }
 `;
 
 export const HomeworksContentShowContainer = styled(CommonDisplayFlexRow)`
@@ -34,4 +29,12 @@ export const HomeworksContentShowContentItem = styled.span`
     font-size: .9rem;
     font-weight: 400;
     margin: 0 .5em 0 0;
+`;
+
+export const HomeworksContentShowContentEditContainer = styled.div`
+    & > svg {
+            color: ${Colors.lightGreen};
+            font-size: 1.5em;
+            cursor: pointer;
+        }
 `;

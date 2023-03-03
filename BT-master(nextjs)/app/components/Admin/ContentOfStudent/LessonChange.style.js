@@ -12,3 +12,7 @@ export const DayStyled = styled.span`
   font-weight: bold;
   text-align: center;
 `;
+
+export const LessonStyled = styled.span`
+  text-align: center;
+`;
