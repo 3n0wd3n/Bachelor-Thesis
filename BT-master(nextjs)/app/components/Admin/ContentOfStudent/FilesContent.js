@@ -7,7 +7,7 @@ import { getCookie } from 'cookies-next';
 
 import { StudentPlansValues, PlanAttributes, StudentRemoveAttributes, StudentEditAttributes, StudentCheckInputAttribute, StudentKeyInputAttribute, StudentEditContainer, StudentPlanContent, StudentPlanValues, StudentInfoContainerOne, StudentInfoContainerTwo, StudentAttributes, StudentKeyAttribute, StudentValueAttribute } from './FilesContent.style'
 
-const constructWeek = (lessons) => {
+export const constructWeek = (lessons) => {
     const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
     const week = {}
 
@@ -22,6 +22,8 @@ const constructWeek = (lessons) => {
     return Object.entries(week).reverse()
 }
 
+const randomStringGen = () => (Math.random() + 1).toString(36).substring(7)
+
 const arrayEquals = (a, b) => {
     return Array.isArray(a) &&
         Array.isArray(b) &&
@@ -32,27 +34,46 @@ const arrayEquals = (a, b) => {
 export default function FilesContent({ student, setData }) {
     const lessons = React.useMemo(() => constructWeek(student.lessons), [student])
     const [edit, setEdit] = React.useState(false)
-    const [plan, setPlan] = React.useState(student.plan)
+    const [plan, setPlan] = React.useState(student.plan.map(plan => ({ value: plan, key: randomStringGen() })))
     const nameRef = React.useRef(null)
     const surnameRef = React.useRef(null)
-    const planRef = React.useRef([])
 
-    const addArrayAttribute = () =>{
-        setPlan(prevPlan => [...prevPlan, 'set plan...'])
+    const addArrayAttribute = () => {
+        setPlan(prevPlan => [...prevPlan, { value: 'set plan...', key: randomStringGen() }])
     }
 
-    const removeArrayAttribute = (index) =>{
-        // setPlan(prevPlan => prevPlan.splice(index, 1))
+    // [
+    //     {
+    //         value: 'plan1',
+    //         key: 'randomString'
+    //     },
+    //     {
+    //         value: 'plan2',
+    //         key: 'randomString'
+    //     }
+    // ]
+
+    const editArrayAttribute = (key, value) => {
+        setPlan(prevPlan => {
+            const index = prevPlan.findIndex(planValue => planValue.key === key)
+            prevPlan[index].value = value
+            return prevPlan
+        })
     }
+
+    const removeArrayAttribute = (key) => {
+        setPlan(prevPlan => prevPlan.filter(planValue => planValue.key !== key))
+    }
+
 
     const changeInfo = async () => {
         const changedName = nameRef.current.value
         const changedSurname = surnameRef.current.value
         const id = getCookie('userCookie')
         const studentId = student.id
-        const plan = planRef.current.map(el => el.value)
+        const valuePlan = plan.map(plan => plan.value)
 
-        if (changedName === student.firstName && changedSurname === student.lastName && arrayEquals(plan, student.plan)) return
+        if (changedName === student.firstName && changedSurname === student.lastName && arrayEquals(valuePlan, student.plan)) return
 
         await axios('http://localhost:3000/api/user.change', {
             method: 'POST',
@@ -61,7 +82,7 @@ export default function FilesContent({ student, setData }) {
                 studentId,
                 changedName,
                 changedSurname,
-                plan
+                plan: valuePlan
             }
         })
             .then(({ data }) => {
@@ -83,22 +104,28 @@ export default function FilesContent({ student, setData }) {
                     <StudentKeyInputAttribute ref={surnameRef} defaultValue={student.lastName} disabled={!edit} readOnly={!edit} editable={edit} />
                 </StudentAttributes>
                 <StudentAttributes>
-                    <StudentKeyAttribute>total count of lessons: </StudentKeyAttribute>
+                    <StudentKeyAttribute>count of lessons: </StudentKeyAttribute>
                     <StudentValueAttribute>{student.lessons.length}</StudentValueAttribute>
                 </StudentAttributes>
                 <StudentPlanValues>
                     <StudentKeyAttribute>plan: </StudentKeyAttribute>
                     <StudentPlansValues>
-                        {plan.map((value, key) =>
-                            <PlanAttributes key={key}>
-                                <StudentKeyInputAttribute ref={el => planRef.current[key] = el} defaultValue={value} disabled={!edit} readOnly={!edit} editable={edit} />
-                                <StudentRemoveAttributes onClick={() => removeArrayAttribute(key)}>
-                                    <FaMinusCircle />
+                        {plan.map((value, key) => 
+                            <PlanAttributes key={value.key}>
+                                <StudentKeyInputAttribute onChange={({ target}) => editArrayAttribute(value.key, target.value)} defaultValue={value.value} disabled={!edit} readOnly={!edit} editable={edit} />
+                                <StudentRemoveAttributes onClick={() => removeArrayAttribute(value.key)}>
+                                    {
+                                        edit &&
+                                        <FaMinusCircle />
+                                    }
                                 </StudentRemoveAttributes>
                             </PlanAttributes>
                         )}
                         <StudentEditAttributes onClick={() => addArrayAttribute()}>
-                            <FaPlusCircle/>
+                            {
+                                edit &&
+                                <FaPlusCircle/>
+                            }
                         </StudentEditAttributes>
                     </ StudentPlansValues>
                 </StudentPlanValues>

@@ -15,8 +15,9 @@ export default function Home({ data, setData, userData }) {
     if (!data) Router.push('/');
   }, [userData, data])
 
+  
   if (!data) return <></>
-
+  
   return (
     <>
       <Head>
@@ -25,14 +26,8 @@ export default function Home({ data, setData, userData }) {
       </Head>
 
       {data.role === 'admin'
-        ?
-          <Admin data={data} setData={setData} />
-        :
-        data.role === 'student'
-        ?
-          <Student data={data} setData={setData} />
-        :
-          <></>
+        ? <Admin data={data} setData={setData} />
+        : <Student data={data} setData={setData} />
       }
     </>
   )

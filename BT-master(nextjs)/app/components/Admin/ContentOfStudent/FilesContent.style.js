@@ -109,7 +109,7 @@ export const StudentEditAttributes = styled.div`
     & > svg {
         background: ${Colors.creameWhite};
         color: ${Colors.lightGreen};
-        font-size: 3em
+        font-size: 1.5em
     }
 
     &:hover {

@@ -4,6 +4,8 @@ import { FaAngleDown } from 'react-icons/fa'
 import { StudentContainer, DropDown, MenuItems, MenuItem, ContentContainer } from './AdminStudentContent.style'
 import { FontsThin } from '../CommonStyles'
 import FilesContent from './ContentOfStudent/FilesContent'
+import HomeworksContent from './ContentOfStudent/HomeworksContent'
+import LessonChange from './ContentOfStudent/LessonChange'
 
 export default function AdminStudentContent({ student, setData }) {
     const [state, setState] = React.useState(false);
@@ -15,12 +17,16 @@ export default function AdminStudentContent({ student, setData }) {
           component: <FilesContent setData={setData} student={student} />
         },
         {
+          title: 'lessons change',
+          component: <LessonChange student={student} />
+        },
+        {
           title: 'files',
           component: <>b</>
         },
         {
           title: 'homeworks',
-          component: <>c</>
+          component: <HomeworksContent student={student} />
         },
         {
           title: 'lesson summary',

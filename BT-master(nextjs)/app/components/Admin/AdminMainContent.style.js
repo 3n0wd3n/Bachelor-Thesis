@@ -103,4 +103,5 @@ export const AdminStudentsContainer = styled(CommonDisplayFlexColumn)`
     height: calc(100vh - 94px - 2em);
     gap: 2em;
     overflow-y: auto;
+    width: 80%;
 `;
