@@ -48,7 +48,7 @@ export default function MainContent({ data }) {
                   return (
                     <StudentUnorderedList key={key}>
                       <StudentListItem>
-                          <Description name={homework.description} /><input type="checkbox"></input>
+                          <Description name={homework} /><input type="checkbox"></input>
                       </StudentListItem>
                     </StudentUnorderedList>
                   )

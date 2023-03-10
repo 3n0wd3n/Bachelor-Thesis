@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaSurprise, FaRegEdit } from 'react-icons/fa'
+import { FaSurprise } from 'react-icons/fa'
 import { HomeworksContentContainer,HomeworksContentMainContainer,HomeworksContentEmptyPhrase } from './HomeworksContentEmpty.style'
 
 export default function HomeworksContentEmpty() {
@@ -9,7 +9,6 @@ export default function HomeworksContentEmpty() {
             <HomeworksContentEmptyPhrase>You have not written any homework yes !</HomeworksContentEmptyPhrase>
             <FaSurprise/>
         </HomeworksContentContainer>
-        <FaRegEdit/>
     </HomeworksContentMainContainer>
   )
 }

@@ -39,6 +39,14 @@ export const getUser = async(filter) => {
   else return getStudent(userDb);
 }
 
+const createUser = (data) => {
+  return User(data).save()
+}
+
+const createLecture = (data) => {
+  return Lecture(data).save()
+}
+
 const getStudent = async (userDb, admin=false) => {
   const filteredLessons = await filterLessons(userDb.lectures, admin);
 
@@ -115,14 +123,14 @@ export default async function handler(req, res) {
         let student;
 
         if (legalRepresentative) {
-          representative = await User({
+          representative = await createUser({
             role: 'representative',
             name: representativeName,
             surname: representativeSurname,
             phone: representativePhone,
             password: representativePassword,
-          }).save();
-          student = await User({
+          });
+          student = await createUser({
             role,
             name,
             surname,
@@ -130,24 +138,24 @@ export default async function handler(req, res) {
             password,
             plan,
             legalRepresentative: representative._id
-          }).save();
+          });
         } else {
-          student = await User({
+          student = await createUser({
             role,
             name,
             surname,
             username,
             password,
             plan,
-          }).save();
+          });
         }
 
         lectures.forEach(async (lecture) => {
-          const lectureDb = await Lecture({
+          const lectureDb = await createLecture({
             from: lecture.from,
             to: lecture.to,
             studentId: student._id,
-          }).save();
+          });
 
           await UpdateOneFromMongo(User, { _id: student._id }, { $push: { lectures: lectureDb._id } })
         });

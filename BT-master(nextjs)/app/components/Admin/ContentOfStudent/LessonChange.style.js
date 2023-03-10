@@ -15,4 +15,10 @@ export const DayStyled = styled.span`
 
 export const LessonStyled = styled.span`
   text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+
+  &:hover {
+    color: ${Colors.yellow}
+  }
 `;

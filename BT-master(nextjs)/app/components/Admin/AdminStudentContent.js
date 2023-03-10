@@ -26,7 +26,7 @@ export default function AdminStudentContent({ student, setData }) {
         },
         {
           title: 'homeworks',
-          component: <HomeworksContent student={student} />
+          component: <HomeworksContent student={student} setData={setData} />
         },
         {
           title: 'lesson summary',

@@ -4,7 +4,7 @@ import { Colors } from '../../../utils/Colors'
 
 // ``;
 
-export const HomeworksContentAddForm = styled.form`
+export const HomeworksContentAddForm = styled.div`
     display: flex;
     margin: 1em 0 0 0;
     justify-content: center;
