@@ -4,6 +4,7 @@ import { FontsHeaderBold, FontsThin, FontsBold, CommonDisplayFlexColumn, CommonD
 
 export const DropDown = styled(CommonDisplayFlexColumn)`
     width: 100%;
+    heigth:100%;
 `;
 
 export const StudentContainer = styled(CommonDisplayFlexRow)`

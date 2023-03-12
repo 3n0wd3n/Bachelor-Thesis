@@ -97,11 +97,10 @@ export const AdminUnorderedList = styled.ul`
 `;
 
 export const AdminStudentsContainer = styled(CommonDisplayFlexColumn)`
-    display: flex;
-    flex-direction: column;
+    margin: 2em 0 0 0;
     gap: 6px;
-    height: calc(100vh - 94px - 2em);
+    // height: calc(100vh - 94px - 2em);
+    min-height: 100vh;
     gap: 2em;
-    overflow-y: auto;
     width: 80%;
 `;

@@ -1,12 +1,27 @@
 import User from '../../models/User'
 import Lecture from '../../models/Lecture'
+import Homeworks from '../../models/Homeworks'
 import { dbConnect, UpdateOneFromMongo, findAllFromMongo, findOneFromMongo } from '../../utils/dbMongo'
 
 dbConnect();
 
+const filterHomeworks = async(userDb, homeworkIds, admin) => {
+  const homeworksDb = await findAllFromMongo(Homeworks, { _id: homeworkIds });
+  console.log("Homeworks", homeworksDb)
+  const homeworks = homeworksDb.map(homework => ({
+    id: homework._id,
+    title: homework.title,
+    description: homework.description,
+
+  }));
+  // return userDb.homeworks
+  return homeworks
+}
+
 const filterLessons = async (lessonIds, admin) => {
   // getting array of lessons from database
   const lessonsDb = await findAllFromMongo(Lecture, { $and: [{ _id: lessonIds }, { status: 'waiting' }] });
+  console.log("Lessons", lessonsDb)
   // format lessons
   const lessons = lessonsDb.map(lesson => ({
     id: lesson._id,
@@ -49,6 +64,7 @@ const createLecture = (data) => {
 
 const getStudent = async (userDb, admin=false) => {
   const filteredLessons = await filterLessons(userDb.lectures, admin);
+  const filteredHomeworks = await filterHomeworks(userDb, userDb.homeworks, admin);
 
   return {
     id: userDb._id,
@@ -58,7 +74,8 @@ const getStudent = async (userDb, admin=false) => {
     legalRepresentative: userDb.legalRepresentative !== '',
     lessons: filteredLessons,
     plan: userDb.plan,
-    homeworks: userDb.homeworks,
+    // homeworks: userDb.homeworks,
+    homeworks: filteredHomeworks,
     files: [],
     wordList: userDb.wordList,
     payments: [],

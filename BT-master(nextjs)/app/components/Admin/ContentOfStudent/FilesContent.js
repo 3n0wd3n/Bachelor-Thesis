@@ -1,7 +1,6 @@
 import React from 'react'
 import moment from 'moment'
 import { FaRegEdit, FaCheck, FaPlusCircle, FaMinusCircle } from 'react-icons/fa'
-import { Colors } from '../../../utils/Colors'
 import axios from 'axios'
 import { getCookie } from 'cookies-next';
 
@@ -136,6 +135,7 @@ export default function FilesContent({ student, setData }) {
                         <StudentValueAttribute>{lesson[0]}</StudentValueAttribute>
                         {lesson[1].map((day, key) =>
                             <StudentPlanContent key={key}>
+                                {console.log(student.lessons, lesson, day)}
                                 <StudentKeyAttribute>from: </StudentKeyAttribute><StudentValueAttribute>{`${moment(day.date).format('HH:mm')}`}</StudentValueAttribute>
                                 <StudentKeyAttribute>to: </StudentKeyAttribute><StudentValueAttribute>{`${moment(day.endDate).format('HH:mm')}`}</StudentValueAttribute>
                             </StudentPlanContent>

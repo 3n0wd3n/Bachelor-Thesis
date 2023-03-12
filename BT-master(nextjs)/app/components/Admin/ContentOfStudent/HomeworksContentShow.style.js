@@ -5,16 +5,18 @@ import { Colors } from '../../../utils/Colors'
 export const HomeworksContentShowMainContainer = styled(CommonDisplayFlexColumn)`
     width: 100%;
     align-items: flex-end;
+    margin: 1em 0em 0em 1em;
 `;
 
 export const HomeworksContentShowContainer = styled(CommonDisplayFlexRow)`
     width: 100%;
     justify-content: flex-start;
-    margin: 0em 0em 0em 1em;
+    margin: 0em 0em 1em 0em;
     & > svg {
         color: ${Colors.red};
         font-size: 1em;
         cursor: pointer;
+        margin: 0em 0em 0em 1em;
     }
 `;
 

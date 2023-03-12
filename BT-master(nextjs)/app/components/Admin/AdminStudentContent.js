@@ -45,22 +45,22 @@ export default function AdminStudentContent({ student, setData }) {
                 <FaAngleDown style={styleAngleDown}></FaAngleDown>
             </StudentContainer>
             {
-                state
-                &&
-                <DropDown>
-                    <MenuItems>
-                        {menuItems.map((menuItem, key) =>
-                            <MenuItem
-                              key={key}
-                              selected={menuItem.title === selectedMenu.title}
-                              onClick={() => setSelectedMenu(menuItem)}>{menuItem.title}
-                            </MenuItem>
-                        )}
-                    </MenuItems>
-                    <ContentContainer>
-                      {selectedMenu.component}
-                    </ContentContainer>
-                </DropDown>
+              state
+              &&
+              <DropDown>
+                  <MenuItems>
+                      {menuItems.map((menuItem, key) =>
+                          <MenuItem
+                            key={key}
+                            selected={menuItem.title === selectedMenu.title}
+                            onClick={() => setSelectedMenu(menuItem)}>{menuItem.title}
+                          </MenuItem>
+                      )}
+                  </MenuItems>
+                  <ContentContainer>
+                    {selectedMenu.component}
+                  </ContentContainer>
+              </DropDown>
             }
         </>
     )
