@@ -19,6 +19,15 @@ export const findOneFromMongo = async (collection, filter) => {
   });
 };
 
+export const deleteOneFromMongo = async (collection, id) => {
+  return await new Promise((resolve) => {
+    collection.deleteOne(id, (err, result) => {
+      if (err) throw err;
+      resolve(true);
+    });
+  });
+};
+
 export const UpdateOneFromMongo = async (collection, filter, update) => {
   return await new Promise((resolve) => {
     collection.updateOne(filter, update, (err, data) => {
@@ -48,3 +57,5 @@ export const getCollectionFromMongo = async (collection) => {
     });
   });
 };
+
+

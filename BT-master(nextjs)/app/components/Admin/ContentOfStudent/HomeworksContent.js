@@ -22,11 +22,6 @@ export default function HomeworksContent({ student, setData }) {
                 homeworkId,
             }
         })
-        .then(({ data }) => {
-            console.log("Data:", data)
-            if (data) setData(data)
-            else alert('Deleting failed.')
-        })
     }
 
     return (

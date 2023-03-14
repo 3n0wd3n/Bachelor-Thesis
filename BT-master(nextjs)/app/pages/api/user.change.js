@@ -1,12 +1,16 @@
 import User from '../../models/User'
 import Homeworks from '../../models/Homeworks'
 import { getUser } from './user'
-import { dbConnect, UpdateOneFromMongo, findAllFromMongo, findOneFromMongo } from '../../utils/dbMongo'
+import { dbConnect, UpdateOneFromMongo, findAllFromMongo, findOneFromMongo, deleteOneFromMongo } from '../../utils/dbMongo'
 
 dbConnect();
 
 const updateInfoInUser = async (filter, data) => {
   return await UpdateOneFromMongo(User, filter, data)
+}
+
+const deleteHomework = async (id) => {
+  return await deleteOneFromMongo(Homeworks, id)
 }
 
 const createHomework = async (data) => {
@@ -30,6 +34,7 @@ export default async function handler(req, res) {
         console.log(body)
 
         await updateInfoInUser({ _id: studentId }, { $pull: { homeworks: homeworkId } })
+        await deleteHomework({ _id: homeworkId })
         const userData = await getUser({ _id: adminId })
         res.status(200).json( userData );
       } catch {

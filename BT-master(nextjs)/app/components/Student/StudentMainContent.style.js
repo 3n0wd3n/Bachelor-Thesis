@@ -110,6 +110,15 @@ export const StudentListItem = styled.li`
     align-items: center;
     justify-content: center;
     flex-direction: row;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    > input{
+        cursor: pointer;
+        margin: 0 0 0 1em;
+    }
+    > p+p {
+        font-weight: 400;
+    }
 `;
 
 export const StudentUnorderedList = styled.ul`
