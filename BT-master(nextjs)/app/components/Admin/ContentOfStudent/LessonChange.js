@@ -1,6 +1,6 @@
 import React from 'react'
 import moment from 'moment'
-import { WrapperStyled, CalendarContentWrapperStyled, DatesWrapperStyled, SaveButton, GoBackButton, LessonTimeWrapper, WeekWrapperStyled, WeekInputStyled, WeekPlaceholderStyled, CalendarWrapperStyled, DayStyled, LessonStyled } from './LessonChange.style'
+import { WrapperStyled, DateStyled, CalendarContentWrapperStyled, DatesWrapperStyled, SaveButton, GoBackButton, LessonTimeWrapper, WeekWrapperStyled, WeekInputStyled, WeekPlaceholderStyled, CalendarWrapperStyled, DayStyled, LessonStyled } from './LessonChange.style'
 import { AdminLessonTimeInput } from '../AdminAddPage.style'
 import { constructWeek } from './FilesContent';
 
@@ -113,8 +113,9 @@ export default function LessonChange({ student }) {
 
       <CalendarContentWrapperStyled>
         <DatesWrapperStyled>
+          <DayStyled>Dates</DayStyled>
           {dates.map((date, key) =>
-            <DayStyled key={key}>{moment(date).format('YYYY-MM-DD')}</DayStyled>
+            <DateStyled key={key}>{`${moment(date).format('DD.M.')} - ${moment(addDays(date, 6)).format('DD.M.')}`}</DateStyled>
           )}
         </DatesWrapperStyled>
         <CalendarWrapperStyled>

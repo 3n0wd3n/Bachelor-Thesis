@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaSurprise } from 'react-icons/fa'
-import { WordlistContentContainer,WordlistContentMainContainer,WordlistContentEmptyPhrase } from './WordlistContent.style'
+import { WordlistContentURL, WordlistContentURLContainer, WordlistContentContainer, WordlistContentMainContainer, WordlistContentEmptyPhrase } from './WordlistContent.style'
 
 export default function WordlistContent({ student, setData }) {
 
@@ -10,13 +10,15 @@ export default function WordlistContent({ student, setData }) {
                 student.wordList.length == 0
                     ?
                     <WordlistContentMainContainer>
-                        <WordlistContentContainer>
-                            <WordlistContentEmptyPhrase>You have not written any homework yes !</WordlistContentEmptyPhrase>
+                        <WordlistContentContainer> 
+                            <WordlistContentEmptyPhrase>You have not added any word list!</WordlistContentEmptyPhrase>
                             <FaSurprise />
                         </WordlistContentContainer>
                     </WordlistContentMainContainer>
                     :
-                    <p>{student.wordList}</p>
+                    <WordlistContentURLContainer>
+                        <WordlistContentURL>{student.wordList}</WordlistContentURL>
+                    </WordlistContentURLContainer>
             }
         </>
     )

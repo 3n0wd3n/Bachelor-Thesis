@@ -35,16 +35,23 @@ export const CalendarContentWrapperStyled = styled.div`
 export const DatesWrapperStyled = styled.div`
   display: flex;
   flex-direction: column;
+  min-width: 80px;
 `;
 
 export const CalendarWrapperStyled = styled.div`
   display: grid;
   grid-template-columns: repeat(7, auto);
+  width: 100%;
 `;
 
 export const DayStyled = styled.span`
   font-weight: bold;
   text-align: center;
+`;
+
+export const DateStyled = styled.span`
+  text-align: center;
+  font-size: 14px;
 `;
 
 export const LessonStyled = styled.span`

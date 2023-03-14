@@ -2,6 +2,19 @@ import styled from 'styled-components'
 import { FontsHeaderBold, FontsThin, FontsBold, CommonDisplayFlexColumn, CommonDisplayFlexRow, CommonDisplayFlex } from '../../CommonStyles'
 import { Colors } from '../../../utils/Colors'
 
+export const WordlistContentURL = styled.p``;
+
+export const WordlistContentURLContainer = styled(CommonDisplayFlex)`
+    height: 100%;
+    width: 100%;
+    > ${WordlistContentURL} {
+        font-family: 'Raleway', sans-serif;
+        font-weight: 700;
+        margin-top: 1em;
+        cursor: pointer;
+    }
+`;
+
 export const WordlistContentEmptyPhrase = styled.span`
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
