@@ -84,11 +84,11 @@ export default function FilesContent({ student, setData }) {
                 plan: valuePlan
             }
         })
-            .then(({ data }) => {
+        .then(({ data }) => {
                 if (data) setData(data)
                 else alert('Change failed.')
-            })
-            .finally(() => setEdit(false))
+        })
+        .finally(() => setEdit(false))
     }
 
     return (
@@ -135,7 +135,6 @@ export default function FilesContent({ student, setData }) {
                         <StudentValueAttribute>{lesson[0]}</StudentValueAttribute>
                         {lesson[1].map((day, key) =>
                             <StudentPlanContent key={key}>
-                                {console.log(student.lessons, lesson, day)}
                                 <StudentKeyAttribute>from: </StudentKeyAttribute><StudentValueAttribute>{`${moment(day.date).format('HH:mm')}`}</StudentValueAttribute>
                                 <StudentKeyAttribute>to: </StudentKeyAttribute><StudentValueAttribute>{`${moment(day.endDate).format('HH:mm')}`}</StudentValueAttribute>
                             </StudentPlanContent>

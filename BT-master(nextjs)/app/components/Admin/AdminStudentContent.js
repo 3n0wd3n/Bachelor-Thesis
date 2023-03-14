@@ -6,6 +6,7 @@ import { FontsThin } from '../CommonStyles'
 import FilesContent from './ContentOfStudent/FilesContent'
 import HomeworksContent from './ContentOfStudent/HomeworksContent'
 import LessonChange from './ContentOfStudent/LessonChange'
+import WordlistContent from './ContentOfStudent/WordlistContent'
 
 export default function AdminStudentContent({ student, setData }) {
     const [state, setState] = React.useState(false);
@@ -31,6 +32,10 @@ export default function AdminStudentContent({ student, setData }) {
         {
           title: 'lesson summary',
           component: <>d</>
+        },
+        {
+          title: 'word list',
+          component: <WordlistContent student={student} setData={setData}></WordlistContent>
         },
       ]
     , [student])

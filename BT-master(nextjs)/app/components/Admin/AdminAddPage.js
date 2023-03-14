@@ -38,7 +38,6 @@ export default function AddPage({setAddPage}) {
   const lessonDate = new Date().toJSON().slice(0, 10);
   
   const addStudent = () => {
-    console.log(isRepresentative) 
     const name = studentNameRef.current.value;
     const surname = studentSurnameRef.current.value;
     const username = studentUsernameRef.current.value;

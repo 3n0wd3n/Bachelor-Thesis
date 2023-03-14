@@ -7,21 +7,21 @@ dbConnect();
 
 const filterHomeworks = async(userDb, homeworkIds, admin) => {
   const homeworksDb = await findAllFromMongo(Homeworks, { _id: homeworkIds });
-  console.log("Homeworks", homeworksDb)
+
   const homeworks = homeworksDb.map(homework => ({
     id: homework._id,
     title: homework.title,
     description: homework.description,
-
+    date: homework.createdAt
   }));
-  // return userDb.homeworks
+
   return homeworks
 }
 
 const filterLessons = async (lessonIds, admin) => {
   // getting array of lessons from database
   const lessonsDb = await findAllFromMongo(Lecture, { $and: [{ _id: lessonIds }, { status: 'waiting' }] });
-  console.log("Lessons", lessonsDb)
+
   // format lessons
   const lessons = lessonsDb.map(lesson => ({
     id: lesson._id,

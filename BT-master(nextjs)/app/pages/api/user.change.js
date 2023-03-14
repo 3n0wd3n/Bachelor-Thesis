@@ -26,9 +26,12 @@ export default async function handler(req, res) {
       break;
     case 'DELETE':
       try {
-        const { changedHomeworks } = body
+        const { adminId, studentId, homeworkId } = body
         console.log(body)
-        res.status(200).json( true );
+
+        await updateInfoInUser({ _id: studentId }, { $pull: { homeworks: homeworkId } })
+        const userData = await getUser({ _id: adminId })
+        res.status(200).json( userData );
       } catch {
         res.status(500).json({ failed: true });
       }
@@ -40,7 +43,7 @@ export default async function handler(req, res) {
           title: newTitle,
           description: newDescription
         });
-        const test = await updateInfoInUser({ _id: id }, { $push: { homeworks: homework._id } })
+        await updateInfoInUser({ _id: id }, { $push: { homeworks: homework._id } })
         const userData = await getUser({ _id: adminId })
         res.status(200).json( userData );
       } catch {
