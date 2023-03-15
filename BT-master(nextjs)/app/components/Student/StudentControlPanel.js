@@ -3,7 +3,7 @@ import { StudentCPContainer, StudentCPFontsBold } from './StudentControlPanel.st
 
 // StudentCP = StudentControlPanel
 
-export default function ControlPanel({ data, setPaymentPage, setLogoutPage }) {
+export default function ControlPanel({ data, setPaymentPage, setLogoutPage, setSettingsPage }) {
   return (
     <>
       <StudentCPContainer>
@@ -15,7 +15,7 @@ export default function ControlPanel({ data, setPaymentPage, setLogoutPage }) {
             <></>      
           }
           <StudentCPFontsBold onClick={() => setLogoutPage(true)}>logout</StudentCPFontsBold>
-          {/* <StudentCPFontsBold>settings</StudentCPFontsBold> */}
+          <StudentCPFontsBold onClick={() => setSettingsPage(true)}>settings</StudentCPFontsBold>
       </StudentCPContainer>  
     </>
   )

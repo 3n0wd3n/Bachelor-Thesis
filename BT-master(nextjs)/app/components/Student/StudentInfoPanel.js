@@ -3,7 +3,7 @@ import { StudentIPFontsHeaderBold, StudentIPFontsThin, StudentIPItemContainer, S
 
 // StudentIP = StudentInfoPanel
 
-export default function InfoPanel({ data, setOpenApologize }) {
+export default function InfoPanel({ data, setApologizePage }) {
   return (
     <>
       <StudentIPContainer>
@@ -31,7 +31,7 @@ export default function InfoPanel({ data, setOpenApologize }) {
             return <StudentIPFontsHeaderBold key={key}><Item name={item}/></StudentIPFontsHeaderBold>
           })}
         </StudentIPItemContainer>
-        <StudentIPButton><StudentIPButtonFontsBold onClick={() => setOpenApologize(true)}>apologize</StudentIPButtonFontsBold></StudentIPButton>
+        <StudentIPButton><StudentIPButtonFontsBold onClick={() => setApologizePage(true)}>apologize</StudentIPButtonFontsBold></StudentIPButton>
       </StudentIPContainer>
       
     </>

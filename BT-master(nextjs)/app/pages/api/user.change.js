@@ -28,6 +28,17 @@ export default async function handler(req, res) {
         res.status(500).json({ failed: true });
       }
       break;
+    case 'PATCH':
+      try {
+        const { adminId, studentId, changedWordList } = body
+        console.log(body)
+        await updateInfoInUser({ _id: studentId }, { wordList: changedWordList })
+        const userData = await getUser({ _id: adminId })
+        res.status(200).json( userData );
+      } catch {
+        res.status(500).json({ failed: true });
+      }
+      break;
     case 'DELETE':
       try {
         const { adminId, studentId, homeworkId } = body

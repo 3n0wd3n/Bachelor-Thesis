@@ -28,7 +28,7 @@ export const StudentAttributes = styled.div`
 export const PlanAttributes = styled.div`
     position: relative;
     background-color: white;
-    border: 1px solid ${Colors.darkGray};
+    border: 1px solid ${Colors.beige};
     border-radius: 12px;
     display: flex;
     padding: 4px 15px 4px 6px;
@@ -43,6 +43,7 @@ export const StudentKeyAttribute = styled.span`
     text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.08);
     font-size: .8rem;
     font-weight: 900;
+    margin: 0em 0 0.5em 0.5em;
 `;
 
 export const StudentValueAttribute = styled.span`
@@ -50,6 +51,7 @@ export const StudentValueAttribute = styled.span`
     text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.08);
     font-size: .8rem;
     font-weight: 300;
+    margin: 0em 0 0.5em 0.5em;
 `;
 
 export const StudentPlanContent = styled(CommonDisplayFlexRow)`
@@ -90,6 +92,16 @@ export const StudentEditContainer = styled.div`
 `;
 
 export const StudentKeyInputAttribute = styled.input`
+    font-family: 'Raleway', sans-serif;
+    margin: 0 0 0.5em 0.3em;
+    padding: 0.3em;
+    border-radius: 10px;
+    border: ${({editable}) => editable? '1px solid rgba(155, 155, 155, 0.05)' : 'None'};
+    box-shadow: ${({editable}) => editable? '-3px 3px 5px rgba(155, 155, 155, 0.15)' : 'None'};
+    background-color: ${({ editable }) => editable ? Colors.lightGray : 'transparent'};
+`;
+
+export const StudentKeyInputAttributePlan = styled.input`
     background-color: ${({ editable }) => editable ? Colors.lightGray : 'transparent'};
 `;
 

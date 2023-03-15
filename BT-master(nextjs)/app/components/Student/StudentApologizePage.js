@@ -2,7 +2,7 @@ import React from 'react'
 import Footer from '../Footer'
 import { StudentApologizeContainer, ApologizeTitle, ApologizeForm, ApologizeLabel, ApologizeInput, ApologizeSendButton, ApologizeBackButton } from './StudentApologizePage.style'
 
-export default function ApologizePage({ data, setOpenApologize }) {
+export default function ApologizePage({ data, setApologizePage }) {
   return (
     <>
       <StudentApologizeContainer>
@@ -14,7 +14,7 @@ export default function ApologizePage({ data, setOpenApologize }) {
               <ApologizeInput type="text" name="name" placeholder={data.lastName}></ApologizeInput>
               <ApologizeInput type="date" name="date"></ApologizeInput>
               <ApologizeSendButton>send</ApologizeSendButton>
-              <ApologizeBackButton onClick={() => setOpenApologize(false)}>back to dashboard</ApologizeBackButton>
+              <ApologizeBackButton onClick={() => setApologizePage(false)}>back to dashboard</ApologizeBackButton>
           </ApologizeForm>
       </StudentApologizeContainer>
       <Footer />

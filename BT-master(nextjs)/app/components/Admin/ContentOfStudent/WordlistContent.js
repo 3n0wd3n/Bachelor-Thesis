@@ -1,33 +1,68 @@
 import React from 'react'
-import { FaSurprise, FaRegEdit } from 'react-icons/fa'
-import { WordlistSVGContainer, WordlistContentURL, WordlistContentURLContainer, WordlistContentContainer, WordlistContentMainContainer, WordlistContentEmptyPhrase } from './WordlistContent.style'
+import axios from 'axios'
+import { getCookie } from 'cookies-next';
+import { FaSurprise, FaRegEdit, FaCheck } from 'react-icons/fa'
+import { WordListKeyInputAttribute, WordListKeyAttribute, WordListAttributes, WordListSVGContainer, WordListContentURL, WordListContentURLContainer, WordListContentContainer, WordListContentMainContainer, WordListContentEmptyPhrase } from './WordListContent.style'
 
-export default function WordlistContent({ student, setData }) {
+export default function WordListContent({ student, setData }) {
+    const [edit, setEdit] = React.useState(false)
+    const wordListRef = React.useRef(null)
+    const id = getCookie('userCookie')
+    const studentId = student.id
+
+    const changeWordList = async () => {
+        // console.log(wordListRef.current.value)
+        const changedWordList = wordListRef.current.value
+        await axios('http://localhost:3000/api/user.change', {
+            method: 'PATCH',
+            data: {
+                id,
+                studentId,
+                changedWordList
+            }
+        }).finally(() => setEdit(prevState => !prevState))
+    }
 
     return (
         <>
-            {
+            {edit
+                ?
+                <>
+                    <WordListContentURLContainer>
+                        <WordListAttributes>
+                            <WordListKeyAttribute>word list: </WordListKeyAttribute>
+                            <WordListKeyInputAttribute ref={wordListRef} defaultValue={student.wordList} disabled={!edit} readOnly={!edit} editable={edit} />
+                        </WordListAttributes>
+                    </WordListContentURLContainer>
+                    <WordListSVGContainer onClick={() => setEdit(prevState => !prevState)}>
+                        <FaRegEdit />
+                    </WordListSVGContainer>
+                    <WordListSVGContainer onClick={() => changeWordList()}>
+                        <FaCheck />
+                    </WordListSVGContainer>
+                </>
+                :
                 student.wordList.length == 0
                     ?
                     <>
-                        <WordlistContentMainContainer>
-                            <WordlistContentContainer>
-                                <WordlistContentEmptyPhrase>You have not added any word list!</WordlistContentEmptyPhrase>
+                        <WordListContentMainContainer>
+                            <WordListContentContainer>
+                                <WordListContentEmptyPhrase>You have not added any word list!</WordListContentEmptyPhrase>
                                 <FaSurprise />
-                            </WordlistContentContainer>
-                        </WordlistContentMainContainer>
-                        <WordlistSVGContainer>
+                            </WordListContentContainer>
+                        </WordListContentMainContainer>
+                        <WordListSVGContainer onClick={() => setEdit(prevState => !prevState)}>
                             <FaRegEdit />
-                        </WordlistSVGContainer>
+                        </WordListSVGContainer>
                     </>
                     :
                     <>
-                        <WordlistContentURLContainer>
-                            <WordlistContentURL>{student.wordList}</WordlistContentURL>
-                        </WordlistContentURLContainer>
-                        <WordlistSVGContainer>
+                        <WordListContentURLContainer>
+                            <WordListContentURL>{student.wordList}</WordListContentURL>
+                        </WordListContentURLContainer>
+                        <WordListSVGContainer onClick={() => setEdit(prevState => !prevState)}>
                             <FaRegEdit />
-                        </WordlistSVGContainer>
+                        </WordListSVGContainer>
                     </>
             }
         </>

@@ -71,6 +71,13 @@ export const StudentMCFontsSectionItems = styled(FontsThin)`
     text-shadow: -2px 2px 4px rgba(0, 0, 0, 0.25);  
 `;
 
+export const StudentMCFontsSectionLinkItem = styled.a`
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.1rem;
+    color: white; 
+    text-shadow: -2px 2px 4px rgba(0, 0, 0, 0.25);  
+`;
+
 export const StudentMCHomeworks = styled(CommonDisplayFlexColumn)`
     background-color: white;
     border-radius: 25px;

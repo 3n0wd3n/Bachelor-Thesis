@@ -2,7 +2,7 @@ import React from 'react'
 // import { BsGrid3X3GapFill } from 'react-icons/bs';
 import { FaRegSmileBeam } from "react-icons/fa";
 import { Colors } from '../../utils/Colors'
-import { StudentUnorderedList, StudentListItem, SimpleContainer, SimpleDiv, StudentMCFilesItems, StudentMCFontsWordList, StudentMCFontsFiles, StudentMCWordList, StudentMCFiles, StudentMCContainer, StudentMCNextLesson, StudentMCFontsDate, StudentMCFontsBold, StudentMCHomeworks, StudentMCFontsHomeworks, StudentMCFontsHomeworksItem, StudentMCFontsSectionItems } from './StudentMainContent.style'
+import { StudentMCFontsSectionLinkItem, StudentUnorderedList, StudentListItem, SimpleContainer, SimpleDiv, StudentMCFilesItems, StudentMCFontsWordList, StudentMCFontsFiles, StudentMCWordList, StudentMCFiles, StudentMCContainer, StudentMCNextLesson, StudentMCFontsDate, StudentMCFontsBold, StudentMCHomeworks, StudentMCFontsHomeworks, StudentMCFontsHomeworksItem, StudentMCFontsSectionItems } from './StudentMainContent.style'
 // StudentMC = StudentMainContent
 
 export default function MainContent({ data }) {
@@ -92,7 +92,7 @@ export default function MainContent({ data }) {
               ?
               <StudentMCFontsSectionItems >this week is your lucky week</StudentMCFontsSectionItems>
               :
-              <StudentMCFontsSectionItems >{data.wordList}</StudentMCFontsSectionItems>
+              <StudentMCFontsSectionLinkItem href={data.wordList} >{data.wordList}</StudentMCFontsSectionLinkItem>
           }
         </StudentMCWordList>
       </StudentMCContainer>

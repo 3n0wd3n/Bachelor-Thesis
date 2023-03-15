@@ -17,6 +17,10 @@ export const HomeworksContentShowContainer = styled(CommonDisplayFlexRow)`
         font-size: 1em;
         cursor: pointer;
         margin: 0em 0em 0em 1em;
+        transition: .6s;
+        &:hover{
+            filter: opacity(.6)
+        }
     }
 `;
 

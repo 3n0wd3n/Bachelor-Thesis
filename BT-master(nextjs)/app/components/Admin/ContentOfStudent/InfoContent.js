@@ -4,7 +4,7 @@ import { FaRegEdit, FaCheck, FaPlusCircle, FaMinusCircle } from 'react-icons/fa'
 import axios from 'axios'
 import { getCookie } from 'cookies-next';
 
-import { StudentPlansValues, PlanAttributes, StudentRemoveAttributes, StudentEditAttributes, StudentCheckInputAttribute, StudentKeyInputAttribute, StudentEditContainer, StudentPlanContent, StudentPlanValues, StudentInfoContainerOne, StudentInfoContainerTwo, StudentAttributes, StudentKeyAttribute, StudentValueAttribute } from './InfoContent.style'
+import { StudentKeyInputAttributePlan, StudentPlansValues, PlanAttributes, StudentRemoveAttributes, StudentEditAttributes, StudentCheckInputAttribute, StudentKeyInputAttribute, StudentEditContainer, StudentPlanContent, StudentPlanValues, StudentInfoContainerOne, StudentInfoContainerTwo, StudentAttributes, StudentKeyAttribute, StudentValueAttribute } from './InfoContent.style'
 
 export const constructWeek = (lessons) => {
     const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
@@ -111,7 +111,7 @@ export default function InfoContent({ student, setData }) {
                     <StudentPlansValues>
                         {plan.map((value, key) => 
                             <PlanAttributes key={value.key}>
-                                <StudentKeyInputAttribute onChange={({ target}) => editArrayAttribute(value.key, target.value)} defaultValue={value.value} disabled={!edit} readOnly={!edit} editable={edit} />
+                                <StudentKeyInputAttributePlan onChange={({ target}) => editArrayAttribute(value.key, target.value)} defaultValue={value.value} disabled={!edit} readOnly={!edit} editable={edit} />
                                 <StudentRemoveAttributes onClick={() => removeArrayAttribute(value.key)}>
                                     {
                                         edit &&

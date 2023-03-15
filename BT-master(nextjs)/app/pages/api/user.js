@@ -71,6 +71,8 @@ const getStudent = async (userDb, admin=false) => {
     role: userDb.role,
     firstName: userDb.name,
     lastName: userDb.surname,
+    username: userDb.username, /* Zeptat se kubu na bezpečnost*/
+    password: userDb.password, /* Zeptat se kubu na bezpečnost*/
     legalRepresentative: userDb.legalRepresentative !== '',
     lessons: filteredLessons,
     plan: userDb.plan,

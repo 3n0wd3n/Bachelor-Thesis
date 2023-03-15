@@ -6,13 +6,15 @@ import ApologizePage from './StudentApologizePage'
 import InfoPanel from './StudentInfoPanel'
 import MainContent from './StudentMainContent'
 import ControlPanel from './StudentControlPanel'
+import SettingsPage from './StudentSettingsPage'
 import { useState } from 'react'
 import { StudentContainer } from './Student.style'
 
 export default function Student({ data, setData }) {
-  const [openApologize, setOpenApologize] = useState(false);
+  const [openApologizePage, setApologizePage] = useState(false);
   const [openLogoutPage, setLogoutPage] = useState(false);
   const [openPaymentPage, setPaymentPage] = useState(false);
+  const [openSettingsPage, setSettingsPage] = useState(false);
   var subPage;
   if (openLogoutPage){
     subPage = <LogoutPage setLogoutPage={setLogoutPage} setData={setData}/>;
@@ -20,22 +22,25 @@ export default function Student({ data, setData }) {
   if (openPaymentPage){
     subPage = <PaymentPage setPaymentPage={setPaymentPage}/>;
   }
-  if (openApologize){
-    subPage = <ApologizePage data={data}setOpenApologize={setOpenApologize}/>;
+  if (openApologizePage){
+    subPage = <ApologizePage data={data} setApologizePage={setApologizePage}/>;
+  }
+  if (openSettingsPage){
+    subPage = <SettingsPage data={data} setData={setData} setSettingsPage={setSettingsPage}/>;
   }
 
   return (
     <>
       {
-        openLogoutPage || openPaymentPage || openApologize
+        openLogoutPage || openPaymentPage || openApologizePage || openSettingsPage
         ?
         subPage
         :
         <>
           <StudentContainer>
-            <ControlPanel data={data} setPaymentPage={setPaymentPage} setLogoutPage={setLogoutPage}/>
+            <ControlPanel data={data} setPaymentPage={setPaymentPage} setLogoutPage={setLogoutPage} setSettingsPage={setSettingsPage}/>
             <MainContent data={data} setLogoutPage={setLogoutPage}/>
-            <InfoPanel data={data} setOpenApologize={setOpenApologize}/>
+            <InfoPanel data={data} setApologizePage={setApologizePage}/>
           </StudentContainer>
           <Footer />
         </>
