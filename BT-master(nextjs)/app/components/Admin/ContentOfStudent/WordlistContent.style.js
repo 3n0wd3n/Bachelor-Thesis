@@ -10,7 +10,7 @@ export const WordlistContentURLContainer = styled(CommonDisplayFlex)`
     > ${WordlistContentURL} {
         font-family: 'Raleway', sans-serif;
         font-weight: 700;
-        margin-top: 1em;
+        margin: 1em 0 1em 0;
         cursor: pointer;
     }
 `;
@@ -32,12 +32,18 @@ export const WordlistContentContainer = styled(CommonDisplayFlexColumn)`
     }
 `;
 
-export const WordlistContentMainContainer = styled(CommonDisplayFlexColumn)`
+export const WordlistContentMainContainer = styled(CommonDisplayFlexRow)`
     width: 100%;
+    height: 100%;
     align-items: flex-end;
+`;
+
+export const WordlistSVGContainer = styled.div`
+    /* background-color: green; */
     & > svg {
         color: ${Colors.lightGreen};
         font-size: 1.5em;
         cursor: pointer;
     }
+
 `;

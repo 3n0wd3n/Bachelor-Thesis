@@ -34,7 +34,7 @@ export const MenuItem = styled.span`
 
 export const ContentContainer = styled(CommonDisplayFlexRow)`
     position: relative;
-    padding-bottom: 1rem;
+    /* padding-bottom: 1rem; */
     width: 95%;
     /* padding: 3em; */
     background-color: ${Colors.creameWhite};

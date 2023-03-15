@@ -25,6 +25,6 @@ export const HomeworksContentMainContainer = styled(CommonDisplayFlexColumn)`
     & > svg {
         color: ${Colors.lightGreen};
         font-size: 1.5em;
-        cursor: pointer;
+        cursor: pointer
     }
 `;

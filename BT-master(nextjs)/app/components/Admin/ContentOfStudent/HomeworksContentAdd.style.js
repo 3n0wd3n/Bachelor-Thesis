@@ -13,7 +13,7 @@ export const HomeworksContentAddForm = styled.div`
     width: 100%;
     & > svg {
         color: ${Colors.lightGreen};
-        margin: 1em 0 0 0;
+        margin: 1em 0 1em 0;
         font-size: 1.8em;
         cursor: pointer;
     }

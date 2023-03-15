@@ -31,7 +31,8 @@ export default function HomeworksContent({ student, setData }) {
                 <HomeworksContentAdd student={student} setEdit={setEdit} setData={setData} />
                 :
                 <HomeworksContentShowMainContainer>
-                    {student.homeworks.length > 0 ?
+                    {student.homeworks.length > 0 
+                        ?
                         student.homeworks.map(homework =>
                             <HomeworksContentShowContainer key={homework.id}>
                                 <HomeworksContentShowTitleItem>{homework.title} - {homework.description}</HomeworksContentShowTitleItem>

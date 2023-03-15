@@ -34,9 +34,10 @@ export const HomeworksContentShowContentItem = styled.span`
 `;
 
 export const HomeworksContentShowContentEditContainer = styled.div`
+    
     & > svg {
             color: ${Colors.lightGreen};
             font-size: 1.5em;
             cursor: pointer;
-        }
+    }
 `;

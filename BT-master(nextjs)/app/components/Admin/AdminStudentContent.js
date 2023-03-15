@@ -3,7 +3,7 @@ import { Colors } from '../../utils/Colors'
 import { FaAngleDown } from 'react-icons/fa'
 import { StudentContainer, DropDown, MenuItems, MenuItem, ContentContainer } from './AdminStudentContent.style'
 import { FontsThin } from '../CommonStyles'
-import FilesContent from './ContentOfStudent/FilesContent'
+import InfoContent from './ContentOfStudent/InfoContent'
 import HomeworksContent from './ContentOfStudent/HomeworksContent'
 import LessonChange from './ContentOfStudent/LessonChange'
 import WordlistContent from './ContentOfStudent/WordlistContent'
@@ -15,7 +15,7 @@ export default function AdminStudentContent({ student, setData }) {
       [
         {
           title: 'info/edit',
-          component: <FilesContent setData={setData} student={student} />
+          component: <InfoContent setData={setData} student={student} />
         },
         {
           title: 'lessons change',
@@ -23,7 +23,7 @@ export default function AdminStudentContent({ student, setData }) {
         },
         {
           title: 'files',
-          component: <>b</>
+          component: <>files</>
         },
         {
           title: 'homeworks',
@@ -31,7 +31,7 @@ export default function AdminStudentContent({ student, setData }) {
         },
         {
           title: 'lesson summary',
-          component: <>d</>
+          component: <>lesson summary</>
         },
         {
           title: 'word list',
