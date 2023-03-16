@@ -9,7 +9,7 @@ export const DropDown = styled(CommonDisplayFlexColumn)`
 
 export const StudentInfoContainerOne = styled(CommonDisplayFlexColumn)`
     align-items: flex-start;
-    margin: 1em 0 1em 1em;
+    margin: 0em 0 0em 1em;
 `;
 
 export const StudentInfoContainerTwo = styled(CommonDisplayFlexColumn)`
@@ -46,11 +46,16 @@ export const StudentKeyAttribute = styled.span`
     margin: 0em 0 0.5em 0.5em;
 `;
 
+export const StudentPlanAttribute = styled(StudentKeyAttribute)`
+    margin: 1em 0 0.5em 0.5em;
+`;
+
 export const StudentValueAttribute = styled.span`
     font-family: 'Raleway', sans-serif;
     text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.08);
     font-size: .8rem;
     font-weight: 300;
+    padding: 0.3em;
     margin: 0em 0 0.5em 0.5em;
 `;
 

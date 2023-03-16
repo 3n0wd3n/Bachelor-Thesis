@@ -4,7 +4,7 @@ import { FaRegEdit, FaCheck, FaPlusCircle, FaMinusCircle } from 'react-icons/fa'
 import axios from 'axios'
 import { getCookie } from 'cookies-next';
 
-import { StudentKeyInputAttributePlan, StudentPlansValues, PlanAttributes, StudentRemoveAttributes, StudentEditAttributes, StudentCheckInputAttribute, StudentKeyInputAttribute, StudentEditContainer, StudentPlanContent, StudentPlanValues, StudentInfoContainerOne, StudentInfoContainerTwo, StudentAttributes, StudentKeyAttribute, StudentValueAttribute } from './InfoContent.style'
+import { StudentPlanAttribute, StudentKeyInputAttributePlan, StudentPlansValues, PlanAttributes, StudentRemoveAttributes, StudentEditAttributes, StudentCheckInputAttribute, StudentKeyInputAttribute, StudentEditContainer, StudentPlanContent, StudentPlanValues, StudentInfoContainerOne, StudentInfoContainerTwo, StudentAttributes, StudentKeyAttribute, StudentValueAttribute } from './InfoContent.style'
 
 export const constructWeek = (lessons) => {
     const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
@@ -107,7 +107,7 @@ export default function InfoContent({ student, setData }) {
                     <StudentValueAttribute>{student.lessons.length}</StudentValueAttribute>
                 </StudentAttributes>
                 <StudentPlanValues>
-                    <StudentKeyAttribute>plan: </StudentKeyAttribute>
+                    <StudentPlanAttribute>plan: </StudentPlanAttribute>
                     <StudentPlansValues>
                         {plan.map((value, key) => 
                             <PlanAttributes key={value.key}>

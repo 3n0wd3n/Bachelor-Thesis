@@ -23,6 +23,11 @@ export const MenuItems = styled(CommonDisplayFlexRow)`
     font-weight: 700;
     font-size: 1rem;
     margin: 0 0 1em 0;
+    @media (max-width: 1000px) {
+      /* we write media query into constants */
+      flex-direction: column;
+      width: 100%;
+    }
 `;
 
 export const MenuItem = styled.span`
@@ -34,16 +39,17 @@ export const MenuItem = styled.span`
 
 export const ContentContainer = styled(CommonDisplayFlexRow)`
     position: relative;
-    /* padding-bottom: 1rem; */
     width: 95%;
     /* padding: 3em; */
     background-color: ${Colors.creameWhite};
     border-radius: 10px;
     justify-content: space-between;
+    padding: 1em 0 1em 0;
     @media (max-width: 1000px) {
       /* we write media query into constants */
       flex-direction: column;
       align-items: flex-start;
       width: 100%;
+      padding: 1em 0 0 0;
     }
 `;

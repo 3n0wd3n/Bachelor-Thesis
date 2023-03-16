@@ -7,6 +7,9 @@ export const HomeworksContentEmptyPhrase = styled.span`
     font-weight: 700;
     color: ${Colors.blue};
     font-size: 1.5rem;
+    @media (max-width: 1000px) {
+        font-size: 1rem;
+    }
 `;
 
 export const HomeworksContentContainer = styled(CommonDisplayFlexColumn)`

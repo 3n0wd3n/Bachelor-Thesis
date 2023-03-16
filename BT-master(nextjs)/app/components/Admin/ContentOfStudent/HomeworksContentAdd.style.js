@@ -24,6 +24,17 @@ export const HomeworksContentAddForm = styled.div`
     }
 `;
 
+export const HomeworksContainer = styled(CommonDisplayFlexColumn)`
+    width: 30%;
+    align-items: flex-start;
+    @media (max-width: 1200px) {
+        width: 50%;
+    }
+    @media (max-width: 800px) {
+        width: 65%;
+    }
+`;
+
 export const HomeworksContentAddContainer = styled(CommonDisplayFlexColumn)`
     width: 100%;
     margin: 0 0 1em 0;
@@ -40,7 +51,7 @@ export const HomeworksContentAddInput = styled.input`
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
     font-size: 1rem;
-    width: 50%;
+    width: 100%;
     height: 40px;
     padding: 0 0 0 1em;
     border-radius: 12px;

@@ -119,6 +119,7 @@ export const StudentListItem = styled.li`
     flex-direction: row;
     font-family: 'Raleway', sans-serif;
     font-weight: 600;
+    margin-top: 1em;
     > input{
         cursor: pointer;
         margin: 0 0 0 1em;
@@ -133,6 +134,7 @@ export const StudentListItem = styled.li`
 
 export const StudentMCDescription = styled.p`
     font-weight: 400;
+    margin: 0 0 0 .3em;
     /* transition: .6s;
     filter:  ${({ editable }) => editable ? 'opacity(.6)' : 'None'};
     text-decoration:  ${({ editable }) => editable ? 'line-through' : 'None'}; */
