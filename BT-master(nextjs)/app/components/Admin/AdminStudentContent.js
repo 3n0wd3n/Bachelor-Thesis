@@ -7,6 +7,7 @@ import InfoContent from './ContentOfStudent/InfoContent'
 import HomeworksContent from './ContentOfStudent/HomeworksContent'
 import LessonChange from './ContentOfStudent/LessonChange'
 import WordlistContent from './ContentOfStudent/WordlistContent'
+import FileContent from './ContentOfStudent/FilesContent'
 
 export default function AdminStudentContent({ student, setData }) {
     const [state, setState] = React.useState(false);
@@ -23,7 +24,7 @@ export default function AdminStudentContent({ student, setData }) {
         },
         {
           title: 'files',
-          component: <>files</>
+          component: <FileContent>files</FileContent>
         },
         {
           title: 'homeworks',
