@@ -7,6 +7,10 @@ dbConnect();
 
 const updateInfoInStudent = async (filter, data) => {
     return await UpdateOneFromMongo(User, filter, data)
+}
+
+const deleteHomework = async (id) => {
+    return await deleteOneFromMongo(Homeworks, id)
   }
 
 export default async function handler(req, res) {
@@ -36,7 +40,13 @@ export default async function handler(req, res) {
             break;
         case 'DELETE':
             try {
-                res.status(200).json(true);
+                const { adminId, studentId, homeworkId } = body
+                console.log(body)
+
+                await updateInfoInStudent({ _id: studentId }, { $pull: { homeworks: homeworkId } })
+                await deleteHomework({ _id: homeworkId })
+                const userData = await getUser({ _id: adminId })
+                res.status(200).json( userData );
             } catch {
                 res.status(500).json({ failed: true });
             }

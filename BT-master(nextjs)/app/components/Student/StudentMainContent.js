@@ -1,13 +1,18 @@
 import React from 'react'
-// import { BsGrid3X3GapFill } from 'react-icons/bs';
-import { FaRegSmileBeam } from "react-icons/fa";
+import axios from 'axios'
+import { getCookie } from 'cookies-next';
+import { FaCheckCircle, FaRegSmileBeam } from 'react-icons/fa'
 import { Colors } from '../../utils/Colors'
-import { StudentMCFontsSectionLinkItem, StudentUnorderedList, StudentListItem, SimpleContainer, SimpleDiv, StudentMCFilesItems, StudentMCFontsWordList, StudentMCFontsFiles, StudentMCWordList, StudentMCFiles, StudentMCContainer, StudentMCNextLesson, StudentMCFontsDate, StudentMCFontsBold, StudentMCHomeworks, StudentMCFontsHomeworks, StudentMCFontsHomeworksItem, StudentMCFontsSectionItems } from './StudentMainContent.style'
+
+import { StudentMCDescription, StudentMCHomeworkDoneContainer, StudentMCFontsSectionLinkItem, StudentUnorderedList, StudentListItem, SimpleContainer, SimpleDiv, StudentMCFilesItems, StudentMCFontsWordList, StudentMCFontsFiles, StudentMCWordList, StudentMCFiles, StudentMCContainer, StudentMCNextLesson, StudentMCFontsDate, StudentMCFontsBold, StudentMCHomeworks, StudentMCFontsHomeworks, StudentMCFontsHomeworksItem, StudentMCFontsSectionItems } from './StudentMainContent.style'
 // StudentMC = StudentMainContent
 
 export default function MainContent({ data }) {
   // Set styling to icons
   const style = { color: Colors.lightGreen, fontSize: "3em" }
+  const [edit, setEdit] = React.useState(false)
+  const id = getCookie('userCookie')
+  const studentId = data.id
 
   // Getting properties from date
   const daysOfTheWeek = ["pondělí", "úterý", "středa", "čtvrtek", "pátek", "sobota", "neděle"];
@@ -20,6 +25,18 @@ export default function MainContent({ data }) {
       day = daysOfTheWeek[i];
     }
   }
+
+  const removeHomework = async (homeworkId) => {
+    // console.log(passwordRef.current.value)
+    await axios('http://localhost:3000/api/student.change', {
+        method: 'DELETE',
+        data: {
+            id,
+            studentId,
+            homeworkId
+        }
+    }).finally(() => setEdit(prevState => !prevState))
+}
 
   return (
     <>
@@ -45,8 +62,10 @@ export default function MainContent({ data }) {
                     <StudentUnorderedList key={homework.id}>
                       <StudentListItem>
                         <p>{homework.title}-</p>
-                        <p>{homework.description}</p>
-                        <input type="checkbox"></input>
+                        <StudentMCDescription editable={edit}>{homework.description}</StudentMCDescription>
+                        <StudentMCHomeworkDoneContainer onClick={() => removeHomework(homework.id)}>
+                          <FaCheckCircle />
+                        </StudentMCHomeworkDoneContainer>
                       </StudentListItem>
                     </StudentUnorderedList>
                   )

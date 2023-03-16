@@ -28,12 +28,12 @@ export const StudentIPItemContainer = styled.div`
 export const StudentIPContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 25vw;
+  width: 15vw;
   min-height: 100vh;
   margin: 1em 1em 0em 0em;
   transition: 0.4s;
   /* background: green; */
-  @media (max-width: 1000px) {
+  @media (max-width: 1200px) {
     /* we write media query into constants */
     width: 100%;
     margin: 2em 2em 2em 2em;
@@ -45,7 +45,6 @@ export const StudentIPButton = styled.button`
   cursor: pointer;
   border-radius: 30px;
   background-color: ${Colors.orange};
-  margin: 0 2em 1em 2em;
   padding: 1.2em 0 1.2em 0;
   transition: 0.7s;
   @media (max-width: 1000px) {

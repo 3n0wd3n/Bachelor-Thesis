@@ -16,6 +16,11 @@ export const HomeworksContentAddForm = styled.div`
         margin: 1em 0 1em 0;
         font-size: 1.8em;
         cursor: pointer;
+        transition: .7s;
+        &:hover{
+            transform: scale(1.1);
+            opacity: 0.7;
+        }
     }
 `;
 

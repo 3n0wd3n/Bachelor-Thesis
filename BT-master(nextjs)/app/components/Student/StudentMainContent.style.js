@@ -11,10 +11,10 @@ export const SimpleContainer = styled(CommonDisplayFlexColumn)`
 export const StudentMCContainer = styled(CommonDisplayFlexColumn)`
     justify-content: flex-start;
     align-items: stretch;
-    width: 60vw;
+    width: 70vw;
     min-height: 100vh;
     /* background-color: #55917F; */
-    @media (max-width: 1000px) {
+    @media (max-width: 1200px) {
         /* we write media query into constants */
         width: 100%;
         min-height: 70vh;
@@ -123,9 +123,19 @@ export const StudentListItem = styled.li`
         cursor: pointer;
         margin: 0 0 0 1em;
     }
-    > p+p {
+    /* > p+p {
         font-weight: 400;
-    }
+        filter:  ${({ editable }) => editable ? opacity(1.6) : 'None'};
+        text-decoration:  ${({ editable }) => editable ? 'line-through' : 'None'};
+    } 
+    */
+`;
+
+export const StudentMCDescription = styled.p`
+    font-weight: 400;
+    /* transition: .6s;
+    filter:  ${({ editable }) => editable ? 'opacity(.6)' : 'None'};
+    text-decoration:  ${({ editable }) => editable ? 'line-through' : 'None'}; */
 `;
 
 export const StudentUnorderedList = styled.ul`
@@ -133,6 +143,19 @@ export const StudentUnorderedList = styled.ul`
     align-items: flex-start;
     justify-content: flex-start;
     flex-direction: column;
+`;
+
+export const StudentMCHomeworkDoneContainer = styled.div`
+    & > svg {
+        color: ${Colors.lightGreen};
+        margin: 0 0 0 1em;
+        font-size: 1.3rem;
+        transition: .6s;
+        cursor: pointer;
+        &:hover{
+            transform: scale(1.18);
+        }
+    }
 `;
 
 
