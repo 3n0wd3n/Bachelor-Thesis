@@ -1,11 +1,27 @@
 import React from 'react'
 import { useState } from 'react'
-import { FaRegEdit, FaCheck, FaPlusCircle, FaMinusCircle } from 'react-icons/fa'
-import { StudentSettingButtonContainer, StudentSettingAttributesContainer, StudentSettingContainer, StudentSettingMainContainer } from './StudentSettingsPage.style'
+import { getCookie } from 'cookies-next';
+import { FaRegEdit, FaCheck } from 'react-icons/fa'
+import { StudentSettingButtonsContainer, SettingsKeyInputAttribute, SettingsKeyAttribute, SettingsSendButton, SettingsBackButton, StudentSettingButtonContainer, StudentSettingAttributesContainer, StudentSettingContainer, StudentSettingMainContainer } from './StudentSettingsPage.style'
 import { FontsHeaderBold, FontsThin, FontsBold } from '../CommonStyles'
 
-export default function SettingsPage({ data, setData, setSettingsPage}) {
-    //   const [openApologizePage, setApologizePage] = useState(false);
+export default function SettingsPage({ data, setData, setSettingsPage }) {
+    const [edit, setEdit] = React.useState(false)
+    const passwordRef = React.useRef(null)
+    const id = getCookie('userCookie')
+    const studentId = data.id
+
+    const changePassword = async () => {
+        console.log(passwordRef.current.value)
+        // await axios('http://localhost:3000/api/user.change', {
+        //     method: 'PATCH',
+        //     data: {
+        //         id,
+        //         studentId,
+        //         changedWordList
+        //     }
+        // }).finally(() => setEdit(prevState => !prevState))
+    }
 
     return (
         <StudentSettingMainContainer>
@@ -22,14 +38,38 @@ export default function SettingsPage({ data, setData, setSettingsPage}) {
                     <FontsBold>student's username:</FontsBold><FontsThin>{data.username}</FontsThin>
                 </StudentSettingAttributesContainer>
                 <StudentSettingAttributesContainer>
-                    {/*Zeptat se kubu na bezpečnost */}
-                    <FontsBold>student's passwd:</FontsBold><FontsThin>{data.password}</FontsThin>
+                    {
+                        edit
+                            ?
+                            <>
+                                <FontsBold>student's passwd:</FontsBold>
+                                <SettingsKeyInputAttribute ref={passwordRef} defaultValue={data.password} disabled={!edit} readOnly={!edit} editable={edit} />
+                            </>
+                            :
+                            <>
+                                {/*Zeptat se kubu na bezpečnost */}
+                                <FontsBold>student's passwd:</FontsBold><FontsThin>{data.password}</FontsThin>
+                            </>
+                    }
                 </StudentSettingAttributesContainer>
-                <StudentSettingButtonContainer>
-                    <FaRegEdit/>
-                </StudentSettingButtonContainer>
+
+                <StudentSettingButtonsContainer>
+                    <StudentSettingButtonContainer onClick={() => setEdit(prevState => !prevState)}>
+                        <FaRegEdit />
+                    </StudentSettingButtonContainer>
+                    {
+                        edit
+                            ?
+                            <StudentSettingButtonContainer onClick={() => changePassword()}>
+                                <FaCheck />
+                            </StudentSettingButtonContainer>
+                            :
+                            <></>
+                    }
+                </StudentSettingButtonsContainer>
             </StudentSettingContainer>
-            <button onClick={() => setSettingsPage(false)}><FontsBold>back to dashboard</FontsBold></button>
+            {/* <SettingsSendButton>send</SettingsSendButton> */}
+            <SettingsBackButton onClick={() => setSettingsPage(false)}>back to dashboard</SettingsBackButton>
         </StudentSettingMainContainer>
     )
 }
