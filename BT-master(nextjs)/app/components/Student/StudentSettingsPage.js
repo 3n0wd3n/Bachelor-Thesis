@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import axios from 'axios'
 import { getCookie } from 'cookies-next';
 import { FaRegEdit, FaCheck } from 'react-icons/fa'
 import { StudentSettingButtonsContainer, SettingsKeyInputAttribute, SettingsKeyAttribute, SettingsSendButton, SettingsBackButton, StudentSettingButtonContainer, StudentSettingAttributesContainer, StudentSettingContainer, StudentSettingMainContainer } from './StudentSettingsPage.style'
@@ -12,15 +13,16 @@ export default function SettingsPage({ data, setData, setSettingsPage }) {
     const studentId = data.id
 
     const changePassword = async () => {
-        console.log(passwordRef.current.value)
-        // await axios('http://localhost:3000/api/user.change', {
-        //     method: 'PATCH',
-        //     data: {
-        //         id,
-        //         studentId,
-        //         changedWordList
-        //     }
-        // }).finally(() => setEdit(prevState => !prevState))
+        // console.log(passwordRef.current.value)
+        const changedPassword = passwordRef.current.value
+        await axios('http://localhost:3000/api/student.change', {
+            method: 'PATCH',
+            data: {
+                id,
+                studentId,
+                changedPassword
+            }
+        }).finally(() => setEdit(prevState => !prevState))
     }
 
     return (
