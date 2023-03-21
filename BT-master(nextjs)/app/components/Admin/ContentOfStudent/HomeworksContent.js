@@ -17,11 +17,14 @@ export default function HomeworksContent({ student, setData }) {
         await axios('http://localhost:3000/api/user.change', {
             method: 'DELETE',
             data: {
-                id,
+                adminId: id,
                 studentId,
                 homeworkId,
             }
-        })
+        }).then(({ data }) => {
+            if (data) setData(data)
+            else alert('Change failed.')
+    })
     }
 
     return (

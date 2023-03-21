@@ -1,10 +1,10 @@
 import React from 'react'
 import moment from 'moment'
-import { FaRegEdit, FaCheck, FaPlusCircle, FaMinusCircle } from 'react-icons/fa'
+import { FaTrash, FaRegEdit, FaCheck, FaPlusCircle, FaMinusCircle } from 'react-icons/fa'
 import axios from 'axios'
 import { getCookie } from 'cookies-next';
 
-import { StudentPlanAttribute, StudentKeyInputAttributePlan, StudentPlansValues, PlanAttributes, StudentRemoveAttributes, StudentEditAttributes, StudentCheckInputAttribute, StudentKeyInputAttribute, StudentEditContainer, StudentPlanContent, StudentPlanValues, StudentInfoContainerOne, StudentInfoContainerTwo, StudentAttributes, StudentKeyAttribute, StudentValueAttribute } from './InfoContent.style'
+import { StudentKeyRemoveButton, StudentKeyRemoveAttribute, StudentRemoveAttribute, StudentPlanAttribute, StudentKeyInputAttributePlan, StudentPlansValues, PlanAttributes, StudentRemoveAttributes, StudentEditAttributes, StudentCheckInputAttribute, StudentKeyInputAttribute, StudentEditContainer, StudentPlanContent, StudentPlanValues, StudentInfoContainerOne, StudentInfoContainerTwo, StudentAttributes, StudentKeyAttribute, StudentValueAttribute } from './InfoContent.style'
 
 export const constructWeek = (lessons) => {
     const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
@@ -64,6 +64,21 @@ export default function InfoContent({ student, setData }) {
         setPlan(prevPlan => prevPlan.filter(planValue => planValue.key !== key))
     }
 
+    const removeStudent = async (studentId) => {
+        const id = getCookie('userCookie')
+        console.log(studentId)
+        await axios('http://localhost:3000/api/user.remove', {
+            method: 'DELETE',
+            data: {
+                adminId: id,
+                studentId,
+            }
+        })
+        .then(({ data }) => {
+            if (data) setData(data)
+            else alert('Change failed.')
+        })
+    }
 
     const changeInfo = async () => {
         const changedName = nameRef.current.value
@@ -77,18 +92,16 @@ export default function InfoContent({ student, setData }) {
         await axios('http://localhost:3000/api/user.change', {
             method: 'POST',
             data: {
-                id,
+                adminId: id,
                 studentId,
                 changedName,
                 changedSurname,
                 plan: valuePlan
             }
-        })
-        .then(({ data }) => {
-                if (data) setData(data)
-                else alert('Change failed.')
-        })
-        .finally(() => setEdit(false))
+        }).then(({ data }) => {
+            if (data) setData(data)
+            else alert('Change failed.')
+        }).finally(() => setEdit(false))
     }
 
     return (
@@ -109,9 +122,9 @@ export default function InfoContent({ student, setData }) {
                 <StudentPlanValues>
                     <StudentPlanAttribute>plan: </StudentPlanAttribute>
                     <StudentPlansValues>
-                        {plan.map((value, key) => 
+                        {plan.map((value, key) =>
                             <PlanAttributes key={value.key}>
-                                <StudentKeyInputAttributePlan onChange={({ target}) => editArrayAttribute(value.key, target.value)} defaultValue={value.value} disabled={!edit} readOnly={!edit} editable={edit} />
+                                <StudentKeyInputAttributePlan onChange={({ target }) => editArrayAttribute(value.key, target.value)} defaultValue={value.value} disabled={!edit} readOnly={!edit} editable={edit} />
                                 <StudentRemoveAttributes onClick={() => removeArrayAttribute(value.key)}>
                                     {
                                         edit &&
@@ -123,7 +136,7 @@ export default function InfoContent({ student, setData }) {
                         <StudentEditAttributes onClick={() => addArrayAttribute()}>
                             {
                                 edit &&
-                                <FaPlusCircle/>
+                                <FaPlusCircle />
                             }
                         </StudentEditAttributes>
                     </ StudentPlansValues>
@@ -141,6 +154,12 @@ export default function InfoContent({ student, setData }) {
                         )}
                     </div>
                 )}
+                <StudentRemoveAttribute >
+                    <StudentKeyRemoveAttribute>disable: </StudentKeyRemoveAttribute>
+                    <StudentKeyRemoveButton onClick={() => removeStudent(student.id)}>
+                        <FaTrash />
+                    </StudentKeyRemoveButton>
+                </StudentRemoveAttribute>
             </StudentInfoContainerTwo>
             <StudentEditContainer onClick={() => setEdit(prevState => !prevState)}>
                 <FaRegEdit />

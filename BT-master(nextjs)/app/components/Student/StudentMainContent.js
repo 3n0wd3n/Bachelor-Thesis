@@ -7,7 +7,7 @@ import { Colors } from '../../utils/Colors'
 import { StudentMCDescription, StudentMCHomeworkDoneContainer, StudentMCFontsSectionLinkItem, StudentUnorderedList, StudentListItem, SimpleContainer, SimpleDiv, StudentMCFilesItems, StudentMCFontsWordList, StudentMCFontsFiles, StudentMCWordList, StudentMCFiles, StudentMCContainer, StudentMCNextLesson, StudentMCFontsDate, StudentMCFontsBold, StudentMCHomeworks, StudentMCFontsHomeworks, StudentMCFontsHomeworksItem, StudentMCFontsSectionItems } from './StudentMainContent.style'
 // StudentMC = StudentMainContent
 
-export default function MainContent({ data }) {
+export default function MainContent({ data, setData }) {
   // Set styling to icons
   const style = { color: Colors.lightGreen, fontSize: "3em" }
   const [edit, setEdit] = React.useState(false)
@@ -27,16 +27,18 @@ export default function MainContent({ data }) {
   }
 
   const removeHomework = async (homeworkId) => {
-    // console.log(passwordRef.current.value)
     await axios('http://localhost:3000/api/student.change', {
-        method: 'DELETE',
-        data: {
-            id,
-            studentId,
-            homeworkId
-        }
+      method: 'DELETE',
+      data: {
+        adminId: id,
+        studentId,
+        homeworkId
+      }
+    }).then(({ data }) => {
+      if (data) setData(data)
+      else alert('Change failed.')
     }).finally(() => setEdit(prevState => !prevState))
-}
+  }
 
   return (
     <>

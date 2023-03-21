@@ -11,15 +11,17 @@ export default function WordListContent({ student, setData }) {
     const studentId = student.id
 
     const changeWordList = async () => {
-        // console.log(wordListRef.current.value)
         const changedWordList = wordListRef.current.value
         await axios('http://localhost:3000/api/user.change', {
             method: 'PATCH',
             data: {
-                id,
+                adminId: id,
                 studentId,
                 changedWordList
             }
+        }).then(({ data }) => {
+            if (data) setData(data)
+            else alert('Change failed.')
         }).finally(() => setEdit(prevState => !prevState))
     }
 

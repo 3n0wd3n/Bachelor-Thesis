@@ -47,8 +47,9 @@ const filterLessons = async (lessonIds, admin) => {
 }
 
 export const getUser = async(filter) => {
-  const userDb = await findOneFromMongo(User, filter);
-  if (!userDb) return;
+  const userDb = await findOneFromMongo(User, filter)
+  // this is responsible for hiding when admin decide that it is no longer wanted to be seen, but still stays in database
+  if (!userDb || userDb.disabled) return;
   
   if (userDb.role === 'admin') return getAdmin(userDb);
   else return getStudent(userDb);
@@ -85,7 +86,7 @@ const getStudent = async (userDb, admin=false) => {
 }
 
 const getAdmin = async (userDb) => {
-  const studentsDb = await findAllFromMongo(User, {role: 'student'})
+  const studentsDb = (await findAllFromMongo(User, { role: 'student' })).filter(student => !student.disabled)
   const filteredStudents = await Promise.all(studentsDb.map(async student => await getStudent(student, true)));
 
   return {

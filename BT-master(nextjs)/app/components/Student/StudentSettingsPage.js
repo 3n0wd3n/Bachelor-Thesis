@@ -18,10 +18,14 @@ export default function SettingsPage({ data, setData, setSettingsPage }) {
         await axios('http://localhost:3000/api/student.change', {
             method: 'PATCH',
             data: {
-                id,
+                adminId: id,
                 studentId,
                 changedPassword
             }
+        }).then(({ data }) => {
+            console.log(data)
+            if (data) setData(data)
+            else alert('Change failed.')
         }).finally(() => setEdit(prevState => !prevState))
     }
 

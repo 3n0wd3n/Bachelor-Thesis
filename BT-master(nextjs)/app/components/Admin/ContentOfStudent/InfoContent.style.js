@@ -20,9 +20,57 @@ export const StudentInfoContainerTwo = styled(CommonDisplayFlexColumn)`
       margin: 1em 0 1em 1em;
     }
 `;
+export const StudentKeyAttribute = styled.span`
+    font-family: 'Raleway', sans-serif;
+    text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.08);
+    font-size: .8rem;
+    font-weight: 900;
+    margin: 0em 0 0.5em 0.5em;
+`;
 
-export const StudentAttributes = styled.div`
-    
+export const StudentAttributes = styled.div``;
+
+export const StudentKeyRemoveAttribute = styled(StudentKeyAttribute)`
+    transition: .6s;
+    text-transform: uppercase;
+    margin: 0;
+    color: #D3D0CB;
+    text-shadow: none;
+    /* color: ${Colors.red}; */
+`;
+
+export const StudentKeyRemoveButton = styled.div`
+    display: flex;
+    align-items: center;
+    & > svg {
+        transition: .6s;
+        color: #D3D0CB;
+        margin: 0 0 0 .5em 
+    }
+`;
+
+export const StudentRemoveAttribute = styled(StudentAttributes)`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5em;
+    border-radius: 12px;
+    /* border: 1px solid ${Colors.darkGray}; */
+    border: 1px solid #D3D0CB;
+    cursor: pointer;
+    transition: .6s;
+
+    &:hover{
+        border: 1px solid ${Colors.red};
+    }
+    &:hover ${StudentKeyRemoveButton} svg{
+        transform: scale(1.05);
+        color: ${Colors.red};
+    }
+    &:hover ${StudentKeyRemoveAttribute}{
+        color: ${Colors.red};
+        /* transform: scale(1.01); */
+    }
 `;
 
 export const PlanAttributes = styled.div`
@@ -36,14 +84,6 @@ export const PlanAttributes = styled.div`
     input {
         width: fit-content;
     }
-`;
-
-export const StudentKeyAttribute = styled.span`
-    font-family: 'Raleway', sans-serif;
-    text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.08);
-    font-size: .8rem;
-    font-weight: 900;
-    margin: 0em 0 0.5em 0.5em;
 `;
 
 export const StudentPlanAttribute = styled(StudentKeyAttribute)`

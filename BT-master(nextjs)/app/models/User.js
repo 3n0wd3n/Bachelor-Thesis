@@ -33,6 +33,10 @@ const userSchema = new Schema(
       type: String,
       default: ""
     },
+    disabled:{
+      type: Boolean,
+      default: false
+    },
     lectures: {
       type: [String],
       default: []

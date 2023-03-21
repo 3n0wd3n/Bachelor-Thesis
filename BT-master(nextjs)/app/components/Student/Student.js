@@ -39,7 +39,7 @@ export default function Student({ data, setData }) {
         <>
           <StudentContainer>
             <ControlPanel data={data} setPaymentPage={setPaymentPage} setLogoutPage={setLogoutPage} setSettingsPage={setSettingsPage}/>
-            <MainContent data={data} setLogoutPage={setLogoutPage}/>
+            <MainContent setData={setData} data={data} setLogoutPage={setLogoutPage}/>
             <InfoPanel data={data} setApologizePage={setApologizePage}/>
           </StudentContainer>
           <Footer />

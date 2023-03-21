@@ -11,7 +11,7 @@ const updateInfoInStudent = async (filter, data) => {
 
 const deleteHomework = async (id) => {
     return await deleteOneFromMongo(Homeworks, id)
-  }
+}
 
 export default async function handler(req, res) {
     const { method, body, query } = req;
@@ -40,9 +40,9 @@ export default async function handler(req, res) {
             break;
         case 'DELETE':
             try {
-                const { adminId, studentId, homeworkId } = body
-                await updateInfoInStudent({ _id: studentId }, { $pull: { homeworks: homeworkId } })
-                await deleteHomework({ _id: homeworkId })
+                const { adminId, studentId } = body
+                console.log("REMOVING student: ", body)
+                await updateInfoInStudent({ _id: studentId }, { disabled: true })
                 const userData = await getUser({ _id: adminId })
                 res.status(200).json( userData );
             } catch {
@@ -51,10 +51,7 @@ export default async function handler(req, res) {
             break;
         case 'PATCH':
             try {
-                const { adminId, studentId, changedPassword } = body
-                await updateInfoInStudent({ _id: studentId }, { password: changedPassword })
-                const userData = await getUser({ _id: adminId })
-                res.status(200).json( userData );
+                res.status(200).json(true);
             } catch {
                 res.status(500).json({ failed: true });
             }
