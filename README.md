@@ -83,9 +83,10 @@ Nad technologiemi ještě přemýšlím co by bylo lepší použít. Výhodou je
 
 - [x] aktivovat atributy bez refreshe
 - [x] přidat do uživatele atribut 'active/disabled', který bude reprezentovat jestli admin uvidí studenta nebo ne, protože admin může mít právo některého studenta odstranit (po konzultaci s vedoucím práce by ale takto adstraněný student měl zůstat v databázi pro případné znovu aktivování)
+- [ ] zahashovat heslat aby v databázi nebyla vidět (později)
+- [ ] lessons change
 - [ ] dodělat aktualizaci času nové hodiny (zkártka kdy bude další hodina)
-- [ ] možnost studenta omluvit se z hodiny
 - [ ] admin by mohl mít možnost udělat sumarizaci k nějakému datu
-- [ ] vkládání a ukládání souborů
+- [ ] možnost studenta omluvit se z hodiny
 - [ ] zobrazení omluvenek a plateb
-- [ ] zahashovat heslat aby v databázi nebyla vidět
+- [ ] vkládání a ukládání souborů
