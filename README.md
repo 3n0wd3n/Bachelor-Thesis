@@ -74,17 +74,17 @@ Nad technologiemi ještě přemýšlím co by bylo lepší použít. Výhodou je
 - [ ] udělat diagram, který bude reprezentovat komunikaci jednotlivých stran/typů uživatelů s databází případně se serverem
 - [X] ve Figmě navrhnout design celé stránky (s viditelnou responzivitou a naznačenými klikacími úkony) --> pro možnost sledování průběhu návrhu přikládám odkaz na [PROTOTYP ve Figmě](https://www.figma.com/file/EsdxbekJrScMOYiIbjaQNq/Bachelor-Thesis?node-id=0%3A1)
 - [ ] ER diagram, UML diagram
-- [ ] nakonfigurovat Express server
-- [ ] rozvrhnout databáze
-- [ ] propojit databázi s MongoDB ATLAS
+- [X] nakonfigurovat Express server
+- [X] rozvrhnout databáze
+- [X] propojit databázi s MongoDB ATLAS
 - [ ] samotné propojení a naprogramování webové aplikace
 
 **TMP TO DO**
 
-- [] získat data po změně bez refreshe
-- [] přidat do uživatele atribut 'active', které bude reprezentovat jestli admin uvidí studtenta nebo ne, protože admin může ít právo některého studenta odstranit (po konzultaci s vedoucím práce by ale takto adstraněný student měl zůstat v databázi pro případné znovu aktivování)
-- [] dodělat aktualizaci času nové hodiny (zkártka kdy bude další hodina)
-- [] možnost studenta omluvit se z hodiny
-- [] admin by mohl mít možnost udělat sumarizaci k nějakému datu
-- [] vkládání a ukládání souborů
-- [] zobrazení omluvenek a plateb
+- [ ] získat data po změně bez refreshe
+- [ ] přidat do uživatele atribut 'active', které bude reprezentovat jestli admin uvidí studtenta nebo ne, protože admin může ít právo některého studenta odstranit (po konzultaci s vedoucím práce by ale takto adstraněný student měl zůstat v databázi pro případné znovu aktivování)
+- [ ] dodělat aktualizaci času nové hodiny (zkártka kdy bude další hodina)
+- [ ] možnost studenta omluvit se z hodiny
+- [ ] admin by mohl mít možnost udělat sumarizaci k nějakému datu
+- [ ] vkládání a ukládání souborů
+- [ ] zobrazení omluvenek a plateb
