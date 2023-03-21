@@ -90,3 +90,5 @@ Nad technologiemi ještě přemýšlím co by bylo lepší použít. Výhodou je
 - [ ] možnost studenta omluvit se z hodiny
 - [ ] zobrazení omluvenek a plateb
 - [ ] vkládání a ukládání souborů
+- [ ] určit architekturu (mvc/mvvm)
+- [ ] rodič a student starší 18 let budou mít možnost říct, že danou hodinu zaplatili
