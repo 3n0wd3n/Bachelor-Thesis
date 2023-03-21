@@ -81,10 +81,11 @@ Nad technologiemi ještě přemýšlím co by bylo lepší použít. Výhodou je
 
 **TMP TO DO**
 
-- [ ] získat data po změně bez refreshe
-- [ ] přidat do uživatele atribut 'active', které bude reprezentovat jestli admin uvidí studtenta nebo ne, protože admin může ít právo některého studenta odstranit (po konzultaci s vedoucím práce by ale takto adstraněný student měl zůstat v databázi pro případné znovu aktivování)
+- [x] aktivovat atributy bez refreshe
+- [ ] přidat do uživatele atribut 'active/disabled', který bude reprezentovat jestli admin uvidí studenta nebo ne, protože admin může mít právo některého studenta odstranit (po konzultaci s vedoucím práce by ale takto adstraněný student měl zůstat v databázi pro případné znovu aktivování)
 - [ ] dodělat aktualizaci času nové hodiny (zkártka kdy bude další hodina)
 - [ ] možnost studenta omluvit se z hodiny
 - [ ] admin by mohl mít možnost udělat sumarizaci k nějakému datu
 - [ ] vkládání a ukládání souborů
 - [ ] zobrazení omluvenek a plateb
+- [ ] zahashovat heslat aby v databázi nebyla vidět
