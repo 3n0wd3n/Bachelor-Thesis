@@ -72,18 +72,18 @@ Nad technologiemi ještě přemýšlím co by bylo lepší použít. Výhodou je
 - [x] vybrat technologie, které budou pro projekt a pro mě co nejvíce vhodné
   > technologie, které budou webovou aplikaci absluhovat jsou na straně clienta REACTJS a na straně serveru MONGODB (běží na atlasu), NODEJS, EXPRESS (bude běžet na HEROKU)
 - [ ] udělat diagram, který bude reprezentovat komunikaci jednotlivých stran/typů uživatelů s databází případně se serverem
-- [X] ve Figmě navrhnout design celé stránky (s viditelnou responzivitou a naznačenými klikacími úkony) --> pro možnost sledování průběhu návrhu přikládám odkaz na [PROTOTYP ve Figmě](https://www.figma.com/file/EsdxbekJrScMOYiIbjaQNq/Bachelor-Thesis?node-id=0%3A1)
+- [x] ve Figmě navrhnout design celé stránky (s viditelnou responzivitou a naznačenými klikacími úkony) --> pro možnost sledování průběhu návrhu přikládám odkaz na [PROTOTYP ve Figmě](https://www.figma.com/file/EsdxbekJrScMOYiIbjaQNq/Bachelor-Thesis?node-id=0%3A1)
 - [ ] ER diagram, UML diagram
-- [X] nakonfigurovat Express server
-- [X] rozvrhnout databáze
-- [X] propojit databázi s MongoDB ATLAS
+- [x] nakonfigurovat Express server
+- [x] rozvrhnout databáze
+- [x] propojit databázi s MongoDB ATLAS
 - [ ] samotné propojení a naprogramování webové aplikace
 
 **TMP TO DO**
 
 - [x] aktivovat atributy bez refreshe
 - [x] přidat do uživatele atribut 'active/disabled', který bude reprezentovat jestli admin uvidí studenta nebo ne, protože admin může mít právo některého studenta odstranit (po konzultaci s vedoucím práce by ale takto adstraněný student měl zůstat v databázi pro případné znovu aktivování)
-- [ ] zahashovat heslat aby v databázi nebyla vidět (později)
+- [x] zahashovat heslat aby v databázi nebyla vidět (později)
 - [ ] lessons change
 - [ ] dodělat aktualizaci času nové hodiny (zkártka kdy bude další hodina)
 - [ ] admin by mohl mít možnost udělat sumarizaci k nějakému datu
