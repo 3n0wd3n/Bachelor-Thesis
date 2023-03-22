@@ -41,10 +41,10 @@ export const SettingsKeyAttribute = styled.span`
 
 export const SettingsKeyInputAttribute = styled.input`
     font-family: 'Raleway', sans-serif;
-    padding: 0.2rem 0 0.2em 0.5rem;
+    padding: 0.2em 0.5em 0.2em 0.5em;
     font-weight: 100;
     font-size: 1.29rem;
-    width: 90px;
+    min-width: 90px;
     border-radius: 10px;
     border: 1px solid rgba(155, 155, 155, 0.05);
     box-shadow: -3px 3px 8px rgba(155, 155, 155, 0.25);

@@ -28,7 +28,7 @@ const filterLessons = async (lessonIds, admin) => {
     id: lesson._id,
     status: lesson.status,
     date: lesson.from,
-    // fucking destruktivnost => ...
+    // destruktivnost => ...
     ... (admin ? { endDate: lesson.to } : [])
   }));
 
@@ -43,6 +43,8 @@ const filterLessons = async (lessonIds, admin) => {
       } else return true
     })
   )
+  
+  filteredLessons.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()).reverse()
 
   return filteredLessons
 }

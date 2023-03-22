@@ -6,7 +6,7 @@ import { constructWeek } from './FilesContent';
 
 const week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
-function addDays(date, days) {
+export function addDays(date, days) {
   var result = new Date(date);
   result.setDate(result.getDate() + days);
   return result;

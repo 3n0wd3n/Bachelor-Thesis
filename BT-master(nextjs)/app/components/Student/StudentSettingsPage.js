@@ -49,7 +49,7 @@ export default function SettingsPage({ data, setData, setSettingsPage }) {
                             ?
                             <>
                                 <FontsBold>student's passwd:</FontsBold>
-                                <SettingsKeyInputAttribute ref={passwordRef} defaultValue={"********"} disabled={!edit} readOnly={!edit} editable={edit} />
+                                <SettingsKeyInputAttribute ref={passwordRef} defaultValue={"input new passwd"} disabled={!edit} readOnly={!edit} editable={edit} />
                             </>
                             :
                             <>

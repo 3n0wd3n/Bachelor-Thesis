@@ -1,24 +1,51 @@
 import React from 'react'
 import axios from 'axios'
+import moment from 'moment'
 import { getCookie } from 'cookies-next';
 import { FaCheckCircle, FaRegSmileBeam } from 'react-icons/fa'
 import { Colors } from '../../utils/Colors'
+import { addDays } from '../Admin/ContentOfStudent/LessonChange';
 
 import { StudentMCDescription, StudentMCHomeworkDoneContainer, StudentMCFontsSectionLinkItem, StudentUnorderedList, StudentListItem, SimpleContainer, SimpleDiv, StudentMCFilesItems, StudentMCFontsWordList, StudentMCFontsFiles, StudentMCWordList, StudentMCFiles, StudentMCContainer, StudentMCNextLesson, StudentMCFontsDate, StudentMCFontsBold, StudentMCHomeworks, StudentMCFontsHomeworks, StudentMCFontsHomeworksItem, StudentMCFontsSectionItems } from './StudentMainContent.style'
 // StudentMC = StudentMainContent
+
+export const getNextLesson = (lessons) => {
+  const reFormatIndex = (date) => new Date(date).getDay() === 0 ? 6 : new Date(date).getDay() - 1
+
+  const now = new Date()
+  const nowIndex = now.getDay()
+  const daysIndexes = lessons.map(lesson => reFormatIndex(lesson.date))
+  const isHigherOrEqual = daysIndexes.filter(dayIndex => dayIndex >= nowIndex).length > 0
+  let nextLessonIndex
+  if (isHigherOrEqual) lessons.map(lesson => {
+    const dayIndex = reFormatIndex(lesson.date)
+    if (dayIndex >= nowIndex) return nextLessonIndex = dayIndex
+  })
+  else lessons.map(lesson => {
+    const dayIndex = reFormatIndex(lesson.date)
+    if (dayIndex < nowIndex) return nextLessonIndex = dayIndex
+  })
+
+  let nextLesson = new Date(lessons.find(lesson => reFormatIndex(lesson.date) === nextLessonIndex).date)
+  
+  while (nextLesson.getTime() < now.getTime()) {
+    nextLesson = addDays(nextLesson, 7)
+  }
+
+  return nextLesson
+}
 
 export default function MainContent({ data, setData }) {
   // Set styling to icons
   const style = { color: Colors.lightGreen, fontSize: "3em" }
   const [edit, setEdit] = React.useState(false)
+  const nextLesson = React.useMemo(() => getNextLesson(data.lessons), [data])
   const id = getCookie('userCookie')
   const studentId = data.id
 
   // Getting properties from date
-  const daysOfTheWeek = ["pondělí", "úterý", "středa", "čtvrtek", "pátek", "sobota", "neděle"];
-  const lessonDate = new Date(data.lessons[0]?.date);
-  var lessonDay = lessonDate?.getDay();
-  var lessonHour = lessonDate?.getHours();
+  const daysOfTheWeek = ["neděle", "pondělí", "úterý", "středa", "čtvrtek", "pátek", "sobota"];
+  var lessonDay = nextLesson.getDay();
   var day;
   for (var i = 0; i < daysOfTheWeek.length; i++) {
     if (i == lessonDay) {
@@ -45,7 +72,7 @@ export default function MainContent({ data, setData }) {
       <StudentMCContainer>
         <StudentMCNextLesson>
           <StudentMCFontsDate>next lesson</StudentMCFontsDate>
-          <StudentMCFontsBold>{`${day ? day + ' ' + ' ' + lessonHour + 'h' : 'No next lesson'}`}</StudentMCFontsBold>
+          <StudentMCFontsBold>{`${day ? `${day} ${moment(nextLesson).format('HH:mm')}` : "Lessons not yet set"}`}</StudentMCFontsBold>
         </StudentMCNextLesson>
         <StudentMCHomeworks>
           <StudentMCFontsHomeworks>homeworks</StudentMCFontsHomeworks>
