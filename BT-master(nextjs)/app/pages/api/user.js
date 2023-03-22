@@ -1,3 +1,4 @@
+import bcrypt from 'bcrypt'
 import User from '../../models/User'
 import Lecture from '../../models/Lecture'
 import Homeworks from '../../models/Homeworks'
@@ -46,8 +47,16 @@ const filterLessons = async (lessonIds, admin) => {
   return filteredLessons
 }
 
-export const getUser = async(filter) => {
-  const userDb = await findOneFromMongo(User, filter)
+export const getUser = async(filter, password) => {
+  const usersDb = await findAllFromMongo(User, filter)
+  let userDb = usersDb[0]
+  if (password) {
+    await Promise.all(
+      usersDb.map(async (user) => {
+        if (user && await bcrypt.compare(password, user.password)) userDb = user
+      })
+    )
+  }
   // this is responsible for hiding when admin decide that it is no longer wanted to be seen, but still stays in database
   if (!userDb || userDb.disabled) return;
   
@@ -72,8 +81,8 @@ const getStudent = async (userDb, admin=false) => {
     role: userDb.role,
     firstName: userDb.name,
     lastName: userDb.surname,
-    username: userDb.username, /* Zeptat se kubu na bezpečnost*/
-    password: userDb.password, /* Zeptat se kubu na bezpečnost*/
+    username: userDb.username,
+    // password: userDb.password,
     legalRepresentative: userDb.legalRepresentative !== '',
     lessons: filteredLessons,
     plan: userDb.plan,
@@ -117,8 +126,8 @@ export default async function handler(req, res) {
 
       let user;
       // find user in collection if exists
-      if (userNumber) user = await getUser({ phone: userNumber, password: userPassword })
-      else user = await getUser({ username: userName, password: userPassword })
+      if (userNumber) user = await getUser({ phone: userNumber }, userPassword)
+      else user = await getUser({ username: userName }, userPassword)
 
       // return null or object to login
       res.status(200).json( user );
@@ -139,34 +148,43 @@ export default async function handler(req, res) {
           plan,
         } = body;
         const legalRepresentative = representativeName.length > 0;
+        // creating salt for hash from bcrypt library
+        const salt = await bcrypt.genSalt(10)
         let representative;
         let student;
 
         if (legalRepresentative) {
+          // hashing the password using bcrypt lib
+          const representativeHashedPassword = await bcrypt.hash(representativePassword, salt)
+          const studentHashedPassword = await bcrypt.hash(password, salt)
+
           representative = await createUser({
             role: 'representative',
             name: representativeName,
             surname: representativeSurname,
             phone: representativePhone,
-            password: representativePassword,
+            password: representativeHashedPassword,
           });
           student = await createUser({
             role,
             name,
             surname,
             username,
-            password,
             plan,
+            password: studentHashedPassword,
             legalRepresentative: representative._id
           });
         } else {
+          // hashing the password using bcrypt lib
+          const studentHashedPassword = await bcrypt.hash(password, salt)
+
           student = await createUser({
             role,
             name,
             surname,
             username,
-            password,
             plan,
+            password: studentHashedPassword,
           });
         }
 

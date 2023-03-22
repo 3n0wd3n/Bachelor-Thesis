@@ -1,3 +1,4 @@
+import bcrypt from 'bcrypt'
 import User from '../../models/User'
 import Homeworks from '../../models/Homeworks'
 import { getUser } from './user'
@@ -52,7 +53,11 @@ export default async function handler(req, res) {
         case 'PATCH':
             try {
                 const { adminId, studentId, changedPassword } = body
-                await updateInfoInStudent({ _id: studentId }, { password: changedPassword })
+                // creating salt for hash from bcrypt library
+                const salt = await bcrypt.genSalt(10)
+                // hashing the password using bcrypt lib
+                const changedHashedPassword = await bcrypt.hash(changedPassword, salt)
+                await updateInfoInStudent({ _id: studentId }, { password: changedHashedPassword })
                 const userData = await getUser({ _id: adminId })
                 res.status(200).json( userData );
             } catch {
