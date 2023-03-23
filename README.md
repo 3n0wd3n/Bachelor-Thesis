@@ -70,14 +70,13 @@ Nad technologiemi ještě přemýšlím co by bylo lepší použít. Výhodou je
 - [x] domluvit se na návrhu bakalářské práce
 - [x] vygenerovat PDF dokument ze STAGU s formálním zadáním práce
 - [x] vybrat technologie, které budou pro projekt a pro mě co nejvíce vhodné
-  > technologie, které budou webovou aplikaci absluhovat jsou na straně clienta REACTJS a na straně serveru MONGODB (běží na atlasu), NODEJS, EXPRESS (bude běžet na HEROKU)
-- [ ] udělat diagram, který bude reprezentovat komunikaci jednotlivých stran/typů uživatelů s databází případně se serverem
+  > technologie, které budou webovou aplikaci absluhovat jsou na straně clienta REACTJS a na straně serveru NODEJS, EXPRESS (bude běžet na HEROKU) + databáze MONGODB (běží na atlasu)
 - [x] ve Figmě navrhnout design celé stránky (s viditelnou responzivitou a naznačenými klikacími úkony) --> pro možnost sledování průběhu návrhu přikládám odkaz na [PROTOTYP ve Figmě](https://www.figma.com/file/EsdxbekJrScMOYiIbjaQNq/Bachelor-Thesis?node-id=0%3A1)
-- [ ] ER diagram, UML diagram
 - [x] nakonfigurovat Express server
 - [x] rozvrhnout databáze
 - [x] propojit databázi s MongoDB ATLAS
 - [ ] samotné propojení a naprogramování webové aplikace
+- [ ] ER diagram, UML diagram
 
 O CO BY SE DALA BAKÁLÁŘKA ROZŠÍŘIT
 
