@@ -10,47 +10,49 @@ Od začátku školního roku 2021/2022 se moje přítelkyně vydala cestou brig�
 
 Do informačního systému by se přihlašovalo skrz standartní login. Žádná registrace by nebyla, protože by správce (Bára) každému novému příchozímu dala jeho přihlašovací jméno a heslo (mohl bych generovat). Po zadání přihlašovacích údajů by se rozeznávali tři typy uživatelů.
 
-1. typ (správce)
+1. typ (správce/admin)
 
-> - Mazání studentů
+> - Mazání studentů (pouze zneviditelnit a znemožnit přístup, ale pro pořeby obnovení je student stále v databázi)
 >
-> - Jednotlivým studentům možnost zapisovat/shrnout co bylo tématem minulé hodiny
+> - Jednotlivým studentům možnost zapisovat/shrnout co bylo tématem minulých hodiny
 >
 > - Jednotlivým studentům psát domácí úkoly
 >
-> - Přikládat individuálně .PDF studentům do sekce s materiály
+> - Přikládat individuálně .PDF studentům do sekce s materiály (obecně soubory)
 >
-> * Jednotlivým studentům možnost zapisovat/shrnout co bylo tématem minulé hodiny
+> - Individuální osnova/plán pro studenta, který lze měnit správcem podle aktuální potřeby studenta po domluvě
 >
-> * Individuální osnova/plán pro studenta, který lze měnit správcem podle aktuální potřeby studenta po domluvě
+> - Změnit čas následující výuky>
+>
+> - Možnost změnit jméno, příjmení
+> 
+> - Přidat odkaz na slovíčka (flash cards)
 
-2. typ (student starší 18 let/rodič)
-
-> - Uvidí průběžné (nejespíš měsíční) zhodnocení práce studenta (jen v případě když to bude samozřejmě pro rodiče jinak studentovi staršímu 18 let to nemá moc vyznám tam psát, protože si za to zodpovídá sám).
->
-> - Po zádání administrátorem/správcem kolik hodin týdně proběhlo by jednoduchý algoritmus pro výpočet tojčlenky měl vyhodi číslo, kolik to dělá za tu hodinu a posčíta s početem hodin, které proběhly --> závěrem se vždy ukáže v sekci pro administrativní informace počet kolonek (takový blok, který by měl hlavní viditelnou část právě nesplacené číslo a klidně i dole pak informace o tom za co rdič teda platí --> co proběhlo za hodiny) odpovídajících nesplaceným týdnům (je to spíš takových provizorní check-list pro rodiče aby věděli co už poplatili a co jim ještě zbývá, protože se často stává, že Bára, řeší, že si rodiče nepamatují, které týdny už zaplatilia které ne a dohledává se to v mailech).
->
-> - Omluvenky na hodiny (maximálně týden dopředu)
->
-> - Požadavek na přehození hodiny (opět maximálně týden dopředu)
->
-> - Informace o č.ú případně Bářín kalendář aby věděli na jaké dny už Bára někoho má a Bárou vyznačené dny, kdy si studenti mohou nahradit, nebo přesunout hodinu <-- tady toto je potřeba brát s rezervou a neřadil bych to do jednoho z bodů bakalářské práce pro případ, že by se mi to nepovedlo implementovat.
-
-3. typ (student mladší 18 let)
+2. typ (student mladší 18 let)
 
 > - Uvidí osnovu, která naznačuje cestu jakou studium bude probíhat
 >
-> * Krátké shrnutí
+> - Krátké shrnutí hodin v sekci průběžné shrnutí
 >
-> * Domácí úkoly
+> - Uvidí domácí úkoly
 >
-> * .PDF soubory pro tisk na hodiny
+> - Uvidí .PDF soubory pro tisk na hodiny
 >
-> - Domácí úkoly
+> - Uvidí čas následující, na kterém se domluvili, že hodina bude probíhat
 >
-> - .PDF soubory pro tisk na hodiny
+> - Může se omluvit z hodiny
 >
-> - Čas, na kterém se domluvili, že hodina bude probíhat
+> - Může si změnit heslo
+
+3. typ (student starší 18 let/rodič)
+
+> - Uvidí všechno, co student mladší 18 let plus výčet věci, které jsou pod tímto odstavcem
+>
+> - Uvidí průběžné (nejespíš měsíční) zhodnocení práce studenta (jen v případě když to bude samozřejmě pro rodiče jinak studentovi staršímu 18 let to nemá moc vyznám tam psát, protože si za to zodpovídá sám).
+>
+> - Po zádání administrátorem/správcem kolik hodin týdně proběhlo by jednoduchý algoritmus pro výpočet trojčlenky měl vyhodi číslo, kolik to dělá za tu hodinu a posčíta s početem hodin, které proběhly --> závěrem se vždy ukáže v sekci pro administrativní informace počet kolonek (takový blok, který by měl hlavní viditelnou část právě nesplacené číslo a klidně i dole pak informace o tom za co rdič teda platí --> co proběhlo za hodiny) odpovídajících nesplaceným týdnům (je to spíš takových provizorní check-list pro rodiče aby věděli co už poplatili a co jim ještě zbývá, protože se často stává, že Bára, řeší, že si rodiče nepamatují, které týdny už zaplatilia které ne a dohledává se to v mailech).
+>
+> - Informace o č.ú
 
 Pro všechny jsou samozřejmě jiná práva a každý uvidí něco jiného.
 
@@ -74,7 +76,7 @@ Nad technologiemi ještě přemýšlím co by bylo lepší použít. Výhodou je
 - [ ] samotné propojení a naprogramování webové aplikace
 - [ ] ER diagram, UML diagram
 
-O CO BY SE DALA BAKÁLÁŘKA ROZŠÍŘIT
+**O CO BY SE DALA BAKÁLÁŘKA ROZŠÍŘIT**
 
 - REACT NATIVE
 - VYHLEDÁVÁNÍ V UŽIVATELÍCH
@@ -82,7 +84,7 @@ O CO BY SE DALA BAKÁLÁŘKA ROZŠÍŘIT
 - PLATEBNÍ BRÁNA
 - INTEGROVANÉ HRY (STORY DICE)
 - KALENDÁŘ NA STRANĚ ADMINA, KDE BY VIDĚL VŠECHNY HODINY CO PŘES TÝDEN MÁ ABY VĚDĚL, NA KTERÉ DNY SI MŮŽU KDYŽTAK PŘIDAT STUDENTY
-
+- OBNOVA HESLA
 
 **TMP TO DO**
 
