@@ -22,7 +22,7 @@ Do informačního systému by se přihlašovalo skrz standartní login. Žádná
 >
 > - Individuální osnova/plán pro studenta, který lze měnit správcem podle aktuální potřeby studenta po domluvě
 >
-> - Změnit čas následující výuky>
+> - Změnit čas následující výuky
 >
 > - Možnost změnit jméno, příjmení
 > 
