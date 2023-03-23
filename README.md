@@ -79,16 +79,25 @@ Nad technologiemi ještě přemýšlím co by bylo lepší použít. Výhodou je
 - [x] propojit databázi s MongoDB ATLAS
 - [ ] samotné propojení a naprogramování webové aplikace
 
+O CO BY SE DALA BAKÁLÁŘKA ROZŠÍŘIT
+
+- REACT NATIVE
+- VYHLEDÁVÁNÍ V UŽIVATELÍCH
+- PŘIDÁVÁNÍ SOUBORŮ A ODKAZŮ VŠEM
+- PLATEBNÍ BRÁNA
+- INTEGROVANÉ HRY (STORY DICE)
+- KALENDÁŘ NA STRANĚ ADMINA, KDE BY VIDĚL VŠECHNY HODINY CO PŘES TÝDEN MÁ ABY VĚDĚL, NA KTERÉ DNY SI MŮŽU KDYŽTAK PŘIDAT STUDENTY
+
+
 **TMP TO DO**
 
 - [x] aktivovat atributy bez refreshe
 - [x] přidat do uživatele atribut 'active/disabled', který bude reprezentovat jestli admin uvidí studenta nebo ne, protože admin může mít právo některého studenta odstranit (po konzultaci s vedoucím práce by ale takto adstraněný student měl zůstat v databázi pro případné znovu aktivování)
 - [x] zahashovat heslat aby v databázi nebyla vidět (později)
-- [ ] lessons change
-- [ ] dodělat aktualizaci času nové hodiny (zkártka kdy bude další hodina)
-- [ ] admin by mohl mít možnost udělat sumarizaci k nějakému datu
+- [ ] lessons change 
+- [ ] dodělat aktualizaci času nové hodiny jak u admina, tak u studenta (zkártka kdy bude další hodina)
+- [ ] udělat na straně studenta sumarizaci z hodiny (PŘIDAT TO I K RODIČI)
 - [ ] možnost studenta omluvit se z hodiny
 - [ ] zobrazení omluvenek a plateb
 - [ ] vkládání a ukládání souborů
-- [ ] určit architekturu (mvc/mvvm)
 - [ ] rodič a student starší 18 let budou mít možnost říct, že danou hodinu zaplatili
