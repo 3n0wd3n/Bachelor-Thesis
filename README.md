@@ -86,6 +86,8 @@ Nad technologiemi ještě přemýšlím co by bylo lepší použít. Výhodou je
 - INTEGROVANÉ HRY (STORY DICE)
 - KALENDÁŘ NA STRANĚ ADMINA, KDE BY VIDĚL VŠECHNY HODINY CO PŘES TÝDEN MÁ ABY VĚDĚL, NA KTERÉ DNY SI MŮŽU KDYŽTAK PŘIDAT STUDENTY
 - OBNOVA HESLA
+- PŘIDÁNÍ LEKCE
+- ZMĚNA LEKCE PERMENENTNĚ
 
 **TMP TO DO**
 
