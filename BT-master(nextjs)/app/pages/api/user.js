@@ -26,10 +26,11 @@ const filterLessons = async (lessonIds, admin) => {
   // format lessons
   const lessons = lessonsDb.map(lesson => ({
     id: lesson._id,
-    status: lesson.status,
     date: lesson.from,
     // destruktivnost => ...
-    ... (admin ? { endDate: lesson.to } : [])
+    ... (admin ? { endDate: lesson.to } : []),
+    ... (admin ? { changes: lesson.changes } : []),
+    ... (admin ? { statuses: lesson.statuses } : []),
   }));
 
   let now = new Date().getTime();
@@ -90,7 +91,7 @@ const getStudent = async (userDb, admin=false) => {
     plan: userDb.plan,
     // homeworks: userDb.homeworks,
     homeworks: filteredHomeworks,
-    files: [],
+    files: userDb.files,
     wordList: userDb.wordList,
     payments: [],
   }

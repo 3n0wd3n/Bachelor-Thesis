@@ -15,19 +15,20 @@ export const getNextLesson = (lessons) => {
   const now = new Date()
   const nowIndex = now.getDay()
   const daysIndexes = lessons.map(lesson => reFormatIndex(lesson.date))
+
   const isHigherOrEqual = daysIndexes.filter(dayIndex => dayIndex >= nowIndex).length > 0
   let nextLessonIndex
   if (isHigherOrEqual) lessons.map(lesson => {
     const dayIndex = reFormatIndex(lesson.date)
-    if (dayIndex >= nowIndex) return nextLessonIndex = dayIndex
+    if (dayIndex >= nowIndex && (dayIndex < nextLessonIndex || !nextLessonIndex)) return nextLessonIndex = dayIndex
   })
   else lessons.map(lesson => {
     const dayIndex = reFormatIndex(lesson.date)
-    if (dayIndex < nowIndex) return nextLessonIndex = dayIndex
+    if (dayIndex < nowIndex && (dayIndex > nextLessonIndex || !nextLessonIndex)) return nextLessonIndex = dayIndex
   })
 
   let nextLesson = new Date(lessons.find(lesson => reFormatIndex(lesson.date) === nextLessonIndex).date)
-  
+
   while (nextLesson.getTime() < now.getTime()) {
     nextLesson = addDays(nextLesson, 7)
   }
@@ -35,23 +36,28 @@ export const getNextLesson = (lessons) => {
   return nextLesson
 }
 
-export default function MainContent({ data, setData }) {
-  // Set styling to icons
-  const style = { color: Colors.lightGreen, fontSize: "3em" }
-  const [edit, setEdit] = React.useState(false)
-  const nextLesson = React.useMemo(() => getNextLesson(data.lessons), [data])
-  const id = getCookie('userCookie')
-  const studentId = data.id
-
+export const getDay = (nextLesson) => {
   // Getting properties from date
   const daysOfTheWeek = ["neděle", "pondělí", "úterý", "středa", "čtvrtek", "pátek", "sobota"];
-  var lessonDay = nextLesson.getDay();
+  var lessonDay = nextLesson;
   var day;
   for (var i = 0; i < daysOfTheWeek.length; i++) {
     if (i == lessonDay) {
       day = daysOfTheWeek[i];
     }
   }
+  return day
+}
+
+export default function MainContent({ data, setData }) {
+  // Set styling to icons
+  const style = { color: Colors.lightGreen, fontSize: "3em" }
+  const [edit, setEdit] = React.useState(false)
+  const id = getCookie('userCookie')
+  const studentId = data.id
+  const nextLesson = React.useMemo(() => getNextLesson(data.lessons), [data])
+  const day = getDay(nextLesson.getDay())
+
 
   const removeHomework = async (homeworkId) => {
     await axios('http://localhost:3000/api/student.change', {

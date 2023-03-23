@@ -92,6 +92,7 @@ export const StudentPlanAttribute = styled(StudentKeyAttribute)`
 
 export const StudentValueAttribute = styled.span`
     font-family: 'Raleway', sans-serif;
+    color: ${({ changed }) => changed ? 'orangered' : 'black'};
     text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.08);
     font-size: .8rem;
     font-weight: 300;

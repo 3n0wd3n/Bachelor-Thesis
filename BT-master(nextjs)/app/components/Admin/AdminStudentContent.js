@@ -71,8 +71,8 @@ export default function AdminStudentContent({ student, setData }) {
                   </MenuItems>
                   <ContentContainer>
                     {selectedMenu === 'info/edit' && <InfoContent setData={setData} student={student} />}
-                    {selectedMenu === 'lessons change' && <LessonChange student={student} />}
-                    {selectedMenu === 'files' && <FileContent>files</FileContent>}
+                    {selectedMenu === 'lessons change' && <LessonChange student={student} setData={setData} />}
+                    {selectedMenu === 'files' && <FileContent setData={setData} student={student}>files</FileContent>}
                     {selectedMenu === 'homeworks' && <HomeworksContent student={student} setData={setData} />}
                     {selectedMenu === 'lesson summary' && <>lesson summary</>}
                     {selectedMenu === 'word list' && <WordListContent student={student} setData={setData}></WordListContent>}

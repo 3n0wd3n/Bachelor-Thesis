@@ -1,8 +1,9 @@
 import React from 'react'
+import axios from 'axios'
 import moment from 'moment'
+import { getCookie } from 'cookies-next';
 import { WrapperStyled, DateStyled, CalendarContentWrapperStyled, DatesWrapperStyled, SaveButton, GoBackButton, LessonTimeWrapper, WeekWrapperStyled, WeekInputStyled, WeekPlaceholderStyled, CalendarWrapperStyled, DayStyled, LessonStyled } from './LessonChange.style'
 import { AdminLessonTimeInput } from '../AdminAddPage.style'
-import { constructWeek } from './FilesContent';
 
 const week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
@@ -19,11 +20,15 @@ const generateNextLessons = (lessons, weeks) => {
     const weekLessons = []
 
     lessons.map(lesson => {
-      const newDate = addDays(lesson.date, (i + 1) * 7)
-      const newEndDate = addDays(lesson.endDate, (i + 1) * 7)
+      let newDate = addDays(lesson.date, (i + 1) * 7)
+      let newEndDate = addDays(lesson.endDate, (i + 1) * 7)
       const dayIndex = newDate.getDay() === 0 ? week.length - 1 : newDate.getDay() - 1
 
       if (newDate.getTime() < new Date().getTime()) return
+      if (nextLessons.length === 0 && moment(newDate).isoWeek() !== moment().isoWeek()) {
+        newDate = addDays(newDate, -7)
+        newEndDate = addDays(newEndDate, -7)
+      }
       weekLessons.push([dayIndex, { id: lesson.id, date: newDate, endDate: newEndDate }])
     })
 
@@ -31,14 +36,15 @@ const generateNextLessons = (lessons, weeks) => {
     i++
   }
 
+  
   const formattedNextLessons = []
-
+  
   nextLessons.map(weekLessons => {
     const formattedWeek = []
     week.map(day => {
       const dayIndex = week.indexOf(day)
       const lessonsThisDay = weekLessons.filter(dayLesson => dayLesson[0] === dayIndex)[0]
-
+      
       formattedWeek.push(lessonsThisDay ? lessonsThisDay[1] : null)
     })
     formattedNextLessons.push(formattedWeek)
@@ -50,54 +56,93 @@ const generateNextLessons = (lessons, weeks) => {
 const getMonday = (d) => {
   d = new Date(d);
   var day = d.getDay(),
-      diff = d.getDate() - day + (day == 0 ? -6:1); // adjust when day is sunday
+  diff = d.getDate() - day + (day == 0 ? -6:1); // adjust when day is sunday
   return new Date(d.setDate(diff));
 }
 
 const generateDates = (weeks) => {
   const dates = []
   let nextDate = getMonday(new Date())
-
+  
   while (dates.length < weeks) {
     dates.push(nextDate)
-
+    
     nextDate = addDays(nextDate, 7)
   }
-
+  
   return dates
 }
 
-export default function LessonChange({ student }) {
+export default function LessonChange({ student, setData }) {
   const [nextWeeks, setNextWeeks] = React.useState(3)
   const [selectedDay, setSelectedDay] = React.useState(null)
   const nextLessons = React.useMemo(() => generateNextLessons(student.lessons, nextWeeks), [nextWeeks])
   const dates = React.useMemo(() => generateDates(nextWeeks), [nextWeeks])
+  const lessonRef = React.useRef();
+  const id = getCookie('userCookie')
+  const studentId = student.id
 
   if (selectedDay) {
-    const saveTimeChange = () => {
+    const saveTimeChange = async () => {
+      const lesson = lessonRef.current;
+      const dateString = lesson.day.value;
+      const date = new Date(dateString);
 
+      const from = lesson.from.value;
+      const fromHour = from.split(':')[0];
+      const fromMinute = from.split(':')[1];
+      const fromDate = new Date(new Date(new Date(date).setHours(fromHour)).setMinutes(fromMinute));
+
+      const to = lesson.to.value;
+      const toHour = to.split(':')[0];
+      const toMinute = to.split(':')[1];
+      const toDate = new Date(new Date(new Date(date).setHours(toHour)).setMinutes(toMinute));
+
+      const formattedLesson = {
+        from: selectedDay.date,
+        to: selectedDay.endDate,
+        newFrom: fromDate,
+        newTo: toDate,
+      }
+
+      await axios('http://localhost:3000/api/student.change', {
+          method: 'POST',
+          data: {
+              adminId: id,
+              studentId,
+              lessonId: selectedDay.id,
+              lessons: formattedLesson,
+          }
+      }).then(({ data }) => {
+          if (data) setData(data)
+          else alert('Change failed.')
+      })
     }
 
     return (
       <>
         <GoBackButton onClick={() => setSelectedDay(null)}>Go back</GoBackButton>
-        <LessonTimeWrapper type="date" value={selectedDay.selectedDate} readOnly />
+        <LessonTimeWrapper type="date"
+          ref={(el) => lessonRef.current = { day: el, from: lessonRef.current?.from, to: lessonRef.current?.to }}
+          value={selectedDay.selectedDate}
+          readOnly
+        />
         <AdminLessonTimeInput type="time"
-          // ref={(el) => lessonRefs.current[index] = { from: el, day: lessonRefs.current[index]?.day, to: lessonRefs.current[index]?.to }}
+          ref={(el) => lessonRef.current = { from: el, day: lessonRef.current?.day, to: lessonRef.current?.to }}
           defaultValue={selectedDay.fromTime}
         />
         <AdminLessonTimeInput type="time"
           defaultValue={selectedDay.toTime}
-          // ref={(el) => lessonRefs.current[index] = { to: el, from: lessonRefs.current[index]?.from, day: lessonRefs.current[index]?.day }}
-          // onChange={({ target }) => {
-          //   const from = lessonRefs.current[index]?.from.value;
-          //   const fromHour = Number(from.split(':')[0]) || 0
-          //   const fromMinute = Number(from.split(':')[1]) || 0
-          //   const toHour = Number(target.value.split(':')[0]) || 0
-          //   const toMinute = Number(target.value.split(':')[1]) || 0
+          ref={(el) => lessonRef.current = { to: el, from: lessonRef.current?.from, day: lessonRef.current?.day }}
+          onChange={({ target }) => {
+            const from = lessonRef.current?.from.value;
+            const fromHour = Number(from.split(':')[0]) || 0
+            const fromMinute = Number(from.split(':')[1]) || 0
+            const toHour = Number(target.value.split(':')[0]) || 0
+            const toMinute = Number(target.value.split(':')[1]) || 0
 
-          //   if (!from || (fromHour >= toHour || (fromHour > toHour && fromMinute >= toMinute) || (fromHour + 1 === toHour && fromMinute > toMinute))) target.value = '';
-          // }}
+            if (!from || (fromHour >= toHour || (fromHour > toHour && fromMinute >= toMinute) || (fromHour + 1 === toHour && fromMinute > toMinute))) target.value = '';
+          }}
         />
         <SaveButton onClick={() => saveTimeChange()}>Save</SaveButton>
       </>

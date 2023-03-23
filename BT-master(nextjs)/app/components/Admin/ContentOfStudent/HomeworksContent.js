@@ -24,7 +24,7 @@ export default function HomeworksContent({ student, setData }) {
         }).then(({ data }) => {
             if (data) setData(data)
             else alert('Change failed.')
-    })
+        })
     }
 
     return (

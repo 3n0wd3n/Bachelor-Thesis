@@ -3,16 +3,33 @@ import moment from 'moment'
 import { FaTrash, FaRegEdit, FaCheck, FaPlusCircle, FaMinusCircle } from 'react-icons/fa'
 import axios from 'axios'
 import { getCookie } from 'cookies-next';
+import { addDays } from './LessonChange';
 
 import { StudentKeyRemoveButton, StudentKeyRemoveAttribute, StudentRemoveAttribute, StudentPlanAttribute, StudentKeyInputAttributePlan, StudentPlansValues, PlanAttributes, StudentRemoveAttributes, StudentEditAttributes, StudentCheckInputAttribute, StudentKeyInputAttribute, StudentEditContainer, StudentPlanContent, StudentPlanValues, StudentInfoContainerOne, StudentInfoContainerTwo, StudentAttributes, StudentKeyAttribute, StudentValueAttribute } from './InfoContent.style'
 
 export const constructWeek = (lessons) => {
     const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
     const week = {}
+    const lessonsCopy = JSON.parse(JSON.stringify(lessons));
 
-    lessons.forEach(lecture => {
+    lessonsCopy.forEach(lecture => {
         const dayIndex = new Date(lecture.date).getDay() === 0 ? days.length - 1 : new Date(lecture.date).getDay() - 1
         const day = days[dayIndex]
+        const lectureDate = new Date(lecture.date)
+        let lectureDateThisWeek = lectureDate
+
+        while (moment().isoWeek() != moment(lectureDateThisWeek).isoWeek()) lectureDateThisWeek = addDays(lectureDateThisWeek, 7)
+
+        let isChange = false
+        lecture.changes.map(change => {
+            if (new Date(change.from).getTime() == lectureDateThisWeek.getTime()) isChange = change
+        })
+        
+        if (isChange) {
+            lecture.date = isChange.newFrom
+            lecture.endDate = isChange.newTo
+            lecture.changed = true
+        }
 
         if (week[day]) week[day].push(lecture)
         else week[day] = [lecture]
@@ -148,8 +165,8 @@ export default function InfoContent({ student, setData }) {
                         <StudentValueAttribute>{lesson[0]}</StudentValueAttribute>
                         {lesson[1].map((day, key) =>
                             <StudentPlanContent key={key}>
-                                <StudentKeyAttribute>from: </StudentKeyAttribute><StudentValueAttribute>{`${moment(day.date).format('HH:mm')}`}</StudentValueAttribute>
-                                <StudentKeyAttribute>to: </StudentKeyAttribute><StudentValueAttribute>{`${moment(day.endDate).format('HH:mm')}`}</StudentValueAttribute>
+                                <StudentKeyAttribute>from: </StudentKeyAttribute><StudentValueAttribute changed={day.changed}>{`${moment(day.date).format('HH:mm')}`}</StudentValueAttribute>
+                                <StudentKeyAttribute>to: </StudentKeyAttribute><StudentValueAttribute changed={day.changed}>{`${moment(day.endDate).format('HH:mm')}`}</StudentValueAttribute>
                             </StudentPlanContent>
                         )}
                     </div>

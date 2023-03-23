@@ -1,5 +1,6 @@
 import bcrypt from 'bcrypt'
 import User from '../../models/User'
+import Lecture from '../../models/Lecture'
 import Homeworks from '../../models/Homeworks'
 import { getUser } from './user'
 import { dbConnect, UpdateOneFromMongo, findAllFromMongo, findOneFromMongo, deleteOneFromMongo } from '../../utils/dbMongo'
@@ -8,6 +9,10 @@ dbConnect();
 
 const updateInfoInStudent = async (filter, data) => {
     return await UpdateOneFromMongo(User, filter, data)
+}
+
+const addLessonChange= async (filter, data) => {
+    return await UpdateOneFromMongo(Lecture, filter, data)
 }
 
 const deleteHomework = async (id) => {
@@ -27,7 +32,10 @@ export default async function handler(req, res) {
             break;
         case 'POST':
             try {
-                res.status(200).json(true);
+                const { adminId, studentId, lessonId, lessons } = body
+                await addLessonChange({ _id: lessonId }, { $push: { changes: lessons } })
+                const userData = await getUser({ _id: adminId })
+                res.status(200).json( userData );
             } catch {
                 res.status(500).json({ failed: true });
             }

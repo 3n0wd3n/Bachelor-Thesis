@@ -16,10 +16,10 @@ const lectureSchema = new Schema(
     changes: {
       type: [
         {
-          from: Date,
-          to: Date,
-          newFrom: Date,
-          newTo: Date,
+          from: String,
+          to: String,
+          newFrom: String,
+          newTo: String,
         }
       ],
       default: [],
