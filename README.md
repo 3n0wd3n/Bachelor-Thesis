@@ -22,10 +22,6 @@ Do informačního systému by se přihlašovalo skrz standartní login. Žádná
 >
 > * Jednotlivým studentům možnost zapisovat/shrnout co bylo tématem minulé hodiny
 >
-> * Jednotlivým studentům psát domácí úkoly na další hodinu
->
-> * Přikládat individuálně .PDF studentům do sekce s materiály
->
 > * Individuální osnova/plán pro studenta, který lze měnit správcem podle aktuální potřeby studenta po domluvě
 
 2. typ (student starší 18 let/rodič)
