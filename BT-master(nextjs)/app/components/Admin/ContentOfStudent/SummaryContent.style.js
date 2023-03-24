@@ -37,7 +37,7 @@ export const SummaryContentItemContainer = styled(SummaryContentContainer)`
     min-height: 100%;
     width: 100%;
     align-items: flex-start;
-    margin: 0 0 0 2em;
+    /* margin: 0 2rem 0 2rem; */
 `;
 
 export const SummaryContentItem = styled.span`

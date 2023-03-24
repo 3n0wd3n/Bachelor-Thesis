@@ -45,11 +45,13 @@ export default function SummaryContent({ setData, student }) {
                     <>
                         <SummaryContentContainer>
                             <SummaryContentItemContainer>
-                                <SummaryContentItem>Files:</SummaryContentItem>
+                                <SummaryContentItem>Summaries:</SummaryContentItem>
                                 {/* test */}
-                                {student.files[0]}
+                                {/* {student.files[0]} */}
+                                <>2023-03-24 - present simple exercise and reading article</>
                                 <br />
-                                {student.files[1]}
+                                <>2023-03-27 - recap of lection and testing knowledge</>
+                                {/* {student.files[1]} */}
                             </SummaryContentItemContainer>
                         </SummaryContentContainer>
                         <SummaryContentAddButtonContainer onClick={() => setAdd(prevState => !prevState)}>
