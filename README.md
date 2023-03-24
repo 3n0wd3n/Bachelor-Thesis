@@ -89,6 +89,8 @@ Nad technologiemi ještě přemýšlím co by bylo lepší použít. Výhodou je
 - PŘIDÁNÍ LEKCE
 - ZMĚNA LEKCE PERMENENTNĚ
 - UKÁZÁNÍ SPRÁVNÉ DALŠÍ HODINY, KDYŽ BY SE ZMĚNIL ČAS
+- KDYŽ BARČA ZMĚNÍ HODINU, TAK UŽIVATEL NA EMAIL DOSTANE UPOZORNĚNÍ
+- TEAMS EMAIL ODKAZ
 
 **TMP TO DO**
 
