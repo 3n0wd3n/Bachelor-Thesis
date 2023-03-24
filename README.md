@@ -88,17 +88,18 @@ Nad technologiemi ještě přemýšlím co by bylo lepší použít. Výhodou je
 - OBNOVA HESLA
 - PŘIDÁNÍ LEKCE
 - ZMĚNA LEKCE PERMENENTNĚ
-
+- UKÁZÁNÍ SPRÁVNÉ DALŠÍ HODINY, KDYŽ BY SE ZMĚNIL ČAS
 
 **TMP TO DO**
 
 - [x] aktivovat atributy bez refreshe
 - [x] přidat do uživatele atribut 'active/disabled', který bude reprezentovat jestli admin uvidí studenta nebo ne, protože admin může mít právo některého studenta odstranit (po konzultaci s vedoucím práce by ale takto adstraněný student měl zůstat v databázi pro případné znovu aktivování)
 - [x] zahashovat heslat aby v databázi nebyla vidět (později)
-- [x] lessons change + [ ] ukázání další hodiny když by se náhodou změnil čas
+- [x] lessons change
 - [x] dodělat aktualizaci času nové hodiny jak u admina, tak u studenta (zkártka kdy bude další hodina)
 - [ ] udělat na straně studenta sumarizaci z hodiny (PŘIDAT TO I K RODIČI)
 - [ ] možnost studenta omluvit se z hodiny
+- [ ] zobrazit hodiny u studenta, které proběhly a které ještě nemá označené jako zaplacené
 - [ ] zobrazení omluvenek a plateb
 - [ ] vkládání a ukládání souborů
 - [ ] rodič a student starší 18 let budou mít možnost říct, že danou hodinu zaplatili
