@@ -57,6 +57,10 @@ const userSchema = new Schema(
       }],
       default: []
     },
+    summary: {
+      type: [String],
+      default: []
+    },
     plan: {
       type: [String],
       default: []

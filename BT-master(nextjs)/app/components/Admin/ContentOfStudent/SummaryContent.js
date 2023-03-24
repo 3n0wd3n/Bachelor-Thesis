@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { FaRegCheckCircle, FaFolderOpen, FaPlusSquare, FaMinusSquare } from 'react-icons/fa'
+import axios from 'axios'
+import { getCookie } from 'cookies-next';
+import { FaRegCheckCircle, FaFolderOpen, FaPlusSquare, FaMinusSquare, FaTrash } from 'react-icons/fa'
 import { SummaryContentAddInput, SummaryContentAddLabel, SummaryContentAddContainer, SummaryContentBasicContainer, SummaryContentAddForm, SummaryContentBackButtonContainer, SummaryContentAddButtonContainer, SummaryContentUploadButton, SummaryContentInput, SummaryContentChooseFile, SummaryContentItem, SummaryContentItemContainer, SummaryContentContainer } from './SummaryContent.style'
 
 export default function SummaryContent({ setData, student }) {
@@ -7,8 +9,25 @@ export default function SummaryContent({ setData, student }) {
     const summaryRef = React.useRef(null)
     const [add, setAdd] = React.useState(false)
 
-    function createSummary(){
-        console.log(dateRef.current.value, summaryRef.current.value)
+
+    async function createSummary(){
+        const id = student.id
+        const adminId = getCookie('userCookie')
+        const newDate = dateRef.current.value
+        const newSummary = summaryRef.current.value
+        const compound = (newDate + " - " + newSummary).toString()
+        
+        await axios('http://localhost:3000/api/student.change', {
+            method: 'PUT',
+            data: {
+                adminId,
+                studentId: id,
+                compound
+            }
+        }).then(({ data }) => {
+            if (data) setData(data)
+            else alert('Change failed.')
+        })
     }
 
 
@@ -40,18 +59,20 @@ export default function SummaryContent({ setData, student }) {
                 :
 
                 // change files for summary
-                student.files.length > 0
+                student.summary.length > 0
                     ?
                     <>
                         <SummaryContentContainer>
                             <SummaryContentItemContainer>
                                 <SummaryContentItem>Summaries:</SummaryContentItem>
-                                {/* test */}
-                                {/* {student.files[0]} */}
-                                <>2023-03-24 - present simple exercise and reading article</>
-                                <br />
-                                <>2023-03-27 - recap of lection and testing knowledge</>
-                                {/* {student.files[1]} */}
+                                {
+                                student.summary.map((summaryItem, idx) =>
+                                    <div key={idx}>
+                                        {summaryItem}
+                                        <FaTrash/>
+                                    </div>
+                                )
+                                }
                             </SummaryContentItemContainer>
                         </SummaryContentContainer>
                         <SummaryContentAddButtonContainer onClick={() => setAdd(prevState => !prevState)}>

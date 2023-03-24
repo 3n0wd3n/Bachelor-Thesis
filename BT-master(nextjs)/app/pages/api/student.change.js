@@ -19,6 +19,10 @@ const deleteHomework = async (id) => {
     return await deleteOneFromMongo(Homeworks, id)
   }
 
+const updateSummary = async (filter, data) => {
+    return await UpdateOneFromMongo(User, filter, data)
+}
+
 export default async function handler(req, res) {
     const { method, body, query } = req;
 
@@ -42,7 +46,12 @@ export default async function handler(req, res) {
             break;
         case 'PUT':
             try {
-                res.status(200).json(true);
+                const { adminId, studentId, compound } = body
+                console.log(body)
+                await updateSummary({ _id: studentId }, { $push: { summary: compound } })
+                // await UpdateOneFromMongo(User, { _id: studentId }, { $push: { summary: compound } })
+                const userData = await getUser({ _id: adminId })
+                res.status(200).json( userData );
             } catch {
                 res.status(500).json({ failed: true });
             }

@@ -93,6 +93,7 @@ const getStudent = async (userDb, admin=false) => {
     homeworks: filteredHomeworks,
     files: userDb.files,
     wordList: userDb.wordList,
+    summary: userDb.summary,
     payments: [],
   }
 }
@@ -149,6 +150,7 @@ export default async function handler(req, res) {
           representativePassword,
           lectures,
           plan,
+          summary,
         } = body;
         const legalRepresentative = representativeName.length > 0;
         // creating salt for hash from bcrypt library
@@ -174,6 +176,7 @@ export default async function handler(req, res) {
             surname,
             username,
             plan,
+            summary,
             password: studentHashedPassword,
             legalRepresentative: representative._id
           });
@@ -187,6 +190,7 @@ export default async function handler(req, res) {
             surname,
             username,
             plan,
+            summary,
             password: studentHashedPassword,
           });
         }
