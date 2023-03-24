@@ -8,6 +8,8 @@ import HomeworksContent from './ContentOfStudent/HomeworksContent'
 import LessonChange from './ContentOfStudent/LessonChange'
 import WordListContent from './ContentOfStudent/WordListContent'
 import FileContent from './ContentOfStudent/FilesContent'
+import SummaryContent from './ContentOfStudent/SummaryContent'
+
 
 export default function AdminStudentContent({ student, setData }) {
     const [state, setState] = React.useState(false);
@@ -74,7 +76,7 @@ export default function AdminStudentContent({ student, setData }) {
                     {selectedMenu === 'lessons change' && <LessonChange student={student} setData={setData} />}
                     {selectedMenu === 'files' && <FileContent setData={setData} student={student}>files</FileContent>}
                     {selectedMenu === 'homeworks' && <HomeworksContent student={student} setData={setData} />}
-                    {selectedMenu === 'lesson summary' && <>lesson summary</>}
+                    {selectedMenu === 'lesson summary' && <SummaryContent student={student} setData={setData}></SummaryContent>}
                     {selectedMenu === 'word list' && <WordListContent student={student} setData={setData}></WordListContent>}
                   </ContentContainer>
               </DropDown>

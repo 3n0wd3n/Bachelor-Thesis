@@ -79,5 +79,32 @@ export const FileContentUploadButton = styled.div`
     @media (max-width: 1000px){
         margin: 1em 0 1em 0;
     }
+`;
 
+export const FileContentAddButtonContainer = styled.div`
+    & > svg {
+        color: ${Colors.lightGreen};
+        margin: 1em 0 1em 0;
+        font-size: 1.4em;
+        cursor: pointer;
+        transition: .7s;
+        &:hover{
+            transform: scale(1.1);
+            opacity: 0.7;
+        }
+    }
+`;
+
+export const FileContentBackButtonContainer = styled.div`
+    & > svg {
+        color: ${Colors.red};
+        margin: 1em 0 1em 0;
+        font-size: 1.4em;
+        cursor: pointer;
+        transition: .7s;
+        &:hover{
+            transform: scale(1.1);
+            opacity: 0.7;
+        }
+    }
 `;
