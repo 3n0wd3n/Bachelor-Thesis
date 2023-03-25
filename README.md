@@ -86,7 +86,7 @@ Nad technologiemi ještě přemýšlím co by bylo lepší použít. Výhodou je
 - INTEGROVANÉ HRY (STORY DICE)
 - KALENDÁŘ NA STRANĚ ADMINA, KDE BY VIDĚL VŠECHNY HODINY CO PŘES TÝDEN MÁ ABY VĚDĚL, NA KTERÉ DNY SI MŮŽU KDYŽTAK PŘIDAT STUDENTY
 - OBNOVA HESLA
-- PŘIDÁNÍ LEKCE
+- PŘIDÁNÍ LEKCE (šlo by udělat možná ještě před odevzdáním)
 - ZMĚNA LEKCE PERMENENTNĚ
 - UKÁZÁNÍ SPRÁVNÉ DALŠÍ HODINY, KDYŽ BY SE ZMĚNIL ČAS
 - KDYŽ BARČA ZMĚNÍ HODINU, TAK UŽIVATEL NA EMAIL DOSTANE UPOZORNĚNÍ
