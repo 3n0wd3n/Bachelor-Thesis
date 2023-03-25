@@ -102,6 +102,18 @@ export const StudentMCWordList = styled(CommonDisplayFlexColumn)`
     box-shadow: -4px 4px 6px rgba(155, 155, 155, 0.5);
 `;
 
+export const StudentMCSummary = styled(CommonDisplayFlexColumn)`
+    // background-color: ${Colors.red};
+    border: 10px solid ${Colors.red};
+    border-radius: 25px;
+    padding: 1em 2em 1em 2em;
+    margin: 0em 1em 1em 1em;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    align-items: flex-start;
+    box-shadow: -4px 4px 6px rgba(155, 155, 155, 0.5);
+`;
+
 export const StudentMCFilesItems = styled(CommonDisplayFlex)`
     align-content: flex-start;
     flex-wrap: wrap;

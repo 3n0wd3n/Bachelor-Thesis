@@ -6,7 +6,7 @@ import { FaCheckCircle, FaRegSmileBeam } from 'react-icons/fa'
 import { Colors } from '../../utils/Colors'
 import { addDays } from '../Admin/ContentOfStudent/LessonChange';
 
-import { StudentMCDescription, StudentMCHomeworkDoneContainer, StudentMCFontsSectionLinkItem, StudentUnorderedList, StudentListItem, SimpleContainer, SimpleDiv, StudentMCFilesItems, StudentMCFontsWordList, StudentMCFontsFiles, StudentMCWordList, StudentMCFiles, StudentMCContainer, StudentMCNextLesson, StudentMCFontsDate, StudentMCFontsBold, StudentMCHomeworks, StudentMCFontsHomeworks, StudentMCFontsHomeworksItem, StudentMCFontsSectionItems } from './StudentMainContent.style'
+import { StudentMCSummary, StudentMCDescription, StudentMCHomeworkDoneContainer, StudentMCFontsSectionLinkItem, StudentUnorderedList, StudentListItem, SimpleContainer, SimpleDiv, StudentMCFilesItems, StudentMCFontsWordList, StudentMCFontsFiles, StudentMCWordList, StudentMCFiles, StudentMCContainer, StudentMCNextLesson, StudentMCFontsDate, StudentMCFontsBold, StudentMCHomeworks, StudentMCFontsHomeworks, StudentMCFontsHomeworksItem, StudentMCFontsSectionItems } from './StudentMainContent.style'
 // StudentMC = StudentMainContent
 
 export const getNextLesson = (lessons) => {
@@ -149,6 +149,15 @@ export default function MainContent({ data, setData }) {
               <StudentMCFontsSectionLinkItem href={data.wordList} >{data.wordList}</StudentMCFontsSectionLinkItem>
           }
         </StudentMCWordList>
+        <StudentMCSummary>
+          {
+            data.summary.map((summaryItem, idx) => 
+            <div key={idx}>
+              <div>{summaryItem}</div>
+            </div>
+            )
+          }
+        </StudentMCSummary>
       </StudentMCContainer>
     </>
   )
