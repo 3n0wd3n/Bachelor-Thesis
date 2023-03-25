@@ -2,13 +2,31 @@ import React, { useState } from 'react';
 import axios from 'axios'
 import { getCookie } from 'cookies-next';
 import { FaRegCheckCircle, FaFolderOpen, FaPlusSquare, FaMinusSquare, FaTrash } from 'react-icons/fa'
-import { SummaryContentAddInput, SummaryContentAddLabel, SummaryContentAddContainer, SummaryContentBasicContainer, SummaryContentAddForm, SummaryContentBackButtonContainer, SummaryContentAddButtonContainer, SummaryContentUploadButton, SummaryContentInput, SummaryContentChooseFile, SummaryContentItem, SummaryContentItemContainer, SummaryContentContainer } from './SummaryContent.style'
+import { SummaryContentAddInput, SummaryContentIconWrapper, SummaryContentItemWrapper, SummaryContentAddLabel, SummaryContentAddContainer, SummaryContentBasicContainer, SummaryContentAddForm, SummaryContentBackButtonContainer, SummaryContentAddButtonContainer, SummaryContentUploadButton, SummaryContentInput, SummaryContentChooseFile, SummaryContentItem, SummaryContentItemContainer, SummaryContentContainer } from './SummaryContent.style'
 
 export default function SummaryContent({ setData, student }) {
     const dateRef = React.useRef(null)
     const summaryRef = React.useRef(null)
     const [add, setAdd] = React.useState(false)
 
+
+    async function deleteSummary(compound){
+        const id = student.id
+        const adminId = getCookie('userCookie')
+        
+        await axios('http://localhost:3000/api/user.change', {
+            method: 'DELETE',
+            data: {
+                adminId,
+                studentId: id,
+                erasable: compound,
+                difference: "summary",
+            }
+        }).then(({ data }) => {
+            if (data) setData(data)
+            else alert('Change failed.')
+        })
+    }
 
     async function createSummary(){
         const id = student.id
@@ -66,12 +84,14 @@ export default function SummaryContent({ setData, student }) {
                             <SummaryContentItemContainer>
                                 <SummaryContentItem>Summaries:</SummaryContentItem>
                                 {
-                                student.summary.map((summaryItem, idx) =>
-                                    <div key={idx}>
-                                        {summaryItem}
-                                        <FaTrash/>
-                                    </div>
-                                )
+                                    student.summary.map((summaryItem, idx) =>
+                                        <SummaryContentItemWrapper key={idx}>
+                                            <SummaryContentItem>{summaryItem}</SummaryContentItem>
+                                            <SummaryContentIconWrapper onClick={() => deleteSummary(summaryItem)}>
+                                                <FaTrash/>
+                                            </SummaryContentIconWrapper>
+                                        </SummaryContentItemWrapper>
+                                    )
                                 }
                             </SummaryContentItemContainer>
                         </SummaryContentContainer>
@@ -82,7 +102,7 @@ export default function SummaryContent({ setData, student }) {
                     :
                     <>
                         <SummaryContentContainer>
-                            <p>No summary hasn't been added!</p>
+                            <p>No summary has been added!</p>
                             <FaFolderOpen />
 
                         </SummaryContentContainer>

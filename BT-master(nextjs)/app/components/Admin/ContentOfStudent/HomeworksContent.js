@@ -19,7 +19,8 @@ export default function HomeworksContent({ student, setData }) {
             data: {
                 adminId: id,
                 studentId,
-                homeworkId,
+                erasable: homeworkId,
+                difference: "homework",
             }
         }).then(({ data }) => {
             if (data) setData(data)

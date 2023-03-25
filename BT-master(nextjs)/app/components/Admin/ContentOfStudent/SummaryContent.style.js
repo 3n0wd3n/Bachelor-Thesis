@@ -165,5 +165,23 @@ export const SummaryContentAddInput = styled.input`
     opacity: 0.7;
 `;
 
+export const SummaryContentItemWrapper = styled.div`
+`;
+
+export const SummaryContentIconWrapper = styled.span`
+    & > svg {
+        color: ${Colors.red};
+        margin: 0 0 0 1em;
+        font-size: 1em;
+        cursor: pointer;
+        transition: .7s;
+        &:hover{
+            transform: scale(1.1);
+            opacity: 0.7;
+        }
+    }
+`;
+
+
 
 
