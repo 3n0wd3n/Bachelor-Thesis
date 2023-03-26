@@ -31,10 +31,14 @@ export const StudentMCNextLesson = styled(CommonDisplayFlexColumn)`
 
 export const StudentMCFontsDate = styled(FontsHeaderBold)`
     font-size: 3.5rem;
-    color: white;
+    color: ${Colors.white};
 `;
 
 export const StudentMCFontsHomeworks = styled(FontsHeaderBold)`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 2.5rem;
     color: black;
     margin-bottom: 0.3em;
@@ -42,19 +46,29 @@ export const StudentMCFontsHomeworks = styled(FontsHeaderBold)`
 
 export const StudentMCFontsFiles = styled(FontsHeaderBold)`
     font-size: 2.5rem;
-    color: white;
+    color: ${Colors.white};
     margin-bottom: 0.3em;
 `;
 
 export const StudentMCFontsWordList = styled(FontsHeaderBold)`
     font-size: 2.5rem;
-    color: white;
+    color: ${Colors.white};
+    margin-bottom: 0.3em;
+`;
+
+export const StudentMCFontsSummary = styled(FontsHeaderBold)`
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    color: ${Colors.white};
     margin-bottom: 0.3em;
 `;
 
 export const StudentMCFontsBold = styled(FontsBold)`
     font-size: 1.5rem;
-    color: white;
+    color: ${Colors.white};
     text-shadow: -2px 2px 4px rgba(0, 0, 0, 0.25);
 `;
 
@@ -67,19 +81,21 @@ export const StudentMCFontsHomeworksItem = styled(FontsThin)`
 
 export const StudentMCFontsSectionItems = styled(FontsThin)`
     font-size: 1.1rem;
-    color: white; 
+    // font-weight: 400; potom nastavit barče
+    color: ${Colors.white}; 
     text-shadow: -2px 2px 4px rgba(0, 0, 0, 0.25);  
 `;
 
 export const StudentMCFontsSectionLinkItem = styled.a`
     font-family: 'Raleway', sans-serif;
     font-size: 1.1rem;
-    color: white; 
+    color: ${Colors.white}; 
     text-shadow: -2px 2px 4px rgba(0, 0, 0, 0.25);  
 `;
 
 export const StudentMCHomeworks = styled(CommonDisplayFlexColumn)`
     background-color: white;
+    align-items: flex-start;
     border-radius: 25px;
     margin: 0em 1em 1em 1em;
     padding: 1em 2em 1em 2em;
@@ -102,9 +118,20 @@ export const StudentMCWordList = styled(CommonDisplayFlexColumn)`
     box-shadow: -4px 4px 6px rgba(155, 155, 155, 0.5);
 `;
 
-export const StudentMCSummary = styled(CommonDisplayFlexColumn)`
+export const StudentMCSummaryFirstPart = styled(CommonDisplayFlexColumn)`
     // background-color: ${Colors.red};
     border: 10px solid ${Colors.red};
+    border-radius: 25px;
+    padding: 1em 2em 1em 2em;
+    margin: 0em 1em 1em 1em;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    align-items: flex-start;
+    box-shadow: -4px 4px 6px rgba(155, 155, 155, 0.5);
+`;
+
+export const StudentMCSummarySecondPart = styled(CommonDisplayFlexColumn)`
+    background-color: ${Colors.red};
     border-radius: 25px;
     padding: 1em 2em 1em 2em;
     margin: 0em 1em 1em 1em;
@@ -172,4 +199,22 @@ export const StudentMCHomeworkDoneContainer = styled.div`
     }
 `;
 
+export  const StudentMCSummaryButtonContainer = styled.div`
+    & > svg {
+        color: ${({ editable }) => editable ? Colors.red : Colors.white };
+        font-size: 1.3rem;
+        transition: .6s;
+        cursor: pointer;
+        &:hover{
+            transform: scale(1.18);
+        }
+    }
+`;
 
+export const StudentMCSummaryColumnContainer = styled(CommonDisplayFlexColumn)`
+    width: 100%;
+`;
+
+export const StudentMCSummaryItem = styled.div`
+    margin: 1rem 0 0 0;
+`;

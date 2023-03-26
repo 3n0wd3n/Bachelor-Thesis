@@ -2,11 +2,11 @@ import React from 'react'
 import axios from 'axios'
 import moment from 'moment'
 import { getCookie } from 'cookies-next';
-import { FaCheckCircle, FaRegSmileBeam } from 'react-icons/fa'
+import { FaChevronCircleDown, FaChevronCircleUp, FaCheckCircle, FaRegSmileBeam } from 'react-icons/fa'
 import { Colors } from '../../utils/Colors'
 import { addDays } from '../Admin/ContentOfStudent/LessonChange';
 
-import { StudentMCSummary, StudentMCDescription, StudentMCHomeworkDoneContainer, StudentMCFontsSectionLinkItem, StudentUnorderedList, StudentListItem, SimpleContainer, SimpleDiv, StudentMCFilesItems, StudentMCFontsWordList, StudentMCFontsFiles, StudentMCWordList, StudentMCFiles, StudentMCContainer, StudentMCNextLesson, StudentMCFontsDate, StudentMCFontsBold, StudentMCHomeworks, StudentMCFontsHomeworks, StudentMCFontsHomeworksItem, StudentMCFontsSectionItems } from './StudentMainContent.style'
+import { StudentMCSummaryItem, StudentMCSummaryFirstPart, StudentMCFontsSummary, StudentMCSummaryColumnContainer, StudentMCSummaryButtonContainer, StudentMCSummarySecondPart, StudentMCDescription, StudentMCHomeworkDoneContainer, StudentMCFontsSectionLinkItem, StudentUnorderedList, StudentListItem, SimpleContainer, SimpleDiv, StudentMCFilesItems, StudentMCFontsWordList, StudentMCFontsFiles, StudentMCWordList, StudentMCFiles, StudentMCContainer, StudentMCNextLesson, StudentMCFontsDate, StudentMCFontsBold, StudentMCHomeworks, StudentMCFontsHomeworks, StudentMCFontsHomeworksItem, StudentMCFontsSectionItems } from './StudentMainContent.style'
 // StudentMC = StudentMainContent
 
 export const getNextLesson = (lessons) => {
@@ -53,6 +53,7 @@ export default function MainContent({ data, setData }) {
   // Set styling to icons
   const style = { color: Colors.lightGreen, fontSize: "3em" }
   const [edit, setEdit] = React.useState(false)
+  const [summaryOpen, summaryOpenEdit] = React.useState(false)
   const id = getCookie('userCookie')
   const studentId = data.id
   const nextLesson = React.useMemo(() => getNextLesson(data.lessons), [data])
@@ -112,7 +113,7 @@ export default function MainContent({ data, setData }) {
           <StudentMCFontsFiles>files</StudentMCFontsFiles>
 
           {
-            data.files.length === 0
+            data.files.length !== 0
               ?
               <StudentMCFontsSectionItems >no file has not been added</StudentMCFontsSectionItems>
               :
@@ -149,15 +150,35 @@ export default function MainContent({ data, setData }) {
               <StudentMCFontsSectionLinkItem href={data.wordList} >{data.wordList}</StudentMCFontsSectionLinkItem>
           }
         </StudentMCWordList>
-        <StudentMCSummary>
+        <>
           {
-            data.summary.map((summaryItem, idx) => 
-            <div key={idx}>
-              <div>{summaryItem}</div>
-            </div>
-            )
+            summaryOpen
+            ?
+              <StudentMCSummaryFirstPart>
+                {
+                  data.summary.map((summaryItem, idx) => 
+                  <div key={idx}>
+                    <StudentMCSummaryItem>{summaryItem}</StudentMCSummaryItem>
+                  </div>
+                  )
+                }
+                <StudentMCSummaryColumnContainer>
+                  <StudentMCSummaryButtonContainer editable={summaryOpen} onClick={() => summaryOpenEdit(prevState => !prevState)}>
+                    <FaChevronCircleUp/>
+                  </StudentMCSummaryButtonContainer>
+                </StudentMCSummaryColumnContainer>
+              </StudentMCSummaryFirstPart>
+            :
+              <StudentMCSummarySecondPart>
+                <StudentMCSummaryColumnContainer>
+                  <StudentMCFontsSummary>summary of lessons</StudentMCFontsSummary>
+                  <StudentMCSummaryButtonContainer  editable={summaryOpen} onClick={() => summaryOpenEdit(prevState => !prevState)}>
+                    <FaChevronCircleDown/>
+                  </StudentMCSummaryButtonContainer>
+                </StudentMCSummaryColumnContainer>
+              </StudentMCSummarySecondPart>
           }
-        </StudentMCSummary>
+        </>
       </StudentMCContainer>
     </>
   )
