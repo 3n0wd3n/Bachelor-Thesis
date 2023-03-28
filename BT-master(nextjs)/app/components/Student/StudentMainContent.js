@@ -92,7 +92,6 @@ export default function MainContent({ data, setData }) {
                   <FaRegSmileBeam style={style} />
                 </ SimpleContainer>
                 :
-
                 data.homeworks.map((homework) => {
                   return (
                     <StudentUnorderedList key={homework.id}>
@@ -153,27 +152,30 @@ export default function MainContent({ data, setData }) {
         <>
           {
             summaryOpen
-            ?
+              ?
               <StudentMCSummaryFirstPart>
                 {
-                  data.summary.map((summaryItem, idx) => 
-                  <div key={idx}>
-                    <StudentMCSummaryItem>{summaryItem}</StudentMCSummaryItem>
-                  </div>
+                  data.summary.map((summaryItem, idx) =>
+                    <div key={idx}>
+                      <StudentMCSummaryItem>
+                        <span>{summaryItem.slice(0, 12)}</span>
+                        {summaryItem.slice(12,)}
+                      </StudentMCSummaryItem>
+                    </div>
                   )
                 }
                 <StudentMCSummaryColumnContainer>
                   <StudentMCSummaryButtonContainer editable={summaryOpen} onClick={() => summaryOpenEdit(prevState => !prevState)}>
-                    <FaChevronCircleUp/>
+                    <FaChevronCircleUp />
                   </StudentMCSummaryButtonContainer>
                 </StudentMCSummaryColumnContainer>
               </StudentMCSummaryFirstPart>
-            :
+              :
               <StudentMCSummarySecondPart>
                 <StudentMCSummaryColumnContainer>
                   <StudentMCFontsSummary>summary of lessons</StudentMCFontsSummary>
-                  <StudentMCSummaryButtonContainer  editable={summaryOpen} onClick={() => summaryOpenEdit(prevState => !prevState)}>
-                    <FaChevronCircleDown/>
+                  <StudentMCSummaryButtonContainer editable={summaryOpen} onClick={() => summaryOpenEdit(prevState => !prevState)}>
+                    <FaChevronCircleDown />
                   </StudentMCSummaryButtonContainer>
                 </StudentMCSummaryColumnContainer>
               </StudentMCSummarySecondPart>

@@ -4,6 +4,11 @@ import { FontsHeaderBold, FontsThin, FontsBold, CommonDisplayFlexColumn, CommonD
 
 // little help ->  ``; 
 
+export const HeadingNormalFontSize = 2.5;
+export const HeadingSmallFontSize = 1.9;
+export const NormalFontSize = 1.1;
+export const SmallFontSize = .9;
+
 export const SimpleContainer = styled(CommonDisplayFlexColumn)`
     /* nothing to do here */
 `;
@@ -31,7 +36,8 @@ export const StudentMCNextLesson = styled(CommonDisplayFlexColumn)`
 
 export const StudentMCFontsDate = styled(FontsHeaderBold)`
     font-size: 3.5rem;
-    color: ${Colors.white};
+    /* color: ${Colors.white}; */
+    color: white;
 `;
 
 export const StudentMCFontsHomeworks = styled(FontsHeaderBold)`
@@ -39,21 +45,30 @@ export const StudentMCFontsHomeworks = styled(FontsHeaderBold)`
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2.5rem;
+    font-size: ${HeadingNormalFontSize}rem;
     color: black;
     margin-bottom: 0.3em;
+    @media (max-width: 1200px) {
+        font-size: ${HeadingSmallFontSize}rem;
+    }
 `;
 
 export const StudentMCFontsFiles = styled(FontsHeaderBold)`
-    font-size: 2.5rem;
+    font-size: ${HeadingNormalFontSize}rem;
     color: ${Colors.white};
     margin-bottom: 0.3em;
+    @media (max-width: 1200px) {
+        font-size: ${HeadingSmallFontSize}rem;
+    }
 `;
 
 export const StudentMCFontsWordList = styled(FontsHeaderBold)`
-    font-size: 2.5rem;
+    font-size: ${HeadingNormalFontSize}rem;
     color: ${Colors.white};
     margin-bottom: 0.3em;
+    @media (max-width: 1200px) {
+        font-size: ${HeadingSmallFontSize}rem;
+    }
 `;
 
 export const StudentMCFontsSummary = styled(FontsHeaderBold)`
@@ -61,36 +76,49 @@ export const StudentMCFontsSummary = styled(FontsHeaderBold)`
     width: 100%;
     justify-content: center;
     align-items: center;
-    font-size: 2.5rem;
-    color: ${Colors.white};
+    font-size: ${HeadingNormalFontSize}rem;
+    /* color: ${Colors.white}; */
+    color: white;
     margin-bottom: 0.3em;
+    @media (max-width: 1200px) {
+        font-size: ${HeadingSmallFontSize}rem;
+    }
 `;
 
 export const StudentMCFontsBold = styled(FontsBold)`
     font-size: 1.5rem;
-    color: ${Colors.white};
+    color: white;
     text-shadow: -2px 2px 4px rgba(0, 0, 0, 0.25);
 `;
 
 export const StudentMCFontsHomeworksItem = styled(FontsThin)`
-    font-size: 1.1rem;
+    font-size: ${NormalFontSize}rem;
     color: black;
     text-shadow: -2px 2px 4px rgba(0, 0, 0, 0.25);
     margin: 0em 0.7em 0.5em 0em;
+    @media (max-width: 1200px) {
+        font-size: ${SmallFontSize}rem;
+    }
 `;
 
 export const StudentMCFontsSectionItems = styled(FontsThin)`
-    font-size: 1.1rem;
+    font-size: ${NormalFontSize}rem;
     // font-weight: 400; potom nastavit barče
     color: ${Colors.white}; 
-    text-shadow: -2px 2px 4px rgba(0, 0, 0, 0.25);  
+    text-shadow: -2px 2px 4px rgba(0, 0, 0, 0.25);
+    @media (max-width: 1200px) {
+        font-size: ${SmallFontSize}rem;
+    }
 `;
 
 export const StudentMCFontsSectionLinkItem = styled.a`
     font-family: 'Raleway', sans-serif;
-    font-size: 1.1rem;
+    font-size: ${NormalFontSize}rem;
     color: ${Colors.white}; 
-    text-shadow: -2px 2px 4px rgba(0, 0, 0, 0.25);  
+    text-shadow: -2px 2px 4px rgba(0, 0, 0, 0.25);
+    @media (max-width: 1200px) {
+        font-size: ${SmallFontSize}rem;
+    }  
 `;
 
 export const StudentMCHomeworks = styled(CommonDisplayFlexColumn)`
@@ -205,6 +233,7 @@ export  const StudentMCSummaryButtonContainer = styled.div`
         font-size: 1.3rem;
         transition: .6s;
         cursor: pointer;
+        margin: ${({ editable }) => editable ? "1em 0 0 0" : "None"};
         &:hover{
             transform: scale(1.18);
         }
@@ -217,4 +246,7 @@ export const StudentMCSummaryColumnContainer = styled(CommonDisplayFlexColumn)`
 
 export const StudentMCSummaryItem = styled.div`
     margin: 1rem 0 0 0;
+    & > span{
+        font-weight: 600;
+    }
 `;
