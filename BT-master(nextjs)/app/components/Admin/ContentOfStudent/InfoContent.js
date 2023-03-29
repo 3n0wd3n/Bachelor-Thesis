@@ -24,7 +24,7 @@ export const constructWeek = (lessons) => {
         lecture.changes.map(change => {
             if (new Date(change.from).getTime() == lectureDateThisWeek.getTime()) isChange = change
         })
-        
+
         if (isChange) {
             lecture.date = isChange.newFrom
             lecture.endDate = isChange.newTo
@@ -91,10 +91,10 @@ export default function InfoContent({ student, setData }) {
                 studentId,
             }
         })
-        .then(({ data }) => {
-            if (data) setData(data)
-            else alert('Change failed.')
-        })
+            .then(({ data }) => {
+                if (data) setData(data)
+                else alert('Change failed.')
+            })
     }
 
     const changeInfo = async () => {
@@ -167,10 +167,16 @@ export default function InfoContent({ student, setData }) {
                             <StudentPlanContent key={key}>
                                 <StudentKeyAttribute>from: </StudentKeyAttribute><StudentValueAttribute changed={day.changed}>{`${moment(day.date).format('HH:mm')}`}</StudentValueAttribute>
                                 <StudentKeyAttribute>to: </StudentKeyAttribute><StudentValueAttribute changed={day.changed}>{`${moment(day.endDate).format('HH:mm')}`}</StudentValueAttribute>
+                                <StudentKeyAttribute>
+                                    <StudentKeyRemoveButton onClick={() => console.log("click")}>
+                                        <FaTrash />
+                                    </StudentKeyRemoveButton>
+                                </StudentKeyAttribute>
                             </StudentPlanContent>
                         )}
                     </div>
                 )}
+                {/* <FaPlusCircle /> */}
                 <StudentRemoveAttribute >
                     <StudentKeyRemoveAttribute>disable: </StudentKeyRemoveAttribute>
                     <StudentKeyRemoveButton onClick={() => removeStudent(student.id)}>

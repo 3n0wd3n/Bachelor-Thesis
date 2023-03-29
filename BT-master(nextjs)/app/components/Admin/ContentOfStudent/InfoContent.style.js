@@ -14,7 +14,7 @@ export const StudentInfoContainerOne = styled(CommonDisplayFlexColumn)`
 
 export const StudentInfoContainerTwo = styled(CommonDisplayFlexColumn)`
     align-items: flex-start;
-    margin: 1em 0em 1em 0;
+    margin: 1em 1em 1em 0;
     @media (max-width: 1000px) {
       /* we write media query into constants */
       margin: 1em 0 1em 1em;
