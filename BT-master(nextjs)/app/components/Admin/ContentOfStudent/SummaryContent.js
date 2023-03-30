@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios'
 import { getCookie } from 'cookies-next';
 import { FaRegCheckCircle, FaFolderOpen, FaPlusSquare, FaMinusSquare, FaTrash } from 'react-icons/fa'
-import { SummaryContentAddInput, SummaryContentIconWrapper, SummaryContentItemWrapper, SummaryContentAddLabel, SummaryContentAddContainer, SummaryContentBasicContainer, SummaryContentAddForm, SummaryContentBackButtonContainer, SummaryContentAddButtonContainer, SummaryContentUploadButton, SummaryContentInput, SummaryContentChooseFile, SummaryContentItem, SummaryContentItemContainer, SummaryContentContainer } from './SummaryContent.style'
+import { SummaryContentAddInput, SummaryContentIconWrapper, SummaryContentItemWrapper, SummaryContentAddLabel, SummaryContentAddContainer, SummaryContentBasicContainer, SummaryContentAddForm, SummaryContentBackButtonContainer, SummaryContentAddButtonContainer, SummaryContentItem, SummaryContentItemContainer, SummaryContentContainer } from './SummaryContent.style'
 
 export default function SummaryContent({ setData, student }) {
     const dateRef = React.useRef(null)
@@ -82,11 +82,11 @@ export default function SummaryContent({ setData, student }) {
                     <>
                         <SummaryContentContainer>
                             <SummaryContentItemContainer>
-                                <SummaryContentItem>Summaries:</SummaryContentItem>
+                                <SummaryContentItem>Summaries</SummaryContentItem>
                                 {
                                     student.summary.map((summaryItem, idx) =>
                                         <SummaryContentItemWrapper key={idx}>
-                                            <SummaryContentItem>{summaryItem}</SummaryContentItem>
+                                            <SummaryContentItem><span>{summaryItem.slice(0,12)}</span>{summaryItem.slice(12,)}</SummaryContentItem>
                                             <SummaryContentIconWrapper onClick={() => deleteSummary(summaryItem)}>
                                                 <FaTrash/>
                                             </SummaryContentIconWrapper>
@@ -102,7 +102,7 @@ export default function SummaryContent({ setData, student }) {
                     :
                     <>
                         <SummaryContentContainer>
-                            <p>No summary has been added!</p>
+                            <p>Summary hasn't been added!</p>
                             <FaFolderOpen />
 
                         </SummaryContentContainer>

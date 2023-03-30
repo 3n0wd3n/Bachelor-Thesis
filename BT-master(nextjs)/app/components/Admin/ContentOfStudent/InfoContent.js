@@ -5,7 +5,7 @@ import axios from 'axios'
 import { getCookie } from 'cookies-next';
 import { addDays } from './LessonChange';
 
-import { StudentKeyRemoveButton, StudentKeyRemoveAttribute, StudentRemoveAttribute, StudentPlanAttribute, StudentKeyInputAttributePlan, StudentPlansValues, PlanAttributes, StudentRemoveAttributes, StudentEditAttributes, StudentCheckInputAttribute, StudentKeyInputAttribute, StudentEditContainer, StudentPlanContent, StudentPlanValues, StudentInfoContainerOne, StudentInfoContainerTwo, StudentAttributes, StudentKeyAttribute, StudentValueAttribute } from './InfoContent.style'
+import { StudentKeyRemoveButton, StudentKeyRemoveLessonButton, StudentKeyRemoveAttribute, StudentRemoveAttribute, StudentPlanAttribute, StudentKeyInputAttributePlan, StudentPlansValues, PlanAttributes, StudentRemoveAttributes, StudentEditAttributes, StudentCheckInputAttribute, StudentKeyInputAttribute, StudentEditContainer, StudentPlanContent, StudentPlanValues, StudentInfoContainerOne, StudentInfoContainerTwo, StudentAttributes, StudentKeyAttribute, StudentValueAttribute } from './InfoContent.style'
 
 export const constructWeek = (lessons) => {
     const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
@@ -168,21 +168,25 @@ export default function InfoContent({ student, setData }) {
                                 <StudentKeyAttribute>from: </StudentKeyAttribute><StudentValueAttribute changed={day.changed}>{`${moment(day.date).format('HH:mm')}`}</StudentValueAttribute>
                                 <StudentKeyAttribute>to: </StudentKeyAttribute><StudentValueAttribute changed={day.changed}>{`${moment(day.endDate).format('HH:mm')}`}</StudentValueAttribute>
                                 <StudentKeyAttribute>
-                                    <StudentKeyRemoveButton onClick={() => console.log("click")}>
-                                        <FaTrash />
-                                    </StudentKeyRemoveButton>
+                                    <StudentKeyRemoveLessonButton onClick={() => console.log("click")}>
+                                        {
+                                            edit &&
+                                            <FaTrash />
+                                        }
+                                    </StudentKeyRemoveLessonButton>
                                 </StudentKeyAttribute>
                             </StudentPlanContent>
                         )}
                     </div>
                 )}
                 {/* <FaPlusCircle /> */}
-                <StudentRemoveAttribute >
-                    <StudentKeyRemoveAttribute>disable: </StudentKeyRemoveAttribute>
-                    <StudentKeyRemoveButton onClick={() => removeStudent(student.id)}>
-                        <FaTrash />
-                    </StudentKeyRemoveButton>
-                </StudentRemoveAttribute>
+                {
+                    edit &&
+                    <StudentRemoveAttribute >
+                        <StudentKeyRemoveAttribute onClick={() => removeStudent(student.id)}>disable</StudentKeyRemoveAttribute>
+                        
+                    </StudentRemoveAttribute>
+                }
             </StudentInfoContainerTwo>
             <StudentEditContainer onClick={() => setEdit(prevState => !prevState)}>
                 <FaRegEdit />

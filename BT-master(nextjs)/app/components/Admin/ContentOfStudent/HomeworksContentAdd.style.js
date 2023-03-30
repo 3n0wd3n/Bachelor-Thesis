@@ -1,8 +1,10 @@
 import styled from 'styled-components'
-import { FontsHeaderBold, FontsThin, FontsBold, CommonDisplayFlexColumn, CommonDisplayFlexRow, CommonDisplayFlex } from '../../CommonStyles'
+import { CommonDisplayFlexColumn } from '../../CommonStyles'
 import { Colors } from '../../../utils/Colors'
 
 // ``;
+
+export const HomeworkContentValue = 1;
 
 export const HomeworksContentAddForm = styled.div`
     display: flex;
@@ -14,7 +16,7 @@ export const HomeworksContentAddForm = styled.div`
     & > svg {
         color: ${Colors.lightGreen};
         margin: 1em 0 1em 0;
-        font-size: 1.8em;
+        font-size: ${HomeworkContentValue + .8}rem;
         cursor: pointer;
         transition: .7s;
         &:hover{
@@ -43,14 +45,14 @@ export const HomeworksContentAddContainer = styled(CommonDisplayFlexColumn)`
 export const HomeworksContentAddLabel = styled.label`
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: ${HomeworkContentValue}rem;
 
 `;
 
 export const HomeworksContentAddInput = styled.input`
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
-    font-size: 1rem;
+    font-size: ${HomeworkContentValue}rem;
     width: 100%;
     height: 40px;
     padding: 0 0 0 1em;

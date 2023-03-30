@@ -1,7 +1,10 @@
 import styled from 'styled-components'
 
 import { Colors } from '../../../utils/Colors'
-import { FontsHeaderBold, FontsThin, FontsBold, CommonDisplayFlexColumn, CommonDisplayFlexRow, CommonDisplayFlex } from '../../CommonStyles'
+import { CommonDisplayFlexColumn, CommonDisplayFlexRow } from '../../CommonStyles'
+
+export const StudentSVGsValue = 1.5;
+export const StudentInfoContentValue = .9;
 
 export const DropDown = styled(CommonDisplayFlexColumn)`
     width: 100%;
@@ -20,10 +23,11 @@ export const StudentInfoContainerTwo = styled(CommonDisplayFlexColumn)`
       margin: 1em 0 1em 1em;
     }
 `;
+
 export const StudentKeyAttribute = styled.span`
     font-family: 'Raleway', sans-serif;
     text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.08);
-    font-size: .8rem;
+    font-size: ${StudentInfoContentValue}rem;
     font-weight: 900;
     margin: 0em 0 0.5em 0.5em;
 `;
@@ -46,6 +50,23 @@ export const StudentKeyRemoveButton = styled.div`
         transition: .6s;
         color: #D3D0CB;
         margin: 0 0 0 .5em 
+    }
+`;
+
+export const StudentKeyRemoveLessonButton = styled.div`
+    display: flex;
+    align-items: center;
+    & > svg {
+        transition: .6s;
+        color: #D3D0CB;
+        font-size: ${StudentInfoContentValue}em;
+        transition: .6s;
+        cursor: pointer;
+        &:hover{
+            color: ${Colors.red};
+            filter: opacity(.6);
+            transform: scale(1.1);
+        }
     }
 `;
 
@@ -80,7 +101,6 @@ export const PlanAttributes = styled.div`
     border-radius: 12px;
     display: flex;
     padding: 4px 15px 4px 6px;
-
     input {
         width: fit-content;
     }
@@ -94,7 +114,7 @@ export const StudentValueAttribute = styled.span`
     font-family: 'Raleway', sans-serif;
     color: ${({ changed }) => changed ? 'orangered' : 'black'};
     text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.08);
-    font-size: .8rem;
+    font-size: ${StudentInfoContentValue}rem;
     font-weight: 300;
     padding: 0.3em;
     margin: 0em 0 0.5em 0.5em;
@@ -129,7 +149,12 @@ export const StudentEditContainer = styled.div`
     & > svg {
         background: ${Colors.creameWhite};
         color: ${Colors.lightGreen};
-        font-size: 1.5em;
+        font-size: ${StudentSVGsValue}em;
+        transition: .6s;
+        &:hover{
+            filter: opacity(.6);
+            transform: scale(1.1);
+        }
     }
 
     &:hover {
@@ -141,9 +166,10 @@ export const StudentKeyInputAttribute = styled.input`
     font-family: 'Raleway', sans-serif;
     margin: 0 0 0.5em 0.3em;
     padding: 0.3em;
+    font-size: ${StudentInfoContentValue}rem;
     border-radius: 10px;
-    border: ${({editable}) => editable? '1px solid rgba(155, 155, 155, 0.05)' : 'None'};
-    box-shadow: ${({editable}) => editable? '-3px 3px 5px rgba(155, 155, 155, 0.15)' : 'None'};
+    border: ${({ editable }) => editable ? '1px solid rgba(155, 155, 155, 0.05)' : 'None'};
+    box-shadow: ${({ editable }) => editable ? '-3px 3px 5px rgba(155, 155, 155, 0.15)' : 'None'};
     background-color: ${({ editable }) => editable ? Colors.lightGray : 'transparent'};
 `;
 
@@ -163,9 +189,8 @@ export const StudentEditAttributes = styled.div`
     & > svg {
         background: ${Colors.creameWhite};
         color: ${Colors.lightGreen};
-        font-size: 1.5em
+        font-size: ${StudentSVGsValue}em;
     }
-
     &:hover {
         filter: opacity(.6)
     }
@@ -177,6 +202,7 @@ export const StudentRemoveAttributes = styled(StudentEditAttributes)`
         color: ${Colors.red};
         right: -9px;
         top: 0;
-        font-size: 1.5em;
+        font-size: ${StudentSVGsValue}em;
     }
 `;
+

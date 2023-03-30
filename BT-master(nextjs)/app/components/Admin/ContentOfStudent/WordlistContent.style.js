@@ -1,8 +1,16 @@
 import styled from 'styled-components'
-import { FontsHeaderBold, FontsThin, FontsBold, CommonDisplayFlexColumn, CommonDisplayFlexRow, CommonDisplayFlex } from '../../CommonStyles'
+import { CommonDisplayFlexColumn, CommonDisplayFlexRow, CommonDisplayFlex } from '../../CommonStyles'
 import { Colors } from '../../../utils/Colors'
 
-export const WordListContentURL = styled.p``;
+export const WordListContentValue = .9;
+
+export const WordListContentURL = styled.p`
+    font-size: ${WordListContentValue}rem;
+    text-align: center;
+    @media (max-width: 389px){
+        font-size: ${WordListContentValue - .3}rem;
+    }
+`;
 
 export const WordListAttributes = styled.div`
     
@@ -11,7 +19,7 @@ export const WordListAttributes = styled.div`
 export const WordListKeyAttribute = styled.span`
     font-family: 'Raleway', sans-serif;
     text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.08);
-    font-size: 1rem;
+    font-size: ${WordListContentValue}rem;
     font-weight: 900;
 `;
 
@@ -40,7 +48,10 @@ export const WordListContentEmptyPhrase = styled.span`
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
     color: ${Colors.blue};
-    font-size: 1.5rem;
+    font-size: ${WordListContentValue + .6}rem;
+    @media (max-width: 1200px){
+        font-size: ${WordListContentValue + .2}rem;
+    }
 `;
 
 export const WordListContentContainer = styled(CommonDisplayFlexColumn)`
@@ -49,7 +60,7 @@ export const WordListContentContainer = styled(CommonDisplayFlexColumn)`
     & > svg {
         color: ${Colors.darkGray};
         margin: 1em 0 0 0;
-        font-size: 1.8em;
+        font-size: ${WordListContentValue + .9}rem;
     }
 `;
 
@@ -60,14 +71,14 @@ export const WordListContentMainContainer = styled(CommonDisplayFlexRow)`
 `;
 
 export const WordListSVGContainer = styled.div`
-    /* background-color: green; */
     & > svg {
         color: ${Colors.lightGreen};
-        font-size: 1.5em;
+        font-size: ${WordListContentValue + .6}rem;
         cursor: pointer;
         transition: .6s;
         &:hover{
-            filter: opacity(.6)
+            filter: opacity(.6);
+            transform: scale(1.1);
         }
     }
 

@@ -1,30 +1,36 @@
 import styled from 'styled-components'
 import { Colors } from '../../../utils/Colors'
-import { FontsHeaderBold, FontsThin, FontsBold, CommonDisplayFlexColumn, CommonDisplayFlexRow, CommonDisplayFlex } from '../../CommonStyles'
+import { CommonDisplayFlexColumn } from '../../CommonStyles'
 
 // export const <name> = styled.div`
 
 // `;
 
+export const SummaryContentValue = .9;
+
 export const SummaryContentContainer = styled(CommonDisplayFlexColumn)`
     min-height: 100%;
     width: 100%;
     font-family: 'Raleway', sans-serif;
-    font-size: 1em;
+    font-size: ${SummaryContentValue}rem;
     font-weight: 300;
     & > span {
         font-family: 'Raleway', sans-serif;
-        font-size: 1rem;
+        font-size: ${SummaryContentValue + .2}rem;
         font-weight: 900;
     }
     & > svg {
         color: ${Colors.lightGreen};
-        font-size: 2em;
+        margin: ${SummaryContentValue}rem 0 0 0;
+        font-size: ${SummaryContentValue + .8}rem;
     }
     & > p {
         color: ${Colors.blue};
-        font-size: 1.5em;
+        font-size: ${SummaryContentValue + .6}rem;
         font-weight: 900;
+        @media (max-width: 1200px){
+            font-size: ${SummaryContentValue + .2}rem;
+    }
     }
 `;
 
@@ -38,10 +44,24 @@ export const SummaryContentItemContainer = styled(SummaryContentContainer)`
     width: 100%;
     align-items: flex-start;
     /* margin: 0 2rem 0 2rem; */
+    @media (max-width: 1200px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
 `;
 
 export const SummaryContentItem = styled.span`
-
+    font-family: 'Raleway', sans-serif;
+    font-size: ${SummaryContentValue}rem;
+    font-weight: 500;
+    & > span {
+        font-weight: 900;
+    }
+    @media (max-width: 1200px) {
+        text-align: center;
+    }
 `;
 
 export const SummaryContentChooseFile = styled.div`
@@ -50,42 +70,11 @@ export const SummaryContentChooseFile = styled.div`
     align-items: center;
 `;
 
-export const SummaryContentInput = styled.input.attrs({
-    type: 'text'
-  })`
-    font-family: 'Raleway', sans-serif;
-    font-size: .8rem;
-    font-weight: 300;
-    margin: 1em 0 0 1em;
-    color: ${Colors.lightGreen};
-    background-color: ${Colors.darkGray};
-    border-radius: 2px;
-    padding: .5em 0 .5em .5em;
-  `;
-
-export const SummaryContentUploadButton = styled.div`
-    cursor: pointer;
-    border-radius: 20px;
-    border: 1px solid rgba(155, 155, 155, 0.05);
-    box-shadow: -3px 3px 5px rgba(155, 155, 155, 0.15);
-    background-color: ${Colors.white};
-    margin: 1em 0 0 0;
-    padding: .5em .7em .5em .7em;
-    transition: 0.6s;
-    &:hover{
-        color: white;
-        background-color: ${Colors.lightGreen};
-    }
-    @media (max-width: 1000px){
-        margin: 1em 0 1em 0;
-    }
-`;
-
 export const SummaryContentAddButtonContainer = styled.div`
     & > svg {
         color: ${Colors.lightGreen};
         margin: 1em 0 1em 0;
-        font-size: 1.4em;
+        font-size: ${SummaryContentValue + .6}rem;
         cursor: pointer;
         transition: .7s;
         &:hover{
@@ -99,7 +88,7 @@ export const SummaryContentBackButtonContainer = styled.div`
     & > svg {
         color: ${Colors.red};
         margin: 1em 0 1em 0;
-        font-size: 1.4em;
+        font-size: ${SummaryContentValue + .6}rem;
         cursor: pointer;
         transition: .7s;
         &:hover{
@@ -108,7 +97,6 @@ export const SummaryContentBackButtonContainer = styled.div`
         }
     }
 `;
-
 
 export const SummaryContentAddForm = styled.div`
     display: flex;
@@ -120,7 +108,7 @@ export const SummaryContentAddForm = styled.div`
     & > svg {
         color: ${Colors.lightGreen};
         margin: 1em 0 1em 0;
-        font-size: 1.8em;
+        font-size: ${SummaryContentValue + .9}rem;
         cursor: pointer;
         transition: .7s;
         &:hover{
@@ -149,14 +137,13 @@ export const SummaryContentAddContainer = styled(CommonDisplayFlexColumn)`
 export const SummaryContentAddLabel = styled.label`
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
-    font-size: 1rem;
-
+    font-size: ${SummaryContentValue}rem;
 `;
 
 export const SummaryContentAddInput = styled.input`
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
-    font-size: 1rem;
+    font-size: ${SummaryContentValue}rem;
     width: 100%;
     height: 40px;
     padding: 0 0 0 1em;
@@ -166,18 +153,32 @@ export const SummaryContentAddInput = styled.input`
 `;
 
 export const SummaryContentItemWrapper = styled.div`
+    margin: 0.5em 0em 0.5em 1em;
+    @media (max-width: 1200px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 90%;
+        border-bottom: 1px solid ${Colors.darkGray};
+        margin: 1rem 0 0 0;
+        padding: 0 0 .5rem 0;
+    }
 `;
 
 export const SummaryContentIconWrapper = styled.span`
     & > svg {
         color: ${Colors.red};
         margin: 0 0 0 1em;
-        font-size: 1em;
+        font-size: ${SummaryContentValue}rem;
         cursor: pointer;
         transition: .7s;
         &:hover{
             transform: scale(1.1);
             opacity: 0.7;
+        }
+        @media (max-width: 1200px) {
+            margin: 0.5rem 0 0 0;
         }
     }
 `;

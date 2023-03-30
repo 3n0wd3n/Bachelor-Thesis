@@ -49,7 +49,7 @@ export default function WordListContent({ student, setData }) {
                     <>
                         <WordListContentMainContainer>
                             <WordListContentContainer>
-                                <WordListContentEmptyPhrase>You have not added any word list!</WordListContentEmptyPhrase>
+                                <WordListContentEmptyPhrase>You haven't added any word list!</WordListContentEmptyPhrase>
                                 <FaSurprise />
                             </WordListContentContainer>
                         </WordListContentMainContainer>

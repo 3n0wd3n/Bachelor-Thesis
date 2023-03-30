@@ -1,10 +1,18 @@
 import styled from 'styled-components'
-import { FontsHeaderBold, FontsThin, FontsBold, CommonDisplayFlexColumn, CommonDisplayFlexRow, CommonDisplayFlex } from '../../CommonStyles'
+import { CommonDisplayFlexColumn, CommonDisplayFlexRow } from '../../CommonStyles'
 import { Colors } from '../../../utils/Colors'
+
+export const HomeworkContentValue = .9;
 
 export const HomeworksContentShowMainContainer = styled(CommonDisplayFlexColumn)`
     width: 100%;
     align-items: flex-end;
+    @media (max-width: 1200px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
 `;
 
 export const HomeworksContentShowContainer = styled(CommonDisplayFlexRow)`
@@ -13,23 +21,37 @@ export const HomeworksContentShowContainer = styled(CommonDisplayFlexRow)`
     /* margin: 0em 0em 1em 0em; */
     & > svg {
         color: ${Colors.red};
-        font-size: 1em;
+        font-size: ${HomeworkContentValue}rem;
         cursor: pointer;
         transition: .6s;
         margin: .5em 0em .5em 1em;
         &:hover{
-            filter: opacity(.6)
+            filter: opacity(.6);
+            transform: scale(1.1);
         }
         @media (max-width: 1000px) {
         margin: 0.5em 0em 0em 1em;
         }
     }
+    @media (max-width: 1200px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        border-bottom: 1px solid ${Colors.darkGray};
+        margin: 1rem 0 0 0;
+        padding: 0 0 0.5rem 0;
+        width: 90%;
+    }
 `;
 
 export const HomeworksContentShowTitleItem = styled.span`
     font-family: 'Raleway', sans-serif;
-    font-size: .9rem;
-    font-weight: 900;
+    font-size: ${HomeworkContentValue}rem;
+    & > span { 
+        font-weight: 900;
+    }
     margin: 0.5em 0em .5em 1em;
     @media (max-width: 1000px) {
         margin: 0.5em 0em 0em 1em;
@@ -38,7 +60,7 @@ export const HomeworksContentShowTitleItem = styled.span`
 
 export const HomeworksContentShowContentItem = styled.span`
     font-family: 'Raleway', sans-serif;
-    font-size: .9rem;
+    font-size: ${HomeworkContentValue}rem;
     font-weight: 400;
     margin: 0 .5em 0 0;
 `;
@@ -47,7 +69,12 @@ export const HomeworksContentShowContentEditContainer = styled.div`
     margin: .5em 0em 0em 0em;
     & > svg {
         color: ${Colors.lightGreen};
-        font-size: 1.5em;
+        font-size: ${HomeworkContentValue + .6}rem;
         cursor: pointer;
+        transition: .6s;
+        &:hover{
+            filter: opacity(.6);
+            transform: scale(1.1);
+        }
     }
 `;

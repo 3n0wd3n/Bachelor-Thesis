@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Colors } from '../../utils/Colors'
-import { FontsHeaderBold, FontsThin, FontsBold, CommonDisplayFlexColumn, CommonDisplayFlexRow, CommonDisplayFlex } from '../CommonStyles'
+import { FontsHeaderBold, FontsThin, FontsBold, CommonDisplayFlexColumn, CommonDisplayFlexRow } from '../CommonStyles'
 
 export const DropDown = styled(CommonDisplayFlexColumn)`
     width: 100%;

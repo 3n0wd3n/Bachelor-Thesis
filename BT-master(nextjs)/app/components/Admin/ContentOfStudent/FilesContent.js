@@ -24,7 +24,7 @@ export default function FileContent({ setData, student }) {
           <FileContentContainer>
             <FileContentAddContainer>
               <FileContentChooseFile>
-                Choose file:
+                <span>Choose file:</span>
                 <FileContentInput type="file" onChange={handleFileChange} />
               </FileContentChooseFile>
             </FileContentAddContainer>

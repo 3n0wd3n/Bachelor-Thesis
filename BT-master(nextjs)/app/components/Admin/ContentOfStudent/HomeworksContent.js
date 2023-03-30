@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { getCookie } from 'cookies-next';
 import { FaTrash, FaRegEdit } from 'react-icons/fa'
-import { HomeworksContentShowContentEditContainer, HomeworksContentShowTitleItem, HomeworksContentShowMainContainer, HomeworksContentShowContainer, HomeworksContentShowContentItem } from './HomeworksContentShow.style'
+import { HomeworksContentShowContentEditContainer, HomeworksContentShowTitleItem, HomeworksContentShowMainContainer, HomeworksContentShowContainer } from './HomeworksContentShow.style'
 import HomeworksContentEmpty from './HomeworksContentEmpty'
 import HomeworksContentAdd from './HomeworksContentAdd'
 
@@ -39,7 +39,7 @@ export default function HomeworksContent({ student, setData }) {
                         ?
                         student.homeworks.map(homework =>
                             <HomeworksContentShowContainer key={homework.id}>
-                                <HomeworksContentShowTitleItem>{homework.title} - {homework.description}</HomeworksContentShowTitleItem>
+                                <HomeworksContentShowTitleItem><span>{homework.title} -</span> {homework.description}</HomeworksContentShowTitleItem>
                                 <FaTrash onClick={() => removeItem(homework.id)} />
                             </HomeworksContentShowContainer>
                         )
