@@ -123,7 +123,7 @@ export const StudentMCFontsSectionLinkItem = styled.a`
 
 export const StudentMCHomeworks = styled(CommonDisplayFlexColumn)`
     background-color: white;
-    align-items: flex-start;
+    /* align-items: flex-start; */
     border-radius: 25px;
     margin: 0em 1em 1em 1em;
     padding: 1em 2em 1em 2em;

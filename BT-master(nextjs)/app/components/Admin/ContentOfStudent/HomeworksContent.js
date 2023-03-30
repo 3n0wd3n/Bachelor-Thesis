@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { getCookie } from 'cookies-next';
-import { FaTrash, FaRegEdit } from 'react-icons/fa'
+import { FaTrash, FaRegEdit, FaPlusSquare, FaMinusSquare } from 'react-icons/fa'
 import { HomeworksContentShowContentEditContainer, HomeworksContentShowTitleItem, HomeworksContentShowMainContainer, HomeworksContentShowContainer } from './HomeworksContentShow.style'
 import HomeworksContentEmpty from './HomeworksContentEmpty'
 import HomeworksContentAdd from './HomeworksContentAdd'
@@ -35,7 +35,7 @@ export default function HomeworksContent({ student, setData }) {
                 <HomeworksContentAdd student={student} setEdit={setEdit} setData={setData} />
                 :
                 <HomeworksContentShowMainContainer>
-                    {student.homeworks.length > 0 
+                    {student.homeworks.length > 0
                         ?
                         student.homeworks.map(homework =>
                             <HomeworksContentShowContainer key={homework.id}>
@@ -47,8 +47,14 @@ export default function HomeworksContent({ student, setData }) {
                         <HomeworksContentEmpty setData={setData}></HomeworksContentEmpty>}
                 </HomeworksContentShowMainContainer>
             }
-            <HomeworksContentShowContentEditContainer onClick={() => setEdit(prevState => !prevState)} >
-                <FaRegEdit />
+            <HomeworksContentShowContentEditContainer onClick={() => setEdit(prevState => !prevState)} editable={edit} >
+                {
+
+                    edit ?
+                        <FaMinusSquare />
+                        :
+                        <FaPlusSquare />
+                }
             </HomeworksContentShowContentEditContainer>
         </>
     )

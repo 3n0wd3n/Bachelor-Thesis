@@ -68,7 +68,7 @@ export const HomeworksContentShowContentItem = styled.span`
 export const HomeworksContentShowContentEditContainer = styled.div`
     margin: .5em 0em 0em 0em;
     & > svg {
-        color: ${Colors.lightGreen};
+        color: ${({ editable }) => editable ?  Colors.red : Colors.lightGreen};
         font-size: ${HomeworkContentValue + .6}rem;
         cursor: pointer;
         transition: .6s;

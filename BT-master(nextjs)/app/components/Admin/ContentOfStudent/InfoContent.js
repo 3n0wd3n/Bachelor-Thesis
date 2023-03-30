@@ -184,19 +184,22 @@ export default function InfoContent({ student, setData }) {
                     edit &&
                     <StudentRemoveAttribute >
                         <StudentKeyRemoveAttribute onClick={() => removeStudent(student.id)}>disable</StudentKeyRemoveAttribute>
-                        
+
                     </StudentRemoveAttribute>
                 }
             </StudentInfoContainerTwo>
-            <StudentEditContainer onClick={() => setEdit(prevState => !prevState)}>
-                <FaRegEdit />
-            </StudentEditContainer>
-            {
-                edit &&
-                <StudentCheckInputAttribute onClick={() => changeInfo()}>
-                    <FaCheck />
-                </StudentCheckInputAttribute>
-            }
+            <div>
+
+                <StudentEditContainer onClick={() => setEdit(prevState => !prevState)}>
+                    <FaRegEdit />
+                </StudentEditContainer>
+                {
+                    edit &&
+                    <StudentCheckInputAttribute onClick={() => changeInfo()}>
+                        <FaCheck />
+                    </StudentCheckInputAttribute>
+                }
+            </div>
         </>
     )
 }

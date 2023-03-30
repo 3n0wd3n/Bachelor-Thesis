@@ -24,6 +24,7 @@ const generateNextLessons = (lessons, weeks) => {
       let newEndDate = addDays(lesson.endDate, (i + 1) * 7)
       const dayIndex = newDate.getDay() === 0 ? week.length - 1 : newDate.getDay() - 1
 
+      console.log('a', dayIndex, newDate, newDate.getTime() < new Date().getTime())
       if (newDate.getTime() < new Date().getTime()) return
       if (nextLessons.length === 0 && moment(newDate).isoWeek() !== moment().isoWeek()) {
         newDate = addDays(newDate, -7)
@@ -36,6 +37,7 @@ const generateNextLessons = (lessons, weeks) => {
     i++
   }
 
+  console.log(nextLessons)
   
   const formattedNextLessons = []
   
