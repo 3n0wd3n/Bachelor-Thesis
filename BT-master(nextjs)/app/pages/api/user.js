@@ -27,9 +27,9 @@ const filterLessons = async (lessonIds, admin) => {
   const lessons = lessonsDb.map(lesson => ({
     id: lesson._id,
     date: lesson.from,
+    changes: lesson.changes,
     // destruktivnost => ...
     ... (admin ? { endDate: lesson.to } : []),
-    ... (admin ? { changes: lesson.changes } : []),
     ... (admin ? { statuses: lesson.statuses } : []),
   }));
 
@@ -64,6 +64,7 @@ export const getUser = async(filter, password) => {
   if (!userDb || userDb.disabled) return;
   
   if (userDb.role === 'admin') return getAdmin(userDb);
+  else if (userDb.role === 'representative') return getRepresentative(userDb);
   else return getStudent(userDb);
 }
 
@@ -95,6 +96,32 @@ const getStudent = async (userDb, admin=false) => {
     wordList: userDb.wordList,
     summary: userDb.summary,
     payments: [],
+  }
+}
+
+const getRepresentative = async (userDb) => {
+  const children = []
+  await Promise.all(userDb.child.map(async childId => {
+    const childDb = await findOneFromMongo(User, { _id: childId })
+    const child = await getStudent(childDb)
+    children.push(child)
+  }))
+
+  return {
+    id: userDb._id,
+    role: userDb.role,
+    firstName: userDb.name,
+    lastName: userDb.surname,
+    username: userDb.username,
+    legalRepresentative: userDb.legalRepresentative !== '',
+    lessons: [],
+    plan: userDb.plan,
+    homeworks: [],
+    files: [],
+    wordList: userDb.wordList,
+    summary: userDb.summary,
+    payments: [],
+    children: children,
   }
 }
 
@@ -204,8 +231,7 @@ export default async function handler(req, res) {
 
           await UpdateOneFromMongo(User, { _id: student._id }, { $push: { lectures: lectureDb._id } })
         });
-        // TODO: probrat s Trnečkou
-        if (legalRepresentative) await UpdateOneFromMongo(User, { _id: representative._id }, { child: student._id })
+        if (legalRepresentative) await UpdateOneFromMongo(User, { _id: representative._id }, { $push: { child: student._id }})
 
         
         res.status(200).json({ data: 'updated data' });

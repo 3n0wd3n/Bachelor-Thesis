@@ -15,6 +15,7 @@ export function addDays(date, days) {
 
 const generateNextLessons = (lessons, weeks) => {
   const nextLessons = []
+  let timeShift = false
   let i = 0
   while (nextLessons.length < weeks) {
     const weekLessons = []
@@ -22,13 +23,17 @@ const generateNextLessons = (lessons, weeks) => {
     lessons.map(lesson => {
       let newDate = addDays(lesson.date, (i + 1) * 7)
       let newEndDate = addDays(lesson.endDate, (i + 1) * 7)
+      if (timeShift) {
+        newDate = addDays(newDate, -7)
+        newEndDate = addDays(newEndDate, -7)
+      }
       const dayIndex = newDate.getDay() === 0 ? week.length - 1 : newDate.getDay() - 1
 
-      console.log('a', dayIndex, newDate, newDate.getTime() < new Date().getTime())
       if (newDate.getTime() < new Date().getTime()) return
       if (nextLessons.length === 0 && moment(newDate).isoWeek() !== moment().isoWeek()) {
         newDate = addDays(newDate, -7)
         newEndDate = addDays(newEndDate, -7)
+        timeShift = true
       }
       weekLessons.push([dayIndex, { id: lesson.id, date: newDate, endDate: newEndDate }])
     })
@@ -36,8 +41,6 @@ const generateNextLessons = (lessons, weeks) => {
     if (weekLessons.length) nextLessons.push(weekLessons)
     i++
   }
-
-  console.log(nextLessons)
   
   const formattedNextLessons = []
   
@@ -47,7 +50,7 @@ const generateNextLessons = (lessons, weeks) => {
       const dayIndex = week.indexOf(day)
       const lessonsThisDay = weekLessons.filter(dayLesson => dayLesson[0] === dayIndex)[0]
       
-      formattedWeek.push(lessonsThisDay ? lessonsThisDay[1] : null)
+      formattedWeek.push(lessonsThisDay ? (new Date(lessonsThisDay[1].date).getTime() > new Date().getTime() ? lessonsThisDay[1] : null) : null)
     })
     formattedNextLessons.push(formattedWeek)
   })

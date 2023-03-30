@@ -47,11 +47,13 @@ export const CalendarWrapperStyled = styled.div`
 export const DayStyled = styled.span`
   font-weight: bold;
   text-align: center;
+  height: 20px;
 `;
 
 export const DateStyled = styled.span`
   text-align: center;
   font-size: 14px;
+  height: 20px;
 `;
 
 export const LessonStyled = styled.span`

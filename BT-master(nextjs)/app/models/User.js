@@ -45,10 +45,9 @@ const userSchema = new Schema(
       type: String,
       default: ""
     },
-    // TO DO: možná se bude mazat
     child: {
-      type: String,
-      default: ""
+      type: [String],
+      default: []
     },
     homeworks: {
       type: [{

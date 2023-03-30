@@ -33,6 +33,12 @@ export const getNextLesson = (lessons) => {
     nextLesson = addDays(nextLesson, 7)
   }
 
+  lessons.map(lesson => {
+    lesson.changes.map(change => {
+      if (new Date(change.from).getTime() === nextLesson.getTime()) nextLesson = new Date(change.newFrom)
+    })
+  })
+
   return nextLesson
 }
 
@@ -56,9 +62,8 @@ export default function MainContent({ data, setData }) {
   const [summaryOpen, summaryOpenEdit] = React.useState(false)
   const id = getCookie('userCookie')
   const studentId = data.id
-  const nextLesson = React.useMemo(() => getNextLesson(data.lessons), [data])
-  const day = getDay(nextLesson.getDay())
-
+  const nextLesson = React.useMemo(() => data.lessons.length > 0 ? getNextLesson(data.lessons) : null, [data])
+  const day = nextLesson ? getDay(nextLesson.getDay()) : null
 
   const removeHomework = async (homeworkId) => {
     await axios('http://localhost:3000/api/student.change', {

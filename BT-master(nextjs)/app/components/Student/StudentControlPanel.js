@@ -10,7 +10,10 @@ export default function ControlPanel({ data, setPaymentPage, setLogoutPage, setS
           {/* we ask if student has legal representative and if not he can do payments */}
           {data.legalRepresentative === false
             ?
-            <StudentCPFontsBold onClick={() => setPaymentPage(true)}>payment</StudentCPFontsBold>
+            <>
+              {console.log(data)}
+              <StudentCPFontsBold onClick={() => setPaymentPage(true)}>payment</StudentCPFontsBold>
+            </>
             :    
             <></>      
           }

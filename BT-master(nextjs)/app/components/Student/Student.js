@@ -29,6 +29,8 @@ export default function Student({ data, setData }) {
     subPage = <SettingsPage data={data} setData={setData} setSettingsPage={setSettingsPage}/>;
   }
 
+  console.log(data)
+
   return (
     <>
       {
@@ -40,6 +42,7 @@ export default function Student({ data, setData }) {
           <StudentContainer>
             <ControlPanel data={data} setPaymentPage={setPaymentPage} setLogoutPage={setLogoutPage} setSettingsPage={setSettingsPage}/>
             <MainContent setData={setData} data={data} setLogoutPage={setLogoutPage}/>
+            {/* <MainContent setData={setData} data={data.children[0]} setLogoutPage={setLogoutPage}/> */}
             <InfoPanel data={data} setApologizePage={setApologizePage}/>
           </StudentContainer>
           <Footer />
