@@ -20,7 +20,7 @@ export const StudentCPContainer = styled(CommonDisplayFlexColumn)`
         width: 100%;
         min-height: 20vh;
         padding: 2em 0 2em 0;
-        flex-flow: row;
+        // flex-flow: row;
         justify-content: center;
         transition: 3s;
     }
@@ -32,6 +32,15 @@ export const StudentCPFontsBold = styled(FontsBold)`
     text-shadow: -4px 5px 8px rgba(0, 0, 0, 0.25);
     transition: 0.3s;
     cursor: pointer;
+    :hover{
+        font-size: 1.55rem;
+    }
+`;
+
+export const StudentCPChildFontsBold = styled(StudentCPFontsBold)`
+    font-size: 1.5rem;
+    color: ${Colors.orange};
+    text-transform: uppercase;
     :hover{
         font-size: 1.55rem;
     }

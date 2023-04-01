@@ -25,7 +25,7 @@ Do informačního systému by se přihlašovalo skrz standartní login. Žádná
 > - Změnit čas následující výuky
 >
 > - Možnost změnit jméno, příjmení
-> 
+>
 > - Přidat odkaz na slovíčka (flash cards)
 
 2. typ (student mladší 18 let)
@@ -70,7 +70,7 @@ Nad technologiemi ještě přemýšlím co by bylo lepší použít. Výhodou je
 - [x] vybrat technologie, které budou pro projekt a pro mě co nejvíce vhodné
   > technologie, které budou webovou aplikaci absluhovat jsou na straně clienta REACTJS a na straně serveru NODEJS, EXPRESS (bude běžet na HEROKU) + databáze MONGODB (běží na atlasu)
 - [x] ve Figmě navrhnout design celé stránky (s viditelnou responzivitou a naznačenými klikacími úkony) --> pro možnost sledování průběhu návrhu přikládám odkaz na [PROTOTYP ve Figmě](https://www.figma.com/file/EsdxbekJrScMOYiIbjaQNq/Bachelor-Thesis?node-id=0%3A1)
-- [x] postupně pomocí styled components začít stylovat stránky dle návrhu z figmy 
+- [x] postupně pomocí styled components začít stylovat stránky dle návrhu z figmy
 - [x] nakonfigurovat Express server
 - [x] rozvrhnout databáze
 - [x] propojit databázi s MongoDB ATLAS
@@ -92,6 +92,7 @@ Nad technologiemi ještě přemýšlím co by bylo lepší použít. Výhodou je
 - KDYŽ BARČA ZMĚNÍ HODINU, TAK UŽIVATEL NA EMAIL DOSTANE UPOZORNĚNÍ
 - TEAMS EMAIL ODKAZ
 - MOŽNOST PŘESUNOU ZÁPISKY V SUMARIZACÍCH NAHORU A DOLU, PROTŽE PO SMAZÁNÍ JEDNÉ SUMARIZACE Z NĚJAKÉHO DATA UŽ BY NEMUSELY DATUMY JÍT PO SOBĚ
+- PŘI ZAKLÁDÁNÍ UŽIVATELE ŘÍCT ADMINOVI JESTLI NEDÁVÁ UŽIVATELE NA DATUM, KTERÉ UŽ MÁ NĚJAKÝ STUDENT ZABRANÉ
 
 **TMP TO DO**
 
@@ -105,4 +106,5 @@ Nad technologiemi ještě přemýšlím co by bylo lepší použít. Výhodou je
 - [ ] zobrazit hodiny u studenta, které proběhly a které ještě nemá označené jako zaplacené
 - [ ] zobrazení omluvenek a plateb
 - [ ] vkládání a ukládání souborů
+- [ ] možnost mít jednoho rodiče, který má více dětí a zabrazuje si jejich profily
 - [ ] rodič a student starší 18 let budou mít možnost říct, že danou hodinu zaplatili

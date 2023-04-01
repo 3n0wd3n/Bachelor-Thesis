@@ -44,7 +44,7 @@ export const getNextLesson = (lessons) => {
 
 export const getDay = (nextLesson) => {
   // Getting properties from date
-  const daysOfTheWeek = ["neděle", "pondělí", "úterý", "středa", "čtvrtek", "pátek", "sobota"];
+  const daysOfTheWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   var lessonDay = nextLesson;
   var day;
   for (var i = 0; i < daysOfTheWeek.length; i++) {
@@ -103,6 +103,7 @@ export default function MainContent({ data, setData }) {
                       <StudentListItem>
                         <p>{homework.title}-</p>
                         <StudentMCDescription editable={edit}>{homework.description}</StudentMCDescription>
+
                         <StudentMCHomeworkDoneContainer onClick={() => removeHomework(homework.id)}>
                           <FaCheckCircle />
                         </StudentMCHomeworkDoneContainer>

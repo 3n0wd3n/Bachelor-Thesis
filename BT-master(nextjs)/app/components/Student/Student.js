@@ -15,6 +15,7 @@ export default function Student({ data, setData }) {
   const [openLogoutPage, setLogoutPage] = useState(false);
   const [openPaymentPage, setPaymentPage] = useState(false);
   const [openSettingsPage, setSettingsPage] = useState(false);
+  const [childNumber, setChildNumber] = useState(-1);
   var subPage;
   if (openLogoutPage){
     subPage = <LogoutPage setLogoutPage={setLogoutPage} setData={setData}/>;
@@ -29,8 +30,6 @@ export default function Student({ data, setData }) {
     subPage = <SettingsPage data={data} setData={setData} setSettingsPage={setSettingsPage}/>;
   }
 
-  console.log(data)
-
   return (
     <>
       {
@@ -40,9 +39,16 @@ export default function Student({ data, setData }) {
         :
         <>
           <StudentContainer>
-            <ControlPanel data={data} setPaymentPage={setPaymentPage} setLogoutPage={setLogoutPage} setSettingsPage={setSettingsPage}/>
-            <MainContent setData={setData} data={data} setLogoutPage={setLogoutPage}/>
+            <ControlPanel data={data} setChildNumber={setChildNumber} setPaymentPage={setPaymentPage} setLogoutPage={setLogoutPage} setSettingsPage={setSettingsPage}/>
+            {/* <MainContent setData={setData} data={data} setLogoutPage={setLogoutPage}/> */}
             {/* <MainContent setData={setData} data={data.children[0]} setLogoutPage={setLogoutPage}/> */}
+            {
+              childNumber === -1
+              ?
+              <MainContent setData={setData} data={data} setLogoutPage={setLogoutPage}/>
+              :
+              <MainContent setData={setData} data={data.children[childNumber]} setLogoutPage={setLogoutPage}/>
+            }
             <InfoPanel data={data} setApologizePage={setApologizePage}/>
           </StudentContainer>
           <Footer />

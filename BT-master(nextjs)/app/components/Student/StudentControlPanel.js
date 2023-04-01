@@ -1,9 +1,9 @@
 import React from 'react'
-import { StudentCPContainer, StudentCPFontsBold } from './StudentControlPanel.style'
+import { StudentCPChildFontsBold, StudentCPContainer, StudentCPFontsBold } from './StudentControlPanel.style'
 
 // StudentCP = StudentControlPanel
 
-export default function ControlPanel({ data, setPaymentPage, setLogoutPage, setSettingsPage }) {
+export default function ControlPanel({ data, setChildNumber, setPaymentPage, setLogoutPage, setSettingsPage }) {
   return (
     <>
       <StudentCPContainer>
@@ -11,7 +11,6 @@ export default function ControlPanel({ data, setPaymentPage, setLogoutPage, setS
           {data.legalRepresentative === false
             ?
             <>
-              {console.log(data)}
               <StudentCPFontsBold onClick={() => setPaymentPage(true)}>payment</StudentCPFontsBold>
             </>
             :    
@@ -19,6 +18,10 @@ export default function ControlPanel({ data, setPaymentPage, setLogoutPage, setS
           }
           <StudentCPFontsBold onClick={() => setLogoutPage(true)}>logout</StudentCPFontsBold>
           <StudentCPFontsBold onClick={() => setSettingsPage(true)}>settings</StudentCPFontsBold>
+          {data.children.map((child, key ) =>
+              <StudentCPChildFontsBold key={key} onClick={() => setChildNumber(key)}>{child.firstName}</StudentCPChildFontsBold>
+          )}
+
       </StudentCPContainer>  
     </>
   )

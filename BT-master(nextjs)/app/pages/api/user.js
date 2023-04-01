@@ -189,24 +189,43 @@ export default async function handler(req, res) {
           // hashing the password using bcrypt lib
           const representativeHashedPassword = await bcrypt.hash(representativePassword, salt)
           const studentHashedPassword = await bcrypt.hash(password, salt)
+          const representativeExist = await findOneFromMongo(User, { phone: representativePhone })
+          if ( representativeExist !== null){
+            student = await createUser({
+              role,
+              name,
+              surname,
+              username,
+              plan,
+              summary,
+              password: studentHashedPassword,
+              legalRepresentative: representativeExist._id
+            });
+           
+            await UpdateOneFromMongo(User, { _id: representativeExist._id}, { $push: { child: student._id }})
+          }
+          else {
+            representative = await createUser({
+              role: 'representative',
+              name: representativeName,
+              surname: representativeSurname,
+              phone: representativePhone,
+              password: representativeHashedPassword,
+            });
 
-          representative = await createUser({
-            role: 'representative',
-            name: representativeName,
-            surname: representativeSurname,
-            phone: representativePhone,
-            password: representativeHashedPassword,
-          });
-          student = await createUser({
-            role,
-            name,
-            surname,
-            username,
-            plan,
-            summary,
-            password: studentHashedPassword,
-            legalRepresentative: representative._id
-          });
+            student = await createUser({
+              role,
+              name,
+              surname,
+              username,
+              plan,
+              summary,
+              password: studentHashedPassword,
+              legalRepresentative: representative._id
+            });
+
+            await UpdateOneFromMongo(User, { _id: representative._id }, { $push: { child: student._id }})
+          }
         } else {
           // hashing the password using bcrypt lib
           const studentHashedPassword = await bcrypt.hash(password, salt)
@@ -231,7 +250,7 @@ export default async function handler(req, res) {
 
           await UpdateOneFromMongo(User, { _id: student._id }, { $push: { lectures: lectureDb._id } })
         });
-        if (legalRepresentative) await UpdateOneFromMongo(User, { _id: representative._id }, { $push: { child: student._id }})
+        // if (legalRepresentative) await UpdateOneFromMongo(User, { _id: representative._id }, { $push: { child: student._id }})
 
         
         res.status(200).json({ data: 'updated data' });
