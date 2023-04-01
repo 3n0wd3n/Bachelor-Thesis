@@ -101,10 +101,10 @@ Nad technologiemi ještě přemýšlím co by bylo lepší použít. Výhodou je
 - [x] zahashovat heslat aby v databázi nebyla vidět (později)
 - [x] lessons change
 - [x] dodělat aktualizaci času nové hodiny jak u admina, tak u studenta (zkártka kdy bude další hodina)
-- [ ] udělat na straně studenta sumarizaci z hodiny (PŘIDAT TO I K RODIČI) (dodělat mazání sumarizace)
+- [x] udělat na straně studenta sumarizaci z hodiny (PŘIDAT TO I K RODIČI) (dodělat mazání sumarizace)
+- [x] možnost mít jednoho rodiče, který má více dětí a zabrazuje si jejich profily
 - [ ] možnost studenta omluvit se z hodiny
 - [ ] zobrazit hodiny u studenta, které proběhly a které ještě nemá označené jako zaplacené
+- [ ] rodič a student starší 18 let budou mít možnost říct, že danou hodinu zaplatili
 - [ ] zobrazení omluvenek a plateb
 - [ ] vkládání a ukládání souborů
-- [ ] možnost mít jednoho rodiče, který má více dětí a zabrazuje si jejich profily
-- [ ] rodič a student starší 18 let budou mít možnost říct, že danou hodinu zaplatili
