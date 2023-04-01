@@ -148,7 +148,7 @@ export const StudentMCWordList = styled(CommonDisplayFlexColumn)`
 
 export const StudentMCSummaryFirstPart = styled(CommonDisplayFlexColumn)`
     // background-color: ${Colors.red};
-    border: 10px solid ${Colors.red};
+    border: 7px solid ${Colors.red};
     border-radius: 25px;
     padding: 1em 2em 1em 2em;
     margin: 0em 1em 1em 1em;
