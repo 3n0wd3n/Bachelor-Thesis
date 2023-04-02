@@ -5,7 +5,7 @@ import { getCookie } from 'cookies-next';
 import { WrapperStyled, DateStyled, CalendarContentWrapperStyled, DatesWrapperStyled, SaveButton, GoBackButton, LessonTimeWrapper, WeekWrapperStyled, WeekInputStyled, WeekPlaceholderStyled, CalendarWrapperStyled, DayStyled, LessonStyled } from './LessonChange.style'
 import { AdminLessonTimeInput } from '../AdminAddPage.style'
 
-const week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+const week = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 
 export function addDays(date, days) {
   var result = new Date(date);

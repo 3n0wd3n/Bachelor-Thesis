@@ -3,6 +3,7 @@ import { AdminLessonTimeInput } from '../AdminAddPage.style'
 import { Colors } from '../../../utils/Colors'
 
 export const WrapperStyled = styled.div`
+  font-family: 'Raleway', sans-serif;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -45,7 +46,7 @@ export const CalendarWrapperStyled = styled.div`
 `;
 
 export const DayStyled = styled.span`
-  font-weight: bold;
+  font-weight: 900;
   text-align: center;
   height: 20px;
 `;
