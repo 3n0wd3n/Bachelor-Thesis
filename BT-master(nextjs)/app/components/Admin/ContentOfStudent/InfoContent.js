@@ -20,19 +20,28 @@ export const constructWeek = (lessons) => {
 
         while (moment().isoWeek() != moment(lectureDateThisWeek).isoWeek()) lectureDateThisWeek = addDays(lectureDateThisWeek, 7)
 
+        
+        let isCancelled = false
         let isChange = false
-        lecture.changes.map(change => {
-            if (new Date(change.from).getTime() == lectureDateThisWeek.getTime()) isChange = change
+
+        lecture.statuses.map(status => {
+            if (new Date(status.from).getTime() == lectureDateThisWeek.getTime()) isCancelled = true
         })
 
-        if (isChange) {
-            lecture.date = isChange.newFrom
-            lecture.endDate = isChange.newTo
-            lecture.changed = true
+        if (!isCancelled) {
+            lecture.changes.map(change => {
+                if (new Date(change.from).getTime() == lectureDateThisWeek.getTime()) isChange = change
+            })
+            
+            if (isChange) {
+                lecture.date = isChange.newFrom
+                lecture.endDate = isChange.newTo
+                lecture.changed = true
+            }
+            
+            if (week[day]) week[day].push(lecture)
+            else week[day] = [lecture]
         }
-
-        if (week[day]) week[day].push(lecture)
-        else week[day] = [lecture]
     })
 
     return Object.entries(week).reverse()

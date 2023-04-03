@@ -9,7 +9,7 @@ import { addDays } from '../Admin/ContentOfStudent/LessonChange';
 import { StudentMCSummaryItem, StudentMCSummaryFirstPart, StudentMCFontsSummary, StudentMCSummaryColumnContainer, StudentMCSummaryButtonContainer, StudentMCSummarySecondPart, StudentMCDescription, StudentMCHomeworkDoneContainer, StudentMCFontsSectionLinkItem, StudentUnorderedList, StudentListItem, SimpleContainer, SimpleDiv, StudentMCFilesItems, StudentMCFontsWordList, StudentMCFontsFiles, StudentMCWordList, StudentMCFiles, StudentMCContainer, StudentMCNextLesson, StudentMCFontsDate, StudentMCFontsBold, StudentMCHomeworks, StudentMCFontsHomeworks, StudentMCFontsHomeworksItem, StudentMCFontsSectionItems } from './StudentMainContent.style'
 // StudentMC = StudentMainContent
 
-export const getNextLesson = (lessons) => {
+export const getNextLesson = (lessons, restrictions = []) => {
   const reFormatIndex = (date) => new Date(date).getDay() === 0 ? 6 : new Date(date).getDay() - 1
 
   const now = new Date()
@@ -19,6 +19,7 @@ export const getNextLesson = (lessons) => {
   const isHigherOrEqual = daysIndexes.filter(dayIndex => dayIndex >= nowIndex).length > 0
   let nextLessonIndex
   if (isHigherOrEqual) lessons.map(lesson => {
+    console.log(restrictions, lesson)
     const dayIndex = reFormatIndex(lesson.date)
     if (dayIndex >= nowIndex && (dayIndex < nextLessonIndex || !nextLessonIndex)) return nextLessonIndex = dayIndex
   })
@@ -55,7 +56,7 @@ export const getDay = (nextLesson) => {
   return day
 }
 
-export default function MainContent({ data, setData }) {
+export default function MainContent({ data, setData, isRepresentative }) {
   // Set styling to icons
   const style = { color: Colors.lightGreen, fontSize: "3em" }
   const [edit, setEdit] = React.useState(false)
@@ -64,6 +65,8 @@ export default function MainContent({ data, setData }) {
   const studentId = data.id
   const nextLesson = React.useMemo(() => data.lessons.length > 0 ? getNextLesson(data.lessons) : null, [data])
   const day = nextLesson ? getDay(nextLesson.getDay()) : null
+
+  console.log(nextLesson)
 
   const removeHomework = async (homeworkId) => {
     await axios('http://localhost:3000/api/student.change', {
@@ -85,6 +88,9 @@ export default function MainContent({ data, setData }) {
         <StudentMCNextLesson>
           <StudentMCFontsDate>next lesson</StudentMCFontsDate>
           <StudentMCFontsBold>{`${day ? `${day} ${moment(nextLesson).format('HH:mm')}` : "Lessons not yet set"}`}</StudentMCFontsBold>
+          {
+            (isRepresentative ? <StudentMCFontsBold>-{data.firstName}-</StudentMCFontsBold> : <></>)
+          }
         </StudentMCNextLesson>
         <StudentMCHomeworks>
           <StudentMCFontsHomeworks>homeworks</StudentMCFontsHomeworks>
@@ -103,10 +109,15 @@ export default function MainContent({ data, setData }) {
                       <StudentListItem>
                         <p>{homework.title}-</p>
                         <StudentMCDescription editable={edit}>{homework.description}</StudentMCDescription>
-
-                        <StudentMCHomeworkDoneContainer onClick={() => removeHomework(homework.id)}>
-                          <FaCheckCircle />
-                        </StudentMCHomeworkDoneContainer>
+                        {
+                          isRepresentative
+                            ?
+                            <></>
+                            :
+                            <StudentMCHomeworkDoneContainer onClick={() => removeHomework(homework.id)}>
+                              <FaCheckCircle />
+                            </StudentMCHomeworkDoneContainer>
+                        }
                       </StudentListItem>
                     </StudentUnorderedList>
                   )

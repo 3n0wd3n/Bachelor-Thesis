@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import { AdminLessonTimeInput } from '../AdminAddPage.style'
 import { Colors } from '../../../utils/Colors'
+import { SettingsBackButton, SettingsSendButton } from '../../Student/StudentSettingsPage.style'
+import { CommonDisplayFlexColumn, CommonDisplayFlexRow } from '../../CommonStyles'
 
 export const WrapperStyled = styled.div`
   font-family: 'Raleway', sans-serif;
@@ -71,10 +73,28 @@ export const LessonTimeWrapper = styled(AdminLessonTimeInput)`
   width: fit-content;
 `;
 
-export const GoBackButton = styled.button`
-  
+export const GoBackButton = styled(SettingsBackButton)`
+  width: 115px;
+  height: 35px;
+  font-size: 1rem;
 `;
 
-export const SaveButton = styled.button`
-  
+export const SaveButton = styled(SettingsSendButton)`
+  width: 115px;
+  height: 35px;
+  font-size: 1rem;
+`;
+
+export const LessonChangeMainContainer = styled(CommonDisplayFlexColumn)`
+  width: 100%;
+  gap: 1rem;
+`;
+
+export const LessonChangeContainer = styled(CommonDisplayFlexRow)`
+  width: 100%;
+  gap: 1rem;
+`;
+
+export const LessonChangeButtonContainer = styled(CommonDisplayFlexRow)`
+  gap: 1rem;
 `;

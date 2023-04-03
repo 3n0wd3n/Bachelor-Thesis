@@ -11,7 +11,7 @@ const updateInfoInStudent = async (filter, data) => {
     return await UpdateOneFromMongo(User, filter, data)
 }
 
-const addLessonChange= async (filter, data) => {
+export const addLessonChange= async (filter, data) => {
     return await UpdateOneFromMongo(Lecture, filter, data)
 }
 

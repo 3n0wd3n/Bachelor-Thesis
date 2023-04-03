@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Colors } from '../../utils/Colors'
 import { FontsHeaderBold, FontsBold, CommonDisplayFlexColumn } from '../CommonStyles'
 
@@ -7,6 +7,30 @@ export const StudentApologizeContainer = styled(CommonDisplayFlexColumn)`
   width: 100%;
   min-height: 100vh;
   margin: 5rem 0 0 0;
+
+  .SingleDatePicker {
+    place-self: center;
+    margin-bottom: 1rem;
+    
+  }
+  .SingleDatePicker__withBorder {
+    place-self: center;
+    margin-bottom: 1rem;
+    :hover{
+       background-color: ${Colors.lightGreen};
+    }
+  }
+
+  .SingleDatePickerInput__withBorder {
+    border-radius: 18px;
+    overflow: hidden;
+    margin: 0 0 1.5rem 0;
+    transition: .6s;
+    :hover{
+       color: ${Colors.white};
+       background-color: ${Colors.lightGreen};
+    }
+  }
 `;
 
 export const ApologizeTitle = styled(FontsHeaderBold)`
@@ -43,7 +67,7 @@ export const ApologizeInput = styled.input`
     }
 `;
 
-export const ApologizeForm = styled.form`
+export const ApologizeForm = styled.div`
     display: flex;
     flex-flow: column;
     margin: 3rem 0 0 0;
@@ -58,11 +82,16 @@ export const ApologizeSendButton = styled.button`
     border-radius: 25px;
     padding: 1rem 4rem 1rem 4rem;
     margin: 0 0 3rem 0;
-    transition: 0.7s;
-    :hover{
-        color: white;
-        background-color: ${Colors.lightGreen};
-    }
+
+    ${({ disabled }) => disabled ? css`
+        cursor: not-allowed;
+    ` : css`
+        transition: 0.7s;
+        :hover{
+            color: white;
+            background-color: ${Colors.lightGreen};
+        }
+    `}
 `;
 
 export const ApologizeBackButton = styled(ApologizeSendButton)`

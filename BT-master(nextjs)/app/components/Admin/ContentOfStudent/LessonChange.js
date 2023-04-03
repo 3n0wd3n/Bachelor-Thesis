@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import moment from 'moment'
 import { getCookie } from 'cookies-next';
-import { WrapperStyled, DateStyled, CalendarContentWrapperStyled, DatesWrapperStyled, SaveButton, GoBackButton, LessonTimeWrapper, WeekWrapperStyled, WeekInputStyled, WeekPlaceholderStyled, CalendarWrapperStyled, DayStyled, LessonStyled } from './LessonChange.style'
+import { LessonChangeButtonContainer, LessonChangeContainer, LessonChangeMainContainer, WrapperStyled, DateStyled, CalendarContentWrapperStyled, DatesWrapperStyled, SaveButton, GoBackButton, LessonTimeWrapper, WeekWrapperStyled, WeekInputStyled, WeekPlaceholderStyled, CalendarWrapperStyled, DayStyled, LessonStyled } from './LessonChange.style'
 import { AdminLessonTimeInput } from '../AdminAddPage.style'
 
 const week = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
@@ -22,59 +22,70 @@ const generateNextLessons = (lessons, weeks) => {
 
     lessons.map(lesson => {
       let newDate = addDays(lesson.date, (i + 1) * 7)
+
+      // lesson.statuses.map(status => {
+      //   if (new Date(status.from).getTime() == newDate.getTime()) isCancelled = true
+      // })
+
       let newEndDate = addDays(lesson.endDate, (i + 1) * 7)
       if (timeShift) {
         newDate = addDays(newDate, -7)
         newEndDate = addDays(newEndDate, -7)
       }
       const dayIndex = newDate.getDay() === 0 ? week.length - 1 : newDate.getDay() - 1
-
+      
       if (newDate.getTime() < new Date().getTime()) return
       if (nextLessons.length === 0 && moment(newDate).isoWeek() !== moment().isoWeek()) {
         newDate = addDays(newDate, -7)
         newEndDate = addDays(newEndDate, -7)
         timeShift = true
       }
-      weekLessons.push([dayIndex, { id: lesson.id, date: newDate, endDate: newEndDate }])
+
+      weekLessons.push([dayIndex, { id: lesson.id, date: newDate, endDate: newEndDate, statuses: lesson.statuses }])
     })
 
     if (weekLessons.length) nextLessons.push(weekLessons)
     i++
   }
-  
+
   const formattedNextLessons = []
-  
+
   nextLessons.map(weekLessons => {
     const formattedWeek = []
     week.map(day => {
       const dayIndex = week.indexOf(day)
       const lessonsThisDay = weekLessons.filter(dayLesson => dayLesson[0] === dayIndex)[0]
+      let isCancelled = false
+      if (lessonsThisDay) {
+        const cancelledLessons = lessonsThisDay[1].statuses.map(day => new Date(day.from).getTime())
+        isCancelled = cancelledLessons.includes(new Date(lessonsThisDay[1].date).getTime())
+      }
       
-      formattedWeek.push(lessonsThisDay ? (new Date(lessonsThisDay[1].date).getTime() > new Date().getTime() ? lessonsThisDay[1] : null) : null)
+      formattedWeek.push(lessonsThisDay && !isCancelled ? (new Date(lessonsThisDay[1].date).getTime() > new Date().getTime() ? lessonsThisDay[1] : null) : null)
     })
     formattedNextLessons.push(formattedWeek)
   })
-  
+
   return formattedNextLessons
 }
 
 const getMonday = (d) => {
   d = new Date(d);
   var day = d.getDay(),
-  diff = d.getDate() - day + (day == 0 ? -6:1); // adjust when day is sunday
+    diff = d.getDate() - day + (day == 0 ? -6 : 1); // adjust when day is sunday
   return new Date(d.setDate(diff));
 }
 
 const generateDates = (weeks) => {
   const dates = []
   let nextDate = getMonday(new Date())
-  
+
   while (dates.length < weeks) {
     dates.push(nextDate)
-    
+
     nextDate = addDays(nextDate, 7)
   }
-  
+
   return dates
 }
 
@@ -111,46 +122,50 @@ export default function LessonChange({ student, setData }) {
       }
 
       await axios('http://localhost:3000/api/student.change', {
-          method: 'POST',
-          data: {
-              adminId: id,
-              studentId,
-              lessonId: selectedDay.id,
-              lessons: formattedLesson,
-          }
+        method: 'POST',
+        data: {
+          adminId: id,
+          studentId,
+          lessonId: selectedDay.id,
+          lessons: formattedLesson,
+        }
       }).then(({ data }) => {
-          if (data) setData(data)
-          else alert('Change failed.')
+        if (data) setData(data)
+        else alert('Change failed.')
       })
     }
 
     return (
-      <>
-        <GoBackButton onClick={() => setSelectedDay(null)}>Go back</GoBackButton>
-        <LessonTimeWrapper type="date"
-          ref={(el) => lessonRef.current = { day: el, from: lessonRef.current?.from, to: lessonRef.current?.to }}
-          value={selectedDay.selectedDate}
-          readOnly
-        />
-        <AdminLessonTimeInput type="time"
-          ref={(el) => lessonRef.current = { from: el, day: lessonRef.current?.day, to: lessonRef.current?.to }}
-          defaultValue={selectedDay.fromTime}
-        />
-        <AdminLessonTimeInput type="time"
-          defaultValue={selectedDay.toTime}
-          ref={(el) => lessonRef.current = { to: el, from: lessonRef.current?.from, day: lessonRef.current?.day }}
-          onChange={({ target }) => {
-            const from = lessonRef.current?.from.value;
-            const fromHour = Number(from.split(':')[0]) || 0
-            const fromMinute = Number(from.split(':')[1]) || 0
-            const toHour = Number(target.value.split(':')[0]) || 0
-            const toMinute = Number(target.value.split(':')[1]) || 0
+      <LessonChangeMainContainer>
+        <LessonChangeContainer>
+          <LessonTimeWrapper type="date"
+            ref={(el) => lessonRef.current = { day: el, from: lessonRef.current?.from, to: lessonRef.current?.to }}
+            value={selectedDay.selectedDate}
+            readOnly
+          />
+          <AdminLessonTimeInput type="time"
+            ref={(el) => lessonRef.current = { from: el, day: lessonRef.current?.day, to: lessonRef.current?.to }}
+            defaultValue={selectedDay.fromTime}
+          />
+          <AdminLessonTimeInput type="time"
+            defaultValue={selectedDay.toTime}
+            ref={(el) => lessonRef.current = { to: el, from: lessonRef.current?.from, day: lessonRef.current?.day }}
+            onChange={({ target }) => {
+              const from = lessonRef.current?.from.value;
+              const fromHour = Number(from.split(':')[0]) || 0
+              const fromMinute = Number(from.split(':')[1]) || 0
+              const toHour = Number(target.value.split(':')[0]) || 0
+              const toMinute = Number(target.value.split(':')[1]) || 0
 
-            if (!from || (fromHour >= toHour || (fromHour > toHour && fromMinute >= toMinute) || (fromHour + 1 === toHour && fromMinute > toMinute))) target.value = '';
-          }}
-        />
-        <SaveButton onClick={() => saveTimeChange()}>Save</SaveButton>
-      </>
+              if (!from || (fromHour >= toHour || (fromHour > toHour && fromMinute >= toMinute) || (fromHour + 1 === toHour && fromMinute > toMinute))) target.value = '';
+            }}
+          />
+        </LessonChangeContainer>
+        <LessonChangeButtonContainer>
+          <GoBackButton onClick={() => setSelectedDay(null)}>back</GoBackButton>
+          <SaveButton onClick={() => saveTimeChange()}>save</SaveButton>
+        </LessonChangeButtonContainer>
+      </LessonChangeMainContainer>
     )
   }
 
@@ -179,15 +194,16 @@ export default function LessonChange({ student, setData }) {
 
               const fromDate = new Date(day.date)
               const toDate = new Date(day.endDate)
-              const fromHours = fromDate.getHours().toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})
-              const fromMinutes = fromDate.getMinutes().toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})
-              const toHours = toDate.getHours().toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})
-              const toMinutes = toDate.getMinutes().toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})
+              const fromHours = fromDate.getHours().toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false })
+              const fromMinutes = fromDate.getMinutes().toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false })
+              const toHours = toDate.getHours().toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false })
+              const toMinutes = toDate.getMinutes().toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false })
 
-              const formattedDay = { ...day, selectedDate: moment(day.date).format('YYYY-MM-DD') ,fromTime: `${fromHours}:${fromMinutes}`, toTime: `${toHours}:${toMinutes}` }
+              const formattedDay = { ...day, selectedDate: moment(day.date).format('YYYY-MM-DD'), fromTime: `${fromHours}:${fromMinutes}`, toTime: `${toHours}:${toMinutes}` }
 
               return <LessonStyled key={day.id} onClick={() => setSelectedDay(formattedDay)} >{`${fromHours}:${fromMinutes} - ${toHours}:${toMinutes}`}</LessonStyled>
-            })}
+            })
+          }
           )}
         </CalendarWrapperStyled>
       </CalendarContentWrapperStyled>

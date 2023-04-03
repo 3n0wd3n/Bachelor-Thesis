@@ -28,9 +28,8 @@ const filterLessons = async (lessonIds, admin) => {
     id: lesson._id,
     date: lesson.from,
     changes: lesson.changes,
-    // destruktivnost => ...
-    ... (admin ? { endDate: lesson.to } : []),
-    ... (admin ? { statuses: lesson.statuses } : []),
+    statuses: lesson.statuses,
+    endDate: lesson.to,
   }));
 
   let now = new Date().getTime();

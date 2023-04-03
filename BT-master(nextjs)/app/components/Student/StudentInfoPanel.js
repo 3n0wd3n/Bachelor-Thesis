@@ -31,7 +31,9 @@ export default function InfoPanel({ data, setApologizePage }) {
             return <StudentIPFontsHeaderBold key={key}><Item name={item}/></StudentIPFontsHeaderBold>
           })}
         </StudentIPItemContainer>
-        <StudentIPButton><StudentIPButtonFontsBold onClick={() => setApologizePage(true)}>apologize</StudentIPButtonFontsBold></StudentIPButton>
+        {
+          data.legalRepresentative === false ? <></> : <StudentIPButton><StudentIPButtonFontsBold onClick={() => setApologizePage(true)}>apologize</StudentIPButtonFontsBold></StudentIPButton>
+        }
       </StudentIPContainer>
       
     </>

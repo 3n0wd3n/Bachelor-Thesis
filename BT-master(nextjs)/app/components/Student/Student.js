@@ -24,7 +24,7 @@ export default function Student({ data, setData }) {
     subPage = <PaymentPage setPaymentPage={setPaymentPage}/>;
   }
   if (openApologizePage){
-    subPage = <ApologizePage data={data} setApologizePage={setApologizePage}/>;
+    subPage = <ApologizePage data={data} setData={setData} setApologizePage={setApologizePage}/>;
   }
   if (openSettingsPage){
     subPage = <SettingsPage data={data} setData={setData} setSettingsPage={setSettingsPage}/>;
@@ -45,9 +45,9 @@ export default function Student({ data, setData }) {
             {
               childNumber === -1
               ?
-              <MainContent setData={setData} data={data} setLogoutPage={setLogoutPage}/>
+              <MainContent setData={setData} data={data} isRepresentative={data.role === 'representative'} setLogoutPage={setLogoutPage}/>
               :
-              <MainContent setData={setData} data={data.children[childNumber]} setLogoutPage={setLogoutPage}/>
+              <MainContent setData={setData} data={data.children[childNumber]} isRepresentative={data.role === 'representative'} setLogoutPage={setLogoutPage}/>
             }
             <InfoPanel data={data} setApologizePage={setApologizePage}/>
           </StudentContainer>

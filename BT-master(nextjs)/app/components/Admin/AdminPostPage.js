@@ -1,13 +1,11 @@
 import React from 'react'
 import Footer from '../Footer'
 import { useState } from 'react';
-import { Colors } from '../../utils/Colors'
 import { FontsHeaderBold, FontsThin, FontsBold } from '../CommonStyles'
 import { PostBackButton, AdminPostContainer, AdminMainContent, AdminListItems, AdminItem, AdminUnorderedList, AdminMessages } from './AdminPostPage.style'
 
 export default function PostPage({setPostPage, data}) {
   const [isToggle, setisParent] = useState(false);
-  const colorDate = {color: Colors.red}
 
   class Data{
     countApologize = 0;
@@ -114,18 +112,16 @@ export default function PostPage({setPostPage, data}) {
             <AdminItem><FontsBold>total:</FontsBold></AdminItem><FontsThin>{data.post.length}</FontsThin>
             <AdminItem><FontsBold>apologize: </FontsBold></AdminItem><FontsThin>{newData.getApologize()}</FontsThin>
             <AdminItem><FontsBold>payments: </FontsBold></AdminItem><FontsThin>{newData.getPayments()}</FontsThin>
-            {/* <label><FontsBold>only payments:</FontsBold></label>
-            <input type="radio" name="payments"></input>
-            <label><FontsBold>only apologies:</FontsBold></label>
-            <input type="radio" name="apologies"></input> */}
             <label><FontsBold>only payments:</FontsBold></label>
             <input type="radio" id="payments" name="toggle_post" value={isToggle}></input>
+            
             <label><FontsBold>only apologies:</FontsBold></label>
             <input type="radio" id="apologies" name="toggle_post" value={isToggle}></input>
+            
             <label><FontsBold>all:</FontsBold></label>
             <input type="radio" id="all" name="toggle_post" value={isToggle}></input>
           </AdminListItems> 
-          {newData.getMessages().map((item) => {return <AdminMessages><FontsThin><Item name={item.slice(0, -13)}/></FontsThin><FontsBold style={colorDate}><Item name={item.slice(-13)}/></FontsBold> <input type="checkbox" value=""></input></AdminMessages>})}
+          {newData.getMessages().map((item) => {return <AdminMessages><FontsThin><Item name={item.slice(0, -13)}/></FontsThin><FontsBold><Item name={item.slice(-13)}/></FontsBold> <input type="checkbox" value=""></input></AdminMessages>})}
         </AdminMainContent>
         <PostBackButton onClick={() => setPostPage(false)}>back to dashboard</PostBackButton>
       </AdminPostContainer>

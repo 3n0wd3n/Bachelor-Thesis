@@ -18,7 +18,7 @@ export default function ControlPanel({ data, setChildNumber, setPaymentPage, set
           }
           <StudentCPFontsBold onClick={() => setLogoutPage(true)}>logout</StudentCPFontsBold>
           <StudentCPFontsBold onClick={() => setSettingsPage(true)}>settings</StudentCPFontsBold>
-          {data.children.map((child, key ) =>
+          {data.children?.map((child, key ) =>
               <StudentCPChildFontsBold key={key} onClick={() => setChildNumber(key)}>{child.firstName}</StudentCPChildFontsBold>
           )}
 
