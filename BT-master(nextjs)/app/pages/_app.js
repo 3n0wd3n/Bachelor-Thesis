@@ -5,7 +5,7 @@ import { GlobalStyle } from '../styles/global.style'
 // basic component of react and nextjs
 function MyApp({ Component, pageProps }) {
   const [data, setData] = React.useState();
-
+  // add notification
   return (
     <>
       <GlobalStyle />

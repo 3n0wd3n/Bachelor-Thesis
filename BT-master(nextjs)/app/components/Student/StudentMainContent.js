@@ -10,34 +10,66 @@ import { StudentMCSummaryItem, StudentMCSummaryFirstPart, StudentMCFontsSummary,
 // StudentMC = StudentMainContent
 
 export const getNextLesson = (lessons, restrictions = []) => {
-  const reFormatIndex = (date) => new Date(date).getDay() === 0 ? 6 : new Date(date).getDay() - 1
+  // const reFormatIndex = (date) => new Date(date).getDay() === 0 ? 6 : new Date(date).getDay() - 1
 
-  const now = new Date()
-  const nowIndex = now.getDay()
-  const daysIndexes = lessons.map(lesson => reFormatIndex(lesson.date))
+  // const now = new Date()
+  // const nowIndex = now.getDay()
+  // const daysIndexes = lessons.map(lesson => reFormatIndex(lesson.date))
 
-  const isHigherOrEqual = daysIndexes.filter(dayIndex => dayIndex >= nowIndex).length > 0
-  let nextLessonIndex
-  if (isHigherOrEqual) lessons.map(lesson => {
-    console.log(restrictions, lesson)
-    const dayIndex = reFormatIndex(lesson.date)
-    if (dayIndex >= nowIndex && (dayIndex < nextLessonIndex || !nextLessonIndex)) return nextLessonIndex = dayIndex
+  // const isHigherOrEqual = daysIndexes.filter(dayIndex => dayIndex >= nowIndex).length > 0
+  // let nextLessonIndex
+  // if (isHigherOrEqual) lessons.map(lesson => {
+  //   console.log(restrictions, lesson)
+  //   const dayIndex = reFormatIndex(lesson.date)
+  //   if (dayIndex >= nowIndex && (dayIndex < nextLessonIndex || !nextLessonIndex)) return nextLessonIndex = dayIndex
+  // })
+  // else lessons.map(lesson => {
+  //   const dayIndex = reFormatIndex(lesson.date)
+  //   if (dayIndex < nowIndex && (dayIndex > nextLessonIndex || !nextLessonIndex)) return nextLessonIndex = dayIndex
+  // })
+
+  // let nextLesson = new Date(lessons.find(lesson => reFormatIndex(lesson.date) === nextLessonIndex).date)
+
+  // while (nextLesson.getTime() < now.getTime()) {
+  //   nextLesson = addDays(nextLesson, 7)
+  // }
+
+  // lessons.map(lesson => {
+  //   lesson.changes.map(change => {
+  //     if (new Date(change.from).getTime() === nextLesson.getTime()) nextLesson = new Date(change.newFrom)
+  //   })
+  // })
+
+  // return nextLesson
+
+  const newLessons = []
+  lessons.slice().map(lesson => {
+    const weeksFromNow = moment().isoWeek() - moment(lesson.date).isoWeek()
+    const toThisWeekDate = addDays(lesson.date, weeksFromNow * 7)
+    const nextWeekDate = addDays(toThisWeekDate, 7)
+    const cancelledDates = lesson.statuses.map(status => new Date(status.from).getTime())
+
+
+    if (!cancelledDates.includes(toThisWeekDate.getTime())) {
+      let isChanged = false
+      lesson.changes.map(change => new Date(change.from).getTime() === nextWeekDate.getTime() && (isChanged = change))
+      if (isChanged) nextWeekDate = isChanged.newFrom
+
+      newLessons.push(toThisWeekDate)
+    }
+    if (!cancelledDates.includes(nextWeekDate.getTime())) {
+      let isChanged = false
+      lesson.changes.map(change => new Date(change.from).getTime() === nextWeekDate.getTime() && (isChanged = change))
+      if (isChanged) nextWeekDate = isChanged.newFrom
+
+      newLessons.push(nextWeekDate)
+    }
   })
-  else lessons.map(lesson => {
-    const dayIndex = reFormatIndex(lesson.date)
-    if (dayIndex < nowIndex && (dayIndex > nextLessonIndex || !nextLessonIndex)) return nextLessonIndex = dayIndex
-  })
+  newLessons.sort((a, b) => new Date(b).getTime() - new Date(a).getTime()).reverse()
 
-  let nextLesson = new Date(lessons.find(lesson => reFormatIndex(lesson.date) === nextLessonIndex).date)
-
-  while (nextLesson.getTime() < now.getTime()) {
-    nextLesson = addDays(nextLesson, 7)
-  }
-
-  lessons.map(lesson => {
-    lesson.changes.map(change => {
-      if (new Date(change.from).getTime() === nextLesson.getTime()) nextLesson = new Date(change.newFrom)
-    })
+  let nextLesson
+  newLessons.map(newLesson => {
+    if (!nextLesson && new Date(newLesson).getTime() > new Date().getTime()) nextLesson = new Date(newLesson)
   })
 
   return nextLesson
@@ -65,8 +97,6 @@ export default function MainContent({ data, setData, isRepresentative }) {
   const studentId = data.id
   const nextLesson = React.useMemo(() => data.lessons.length > 0 ? getNextLesson(data.lessons) : null, [data])
   const day = nextLesson ? getDay(nextLesson.getDay()) : null
-
-  console.log(nextLesson)
 
   const removeHomework = async (homeworkId) => {
     await axios('http://localhost:3000/api/student.change', {
