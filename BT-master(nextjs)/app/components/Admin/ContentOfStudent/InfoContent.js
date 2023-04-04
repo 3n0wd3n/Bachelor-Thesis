@@ -20,7 +20,7 @@ export const constructWeek = (lessons) => {
 
         while (moment().isoWeek() != moment(lectureDateThisWeek).isoWeek()) lectureDateThisWeek = addDays(lectureDateThisWeek, 7)
 
-        
+
         let isCancelled = false
         let isChange = false
 
@@ -32,13 +32,13 @@ export const constructWeek = (lessons) => {
             lecture.changes.map(change => {
                 if (new Date(change.from).getTime() == lectureDateThisWeek.getTime()) isChange = change
             })
-            
+
             if (isChange) {
                 lecture.date = isChange.newFrom
                 lecture.endDate = isChange.newTo
                 lecture.changed = true
             }
-            
+
             if (week[day]) week[day].push(lecture)
             else week[day] = [lecture]
         }
@@ -56,7 +56,7 @@ const arrayEquals = (a, b) => {
         a.every((val, index) => val === b[index]);
 }
 
-export default function InfoContent({ student, setData }) {
+export default function InfoContent({ student, setData, setNotification }) {
     const lessons = React.useMemo(() => constructWeek(student.lessons), [student])
     const [edit, setEdit] = React.useState(false)
     const [plan, setPlan] = React.useState(student.plan.map(plan => ({ value: plan, key: randomStringGen() })))
@@ -99,11 +99,10 @@ export default function InfoContent({ student, setData }) {
                 adminId: id,
                 studentId,
             }
+        }).then(({ data }) => {
+            if (data) setData(data)
+            else setNotification('Change failed.')
         })
-            .then(({ data }) => {
-                if (data) setData(data)
-                else alert('Change failed.')
-            })
     }
 
     const changeInfo = async () => {
@@ -126,8 +125,9 @@ export default function InfoContent({ student, setData }) {
             }
         }).then(({ data }) => {
             if (data) setData(data)
-            else alert('Change failed.')
+            else setNotification('Change failed.')
         }).finally(() => setEdit(false))
+        setNotification("Info Was Edited #goodNotification")
     }
 
     return (

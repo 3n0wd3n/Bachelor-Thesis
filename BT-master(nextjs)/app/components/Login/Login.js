@@ -2,17 +2,16 @@ import React from 'react';
 import { useState } from 'react';
 import axios from 'axios'
 import Router from 'next/router'
-import { FaExclamation, FaWindowClose } from 'react-icons/fa'
 import { setCookie } from 'cookies-next';
 import { FontsHeaderBold, FontsLight, FontsExtraThin, FontsBold } from '../CommonStyles'
 import { LoginButtonStyled, LoginInputStyled, LoginFormStyled, LoginLabelStyled, LoginInputCheckboxStyled, LoginButtonContainer, LoginButtonBottomContainer, LoginContainer } from './Login.style'
 
-export default function LoginForm({ setData }) {
+export default function LoginForm({ setData, setNotification }) {
     const [isParent, setIsParent] = useState(false);
     const [userName, setUserName] = useState("");
     const [userNumber, setNumber] = useState("");
     const [userPassword, setPassword] = useState("");
-    const [wrongCredentials, setWrongCredentials] = useState(false)
+
 
     function sendData() {
         axios('http://localhost:3000/api/user', {
@@ -30,8 +29,7 @@ export default function LoginForm({ setData }) {
                     Router.push('/dashboard')
                 } else {
                     // instead of this you should make user friendly modal
-                    // alert('wrong credentials')
-                    setWrongCredentials(true)
+                    setNotification('Wrong credentials !')
                 }
             })
     }
@@ -44,48 +42,40 @@ export default function LoginForm({ setData }) {
     return (
         <LoginFormStyled>
             {/* <LoginContainer> */}
-            {
-                wrongCredentials
+
+
+            <LoginContainer>
+                <FontsHeaderBold >login</FontsHeaderBold >
+                {isParent
                     ?
-                    <>
-                        Wrong credentials !
-                        <div onClick={() => setWrongCredentials(false)}>
-                            <FaWindowClose/>
-                        </div>
-                    </>
+                    <LoginButtonContainer>
+                        <FontsLight>telephone</FontsLight>
+                        <LoginInputStyled type="number" name="phone" placeholder="" value={userNumber} onChange={({ target }) => setNumber(target.value)} />
+                    </LoginButtonContainer >
                     :
-                    <LoginContainer>
-                        <FontsHeaderBold >login</FontsHeaderBold >
-                        {isParent
-                            ?
-                            <LoginButtonContainer>
-                                <FontsLight>telephone</FontsLight>
-                                <LoginInputStyled type="number" name="phone" placeholder="" value={userNumber} onChange={({ target }) => setNumber(target.value)} />
-                            </LoginButtonContainer >
-                            :
-                            <LoginButtonContainer >
-                                <FontsLight>username</FontsLight>
-                                <LoginInputStyled type="text" name="username" placeholder="" value={userName} onChange={({ target }) => setUserName(target.value)} />
-                            </LoginButtonContainer >
+                    <LoginButtonContainer >
+                        <FontsLight>username</FontsLight>
+                        <LoginInputStyled type="text" name="username" placeholder="" value={userName} onChange={({ target }) => setUserName(target.value)} />
+                    </LoginButtonContainer >
 
-                        }
+                }
 
-                        <LoginButtonBottomContainer>
-                            <FontsLight>password</FontsLight>
-                            <LoginInputStyled type="password" name="password" placeholder="" value={userPassword} onChange={({ target }) => setPassword(target.value)}></LoginInputStyled>
+                <LoginButtonBottomContainer>
+                    <FontsLight>password</FontsLight>
+                    <LoginInputStyled type="password" name="password" placeholder="" value={userPassword} onChange={({ target }) => setPassword(target.value)}></LoginInputStyled>
 
-                        </LoginButtonBottomContainer>
+                </LoginButtonBottomContainer>
 
-                        <LoginLabelStyled>
-                            <LoginInputCheckboxStyled type="checkbox" value={isParent} onChange={handleChange}></LoginInputCheckboxStyled>
-                            <FontsExtraThin>login as representative</FontsExtraThin>
-                        </LoginLabelStyled>
+                <LoginLabelStyled>
+                    <LoginInputCheckboxStyled type="checkbox" value={isParent} onChange={handleChange}></LoginInputCheckboxStyled>
+                    <FontsExtraThin>login as representative</FontsExtraThin>
+                </LoginLabelStyled>
 
-                        <LoginButtonStyled onClick={() => sendData()}><FontsBold>login</FontsBold></LoginButtonStyled>
-                    </LoginContainer>
+                <LoginButtonStyled onClick={() => sendData()}><FontsBold>login</FontsBold></LoginButtonStyled>
+            </LoginContainer>
 
 
-            }
+
             {/* </LoginContainer> */}
         </LoginFormStyled>
     )

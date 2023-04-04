@@ -6,7 +6,7 @@ import { HomeworksContentShowContentEditContainer, HomeworksContentShowTitleItem
 import HomeworksContentEmpty from './HomeworksContentEmpty'
 import HomeworksContentAdd from './HomeworksContentAdd'
 
-export default function HomeworksContent({ student, setData }) {
+export default function HomeworksContent({ student, setData, setNotification }) {
     const [edit, setEdit] = React.useState(false)
     const id = getCookie('userCookie')
     const studentId = student.id
@@ -32,7 +32,7 @@ export default function HomeworksContent({ student, setData }) {
         <>
             {edit
                 ?
-                <HomeworksContentAdd student={student} setEdit={setEdit} setData={setData} />
+                <HomeworksContentAdd student={student} setEdit={setEdit} setData={setData} setNotification={setNotification}/>
                 :
                 <HomeworksContentShowMainContainer>
                     {student.homeworks.length > 0

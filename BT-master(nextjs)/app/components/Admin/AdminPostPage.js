@@ -1,127 +1,61 @@
 import React from 'react'
 import Footer from '../Footer'
+import moment from 'moment'
 import { useState } from 'react';
+import { FaCheckCircle } from 'react-icons/fa'
 import { FontsHeaderBold, FontsThin, FontsBold } from '../CommonStyles'
-import { PostBackButton, AdminPostContainer, AdminMainContent, AdminListItems, AdminItem, AdminUnorderedList, AdminMessages } from './AdminPostPage.style'
+import { AdminMessagesContainer, PostBackButton, AdminPostContainer, AdminMainContent, AdminListItems, AdminItem, AdminMessages } from './AdminPostPage.style'
 
-export default function PostPage({setPostPage, data}) {
+export default function PostPage({ setPostPage, data }) {
   const [isToggle, setisParent] = useState(false);
+  const [filter, setFilter] = React.useState('')
+  const payments = React.useMemo(() => data.paymentRequests, [data])
+  const apologies = React.useMemo(() => data.apologies, [data])
+  const shownData = React.useMemo(() => filter === 'apologies' ? apologies : filter === 'payments' ? payments : [...apologies, ...payments], [filter, apologies, payments])
 
-  class Data{
-    countApologize = 0;
-    countPayments = 0;
-    dates = [];
-    users = [];
-    messages = [];
-
-    // constructor(date){
-    //   this.date = date;
-    // }
-
-    setCounts(){
-      for (var i = 0; i < Object.keys(data.post).length; i++) {
-        for (var key of Object.keys(data.post[i])) {
-          // Counter of payments
-          if (data.post[i][key] == "payment"){
-            this.countPayments += 1;
-          }
-          // Counter of apologies
-          else if (data.post[i][key] == "apology"){
-            this.countApologize += 1;
-          }
-        }
-      }
-    }
-
-    setDates(){
-      for (var i = 0; i < Object.keys(data.post).length; i++) {
-        for (var key of Object.keys(data.post[i])) {
-          if (key == "date"){
-            this.dates.push(data.post[i][key]);
-          }
-          if (key == "personId"){
-            this.users.push(data.post[i][key]);
-          }
-        }
-      }
-    }
-    setUsers(){
-      for (var i = 0; i < Object.keys(data.post).length; i++) {
-        for (var key of Object.keys(data.post[i])) {
-          if (key == "personId"){
-            this.users.push(data.post[i][key]);
-          }
-        }
-      }
-    }
-
-    getDayName(date = new Date(), locale = 'en-US') {
-      return date.toLocaleDateString(locale, {weekday: 'long'});
-    }
-
-    capitalizeFirstLetter(string) {
-      return string.charAt(0).toUpperCase() + string.slice(1);
-    }
-
-    setMessages(){
-      let message = "";
-      for (var i = 0; i < Object.keys(data.post).length; i++) {
-        for (var key of Object.keys(data.post[i])) {
-          if (key == "type"){
-            message += `${data.post[i][key][0].toUpperCase() + data.post[i][key].substring(1)} from user `;
-          }
-          if (key == "personId"){
-            message += `${data.post[i][key]} to lecture on `;
-          }
-          if (key == "date"){
-            message += `${new Date(data.post[i][key]).toDateString()}.`;
-          }
-        }
-        this.messages.push(message);
-        message = "";
-      }
-    }
-
-
-    getDates(){ return this.dates; }
-    getApologize(){ return this.countApologize; }
-    getPayments(){ return this.countPayments; }
-    getUsers(){ return this.users; }
-    getMessages(){ return this.messages;}
-
-  }
-
-  let newData = new Data();
-  newData.setCounts();
-  newData.setDates();
-  newData.setMessages();
-  /*
-  let arr = newData.getMessages();
-  console.log(arr);
-  let arrDates = newData.getDates();
-  console.log(newData.getDayName(new Date(arrDates[0]))); 
-  */
-
-  
   return (
     <>
       <AdminPostContainer>
         <AdminMainContent>
-          <FontsHeaderBold>post</FontsHeaderBold>     
+          <FontsHeaderBold>post</FontsHeaderBold>
           <AdminListItems>
-            <AdminItem><FontsBold>total:</FontsBold></AdminItem><FontsThin>{data.post.length}</FontsThin>
-            <AdminItem><FontsBold>apologize: </FontsBold></AdminItem><FontsThin>{newData.getApologize()}</FontsThin>
-            <AdminItem><FontsBold>payments: </FontsBold></AdminItem><FontsThin>{newData.getPayments()}</FontsThin>
+            <AdminItem><FontsBold>total:</FontsBold></AdminItem><FontsThin>{apologies.length + payments.length}</FontsThin>
+            <AdminItem><FontsBold>apologies: </FontsBold></AdminItem><FontsThin>{apologies.length}</FontsThin>
+            <AdminItem><FontsBold>payments: </FontsBold></AdminItem><FontsThin>{payments.length}</FontsThin>
             <label><FontsBold>only payments:</FontsBold></label>
-            <input type="radio" id="payments" name="toggle_post" value={isToggle}></input>
-            
+            <input type="radio" id="payments" name="toggle_post" checked={filter === 'payments'} onChange={() => setFilter('payments')}></input>
+
             <label><FontsBold>only apologies:</FontsBold></label>
-            <input type="radio" id="apologies" name="toggle_post" value={isToggle}></input>
-            
+            <input type="radio" id="apologies" name="toggle_post" checked={filter === 'apologies'} onChange={() => setFilter('apologies')}></input>
+
             <label><FontsBold>all:</FontsBold></label>
-            <input type="radio" id="all" name="toggle_post" value={isToggle}></input>
-          </AdminListItems> 
-          {newData.getMessages().map((item) => {return <AdminMessages><FontsThin><Item name={item.slice(0, -13)}/></FontsThin><FontsBold><Item name={item.slice(-13)}/></FontsBold> <input type="checkbox" value=""></input></AdminMessages>})}
+            <input type="radio" id="all" name="toggle_post" checked={filter === ''} onChange={() => setFilter('')}></input>
+          </AdminListItems>
+          <AdminMessagesContainer>
+            {shownData.map((data, index) => (
+              data.amount ? (
+              <AdminMessages key={data.id}>
+                <div>
+                  <span style={{ fontWeight: 'bold' }}>{`${data.firstName} ${data.lastName}`}</span>
+                  <span> paid the lesson from </span>
+                  <span style={{ color: 'red', fontWeight: 'bold' }}>{moment(data.from).format('D. MMMM HH:mm')}</span>
+                  <span> which was worth </span>
+                  <span style={{ color: 'purple', fontWeight: 'bold' }}>{`${data.amount} Czk`}</span>
+                </div>
+                <FaCheckCircle />
+              </AdminMessages>
+              ) : (
+              <AdminMessages key={data.id}>
+                <div>
+                  <span style={{ fontWeight: 'bold' }}>{`${data.studentFirstName} ${data.studentLastName}`}</span>
+                  <span> apologizes from the lesson on </span>
+                  <span style={{ color: 'red', fontWeight: 'bold' }}>{moment(data.lessonFrom).format('D. MMMM HH:mm')}</span>
+                </div>
+                <FaCheckCircle />
+              </AdminMessages>
+              )
+            ))}
+          </AdminMessagesContainer>
         </AdminMainContent>
         <PostBackButton onClick={() => setPostPage(false)}>back to dashboard</PostBackButton>
       </AdminPostContainer>
@@ -130,6 +64,3 @@ export default function PostPage({setPostPage, data}) {
   )
 }
 
-const Item = ({name}) => {
-  return <AdminUnorderedList>{name}</AdminUnorderedList>
-}

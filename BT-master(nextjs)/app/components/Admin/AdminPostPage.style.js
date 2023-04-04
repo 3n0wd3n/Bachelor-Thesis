@@ -25,27 +25,45 @@ export const AdminListItems = styled(CommonDisplayFlexRow)`
     @media (max-width: 500px) {
         flex-direction: column;
     }
+
+    input {
+        cursor: pointer;
+    }
 `;
 
-export const AdminItem = styled.div`
-    /* empty for now */
-`;
+export const AdminItem = styled.div``;
 
-export const AdminUnorderedList = styled.ul`
-    margin: 1em 0em 0em 0em;
-    display: flex;
-`;
-
-export const AdminMessages = styled.ul`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    gap: 0.5em;
+export const AdminMessages = styled(CommonDisplayFlexRow)`
+    font-family: 'Raleway', sans-serif;
+    gap: .3rem;
+    margin: 1rem 0 0 0;
+    width: 100%;
+    justify-content: space-between;
     @media (max-width: 750px) {
         flex-direction: column;
         gap: 0em;
+        padding: 0 0 1rem 0;
+        border-bottom: 1px solid ${Colors.darkGray};
+        text-align: center;
     }
+    & > svg {
+        color: ${Colors.lightGreen};
+        font-size: 1.5rem;
+        transition: .6s;
+        cursor: pointer;
+        &:hover{
+            color: ${Colors.red};
+            filter: opacity(.6);
+            transform: scale(1.1);
+        }
+        @media (max-width: 750px) {
+        margin: 1rem 0 0 0;
+    }
+    }
+`;
+
+export const AdminMessagesContainer = styled.div`
+    width: 100%;
 `;
 
 export const PostBackButton = styled.button`

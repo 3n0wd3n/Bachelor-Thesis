@@ -6,8 +6,8 @@ const lectureSchema = new Schema(
     statuses: {
       type: [
         {
-          from: Date,
-          to: Date,
+          from: String,
+          to: String,
           status: String,
         }
       ],
@@ -20,6 +20,15 @@ const lectureSchema = new Schema(
           to: String,
           newFrom: String,
           newTo: String,
+        }
+      ],
+      default: [],
+    },
+    payments: {
+      type: [
+        {
+          from: String,
+          to: String,
         }
       ],
       default: [],

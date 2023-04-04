@@ -4,7 +4,7 @@ import { getCookie } from 'cookies-next';
 import { FaRegCheckCircle, FaFolderOpen, FaPlusSquare, FaMinusSquare, FaTrash } from 'react-icons/fa'
 import { SummaryContentAddInput, SummaryContentIconWrapper, SummaryContentItemWrapper, SummaryContentAddLabel, SummaryContentAddContainer, SummaryContentBasicContainer, SummaryContentAddForm, SummaryContentBackButtonContainer, SummaryContentAddButtonContainer, SummaryContentItem, SummaryContentItemContainer, SummaryContentContainer } from './SummaryContent.style'
 
-export default function SummaryContent({ setData, student }) {
+export default function SummaryContent({ setData, student, setNotification }) {
     const dateRef = React.useRef(null)
     const summaryRef = React.useRef(null)
     const [add, setAdd] = React.useState(false)
@@ -34,18 +34,24 @@ export default function SummaryContent({ setData, student }) {
         const newDate = dateRef.current.value
         const newSummary = summaryRef.current.value
         const compound = (newDate + " - " + newSummary).toString()
+        if (newDate.length === 0 || newSummary.length === 0){
+            setNotification("You should fill all fields.")
+        }
+        else{
+            await axios('http://localhost:3000/api/student.change', {
+                method: 'PUT',
+                data: {
+                    adminId,
+                    studentId: id,
+                    compound
+                }
+            }).then(({ data }) => {
+                if (data) setData(data)
+                else alert('Change failed.')
+            }).finally(() => setAdd(false))
+            setNotification("Summary Was Created! #goodNotification");
+        }
         
-        await axios('http://localhost:3000/api/student.change', {
-            method: 'PUT',
-            data: {
-                adminId,
-                studentId: id,
-                compound
-            }
-        }).then(({ data }) => {
-            if (data) setData(data)
-            else alert('Change failed.')
-        })
     }
 
 
@@ -67,7 +73,7 @@ export default function SummaryContent({ setData, student }) {
                                 <SummaryContentAddInput ref={summaryRef} type="text" placeholder='description'></SummaryContentAddInput>
                             </SummaryContentBasicContainer>
                         </SummaryContentAddContainer>
-                        <FaRegCheckCircle onClick={() => (createSummary(), setAdd(false))} />
+                        <FaRegCheckCircle onClick={() => createSummary()} />
                         
                     </SummaryContentAddForm>
                     <SummaryContentBackButtonContainer onClick={() => setAdd(prevState => !prevState)}>

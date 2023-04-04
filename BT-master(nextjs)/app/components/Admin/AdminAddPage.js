@@ -4,19 +4,19 @@ import Footer from '../Footer'
 import { Colors } from '../../utils/Colors'
 import { FaPlusCircle } from 'react-icons/fa'
 import { FontsHeaderBold, FontsThin, FontsBold } from '../CommonStyles'
-import { AddSendButton, AdminAddLesson, AdminLessonCountContainer, AdminLessonCountInput, AdminLessonTimeInput,AdminLessonsContainer, AdminLesson, AdminCustomFontThin, AdminCustomFontBold, AdminRowDays, AdminDayItem, AdminDaysContainer, AdminLabel, AdminInputStyled, AdminButtonContainer, AdminFormContainer, AddBackButton, AdminAddContainer } from './AdminAddPage.style'
+import { AddSendButton, AdminAddLesson, AdminLessonCountContainer, AdminLessonCountInput, AdminLessonTimeInput, AdminLessonsContainer, AdminLesson, AdminCustomFontThin, AdminCustomFontBold, AdminRowDays, AdminDayItem, AdminDaysContainer, AdminLabel, AdminInputStyled, AdminButtonContainer, AdminFormContainer, AddBackButton, AdminAddContainer } from './AdminAddPage.style'
 
 function generateRandomString(length) {
-  var result           = '';
-  var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  var result = '';
+  var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   var charactersLength = characters.length;
-  for ( var i = 0; i < length; i++ ) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  for (var i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
   }
   return result;
 }
 
-export default function AddPage({setAddPage}) {
+export default function AddPage({ setAddPage, setNotification }) {
   // style button 
   const styleMinus = { color: Colors.red, fontSize: "1.2em", cursor: "pointer" };
   const stylePlus = { color: Colors.lightGreen, fontSize: "1.2em", cursor: "pointer" };
@@ -36,7 +36,7 @@ export default function AddPage({setAddPage}) {
   const lessonRefs = React.useRef([]);
   const [lessonCount, setLessonCount] = React.useState(1);
   const lessonDate = new Date().toJSON().slice(0, 10);
-  
+
   const addStudent = () => {
     const name = studentNameRef.current.value;
     const surname = studentSurnameRef.current.value;
@@ -90,138 +90,137 @@ export default function AddPage({setAddPage}) {
       }
     })
       .then((data) => console.log(data.data))
-    }
+  }
 
   return (
     <>
-    <AdminAddContainer>
-      <AdminFormContainer>
-        <FontsHeaderBold>add student</FontsHeaderBold>
-        <AdminButtonContainer>
-          <AdminLabel><FontsThin>name</FontsThin></AdminLabel>
-          <AdminInputStyled type="text" placeholder="name" ref={studentNameRef} onChange={() => studentUsernameRef.current.value = studentNameRef.current.value.slice(0, 3).toLowerCase() + studentSurnameRef.current.value.slice(0, 3).toLowerCase()}></AdminInputStyled>
-        </AdminButtonContainer>
-        <AdminButtonContainer>
-          <AdminLabel><FontsThin>surname</FontsThin></AdminLabel>
-          <AdminInputStyled type="text" placeholder="surname" ref={studentSurnameRef} onChange={() => studentUsernameRef.current.value = studentNameRef.current.value.slice(0, 3).toLowerCase() + studentSurnameRef.current.value.slice(0, 3).toLowerCase()}></AdminInputStyled>
-        </AdminButtonContainer>
-        <AdminButtonContainer>
-          <AdminLabel><FontsThin>username (auto)</FontsThin></AdminLabel>
-          <AdminInputStyled type="text" placeholder="username" ref={studentUsernameRef}></AdminInputStyled>
-        </AdminButtonContainer>
-        <AdminButtonContainer>
-          <AdminLabel><FontsThin>password (auto)</FontsThin></AdminLabel>
-          <AdminInputStyled type="text" placeholder="password" value={studentPassword} readOnly></AdminInputStyled>
-        </AdminButtonContainer>
-        <AdminButtonContainer>
-          <AdminLabel><FontsThin>study plan</FontsThin></AdminLabel>
-          <AdminInputStyled type="text" placeholder="(separate string with commas)" ref={studentPlanRef} onChange={() => studentPlanRef.current.value = studentPlanRef.current.value.split(',')}></AdminInputStyled>
-        </AdminButtonContainer>
-        <AdminLabel><FontsThin>count of hours</FontsThin></AdminLabel>
-        <AdminLessonsContainer>
-          {[...Array(lessonCount)].map((el, index) =>
-            <AdminLesson key={index}>
-              <AdminLessonTimeInput type="date"
-                ref={(el) => lessonRefs.current[index] = { day: el, from: lessonRefs.current[index]?.from, to: lessonRefs.current[index]?.to }}
-                min={lessonDate}
-              ></AdminLessonTimeInput>
-              <AdminLessonTimeInput type="time"
-                ref={(el) => lessonRefs.current[index] = { from: el, day: lessonRefs.current[index]?.day, to: lessonRefs.current[index]?.to }}
-              ></AdminLessonTimeInput>
-              <AdminLessonTimeInput type="time"
-                ref={(el) => lessonRefs.current[index] = { to: el, from: lessonRefs.current[index]?.from, day: lessonRefs.current[index]?.day }}
-                onChange={({ target }) => {
-                  const from = lessonRefs.current[index]?.from.value;
-                  const fromHour = Number(from.split(':')[0]) || 0
-                  const fromMinute = Number(from.split(':')[1]) || 0
-                  const toHour = Number(target.value.split(':')[0]) || 0
-                  const toMinute = Number(target.value.split(':')[1]) || 0
-
-                  if (!from || (fromHour >= toHour || (fromHour > toHour && fromMinute >= toMinute) || (fromHour + 1 === toHour && fromMinute > toMinute))) target.value = '';
-                }}
-              ></AdminLessonTimeInput>
-            </AdminLesson>
-          )}
-        </AdminLessonsContainer>
-        <AdminAddLesson onClick={() => setLessonCount(prevCount => prevCount + 1)}>
-          <span>add new lesson day</span><FaPlusCircle style={stylePlus} />
-        </AdminAddLesson>
-        <div>
-              <AdminCustomFontThin>
-                <AdminLabel htmlFor="under-age">if student is under aged or need legal representative</AdminLabel>
-                <AdminInputStyled type="checkbox" id="under-age" name="under-age" value={isRepresentative} onChange={() => setIsRepresentative(prevState => !prevState)} />
-              </AdminCustomFontThin>
-        </div>
-        {isRepresentative
-        ?
-        <>
-          <FontsHeaderBold>representative</FontsHeaderBold>
+      <AdminAddContainer>
+        <AdminFormContainer>
+          <FontsHeaderBold>add student</FontsHeaderBold>
           <AdminButtonContainer>
             <AdminLabel><FontsThin>name</FontsThin></AdminLabel>
-            <AdminInputStyled type="text" placeholder="name" ref={representativeNameRef}></AdminInputStyled>
+            <AdminInputStyled type="text" placeholder="name" ref={studentNameRef} onChange={() => studentUsernameRef.current.value = studentNameRef.current.value.slice(0, 3).toLowerCase() + studentSurnameRef.current.value.slice(0, 3).toLowerCase()}></AdminInputStyled>
           </AdminButtonContainer>
           <AdminButtonContainer>
             <AdminLabel><FontsThin>surname</FontsThin></AdminLabel>
-            <AdminInputStyled type="text" placeholder="surname" ref={representativeSurnameRef}></AdminInputStyled>
+            <AdminInputStyled type="text" placeholder="surname" ref={studentSurnameRef} onChange={() => studentUsernameRef.current.value = studentNameRef.current.value.slice(0, 3).toLowerCase() + studentSurnameRef.current.value.slice(0, 3).toLowerCase()}></AdminInputStyled>
+          </AdminButtonContainer>
+          <AdminButtonContainer>
+            <AdminLabel><FontsThin>username (auto)</FontsThin></AdminLabel>
+            <AdminInputStyled type="text" placeholder="username" ref={studentUsernameRef}></AdminInputStyled>
           </AdminButtonContainer>
           <AdminButtonContainer>
             <AdminLabel><FontsThin>password (auto)</FontsThin></AdminLabel>
-            <AdminInputStyled type="text" placeholder="password" value={representativePassword} readOnly></AdminInputStyled>
+            <AdminInputStyled type="text" placeholder="password" value={studentPassword} readOnly></AdminInputStyled>
           </AdminButtonContainer>
           <AdminButtonContainer>
-            <AdminLabel><FontsThin>phone number</FontsThin></AdminLabel>
-            <AdminInputStyled type="tel" ref={representativePhoneRef}></AdminInputStyled>
+            <AdminLabel><FontsThin>study plan</FontsThin></AdminLabel>
+            <AdminInputStyled type="text" placeholder="(separate string with commas)" ref={studentPlanRef} onChange={() => studentPlanRef.current.value = studentPlanRef.current.value.split(',')}></AdminInputStyled>
           </AdminButtonContainer>
-        </>
-        :
-        <></>}
-      </AdminFormContainer>
-      <AddSendButton onClick={() => 
-      {
-        if (!(studentNameRef.current.value.length > 0)){
-          window.alert("Student Name Not Inserted");
-        }
-        else if (!(studentSurnameRef.current.value.length > 0)){
-          window.alert("Student Surname Not Inserted");
-        }
-        else if (!(studentPlanRef.current.value.length > 0)){
-          window.alert("Student Plan Not Inserted");
-        }
-        else if (!(lessonRefs.current[0].day.value.length > 0)){
-          window.alert("Date Is Not Defined");
-        }
-        else if (!(lessonRefs.current[0].from.value.length > 0)){
-          window.alert("Date Time 'From' Is Not Defined");
-        }
-        else if (!(lessonRefs.current[0].to.value.length > 0)){
-          window.alert("Date Time 'To' Is Not Defined");
-        }
-        else if (isRepresentative){
-          if (!(representativeNameRef.current.value.length > 0)){
-            window.alert("Representative Name Not Inserted");
+          <AdminLabel><FontsThin>count of hours</FontsThin></AdminLabel>
+          <AdminLessonsContainer>
+            {[...Array(lessonCount)].map((el, index) =>
+              <AdminLesson key={index}>
+                <AdminLessonTimeInput type="date"
+                  ref={(el) => lessonRefs.current[index] = { day: el, from: lessonRefs.current[index]?.from, to: lessonRefs.current[index]?.to }}
+                  min={lessonDate}
+                ></AdminLessonTimeInput>
+                <AdminLessonTimeInput type="time"
+                  ref={(el) => lessonRefs.current[index] = { from: el, day: lessonRefs.current[index]?.day, to: lessonRefs.current[index]?.to }}
+                ></AdminLessonTimeInput>
+                <AdminLessonTimeInput type="time"
+                  ref={(el) => lessonRefs.current[index] = { to: el, from: lessonRefs.current[index]?.from, day: lessonRefs.current[index]?.day }}
+                  onChange={({ target }) => {
+                    const from = lessonRefs.current[index]?.from.value;
+                    const fromHour = Number(from.split(':')[0]) || 0
+                    const fromMinute = Number(from.split(':')[1]) || 0
+                    const toHour = Number(target.value.split(':')[0]) || 0
+                    const toMinute = Number(target.value.split(':')[1]) || 0
+
+                    if (!from || (fromHour >= toHour || (fromHour > toHour && fromMinute >= toMinute) || (fromHour + 1 === toHour && fromMinute > toMinute))) target.value = '';
+                  }}
+                ></AdminLessonTimeInput>
+              </AdminLesson>
+            )}
+          </AdminLessonsContainer>
+          <AdminAddLesson onClick={() => setLessonCount(prevCount => prevCount + 1)}>
+            <span>add new lesson day</span><FaPlusCircle style={stylePlus} />
+          </AdminAddLesson>
+          <div>
+            <AdminCustomFontThin>
+              <AdminLabel htmlFor="under-age">if student is under aged or need legal representative</AdminLabel>
+              <AdminInputStyled type="checkbox" id="under-age" name="under-age" value={isRepresentative} onChange={() => setIsRepresentative(prevState => !prevState)} />
+            </AdminCustomFontThin>
+          </div>
+          {isRepresentative
+            ?
+            <>
+              <FontsHeaderBold>representative</FontsHeaderBold>
+              <AdminButtonContainer>
+                <AdminLabel><FontsThin>name</FontsThin></AdminLabel>
+                <AdminInputStyled type="text" placeholder="name" ref={representativeNameRef}></AdminInputStyled>
+              </AdminButtonContainer>
+              <AdminButtonContainer>
+                <AdminLabel><FontsThin>surname</FontsThin></AdminLabel>
+                <AdminInputStyled type="text" placeholder="surname" ref={representativeSurnameRef}></AdminInputStyled>
+              </AdminButtonContainer>
+              <AdminButtonContainer>
+                <AdminLabel><FontsThin>password (auto)</FontsThin></AdminLabel>
+                <AdminInputStyled type="text" placeholder="password" value={representativePassword} readOnly></AdminInputStyled>
+              </AdminButtonContainer>
+              <AdminButtonContainer>
+                <AdminLabel><FontsThin>phone number</FontsThin></AdminLabel>
+                <AdminInputStyled type="tel" ref={representativePhoneRef}></AdminInputStyled>
+              </AdminButtonContainer>
+            </>
+            :
+            <></>}
+        </AdminFormContainer>
+        <AddSendButton onClick={() => {
+          if (!(studentNameRef.current.value.length > 0)) {
+            setNotification("Name Not Inserted");
           }
-          else if (!(representativeSurnameRef.current.value.length > 0)){
-            window.alert("Representative Surname Not Inserted");
+          else if (!(studentSurnameRef.current.value.length > 0)) {
+            setNotification("Surname Not Inserted");
           }
-          else if (!(representativePhoneRef.current.value.length > 0)){
-            window.alert("Student Phone Not Inserted");
+          else if (!(studentPlanRef.current.value.length > 0)) {
+            setNotification("Plan Not Inserted");
           }
-          else{
+          else if (!(lessonRefs.current[0].day.value.length > 0)) {
+            setNotification("Date Is Not Defined");
+          }
+          else if (!(lessonRefs.current[0].from.value.length > 0)) {
+            setNotification("Date Time 'From' Is Not Defined");
+          }
+          else if (!(lessonRefs.current[0].to.value.length > 0)) {
+            setNotification("Date Time 'To' Is Not Defined");
+          }
+          else if (isRepresentative) {
+            if (!(representativeNameRef.current.value.length > 0)) {
+              setNotification("Representative Name Not Inserted");
+            }
+            else if (!(representativeSurnameRef.current.value.length > 0)) {
+              setNotification("Representative Surname Not Inserted");
+            }
+            else if (!(representativePhoneRef.current.value.length > 0)) {
+              setNotification("Student Phone Not Inserted");
+            }
+            else {
+              addStudent()
+              setNotification("Student Was Created!");
+              document.location.reload()
+            }
+          }
+          else {
             addStudent()
-            window.alert("Student Was Created!");
+            setNotification("Student Was Created! #goodNotification");
             document.location.reload()
-          }    
+          }
         }
-        else{
-          addStudent()
-          window.alert("Student Was Created!");
-          document.location.reload()
-        }        
-      }
         }>create</AddSendButton>
-      <AddBackButton onClick={() => setAddPage(false)}>back to dashboard</AddBackButton>
-    </AdminAddContainer>
-    <Footer/>
+        <AddBackButton onClick={() => setAddPage(false)}>back to dashboard</AddBackButton>
+      </AdminAddContainer>
+      <Footer />
     </>
   )
 }

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const apologySchema = new Schema(
+const paymentRequestSchema = new Schema(
   {
     studentId: {
       type: String,
@@ -15,22 +15,22 @@ const apologySchema = new Schema(
       type: String,
       required: true,
     },
-    seen: {
-      type: Boolean,
-      default: false,
-    },
+    amount: {
+      type: Number,
+      required: true,
+    }
   },
   { timestamps: true }
 );
 
 const declareModel = () => {
   try {
-    const model = mongoose.model('apologies');
+    const model = mongoose.model('paymentRequests');
     // model already declared
     return model;
   } catch {
     // declare model
-    return mongoose.model('apologies', apologySchema);
+    return mongoose.model('paymentRequests', paymentRequestSchema);
   }
 }
 

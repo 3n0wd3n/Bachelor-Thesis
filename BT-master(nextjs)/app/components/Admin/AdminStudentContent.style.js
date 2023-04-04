@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Colors } from '../../utils/Colors'
-import { FontsHeaderBold, FontsThin, FontsBold, CommonDisplayFlexColumn, CommonDisplayFlexRow } from '../CommonStyles'
+import { CommonDisplayFlexColumn, CommonDisplayFlexRow } from '../CommonStyles'
 
 export const DropDown = styled(CommonDisplayFlexColumn)`
     width: 100%;
@@ -14,6 +14,11 @@ export const StudentContainer = styled(CommonDisplayFlexRow)`
     width: 100%;
     border-bottom: 1px solid black;
     cursor: pointer;
+    & > svg {
+        color: ${Colors.lightGreen}; 
+        font-size: 2.3rem; 
+        transform: ${({ state }) => state ? 'rotate(180deg)' : 'rotate(0deg)'};
+    }
     `;
 
 export const MenuItems = styled(CommonDisplayFlexRow)`

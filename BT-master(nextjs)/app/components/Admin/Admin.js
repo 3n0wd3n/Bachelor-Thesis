@@ -8,7 +8,7 @@ import MainContent from './AdminMainContent'
 import Footer from '../Footer'
 import { AdminContainer } from './Admin.style'
 
-export default function Admin( { data, setData } ) {
+export default function Admin( { data, setData, setNotification} ) {
   const [openLogoutPage, setLogoutPage] = useState(false);
   const [openPostPage, setPostPage] = useState(false);
   const [openAddPage, setAddPage] = useState(false);
@@ -20,7 +20,7 @@ export default function Admin( { data, setData } ) {
     subPage = <PostPage setPostPage={setPostPage} data={data}/>;
   }
   if (openAddPage){
-    subPage = <AddPage setAddPage={setAddPage}/>;
+    subPage = <AddPage setAddPage={setAddPage} setNotification={setNotification}/>;
   }
 
   return (
@@ -33,7 +33,7 @@ export default function Admin( { data, setData } ) {
       <>
       <AdminContainer>
         <SidePanel setLogoutPage={setLogoutPage} setPostPage={setPostPage} setAddPage={setAddPage} />
-        <MainContent data={data} setData={setData} />
+        <MainContent data={data} setData={setData} setNotification={setNotification}/>
       </AdminContainer>
       <Footer />
       </>

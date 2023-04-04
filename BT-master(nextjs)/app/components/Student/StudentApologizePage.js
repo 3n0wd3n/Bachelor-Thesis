@@ -7,7 +7,7 @@ import moment from 'moment';
 import axios from 'axios'
 import { StudentApologizeContainer, ApologizeTitle, ApologizeForm, ApologizeLabel, ApologizeInput, ApologizeSendButton, ApologizeBackButton } from './StudentApologizePage.style'
 
-export default function ApologizePage({ data, setData, setApologizePage }) {
+export default function ApologizePage({ data, setData, setApologizePage, setNotification }) {
   const [focused, setFocused] = React.useState(false)
   const [date, setDate] = React.useState(null)
   const allowedDays = data.lessons.map(day => moment(day.date).format('d'))
@@ -45,8 +45,9 @@ export default function ApologizePage({ data, setData, setApologizePage }) {
       if (data) {
         setData(data)
         setApologizePage(false)
-      } else alert('Change failed.')
+      } else setNotification('Change failed.')
     })
+    setNotification('You Have Apologized From Lecture ! #goodNotification')
   }
 
   return (
@@ -55,9 +56,9 @@ export default function ApologizePage({ data, setData, setApologizePage }) {
         <ApologizeTitle>Apologies from lecture</ApologizeTitle>
         <ApologizeForm>
           <ApologizeLabel >name:</ApologizeLabel >
-          <ApologizeInput type="text" name="name" placeholder={data.firstName}></ApologizeInput>
+          <ApologizeInput type="text" name="name" value={data.firstName} readOnly />
           <ApologizeLabel >surname:</ApologizeLabel >
-          <ApologizeInput type="text" name="name" placeholder={data.lastName}></ApologizeInput>
+          <ApologizeInput type="text" name="name" value={data.lastName} readOnly />
           <ApologizeLabel >date:</ApologizeLabel >
           <SingleDatePicker
             date={date}

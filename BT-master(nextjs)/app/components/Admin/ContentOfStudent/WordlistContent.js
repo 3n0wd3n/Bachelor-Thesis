@@ -4,7 +4,7 @@ import { getCookie } from 'cookies-next';
 import { FaSurprise, FaRegEdit, FaCheck } from 'react-icons/fa'
 import { WordListKeyInputAttribute, WordListKeyAttribute, WordListAttributes, WordListSVGContainer, WordListContentURL, WordListContentURLContainer, WordListContentContainer, WordListContentMainContainer, WordListContentEmptyPhrase } from './WordListContent.style'
 
-export default function WordListContent({ student, setData }) {
+export default function WordListContent({ student, setData, setNotification }) {
     const [edit, setEdit] = React.useState(false)
     const wordListRef = React.useRef(null)
     const id = getCookie('userCookie')
@@ -23,6 +23,7 @@ export default function WordListContent({ student, setData }) {
             if (data) setData(data)
             else alert('Change failed.')
         }).finally(() => setEdit(prevState => !prevState))
+        setNotification("Word List Was Edited #goodNotification")
     }
 
     return (

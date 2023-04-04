@@ -9,7 +9,7 @@ import { addDays } from '../Admin/ContentOfStudent/LessonChange';
 import { StudentMCSummaryItem, StudentMCSummaryFirstPart, StudentMCFontsSummary, StudentMCSummaryColumnContainer, StudentMCSummaryButtonContainer, StudentMCSummarySecondPart, StudentMCDescription, StudentMCHomeworkDoneContainer, StudentMCFontsSectionLinkItem, StudentUnorderedList, StudentListItem, SimpleContainer, SimpleDiv, StudentMCFilesItems, StudentMCFontsWordList, StudentMCFontsFiles, StudentMCWordList, StudentMCFiles, StudentMCContainer, StudentMCNextLesson, StudentMCFontsDate, StudentMCFontsBold, StudentMCHomeworks, StudentMCFontsHomeworks, StudentMCFontsHomeworksItem, StudentMCFontsSectionItems } from './StudentMainContent.style'
 // StudentMC = StudentMainContent
 
-export const getNextLesson = (lessons, restrictions = []) => {
+export const getNextLesson = (lessons) => {
   // const reFormatIndex = (date) => new Date(date).getDay() === 0 ? 6 : new Date(date).getDay() - 1
 
   // const now = new Date()
@@ -53,14 +53,15 @@ export const getNextLesson = (lessons, restrictions = []) => {
     if (!cancelledDates.includes(toThisWeekDate.getTime())) {
       let isChanged = false
       lesson.changes.map(change => new Date(change.from).getTime() === nextWeekDate.getTime() && (isChanged = change))
-      if (isChanged) nextWeekDate = isChanged.newFrom
+      if (isChanged) nextWeekDate = new Date(isChanged.newFrom)
 
       newLessons.push(toThisWeekDate)
     }
+
     if (!cancelledDates.includes(nextWeekDate.getTime())) {
       let isChanged = false
       lesson.changes.map(change => new Date(change.from).getTime() === nextWeekDate.getTime() && (isChanged = change))
-      if (isChanged) nextWeekDate = isChanged.newFrom
+      if (isChanged) nextWeekDate = new Date(isChanged.newFrom)
 
       newLessons.push(nextWeekDate)
     }
@@ -88,7 +89,7 @@ export const getDay = (nextLesson) => {
   return day
 }
 
-export default function MainContent({ data, setData, isRepresentative }) {
+export default function MainContent({ data, setData, isRepresentative, setNotification }) {
   // Set styling to icons
   const style = { color: Colors.lightGreen, fontSize: "3em" }
   const [edit, setEdit] = React.useState(false)
@@ -110,6 +111,7 @@ export default function MainContent({ data, setData, isRepresentative }) {
       if (data) setData(data)
       else alert('Change failed.')
     }).finally(() => setEdit(prevState => !prevState))
+    setNotification("Homework Was Removed ! #goodNotification")
   }
 
   return (

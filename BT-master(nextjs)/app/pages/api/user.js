@@ -1,8 +1,11 @@
 import bcrypt from 'bcrypt'
 import User from '../../models/User'
 import Lecture from '../../models/Lecture'
+import Apology from '../../models/Apology'
+import PaymentRequest from '../../models/PaymentRequest'
 import Homeworks from '../../models/Homeworks'
-import { dbConnect, UpdateOneFromMongo, findAllFromMongo, findOneFromMongo } from '../../utils/dbMongo'
+import { addLessonChange } from './student.change'
+import { dbConnect, UpdateOneFromMongo, findAllFromMongo, findOneFromMongo, getCollectionFromMongo } from '../../utils/dbMongo'
 
 dbConnect();
 
@@ -19,9 +22,15 @@ const filterHomeworks = async(userDb, homeworkIds, admin) => {
   return homeworks
 }
 
+const addDays = (date, days) => {
+  var result = new Date(date);
+  result.setDate(result.getDate() + days);
+  return result;
+}
+
 const filterLessons = async (lessonIds, admin) => {
   // getting array of lessons from database
-  const lessonsDb = await findAllFromMongo(Lecture, { $and: [{ _id: lessonIds }, { status: 'waiting' }] });
+  const lessonsDb = await findAllFromMongo(Lecture, { $and: [{ _id: lessonIds }] });
 
   // format lessons
   const lessons = lessonsDb.map(lesson => ({
@@ -35,10 +44,34 @@ const filterLessons = async (lessonIds, admin) => {
   let now = new Date().getTime();
   const filteredLessons = await Promise.all(
     lessons.filter(async lesson => {
-      const lessonDate = new Date(lesson.to).getTime();
-      if (now > lessonDate) {
-        // update status
-        await UpdateOneFromMongo(Lecture, { _id: lesson.id }, { status: "done" })
+      const changedLessons = lesson.changes.map(change => new Date(change.from).getTime())
+      const statusLessons = lesson.statuses.map(status => new Date(status.from).getTime())
+      let lessonDate = new Date(lesson.date);
+      let lessonDateEnd = new Date(lesson.endDate);
+      if (now > lessonDate.getTime()) {
+        // update status to done
+        while (now > lessonDate.getTime()) {
+          let tempLesson = lessonDate
+          let tempLessonEnd = lessonDateEnd
+
+          if (changedLessons.includes(lessonDate.getTime())) {
+            const changedLesson = lesson.changes.find(change => new Date(change.from).getTime() === lessonDate.getTime())
+            tempLesson = new Date(changedLesson.newFrom)
+            tempLessonEnd = new Date(changedLesson.newTo)
+          }
+
+          if (!statusLessons.includes(tempLesson.getTime())) {
+            await addLessonChange({ _id: lesson.id }, { $push: { statuses: {
+              from: tempLesson,
+              to: tempLessonEnd,
+              status: 'done'
+            }}})
+            statusLessons.push(tempLesson.getTime())
+          }
+
+          lessonDate = addDays(lessonDate, 7)
+          lessonDateEnd = addDays(lessonDateEnd, 7)
+        }
         return false
       } else return true
     })
@@ -76,8 +109,10 @@ const createLecture = (data) => {
 }
 
 const getStudent = async (userDb, admin=false) => {
+  let lessonsToPay = []
   const filteredLessons = await filterLessons(userDb.lectures, admin);
   const filteredHomeworks = await filterHomeworks(userDb, userDb.homeworks, admin);
+  if (userDb.legalRepresentative !== '') lessonsToPay = await getLessonsToPay(filteredLessons)
 
   return {
     id: userDb._id,
@@ -87,6 +122,7 @@ const getStudent = async (userDb, admin=false) => {
     username: userDb.username,
     // password: userDb.password,
     legalRepresentative: userDb.legalRepresentative !== '',
+    ... lessonsToPay.length === 0 ? [lessonsToPay] : [],
     lessons: filteredLessons,
     plan: userDb.plan,
     // homeworks: userDb.homeworks,
@@ -98,12 +134,47 @@ const getStudent = async (userDb, admin=false) => {
   }
 }
 
+const getLessonsToPay = async (lessons) => {
+    const newLessons = []
+    lessons.map(lesson => {
+      const changedLessons = lesson.changes.map(change => new Date(change.from).getTime())
+      let now = new Date().getTime();
+      let lessonDate = new Date(lesson.date);
+      let lessonDateEnd = new Date(lesson.endDate);
+
+      while (now > lessonDate.getTime()) {
+        let tempLesson = lessonDate
+        let tempLessonEnd = lessonDateEnd
+
+        if (changedLessons.includes(lessonDate.getTime())) {
+          const changedLesson = lesson.changes.find(change => new Date(change.from).getTime() === lessonDate.getTime())
+          tempLesson = new Date(changedLesson.newFrom)
+          tempLessonEnd = new Date(changedLesson.newTo)
+        }
+
+        newLessons.push({
+          id: lesson.id,
+          from: tempLesson,
+          to: tempLessonEnd,
+        })
+
+        lessonDate = addDays(lessonDate, 7)
+      }
+    })
+
+    return newLessons
+}
+
 const getRepresentative = async (userDb) => {
   const children = []
+  const lessonsToPay = []
   await Promise.all(userDb.child.map(async childId => {
     const childDb = await findOneFromMongo(User, { _id: childId })
     const child = await getStudent(childDb)
+    const lessons = await getLessonsToPay(child.lessons)
+
     children.push(child)
+    lessonsToPay.push(...lessons)
   }))
 
   return {
@@ -120,13 +191,43 @@ const getRepresentative = async (userDb) => {
     wordList: userDb.wordList,
     summary: userDb.summary,
     payments: [],
+    lessonsToPay,
     children: children,
   }
 }
 
 const getAdmin = async (userDb) => {
   const studentsDb = (await findAllFromMongo(User, { role: 'student' })).filter(student => !student.disabled)
-  const filteredStudents = await Promise.all(studentsDb.map(async student => await getStudent(student, true)));
+  const filteredStudents = await Promise.all(studentsDb.map(async student => await getStudent(student, true)))
+  const apologiesDb = await getCollectionFromMongo(Apology)
+  const paymentRequestsDb = await getCollectionFromMongo(PaymentRequest)
+  const apologies = await Promise.all(
+    apologiesDb.map(async apologyDb => {
+      const student = await filteredStudents.find(student => student.id == apologyDb.studentId)
+
+      return {
+        id: apologyDb._id,
+        studentFirstName: student.firstName,
+        studentLastName: student.lastName,
+        lessonFrom: apologyDb.from,
+        createdAt: apologyDb.createdAt,
+      }
+    })
+  )
+  const paymentRequests = await Promise.all(
+    paymentRequestsDb.map(async paymentRequestDb => {
+      const user = await findOneFromMongo(User, { _id: paymentRequestDb.studentId })
+
+      return {
+        id: paymentRequestDb._id,
+        firstName: user.name,
+        lastName: user.surname,
+        createdAt: paymentRequestDb.createdAt,
+        amount: paymentRequestDb.amount,
+        from: paymentRequestDb.from,
+      }
+    })
+  )
 
   return {
     id: userDb._id,
@@ -134,6 +235,8 @@ const getAdmin = async (userDb) => {
     firstName: userDb.name,
     lastName: userDb.surname,
     students: filteredStudents,
+    apologies,
+    paymentRequests,
     post: [],
   }
 }

@@ -6,7 +6,7 @@ import { FaRegEdit, FaCheck } from 'react-icons/fa'
 import { StudentSettingButtonsContainer, SettingsKeyInputAttribute, SettingsKeyAttribute, SettingsSendButton, SettingsBackButton, StudentSettingButtonContainer, StudentSettingAttributesContainer, StudentSettingContainer, StudentSettingMainContainer } from './StudentSettingsPage.style'
 import { FontsHeaderBold, FontsThin, FontsBold } from '../CommonStyles'
 
-export default function SettingsPage({ data, setData, setSettingsPage }) {
+export default function SettingsPage({ data, setData, setSettingsPage, setNotification={setNotification} }) {
     const [edit, setEdit] = React.useState(false)
     const passwordRef = React.useRef(null)
     const id = getCookie('userCookie')
@@ -27,6 +27,7 @@ export default function SettingsPage({ data, setData, setSettingsPage }) {
             if (data) setData(data)
             else alert('Change failed.')
         }).finally(() => setEdit(prevState => !prevState))
+        setNotification("Password Was Edited ! #goodNotification")
     }
 
     return (

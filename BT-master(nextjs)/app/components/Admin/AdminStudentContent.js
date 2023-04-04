@@ -11,9 +11,9 @@ import FileContent from './ContentOfStudent/FilesContent'
 import SummaryContent from './ContentOfStudent/SummaryContent'
 
 
-export default function AdminStudentContent({ student, setData }) {
+export default function AdminStudentContent({ student, setData, setNotification }) {
     const [state, setState] = React.useState(false);
-    const styleAngleDown = { color: Colors.lightGreen, fontSize: "2.3em", transform: `rotate(${state ? 180 : 0}deg)` };
+    // const styleAngleDown = { color: Colors.green, fontSize: "2.3em", transform: `rotate(${state ? 180 : 0}deg)` };
     // const menuItems = React.useMemo(() =>
     //   [
     //     {
@@ -46,11 +46,11 @@ export default function AdminStudentContent({ student, setData }) {
 
     return (
         <>
-            <StudentContainer onClick={() => setState(state => !state)}>
+            <StudentContainer onClick={() => setState(state => !state)} state={state}>
                 <FontsThin>
                     {student.firstName} {student.lastName}
                 </FontsThin>
-                <FaAngleDown style={styleAngleDown}></FaAngleDown>
+                <FaAngleDown />
             </StudentContainer>
             {
               state
@@ -72,12 +72,12 @@ export default function AdminStudentContent({ student, setData }) {
                       <MenuItem selected={selectedMenu === 'word list'} onClick={() => setSelectedMenu('word list')}>word list</MenuItem>
                   </MenuItems>
                   <ContentContainer>
-                    {selectedMenu === 'info/edit' && <InfoContent setData={setData} student={student} />}
-                    {selectedMenu === 'lessons change' && <LessonChange student={student} setData={setData} />}
-                    {selectedMenu === 'files' && <FileContent setData={setData} student={student}>files</FileContent>}
-                    {selectedMenu === 'homeworks' && <HomeworksContent student={student} setData={setData} />}
-                    {selectedMenu === 'lesson summary' && <SummaryContent student={student} setData={setData}></SummaryContent>}
-                    {selectedMenu === 'word list' && <WordListContent student={student} setData={setData}></WordListContent>}
+                    {selectedMenu === 'info/edit' && <InfoContent setData={setData} student={student} setNotification={setNotification}/>}
+                    {selectedMenu === 'lessons change' && <LessonChange student={student} setData={setData} setNotification={setNotification}/>}
+                    {selectedMenu === 'files' && <FileContent setData={setData} student={student} setNotification={setNotification}/>}
+                    {selectedMenu === 'homeworks' && <HomeworksContent student={student} setData={setData} setNotification={setNotification} />}
+                    {selectedMenu === 'lesson summary' && <SummaryContent student={student} setData={setData} setNotification={setNotification} />}
+                    {selectedMenu === 'word list' && <WordListContent student={student} setData={setData} setNotification={setNotification}/>}
                   </ContentContainer>
               </DropDown>
             }

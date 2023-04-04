@@ -24,7 +24,7 @@ export const getAllDates = (data) => {
     return allDates
 }
 
-export default function MainContent({ data, setData }) {
+export default function MainContent({ data, setData, setNotification }) {
     const allDates = getAllDates(data)
     const nextLesson = React.useMemo(() => getNextLesson(allDates), [data])
     const day = getDay(nextLesson.getDay())
@@ -44,7 +44,7 @@ export default function MainContent({ data, setData }) {
             <AdminStudentsContainer>
                 {data.students.map((student, key) => {
                     return (
-                        <AdminStudentContent student={student} key={key} setData={setData} />
+                        <AdminStudentContent student={student} key={key} setData={setData} setNotification={setNotification}/>
                     )
                 })
                 }

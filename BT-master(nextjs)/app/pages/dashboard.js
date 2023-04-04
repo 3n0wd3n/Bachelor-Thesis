@@ -6,7 +6,7 @@ import Student from '../components/Student/Student';
 
 export { getServerSideProps } from '../components/getDataFromCookies'
 
-export default function Home({ data, setData, userData }) {
+export default function Home({ data, setData, userData, setNotification }) {
   React.useEffect(() => {
     if (userData) {
       if (data) setData(data)
@@ -26,8 +26,8 @@ export default function Home({ data, setData, userData }) {
       </Head>
 
       {data.role === 'admin'
-        ? <Admin data={data} setData={setData} />
-        : <Student data={data} setData={setData} />
+        ? <Admin data={data} setData={setData} setNotification={setNotification} />
+        : <Student data={data} setData={setData} setNotification={setNotification}/>
       }
     </>
   )
