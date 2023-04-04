@@ -32,7 +32,8 @@ export default function InfoPanel({ data, setApologizePage }) {
           })}
         </StudentIPItemContainer>
         {
-          data.legalRepresentative === false ? <></> : <StudentIPButton><StudentIPButtonFontsBold onClick={() => setApologizePage(true)}>apologize</StudentIPButtonFontsBold></StudentIPButton>
+          // console.log(data)
+          data.legalRepresentative === false && data.role === 'representative'? <></> : <StudentIPButton><StudentIPButtonFontsBold onClick={() => setApologizePage(true)}>apologize</StudentIPButtonFontsBold></StudentIPButton>
         }
       </StudentIPContainer>
       

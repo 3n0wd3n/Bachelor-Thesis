@@ -1,21 +1,16 @@
 import { dbConnect, UpdateOneFromMongo, findAllFromMongo, findOneFromMongo, deleteOneFromMongo } from '../../utils/dbMongo'
-import { addLessonChange } from './student.change'
-import Apology from '../../models/Apology'
+import Payment from '../../models/Payment'
 import PaymentRequest from '../../models/PaymentRequest'
 import { getUser } from './user'
 
 dbConnect();
 
-const updateInfoInApology = async (filter, data) => {
-    return await UpdateOneFromMongo(Apology, filter, data)
+const removePaymentRequest = (filter) => {
+    return deleteOneFromMongo(PaymentRequest, filter)
 }
 
-const createPaymentRequest = (data) => {
-    return PaymentRequest(data).save()
-}
-
-const createApology = (data) => {
-    return Apology(data).save()
+const createPayment = (data) => {
+    return Payment(data).save()
 }
 
 export default async function handler(req, res) {
@@ -31,11 +26,15 @@ export default async function handler(req, res) {
             break;
         case 'POST':
             try {
-                const { studentId, lessonId, date } = body
-                await createApology({ studentId, lessonId, from: date.from })
-                await addLessonChange({ _id: lessonId }, { $push: { statuses: date } })
-
-                const userData = await getUser({ _id: studentId })
+                const { adminId, payment } = body
+                await createPayment({
+                    studentId: payment.userId,
+                    lessonId: payment.lessonId,
+                    from: payment.from,
+                    amount: payment.amount,
+                })
+                await removePaymentRequest({ _id: payment.id })
+                const userData = await getUser({ _id: adminId })
                 res.status(200).json( userData );
             } catch {
                 res.status(500).json({ failed: true });
@@ -43,11 +42,7 @@ export default async function handler(req, res) {
             break;
         case 'PUT':
             try {
-                const { id, lessonId, from, amount } = body
-                await createPaymentRequest({ studentId: id, lessonId, from, amount })
-
-                const userData = await getUser({ _id: id })
-                res.status(200).json( userData );
+                res.status(200).json(true);
             } catch {
                 res.status(500).json({ failed: true });
             }
@@ -61,11 +56,7 @@ export default async function handler(req, res) {
             break;
         case 'PATCH':
             try {
-                const { adminId, apologyId } = body
-                await updateInfoInApology({ _id: apologyId }, { seen: true })
-
-                const userData = await getUser({ _id: adminId })
-                res.status(200).json( userData );
+                res.status(200).json(true);
             } catch {
                 res.status(500).json({ failed: true });
             }

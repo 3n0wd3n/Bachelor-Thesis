@@ -29,7 +29,7 @@ export default function HomeworksContentAdd({ student, setEdit, setData, setNoti
                 if (data) setData(data)
                 else alert('Change failed.')
             }).finally(() => setEdit(false))
-            setNotification("Homework was created ! #goodNotification");
+            setNotification("Homework Was Created ! #goodNotification");
         }
 
     }

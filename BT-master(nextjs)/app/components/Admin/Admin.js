@@ -17,7 +17,7 @@ export default function Admin( { data, setData, setNotification} ) {
     subPage = <LogoutPage setLogoutPage={setLogoutPage} setData={setData}/>;
   }
   if (openPostPage){
-    subPage = <PostPage setPostPage={setPostPage} data={data}/>;
+    subPage = <PostPage setData={setData} setPostPage={setPostPage} data={data} setNotification={setNotification}/>;
   }
   if (openAddPage){
     subPage = <AddPage setAddPage={setAddPage} setNotification={setNotification}/>;

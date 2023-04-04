@@ -2,6 +2,7 @@ import bcrypt from 'bcrypt'
 import User from '../../models/User'
 import Lecture from '../../models/Lecture'
 import Apology from '../../models/Apology'
+import Payment from '../../models/Payment'
 import PaymentRequest from '../../models/PaymentRequest'
 import Homeworks from '../../models/Homeworks'
 import { addLessonChange } from './student.change'
@@ -112,7 +113,7 @@ const getStudent = async (userDb, admin=false) => {
   let lessonsToPay = []
   const filteredLessons = await filterLessons(userDb.lectures, admin);
   const filteredHomeworks = await filterHomeworks(userDb, userDb.homeworks, admin);
-  if (userDb.legalRepresentative !== '') lessonsToPay = await getLessonsToPay(filteredLessons)
+  if (userDb.legalRepresentative === '') lessonsToPay = await getLessonsToPay(filteredLessons)
 
   return {
     id: userDb._id,
@@ -122,7 +123,7 @@ const getStudent = async (userDb, admin=false) => {
     username: userDb.username,
     // password: userDb.password,
     legalRepresentative: userDb.legalRepresentative !== '',
-    ... lessonsToPay.length === 0 ? [lessonsToPay] : [],
+    lessonsToPay,
     lessons: filteredLessons,
     plan: userDb.plan,
     // homeworks: userDb.homeworks,
@@ -136,8 +137,13 @@ const getStudent = async (userDb, admin=false) => {
 
 const getLessonsToPay = async (lessons) => {
     const newLessons = []
+    // const paymentsDb = await getCollectionFromMongo(Payment)
+    // const allPayments = paymentsDb.map(paymentDb => ({ lessonId: paymentDb.lessonId, from: new Date(paymentDb.from).getTime() }))
+
     lessons.map(lesson => {
       const changedLessons = lesson.changes.map(change => new Date(change.from).getTime())
+      // const payments = allPayments.find(payment => payment.lessonId == lesson.id)
+      
       let now = new Date().getTime();
       let lessonDate = new Date(lesson.date);
       let lessonDateEnd = new Date(lesson.endDate);
@@ -199,7 +205,7 @@ const getRepresentative = async (userDb) => {
 const getAdmin = async (userDb) => {
   const studentsDb = (await findAllFromMongo(User, { role: 'student' })).filter(student => !student.disabled)
   const filteredStudents = await Promise.all(studentsDb.map(async student => await getStudent(student, true)))
-  const apologiesDb = await getCollectionFromMongo(Apology)
+  const apologiesDb = await findAllFromMongo(Apology, { seen: false })
   const paymentRequestsDb = await getCollectionFromMongo(PaymentRequest)
   const apologies = await Promise.all(
     apologiesDb.map(async apologyDb => {
@@ -222,6 +228,8 @@ const getAdmin = async (userDb) => {
         id: paymentRequestDb._id,
         firstName: user.name,
         lastName: user.surname,
+        userId: paymentRequestDb.studentId,
+        lessonId: paymentRequestDb.lessonId,
         createdAt: paymentRequestDb.createdAt,
         amount: paymentRequestDb.amount,
         from: paymentRequestDb.from,

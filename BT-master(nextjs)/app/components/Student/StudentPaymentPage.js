@@ -37,8 +37,8 @@ export default function PaymentPage({ data, setData, setPaymentPage, setNotifica
     <>
       <StudentPaymentMainContainer>
         <FontsHeaderBold>Payments</FontsHeaderBold>
-        {lessonsToPay.map(lessonToPay => (
-          <StudentPaymentContainer key={lessonToPay.id}>
+        {lessonsToPay.map((lessonToPay, index) => (
+          <StudentPaymentContainer key={index}>
             <StudentContainer>
               <span>Lesson to pay:</span>
               <span>{moment(lessonToPay.from).format('D. MMMM HH:mm')}</span>

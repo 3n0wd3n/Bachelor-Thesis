@@ -19,9 +19,9 @@ export const findOneFromMongo = async (collection, filter) => {
   });
 };
 
-export const deleteOneFromMongo = async (collection, id) => {
+export const deleteOneFromMongo = async (collection, filter) => {
   return await new Promise((resolve) => {
-    collection.deleteOne(id, (err, result) => {
+    collection.deleteOne(filter, (err, result) => {
       if (err) throw err;
       resolve(true);
     });
