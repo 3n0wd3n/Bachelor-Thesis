@@ -6,7 +6,7 @@ import { getCookie } from 'cookies-next';
 import { useState } from 'react';
 import { FaSmileWink, FaCheckCircle } from 'react-icons/fa'
 import { FontsHeaderBold, FontsThin, FontsBold } from '../CommonStyles'
-import { AdminMessagesContainer, PostBackButton, AdminPostContainer, AdminMainContent, AdminListItems, AdminItem, AdminMessages } from './AdminPostPage.style'
+import { PostEmptyMessage, AdminMessagesContainer, PostBackButton, AdminPostContainer, AdminMainContent, AdminListItems, AdminItem, AdminMessages } from './AdminPostPage.style'
 
 export default function PostPage({ setPostPage, setData, data, setNotification }) {
   const [isToggle, setisParent] = useState(false);
@@ -65,9 +65,9 @@ export default function PostPage({ setPostPage, setData, data, setNotification }
           {
             apologies.length + payments.length === 0
             &&
-            <>
+            <PostEmptyMessage>
               <span>You have nothing to read !</span> <FaSmileWink />
-            </>
+            </PostEmptyMessage>
           }
           <AdminMessagesContainer>
             {shownData.map((data, index) => (

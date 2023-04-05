@@ -81,3 +81,20 @@ export const PostBackButton = styled.button`
         background-color: ${Colors.orange};
     }
 `;
+
+export const PostEmptyMessage = styled(CommonDisplayFlexColumn)`
+    font-family: 'Raleway',sans-serif;
+    font-weight: 700;
+    color: ${Colors.blue};
+    font-size: 1.5rem;
+    margin: 1em 0 0 0;
+    & > svg {
+        color: ${Colors.darkGray};
+        margin: 1em 0 0 0;
+        font-size: 1.8rem;
+    }
+    @media (max-width: 1200px)
+    {
+        font-size: 1.1rem;
+    }
+`;
