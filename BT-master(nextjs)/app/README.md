@@ -66,7 +66,8 @@ Potom už jen stačí dostat se na již zmíněnou cestu __*~/BT-master(nextjs)/
 a můžeme do webového prohlížeče napsat URL http://localhost:3000, která nám zobrazí naši webovou aplikaci.
 
 ---
-   --- SECTION BREAK
+
+   --- SECTION BREAK ---
 ---
 
 # NEXTJS README
