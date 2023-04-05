@@ -20,6 +20,11 @@ V této složce se nachází samotná aplikace. Její dělení uvádím jako obr
 
 ![components](https://user-images.githubusercontent.com/47132583/230055009-47c32c75-990d-47c3-861b-0102a66b8c89.png)
 
+## rozkliknutí content of students 
+
+![content of student](https://user-images.githubusercontent.com/47132583/230055370-345d216b-3456-4772-8135-29876e55013f.png)
+
+
 
 
 
