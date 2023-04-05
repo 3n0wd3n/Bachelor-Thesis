@@ -42,16 +42,24 @@ Složka __*utils*__ obsahuje dva soubory, kde první z nich __*Colors.js*__ slou
 
 ![image](https://user-images.githubusercontent.com/47132583/230057117-aaa029b9-4f8f-49d1-82fe-f65eba7af56a.png)
 
-
-# OSTATNÍ SOUBORY VE SLOŽCE APP
+## OSTATNÍ SOUBORY VE SLOŽCE APP
 
 Jedná se o soubory __*.gitignore*__, __*.next.config.js*__, __*package-lock.json*__, __*package.json*__. Soubor __*.gitignore*__ slouží pro blokování určitých věcí, pří komitování na Git. Dále soubor __*.next.config.js*__ nám umožňuje zvolit si, které věci budeme chtít navíc používat v NEXTJS (například já používám styledcomponents, které umožňují vytvářet si vlastní HTML tagy už s nadefinovaným stylování, které se programátor vytvoří). V neposlední řadě tu jsou dva .json soubory, z nichž jeden hlídá verze balíčků (__*package-lock.json*__) a druhý v sobě má seznam těch balíčků (__*package.json*__). 
 
 ![files](https://user-images.githubusercontent.com/47132583/195809618-ff0989c8-9f3b-4125-8640-8c3919b88675.png)
 
+## SPOUŠTĚNÍ APLIKACE
+
+Pro spuštění aplikace je nutné mít stažené všechny potřebné baličky které lze najít v souboru __*package.json*__, která se nachází v adresáří __*~/BT-master(nextjs)/app/package.json*__. 
+
+![image](https://user-images.githubusercontent.com/47132583/230058864-d9761c91-ffa6-43bd-abd0-922f62596e33.png)
+
+
+Stahujeme je pomocí příkazu:
+
+    npm install <název balíčku> 
 
 ---
-
     SECTION BREAK
 ---
 
