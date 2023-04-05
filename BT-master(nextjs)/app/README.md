@@ -6,19 +6,23 @@ Webová aplikace je co se týče složek rozdělena na COMPONENTS, PAGES, PUBLIC
 
 Ve složce __*components*__  se nachází další podsložky __*ADMIN*__ , __*LOGIN*__ , __*STUDENT*__  -> tři hlavní role, které se na stránce objevují. Každá z nich má jednoduchý vyznám: je zde hlavní soubor, který se volá někde výš a je poskládaný z koponent, které se nacházejí ve stejné složce. Například ve složce __*COMPONENTS*__  je další složka __*STUDENT*__  a v ní je soubor __*Student.js*__ , ale taky několi dalších souborů s příponou .js. Pro nás je hlavní soubor __*Student.js*__ , který poskládáme z těch ostatních .js souborů. 
 
-![image](https://user-images.githubusercontent.com/47132583/204301176-9d82ad55-c5a2-4d97-96f9-c15c175d40ca.png)
+![image](https://user-images.githubusercontent.com/47132583/230056249-cf667689-bfb5-444b-839e-d448ed31cbd2.png)
+
+![image](https://user-images.githubusercontent.com/47132583/230056396-0b48500f-d420-4959-b2ff-5f027c0f7e36.png)
+
+![image](https://user-images.githubusercontent.com/47132583/230056492-a281cfd2-9238-4fd6-9fe7-9249c57a3496.png)
 
 ## MODELS
 
 Ve složce __*models*__  se nachází soubory se schématy databázových kolekcí.
 
-![image](https://user-images.githubusercontent.com/47132583/204301014-be57715a-bdb4-450e-8fa4-ab275d8dd2ce.png)
+![image](https://user-images.githubusercontent.com/47132583/230056612-602c0ea4-d5a3-44a2-893b-8578a22c3971.png)
 
 ## PAGES
 
 Ve složce __*pages*__ najdeme jednak další složku s názvem __*api*__ , ve které budeběžet náš server, ale dále ve složce pages najdeme čtyři důležité soubory a výčtově se jedná o __*_app.js*__, __*_document.js*__, __*dashboard.js*__, __*index.js*__, kde __*_app.js*__ je soubor, který je hlavním v celé struktuře a stará se o změnu rolí. Dallé je tu __*_document.js*__, což je speciáln soubor z NEXTJS frameworku, který nám umožňuje updatovat tagy v HTML. Tenhle soubor má úžasnou vlastnost a to tu, že tah <head /> uvnitř tohoto souboru není stejný jako v ostatních. Používáme tento souboru a speciálně hlavičkovou část pro importování kodu, který je stejný pro všechny stránky. Například když si tady nalinkujeme nějaký font můžeme ho používat pak ve všech souborech. Dalším v pořadí je soubor __*dashboard.js*__, který podle role, která přijde ze serveru vegeneruje buď komponentu s adminem, nebo ze studentem (zkrátka slouží jako rozcestník). Poslední v pořadí je __*index.js*__, který slouží jako nultá stránka, neboli login -> generují se zde komponenty pro přihlášení uživatele. 
 
-![image](https://user-images.githubusercontent.com/47132583/204301361-4e84ffd0-8cac-45c9-b849-d250d8b9dcc3.png)
+![image](https://user-images.githubusercontent.com/47132583/230056696-5700d58a-6d85-421b-a62f-7eab4657fc8e.png)
 
 ## PUBLICK
 
