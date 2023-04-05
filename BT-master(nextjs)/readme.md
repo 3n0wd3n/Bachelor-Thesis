@@ -24,6 +24,19 @@ V této složce se nachází samotná aplikace. Její dělení uvádím jako obr
 
 ![content of student](https://user-images.githubusercontent.com/47132583/230055370-345d216b-3456-4772-8135-29876e55013f.png)
 
+## rokliknutí models 
+
+![models](https://user-images.githubusercontent.com/47132583/230055622-0fbd248d-5343-4af4-ac75-081d988af6c7.png)
+
+## rozkliknutí pages 
+
+![pages](https://user-images.githubusercontent.com/47132583/230055732-973b180b-309b-4f85-8315-5a9ca5f173d5.png)
+
+## rozklinutí styles & utils
+
+![mix](https://user-images.githubusercontent.com/47132583/230055925-4a51a412-1d1e-4ce4-9d21-1af0c145eaa7.png)
+
+
 
 
 
