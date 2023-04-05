@@ -30,11 +30,18 @@ Složka __*publick*__ slouží jako místo, kde jsou soubory týkající se obr�
 
 ![publick](https://user-images.githubusercontent.com/47132583/195807038-9d50d3e9-63c3-40a5-b6aa-d719b0f048b6.png)
 
-## STLYES
+## STYLES
 
 Složka __*styles*__ má jediný účel a to ten, že v ní definujeme stylování, které je pro celý projekt stejné (nastavujeme zde default).
 
 ![styles](https://user-images.githubusercontent.com/47132583/195807404-c363f29c-985b-4bbd-88f0-0b26fcd9c997.png)
+
+## UTILS
+
+Složka __*utils*__ obsahuje dva soubory, kde první z nich __*Colors.js*__ slouží pro definování barev použitých v aplikaci a druhý __*dbMongo.js*__ obsahuje funkce, které se používají na serveru pro práci s databází.
+
+![image](https://user-images.githubusercontent.com/47132583/230057117-aaa029b9-4f8f-49d1-82fe-f65eba7af56a.png)
+
 
 # OSTATNÍ SOUBORY VE SLOŽCE APP
 
