@@ -58,6 +58,12 @@ Pro spuštění aplikace je nutné mít stažené všechny potřebné baličky k
 Stahujeme je pomocí příkazu:
 
     npm install <název balíčku> 
+    
+Potom už jen stačí dostat se na již zmíněnou cestu __*~/BT-master(nextjs)/app/*__, kde zadáme do konzole příkaz 
+    
+    npm run dev 
+
+a můžeme do webového prohlížeče napsat URL http://localhost:3000, která nám zobrazí naši webovou aplikaci.
 
 ---
     SECTION BREAK
