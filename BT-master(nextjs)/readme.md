@@ -8,7 +8,7 @@ Jedná se o textový soubor, ve kterém se snažím při postupu ráce ukládat 
 
 ## struktura.js
 
-V souboru se nachází role uživatelů s jejich daty, které očekávám, že vytvořím z příchozích dat ze serveru. Rozhodl jsem se totiž nejdřív nasimulovat data, která budu dostávat o jednotlivých uživatelích a na základě nich vytvořit vzhled stránky navržený ve [Figmě](https://www.figma.com/file/EsdxbekJrScMOYiIbjaQNq/Bachelor-Thesis?node-id=0%3A1) a nazávěr si nechat vytváření komunikace ze serverem, databází a klientem 
+V souboru se nachází role uživatelů s jejich daty, které očekávám, že vytvořím z příchozích dat ze serveru. Rozhodl jsem se totiž nejdřív nasimulovat data, která budu dostávat o jednotlivých uživatelích a na základě nich vytvořit vzhled stránky navržený ve [Figmě](https://www.figma.com/file/EsdxbekJrScMOYiIbjaQNq/Bachelor-Thesis?node-id=0%3A1) a nazávěr si nechat vytváření komunikace ze serverem, databází a klientem. V tuto chvíli (4.5.2023) už bude dokument nejspíše zastaralý oproti struktuře, která je použivaná teď, jelikož slo jen o představu toho, jak uživatele a jejich data budou vypadat. 
 
 ## app
 
