@@ -14,5 +14,5 @@ V souboru se nachází role uživatelů s jejich daty, které očekávám, že v
 
 V této složce se nachází samotná aplikace. Její dělení uvádím jako obrázek níže.
 
-![struktura](![image](https://user-images.githubusercontent.com/47132583/230054405-19174441-49eb-48ba-b904-db7fc3f62cb9.png))
+![struktura](https://user-images.githubusercontent.com/47132583/230054405-19174441-49eb-48ba-b904-db7fc3f62cb9.png)
 
