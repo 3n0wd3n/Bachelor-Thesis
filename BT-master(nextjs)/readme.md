@@ -16,5 +16,10 @@ V této složce se nachází samotná aplikace. Její dělení uvádím jako obr
 
 ![struktura](https://user-images.githubusercontent.com/47132583/230054405-19174441-49eb-48ba-b904-db7fc3f62cb9.png)
 
+## rozkliknutí components
+
+![components](https://user-images.githubusercontent.com/47132583/230055009-47c32c75-990d-47c3-861b-0102a66b8c89.png)
+
+
 
 
