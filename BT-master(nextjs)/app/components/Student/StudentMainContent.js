@@ -6,7 +6,7 @@ import { FaChevronCircleDown, FaChevronCircleUp, FaCheckCircle, FaRegSmileBeam }
 import { Colors } from '../../utils/Colors'
 import { addDays } from '../Admin/ContentOfStudent/LessonChange';
 
-import { StudentMCSummaryItem, StudentMCSummaryFirstPart, StudentMCFontsSummary, StudentMCSummaryColumnContainer, StudentMCSummaryButtonContainer, StudentMCSummarySecondPart, StudentMCDescription, StudentMCHomeworkDoneContainer, StudentMCFontsSectionLinkItem, StudentUnorderedList, StudentListItem, SimpleContainer, SimpleDiv, StudentMCFilesItems, StudentMCFontsWordList, StudentMCFontsFiles, StudentMCWordList, StudentMCFiles, StudentMCContainer, StudentMCNextLesson, StudentMCFontsDate, StudentMCFontsBold, StudentMCHomeworks, StudentMCFontsHomeworks, StudentMCFontsHomeworksItem, StudentMCFontsSectionItems } from './StudentMainContent.style'
+import { StudentMCSummaryItem, StudentMCFontsSectionItem, StudentMCSummaryFirstPart, StudentMCFontsSummary, StudentMCSummaryColumnContainer, StudentMCSummaryButtonContainer, StudentMCSummarySecondPart, StudentMCDescription, StudentMCHomeworkDoneContainer, StudentMCFontsSectionLinkItem, StudentUnorderedList, StudentListItem, SimpleContainer, SimpleDiv, StudentMCFilesItems, StudentMCFontsWordList, StudentMCFontsFiles, StudentMCWordList, StudentMCFiles, StudentMCContainer, StudentMCNextLesson, StudentMCFontsDate, StudentMCFontsBold, StudentMCHomeworks, StudentMCFontsHomeworks, StudentMCFontsHomeworksItem, StudentMCFontsSectionItems } from './StudentMainContent.style'
 // StudentMC = StudentMainContent
 
 export const getNextLesson = (lessons) => {
@@ -161,28 +161,15 @@ export default function MainContent({ data, setData, isRepresentative, setNotifi
           <StudentMCFontsFiles>files</StudentMCFontsFiles>
 
           {
-            data.files.length !== 0
+            data.files.length === 0
               ?
               <StudentMCFontsSectionItems >no file has not been added</StudentMCFontsSectionItems>
               :
               <StudentMCFilesItems>
                 <StudentMCFontsSectionItems>
-                  prvni_soubor
-                  druhý_soubor
-                  třetí_soubor
-                  čtvrty_soubor
-                  prvni_soubor
-                  druhý_soubor
-                  třetí_soubor
-                  čtvrty_soubor
-                  prvni_soubor
-                  druhý_soubor
-                  třetí_soubor
-                  čtvrty_soubor
-                  prvni_soubor
-                  druhý_soubor
-                  třetí_soubor
-                  čtvrty_soubor
+                  {data.files.map((file, index) =>
+                    <StudentMCFontsSectionItem key={index} href={`images/${file}`} target='_blank'>{file}</StudentMCFontsSectionItem>
+                  )}
                 </StudentMCFontsSectionItems>
               </StudentMCFilesItems>
           }

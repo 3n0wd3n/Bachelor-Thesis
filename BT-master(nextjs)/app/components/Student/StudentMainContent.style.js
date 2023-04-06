@@ -102,6 +102,8 @@ export const StudentMCFontsHomeworksItem = styled(FontsThin)`
 `;
 
 export const StudentMCFontsSectionItems = styled(FontsThin)`
+    display: flex;
+    flex-direction: column;
     font-size: ${NormalFontSize}rem;
     // font-weight: 400; potom nastavit barče
     color: ${Colors.white}; 
@@ -109,6 +111,10 @@ export const StudentMCFontsSectionItems = styled(FontsThin)`
     @media (max-width: 1200px) {
         font-size: ${SmallFontSize}rem;
     }
+`;
+
+export const StudentMCFontsSectionItem = styled.a`
+    
 `;
 
 export const StudentMCFontsSectionLinkItem = styled.a`

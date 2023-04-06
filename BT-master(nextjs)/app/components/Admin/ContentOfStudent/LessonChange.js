@@ -17,15 +17,12 @@ const generateNextLessons = (lessons, weeks) => {
   const nextLessons = []
   let timeShift = false
   let i = 0
+  console.log(lessons)
   while (nextLessons.length < weeks) {
     const weekLessons = []
 
     lessons.map(lesson => {
       let newDate = addDays(lesson.date, (i + 1) * 7)
-
-      // lesson.statuses.map(status => {
-      //   if (new Date(status.from).getTime() == newDate.getTime()) isCancelled = true
-      // })
 
       let newEndDate = addDays(lesson.endDate, (i + 1) * 7)
       if (timeShift) {
@@ -57,8 +54,9 @@ const generateNextLessons = (lessons, weeks) => {
       const lessonsThisDay = weekLessons.filter(dayLesson => dayLesson[0] === dayIndex)[0]
       let isCancelled = false
       if (lessonsThisDay) {
-        const cancelledLessons = lessonsThisDay[1].statuses.map(day => new Date(day.from).getTime())
+        const cancelledLessons = lessonsThisDay[1].statuses.map(day => (day.status === 'apologized' || day.status === 'cancelled') && new Date(day.from).getTime())
         isCancelled = cancelledLessons.includes(new Date(lessonsThisDay[1].date).getTime())
+        console.log(lessonsThisDay[1], isCancelled)
       }
       
       formattedWeek.push(lessonsThisDay && !isCancelled ? (new Date(lessonsThisDay[1].date).getTime() > new Date().getTime() ? lessonsThisDay[1] : null) : null)
@@ -89,47 +87,17 @@ const generateDates = (weeks) => {
   return dates
 }
 
-export default function LessonChange({ student, setData }) {
+export default function LessonChange({ data, student, setData, setNotification }) {
   const [nextWeeks, setNextWeeks] = React.useState(3)
   const [selectedDay, setSelectedDay] = React.useState(null)
-  const nextLessons = React.useMemo(() => generateNextLessons(student.lessons, nextWeeks), [nextWeeks])
+  const nextLessons = React.useMemo(() => generateNextLessons(student.lessons, nextWeeks), [nextWeeks, data])
   const dates = React.useMemo(() => generateDates(nextWeeks), [nextWeeks])
   const lessonRef = React.useRef();
   const id = getCookie('userCookie')
   const studentId = student.id
 
-  const apologyFromLesson = async () => {
-    const lesson = lessonRef.current;
-    const dateFromString = `${lesson.day.value.slice(0, 4)} ${lesson.day.value.slice(5, 7)} ${lesson.day.value.slice(8, 10)} ${lesson.from.value}`
-    const dateFrom = new Date(dateFromString) 
-    const dateToString = `${lesson.day.value.slice(0, 4)} ${lesson.day.value.slice(5, 7)} ${lesson.day.value.slice(8, 10)} ${lesson.to.value}`
-    const dateTo = new Date(dateToString) 
-
-    const dateFormat = {
-      from: dateFrom,
-      to: dateTo,
-      status: 'apologized'
-    }
-    // new Date("2023, 4, 22, 20:00") 2023-04-22
-    await axios('http://localhost:3000/api/admin.lesson.change', {
-        method: 'POST',
-        data: {
-            adminId: id,
-            studentId,
-            lessonId: selectedDay.id,
-            date: dateFormat,
-        }
-    })
-    .then(({ data }) => {
-        if (data) setData(data)
-        // else setNotification('Change failed.')
-    })
-    // .finally(() => setEdit(prevState => !prevState))
-    // setNotification("Word List Was Edited #goodNotification")
-}
-
   if (selectedDay) {
-    const saveTimeChange = async () => {
+    const formatDate = () => {
       const lesson = lessonRef.current;
       const dateString = lesson.day.value;
       const date = new Date(dateString);
@@ -144,12 +112,40 @@ export default function LessonChange({ student, setData }) {
       const toMinute = to.split(':')[1];
       const toDate = new Date(new Date(new Date(date).setHours(toHour)).setMinutes(toMinute));
 
-      const formattedLesson = {
+      return {
         from: selectedDay.date,
         to: selectedDay.endDate,
         newFrom: fromDate,
         newTo: toDate,
       }
+    }
+
+    const apologyFromLesson = async () => {
+      const formattedDate = formatDate()
+  
+      const dateFormat = {
+        from: formattedDate.from,
+        to: formattedDate.to,
+        status: 'cancelled'
+      }
+      await axios('http://localhost:3000/api/admin.lesson.change', {
+          method: 'POST',
+          data: {
+              adminId: id,
+              studentId,
+              lessonId: selectedDay.id,
+              date: dateFormat,
+          }
+      })
+      .then(({ data }) => {
+          if (data) setData(data)
+          else setNotification('Change failed.')
+      }).finally(() => setSelectedDay(null))
+      setNotification("Lesson Was Cancelled ! #goodNotification")
+    }
+
+    const saveTimeChange = async () => {
+      const formattedLesson = formatDate()
 
       await axios('http://localhost:3000/api/student.change', {
         method: 'POST',
@@ -194,8 +190,7 @@ export default function LessonChange({ student, setData }) {
         <LessonChangeButtonContainer>
           <GoBackButton onClick={() => setSelectedDay(null)}>back</GoBackButton>
           <SaveButton onClick={() => saveTimeChange()}>save</SaveButton>
-          {/* <ApologyButton onClick={() => console.log("Day: ", lessonRef.current.day.value, "From: ", lessonRef.current.from.value, "To: ", lessonRef.current.to.value)}>apology</ApologyButton> */}
-          <ApologyButton onClick={() => apologyFromLesson()}>apology</ApologyButton>
+          <ApologyButton onClick={() => apologyFromLesson()}>cancelled</ApologyButton>
         </LessonChangeButtonContainer>
       </LessonChangeMainContainer>
     )

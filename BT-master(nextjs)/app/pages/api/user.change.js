@@ -5,7 +5,7 @@ import { dbConnect, UpdateOneFromMongo, findAllFromMongo, findOneFromMongo, dele
 
 dbConnect();
 
-const updateInfoInUser = async (filter, data) => {
+export const updateInfoInUser = async (filter, data) => {
   return await UpdateOneFromMongo(User, filter, data)
 }
 

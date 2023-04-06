@@ -44,7 +44,7 @@ export default function MainContent({ data, setData, setNotification }) {
             <AdminStudentsContainer>
                 {data.students.map((student, key) => {
                     return (
-                        <AdminStudentContent student={student} key={key} setData={setData} setNotification={setNotification}/>
+                        <AdminStudentContent student={student} data={data} key={key} setData={setData} setNotification={setNotification}/>
                     )
                 })
                 }

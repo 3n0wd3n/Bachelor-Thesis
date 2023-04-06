@@ -11,7 +11,7 @@ import FileContent from './ContentOfStudent/FilesContent'
 import SummaryContent from './ContentOfStudent/SummaryContent'
 
 
-export default function AdminStudentContent({ student, setData, setNotification }) {
+export default function AdminStudentContent({ data, student, setData, setNotification }) {
     const [state, setState] = React.useState(false);
     // const styleAngleDown = { color: Colors.green, fontSize: "2.3em", transform: `rotate(${state ? 180 : 0}deg)` };
     // const menuItems = React.useMemo(() =>
@@ -73,8 +73,8 @@ export default function AdminStudentContent({ student, setData, setNotification 
                   </MenuItems>
                   <ContentContainer>
                     {selectedMenu === 'info/edit' && <InfoContent setData={setData} student={student} setNotification={setNotification}/>}
-                    {selectedMenu === 'lessons change' && <LessonChange student={student} setData={setData} setNotification={setNotification}/>}
-                    {selectedMenu === 'files' && <FileContent setData={setData} student={student} setNotification={setNotification}/>}
+                    {selectedMenu === 'lessons change' && <LessonChange data={data} student={student} setData={setData} setNotification={setNotification}/>}
+                    {selectedMenu === 'files' && <FileContent data={data} setData={setData} student={student} setNotification={setNotification}/>}
                     {selectedMenu === 'homeworks' && <HomeworksContent student={student} setData={setData} setNotification={setNotification} />}
                     {selectedMenu === 'lesson summary' && <SummaryContent student={student} setData={setData} setNotification={setNotification} />}
                     {selectedMenu === 'word list' && <WordListContent student={student} setData={setData} setNotification={setNotification}/>}

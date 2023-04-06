@@ -3,7 +3,7 @@ import axios from 'axios'
 import { FaFolderOpen, FaPlusSquare, FaMinusSquare } from 'react-icons/fa'
 import { FileContentBackButtonContainer, FileContentAddButtonContainer, FileContentUploadButton, FileContentInput, FileContentChooseFile, FileContentItem, FileContentItemContainer, FileContentAddContainer, FileContentContainer } from './FilesContent.style'
 
-export default function FileContent({ setData, student }) {
+export default function FileContent({ data, setData, student }) {
   const [selectedFile, setSelectedFile] = useState(null);
   const [add, setAdd] = React.useState(false)
 
@@ -11,19 +11,19 @@ export default function FileContent({ setData, student }) {
     setSelectedFile(event.target.files[0]);
   };
 
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData()
     formData.append('file', selectedFile)
 
-    await axios.post('http://localhost:3000/api/upload.file', formData, {
+    await axios.post(`http://localhost:3000/api/upload.file?id=${student.id}&adminId=${data.id}`, formData, {
         headers: {
             "content-type": "multipart/form-data"
         },
-    }).then(data => {
-        console.log('done', data.data);
-    });
+    }).then(({ data }) => {
+      if (data) setData(data)
+      // else setNotification('Change failed.')
+    })
   };
 
   return (
@@ -52,7 +52,7 @@ export default function FileContent({ setData, student }) {
             <FileContentContainer>
               <FileContentItemContainer>
                 <FileContentItem>Files:</FileContentItem>
-                {/* test */}
+                {/* dodělat maping a mazání souboru */}
                 {student.files[0]}
                 <br />
                 {student.files[1]}

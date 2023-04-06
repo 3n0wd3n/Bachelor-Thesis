@@ -33,7 +33,7 @@ export default async function handler(req, res) {
             try {
                 const { adminId, studentId, lessonId, date } = body
                 
-                await createApology({ studentId, lessonId, from: date.from })
+                await addLessonChange({ _id: lessonId }, { $push: { statuses: date } })
                 const userData = await getUser({ _id: adminId })
                 res.status(200).json(userData);
             } catch {

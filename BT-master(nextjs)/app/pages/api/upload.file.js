@@ -1,6 +1,7 @@
-import fs from "fs/promises"
-import path from 'path'
 import formidable from 'formidable'
+import path from 'path'
+import { updateInfoInUser } from './user.change'
+import { getUser } from './user'
 import { dbConnect, UpdateOneFromMongo, findAllFromMongo, findOneFromMongo, deleteOneFromMongo } from '../../utils/dbMongo'
 
 dbConnect();
@@ -18,6 +19,12 @@ const readFile = req => {
       resolve({ fields, files })
     })
   })
+}
+
+export const config = {
+  api: {
+    bodyParser: false
+  }
 }
 
 export default async function handler(req, res) {
@@ -54,9 +61,14 @@ export default async function handler(req, res) {
       break;
     case 'POST':
       try {
-        await readFile(req)
+        const { id, adminId } = query
+        const files = await readFile(req)
+        const fileName = files.files.file.newFilename
 
-        res.status(200).json( true );
+        await updateInfoInUser({ _id: id }, { $push: { files: fileName }})
+
+        const userData = await getUser({ _id: adminId })
+        res.status(200).json( userData );
       } catch {
         res.status(500).json({ failed: true });
       }
