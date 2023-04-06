@@ -2,6 +2,22 @@
 
 Rozhodl jsem se, že namísto čísté React aplikace vyzkouším informační systém, který mám zadaný jako bakalářskou praci napsat ve Nextjs frameworku, postaveném na prostředí Node.js, který rozšiřuje funkcionalitu webových aplikací vytvořených v knihovně React o další funkce jako například: vykreslování na straně serveru a generování statických webových stránek.
 
+React a Next.js jsou oba nástroje používané pro tvorbu webových aplikací, nicméně mají několik důležitých rozdílů.
+
+React je knihovna pro tvorbu uživatelských rozhraní, která se používá pro tvorbu interaktivních webových stránek a aplikací. React poskytuje mnoho funkcí, jako je například JSX syntaxe pro psaní komponent, virtual DOM pro efektivní aktualizaci uživatelského rozhraní a mnoho dalších.
+
+Next.js je framework pro tvorbu React aplikací, který poskytuje několik funkcí, které React sám o sobě nemá. Například Next.js poskytuje serverové vykreslování (SSR), statické generování (SSG), automatickou kódovou rozdělení (code splitting) a mnoho dalších funkcí, které usnadňují tvorbu webových aplikací. SSR a SSG jsou zvláště užitečné pro zlepšení výkonu a SEO.
+
+Dalšími rozdíly mezi Reactem a Next.js jsou:
+
+> Konfigurace: Při tvorbě aplikace v Reactu je třeba vytvořit celou konfiguraci aplikace ručně, zatímco Next.js má vestavěné konfigurační soubory, které umožňují snadnější nastavení aplikace.
+
+> Routing: V Reactu musí být routing aplikace řešen pomocí třetích stran knihoven, zatímco Next.js obsahuje vlastní vestavěný router.
+
+> Struktura adresářů: Next.js má vlastní strukturu adresářů, která poskytuje základní strukturu pro tvorbu aplikací, zatímco v Reactu si musíte tuto strukturu vytvořit ručně.
+
+Závěrem lze říci, že Next.js může být výhodnou volbou pro tvorbu webových aplikací, protože poskytuje mnoho užitečných funkcí, které React sám o sobě nemá. Nicméně, pro jednoduché aplikace, kde nejsou potřeba tyto funkce, může být React dostačující.
+
 ## dokumentace.txt
 
 Jedná se o textový soubor, ve kterém se snažím při postupu ráce ukládat nějaké poznámky a důležité odkazy, nebo postupy.
