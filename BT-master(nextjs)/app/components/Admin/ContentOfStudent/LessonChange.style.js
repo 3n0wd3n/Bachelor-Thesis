@@ -79,10 +79,10 @@ export const GoBackButton = styled(SettingsBackButton)`
   font-size: 1rem;
 `;
 
-export const SaveButton = styled(SettingsSendButton)`
-  width: 115px;
-  height: 35px;
-  font-size: 1rem;
+export const SaveButton = styled(GoBackButton)`
+`;
+
+export const ApologyButton = styled(GoBackButton)`
 `;
 
 export const LessonChangeMainContainer = styled(CommonDisplayFlexColumn)`
@@ -97,4 +97,7 @@ export const LessonChangeContainer = styled(CommonDisplayFlexRow)`
 
 export const LessonChangeButtonContainer = styled(CommonDisplayFlexRow)`
   gap: 1rem;
+  @media (max-width: 1000px){
+      margin: 0 0 1rem 0;
+    }
 `;

@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import moment from 'moment'
 import { getCookie } from 'cookies-next';
-import { LessonChangeButtonContainer, LessonChangeContainer, LessonChangeMainContainer, WrapperStyled, DateStyled, CalendarContentWrapperStyled, DatesWrapperStyled, SaveButton, GoBackButton, LessonTimeWrapper, WeekWrapperStyled, WeekInputStyled, WeekPlaceholderStyled, CalendarWrapperStyled, DayStyled, LessonStyled } from './LessonChange.style'
+import { ApologyButton, LessonChangeButtonContainer, LessonChangeContainer, LessonChangeMainContainer, WrapperStyled, DateStyled, CalendarContentWrapperStyled, DatesWrapperStyled, SaveButton, GoBackButton, LessonTimeWrapper, WeekWrapperStyled, WeekInputStyled, WeekPlaceholderStyled, CalendarWrapperStyled, DayStyled, LessonStyled } from './LessonChange.style'
 import { AdminLessonTimeInput } from '../AdminAddPage.style'
 
 const week = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
@@ -98,6 +98,36 @@ export default function LessonChange({ student, setData }) {
   const id = getCookie('userCookie')
   const studentId = student.id
 
+  const apologyFromLesson = async () => {
+    const lesson = lessonRef.current;
+    const dateFromString = `${lesson.day.value.slice(0, 4)} ${lesson.day.value.slice(5, 7)} ${lesson.day.value.slice(8, 10)} ${lesson.from.value}`
+    const dateFrom = new Date(dateFromString) 
+    const dateToString = `${lesson.day.value.slice(0, 4)} ${lesson.day.value.slice(5, 7)} ${lesson.day.value.slice(8, 10)} ${lesson.to.value}`
+    const dateTo = new Date(dateToString) 
+
+    const dateFormat = {
+      from: dateFrom,
+      to: dateTo,
+      status: 'apologized'
+    }
+    // new Date("2023, 4, 22, 20:00") 2023-04-22
+    await axios('http://localhost:3000/api/admin.lesson.change', {
+        method: 'POST',
+        data: {
+            adminId: id,
+            studentId,
+            lessonId: selectedDay.id,
+            date: dateFormat,
+        }
+    })
+    .then(({ data }) => {
+        if (data) setData(data)
+        // else setNotification('Change failed.')
+    })
+    // .finally(() => setEdit(prevState => !prevState))
+    // setNotification("Word List Was Edited #goodNotification")
+}
+
   if (selectedDay) {
     const saveTimeChange = async () => {
       const lesson = lessonRef.current;
@@ -164,6 +194,8 @@ export default function LessonChange({ student, setData }) {
         <LessonChangeButtonContainer>
           <GoBackButton onClick={() => setSelectedDay(null)}>back</GoBackButton>
           <SaveButton onClick={() => saveTimeChange()}>save</SaveButton>
+          {/* <ApologyButton onClick={() => console.log("Day: ", lessonRef.current.day.value, "From: ", lessonRef.current.from.value, "To: ", lessonRef.current.to.value)}>apology</ApologyButton> */}
+          <ApologyButton onClick={() => apologyFromLesson()}>apology</ApologyButton>
         </LessonChangeButtonContainer>
       </LessonChangeMainContainer>
     )

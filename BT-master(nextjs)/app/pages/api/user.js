@@ -142,6 +142,8 @@ const getLessonsToPay = async (lessons) => {
 
     lessons.map(lesson => {
       const changedLessons = lesson.changes.map(change => new Date(change.from).getTime())
+      const statusesLessons = lesson.statuses.map(status =>
+        (status.status === 'apologized' || status.status === 'cancelled') && new Date(status.from).getTime())
       const payments = paymentsDb.filter(paymentDb => paymentDb.lessonId == lesson.id)
       const paymentRequests = paymentRequestsDb.filter(paymentRequestDb => paymentRequestDb.lessonId == lesson.id)
       
@@ -159,6 +161,7 @@ const getLessonsToPay = async (lessons) => {
           tempLessonEnd = new Date(changedLesson.newTo)
         }
 
+        let isCancelled = statusesLessons.includes(tempLesson.getTime())
         let isSent = false
         let isPaid = false
         paymentRequests.map(paymentRequest => {
@@ -168,7 +171,7 @@ const getLessonsToPay = async (lessons) => {
           if (new Date(payment.from).getTime() == tempLesson.getTime()) isPaid = true
         })
 
-        if (!isPaid) {
+        if (!isPaid && !isCancelled) {
           newLessons.push({
             id: lesson.id,
             from: tempLesson,

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios'
 import { FaFolderOpen, FaPlusSquare, FaMinusSquare } from 'react-icons/fa'
 import { FileContentBackButtonContainer, FileContentAddButtonContainer, FileContentUploadButton, FileContentInput, FileContentChooseFile, FileContentItem, FileContentItemContainer, FileContentAddContainer, FileContentContainer } from './FilesContent.style'
 
@@ -10,11 +11,20 @@ export default function FileContent({ setData, student }) {
     setSelectedFile(event.target.files[0]);
   };
 
-  const handleSubmit = (event) => {
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(selectedFile);
+    const formData = new FormData()
+    formData.append('file', selectedFile)
+
+    await axios.post('http://localhost:3000/api/upload.file', formData, {
+        headers: {
+            "content-type": "multipart/form-data"
+        },
+    }).then(data => {
+        console.log('done', data.data);
+    });
   };
-  console.log(student);
 
   return (
     <>
