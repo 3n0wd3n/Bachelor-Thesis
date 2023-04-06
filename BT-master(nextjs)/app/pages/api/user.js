@@ -137,12 +137,13 @@ const getStudent = async (userDb, admin=false) => {
 
 const getLessonsToPay = async (lessons) => {
     const newLessons = []
-    // const paymentsDb = await getCollectionFromMongo(Payment)
-    // const allPayments = paymentsDb.map(paymentDb => ({ lessonId: paymentDb.lessonId, from: new Date(paymentDb.from).getTime() }))
+    const paymentsDb = await getCollectionFromMongo(Payment)
+    const paymentRequestsDb = await getCollectionFromMongo(PaymentRequest)
 
     lessons.map(lesson => {
       const changedLessons = lesson.changes.map(change => new Date(change.from).getTime())
-      // const payments = allPayments.find(payment => payment.lessonId == lesson.id)
+      const payments = paymentsDb.filter(paymentDb => paymentDb.lessonId == lesson.id)
+      const paymentRequests = paymentRequestsDb.filter(paymentRequestDb => paymentRequestDb.lessonId == lesson.id)
       
       let now = new Date().getTime();
       let lessonDate = new Date(lesson.date);
@@ -158,16 +159,29 @@ const getLessonsToPay = async (lessons) => {
           tempLessonEnd = new Date(changedLesson.newTo)
         }
 
-        newLessons.push({
-          id: lesson.id,
-          from: tempLesson,
-          to: tempLessonEnd,
+        let isSent = false
+        let isPaid = false
+        paymentRequests.map(paymentRequest => {
+          if (new Date(paymentRequest.from).getTime() == tempLesson.getTime()) isSent = true
         })
+        payments.map(payment => {
+          if (new Date(payment.from).getTime() == tempLesson.getTime()) isPaid = true
+        })
+
+        if (!isPaid) {
+          newLessons.push({
+            id: lesson.id,
+            from: tempLesson,
+            to: tempLessonEnd,
+            sent: isSent,
+          })
+        }
 
         lessonDate = addDays(lessonDate, 7)
       }
     })
 
+    newLessons.sort((a, b) => new Date(b.from).getTime() - new Date(a.from).getTime()).reverse()
     return newLessons
 }
 

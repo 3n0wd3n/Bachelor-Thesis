@@ -38,12 +38,12 @@ export default function PaymentPage({ data, setData, setPaymentPage, setNotifica
       <StudentPaymentMainContainer>
         <FontsHeaderBold>Payments</FontsHeaderBold>
         {lessonsToPay.map((lessonToPay, index) => (
-          <StudentPaymentContainer key={index}>
+          <StudentPaymentContainer key={index} sent={lessonToPay.sent}>
             <StudentContainer>
               <span>Lesson to pay:</span>
               <span>{moment(lessonToPay.from).format('D. MMMM HH:mm')}</span>
             </StudentContainer>
-            <StudentSentButton style={{ cursor: 'pointer' }} onClick={() => createPaymentRequest(lessonToPay)}>pay now</StudentSentButton>
+            <StudentSentButton disabled={lessonToPay.sent} onClick={() => createPaymentRequest(lessonToPay)}>pay now</StudentSentButton>
           </StudentPaymentContainer>
         ))}
         <StudentPaymentContainerInfo>

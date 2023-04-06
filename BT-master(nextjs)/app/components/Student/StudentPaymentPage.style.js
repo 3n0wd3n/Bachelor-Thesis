@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { CommonDisplayFlexColumn, CommonDisplayFlexRow } from '../CommonStyles'
 import { SettingsBackButton } from './StudentSettingsPage.style'
 import {Colors} from '../../utils/Colors'
@@ -6,12 +6,12 @@ import {Colors} from '../../utils/Colors'
 // little help ->  ``; 
 
 export const StudentPaymentMainContainer = styled(CommonDisplayFlexColumn)`
-    height: 100vh;
+    min-height: 100vh;
 `;
 
 export const StudentPaymentContainerInfo = styled(CommonDisplayFlexColumn)`
-    height: 20%;
-    width: 40%;
+    height: 20vh;
+    width: 50%;
     align-items: flex-start;
     @media (max-width: 900px) {
         width: 70%;
@@ -25,11 +25,12 @@ export const StudentPaymentContainerInfo = styled(CommonDisplayFlexColumn)`
 `;
 
 export const StudentPaymentContainer = styled(CommonDisplayFlexRow)`
-    height: 10%;
-    width: 40%;
+    height: 10vh;
+    width: 50%;
     /* align-items: flex-start; */
     justify-content: space-between;
     border-bottom: 1px solid ${Colors.darkGray};
+    filter: ${({ sent }) => sent && 'opacity(.5)'};
     @media (max-width: 900px) {
         width: 70%;
     }
@@ -37,7 +38,12 @@ export const StudentPaymentContainer = styled(CommonDisplayFlexRow)`
         width: 80%;
     }
     @media (max-width: 500px) {
-        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        gap: 1rem;
+        height: 12vh;
     }
 `;
 
@@ -60,4 +66,12 @@ export const StudentSentButton = styled(SettingsBackButton)`
     :hover{
         background-color: ${Colors.lightGreen};
     }
+    ${({ disabled }) => disabled ? css`
+        cursor: not-allowed;
+        :hover{
+            background-color: ${Colors.white};
+            color: black;
+        }
+    ` : css`
+    `}
 `;
