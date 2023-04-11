@@ -31,8 +31,10 @@ export default async function handler(req, res) {
     case 'PATCH':
       try {
         const { adminId, studentId, changedWordList } = body
+        
         await updateInfoInUser({ _id: studentId }, { wordList: changedWordList })
         const userData = await getUser({ _id: adminId })
+        
         res.status(200).json( userData );
       } catch {
         res.status(500).json({ failed: true });
@@ -41,6 +43,7 @@ export default async function handler(req, res) {
     case 'DELETE':
       try {
         const { adminId, studentId, erasable, difference } = body
+
         if (difference === "homework"){
           await updateInfoInUser({ _id: studentId }, { $pull: { homeworks: erasable } })
           await deleteHomework({ _id: erasable })
@@ -51,6 +54,7 @@ export default async function handler(req, res) {
         if (difference === "file"){
           await updateInfoInUser({ _id: studentId }, { $pull: { files: erasable }})
         }
+
         const userData = await getUser({ _id: adminId })
         res.status(200).json( userData );
       } catch {
@@ -60,12 +64,14 @@ export default async function handler(req, res) {
     case 'PUT':
       try {
         const { adminId, id, newTitle, newDescription } = body
+
         const homework = await createHomework({
           title: newTitle,
           description: newDescription
         });
         await updateInfoInUser({ _id: id }, { $push: { homeworks: homework._id } })
         const userData = await getUser({ _id: adminId })
+
         res.status(200).json( userData );
       } catch {
         res.status(500).json({ failed: true });
@@ -76,8 +82,10 @@ export default async function handler(req, res) {
         // const changedName = body.changedName
         // const changedSurname = body.changedSurname
         const { adminId, studentId, changedName, changedSurname, plan } = body
+
         await updateInfoInUser({ _id: studentId }, { name: changedName, surname: changedSurname, plan })
         const userData = await getUser({ _id: adminId })
+
         res.status(200).json( userData );
       } catch (err) {
         res.status(500).json({ failed: true });

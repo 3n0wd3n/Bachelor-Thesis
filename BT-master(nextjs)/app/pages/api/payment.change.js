@@ -27,6 +27,7 @@ export default async function handler(req, res) {
         case 'POST':
             try {
                 const { adminId, payment } = body
+
                 await createPayment({
                     studentId: payment.userId,
                     lessonId: payment.lessonId,
@@ -34,6 +35,7 @@ export default async function handler(req, res) {
                     amount: payment.amount,
                 })
                 await removePaymentRequest({ _id: payment.id })
+                
                 const userData = await getUser({ _id: adminId })
                 res.status(200).json( userData );
             } catch {

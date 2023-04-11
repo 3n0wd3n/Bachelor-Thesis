@@ -108,4 +108,4 @@ Nad technologiemi ještě přemýšlím co by bylo lepší použít. Výhodou je
 - [x] zobrazit hodiny u studenta, které proběhly a které ještě nemá označené jako zaplacené
 - [x] rodič a student starší 18 let budou mít možnost říct, že danou hodinu zaplatili
 - [x] zobrazení omluvenek a plateb
-- [ ] vkládání a ukládání souborů
+- [x] vkládání a ukládání souborů

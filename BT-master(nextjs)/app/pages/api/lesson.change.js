@@ -32,6 +32,7 @@ export default async function handler(req, res) {
         case 'POST':
             try {
                 const { studentId, lessonId, date } = body
+
                 await createApology({ studentId, lessonId, from: date.from })
                 await addLessonChange({ _id: lessonId }, { $push: { statuses: date } })
 
@@ -44,6 +45,7 @@ export default async function handler(req, res) {
         case 'PUT':
             try {
                 const { id, lessonId, from, amount } = body
+
                 await createPaymentRequest({ studentId: id, lessonId, from, amount })
 
                 const userData = await getUser({ _id: id })
@@ -62,6 +64,7 @@ export default async function handler(req, res) {
         case 'PATCH':
             try {
                 const { adminId, apologyId } = body
+                
                 await updateInfoInApology({ _id: apologyId }, { seen: true })
 
                 const userData = await getUser({ _id: adminId })

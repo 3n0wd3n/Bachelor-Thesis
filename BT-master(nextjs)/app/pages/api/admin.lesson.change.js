@@ -35,6 +35,7 @@ export default async function handler(req, res) {
                 
                 await addLessonChange({ _id: lessonId }, { $push: { statuses: date } })
                 const userData = await getUser({ _id: adminId })
+                
                 res.status(200).json(userData);
             } catch {
                 res.status(500).json({ failed: true });

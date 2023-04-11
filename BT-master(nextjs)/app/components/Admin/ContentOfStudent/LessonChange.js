@@ -17,7 +17,6 @@ const generateNextLessons = (lessons, weeks) => {
   const nextLessons = []
   let timeShift = false
   let i = 0
-  console.log(lessons)
   while (nextLessons.length < weeks) {
     const weekLessons = []
 
@@ -56,7 +55,6 @@ const generateNextLessons = (lessons, weeks) => {
       if (lessonsThisDay) {
         const cancelledLessons = lessonsThisDay[1].statuses.map(day => (day.status === 'apologized' || day.status === 'cancelled') && new Date(day.from).getTime())
         isCancelled = cancelledLessons.includes(new Date(lessonsThisDay[1].date).getTime())
-        console.log(lessonsThisDay[1], isCancelled)
       }
       
       formattedWeek.push(lessonsThisDay && !isCancelled ? (new Date(lessonsThisDay[1].date).getTime() > new Date().getTime() ? lessonsThisDay[1] : null) : null)
@@ -120,7 +118,7 @@ export default function LessonChange({ data, student, setData, setNotification }
       }
     }
 
-    const apologyFromLesson = async () => {
+    const cancelLesson = async () => {
       const formattedDate = formatDate()
   
       const dateFormat = {
@@ -190,7 +188,7 @@ export default function LessonChange({ data, student, setData, setNotification }
         <LessonChangeButtonContainer>
           <GoBackButton onClick={() => setSelectedDay(null)}>back</GoBackButton>
           <SaveButton onClick={() => saveTimeChange()}>save</SaveButton>
-          <ApologyButton onClick={() => apologyFromLesson()}>cancelled</ApologyButton>
+          <ApologyButton onClick={() => cancelLesson()}>cancelled</ApologyButton>
         </LessonChangeButtonContainer>
       </LessonChangeMainContainer>
     )

@@ -41,8 +41,9 @@ export default async function handler(req, res) {
         case 'DELETE':
             try {
                 const { adminId, studentId } = body
-                console.log("REMOVING student: ", body)
+
                 await updateInfoInStudent({ _id: studentId }, { disabled: true })
+                
                 const userData = await getUser({ _id: adminId })
                 res.status(200).json( userData );
             } catch {
