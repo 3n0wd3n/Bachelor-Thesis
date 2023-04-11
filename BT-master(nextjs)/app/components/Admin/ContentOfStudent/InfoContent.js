@@ -57,12 +57,13 @@ const arrayEquals = (a, b) => {
 }
 
 export default function InfoContent({ student, setData, setNotification }) {
+    const oldLessons = student.lessons 
     const lessons = React.useMemo(() => constructWeek(student.lessons), [student])
     const [edit, setEdit] = React.useState(false)
     const [plan, setPlan] = React.useState(student.plan.map(plan => ({ value: plan, key: randomStringGen() })))
     const nameRef = React.useRef(null)
     const surnameRef = React.useRef(null)
-
+    
     const addArrayAttribute = () => {
         setPlan(prevPlan => [...prevPlan, { value: 'set plan...', key: randomStringGen() }])
     }
@@ -169,6 +170,7 @@ export default function InfoContent({ student, setData, setNotification }) {
                 </StudentPlanValues>
             </StudentInfoContainerOne>
             <StudentInfoContainerTwo>
+                {/* TO DO -> udělat podmínku, jestli je pole s hodinami na tento týden prázdné, tak napsat, že tento týden nemáš hodinu :) nebo tady dát prostě obecný stav kdy hodina je */}
                 {lessons.map((lesson, key) =>
                     <div key={key}>
                         <StudentValueAttribute>{lesson[0]}</StudentValueAttribute>
