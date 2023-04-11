@@ -1,4 +1,4 @@
-** Kolekce
+** Kolekce **
 
 V databázi se nachází 6 kolekcí, kde některé z nich jsou propojené. 
 
