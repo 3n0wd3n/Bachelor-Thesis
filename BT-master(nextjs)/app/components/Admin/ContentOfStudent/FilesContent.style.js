@@ -45,7 +45,14 @@ export const FileContentItemContainer = styled(FileContentContainer)`
     min-height: 100%;
     width: 100%;
     align-items: flex-start;
-    margin: 0 0 0 2em;
+    margin: 0 0 0 2rem;
+    gap: 1rem;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    @media (max-width: 1200px){
+        align-items: center;
+        margin: 0 0 0 0;
+    }
 `;
 
 export const FileContentItem = styled.span`
@@ -70,7 +77,7 @@ export const FileContentInput = styled.input.attrs({
     font-family: 'Raleway', sans-serif;
     font-size: ${FileContentValue}rem;
     font-weight: 300;
-    margin: 0 0 0 1em;
+    margin: 0 0 0 1rem;
     color: ${Colors.lightGreen};
     background-color: ${Colors.darkGray};
     border-radius: 2px;
@@ -111,13 +118,45 @@ export const FileContentAddButtonContainer = styled.div`
 export const FileContentBackButtonContainer = styled.div`
     & > svg {
         color: ${Colors.red};
-        margin: 1em 0 1em 0;
+        margin: 1rem 0 1rem 0;
         font-size: ${FileContentButtonValue}rem;
         cursor: pointer;
         transition: .7s;
         &:hover{
             transform: scale(1.1);
             opacity: 0.7;
+        }
+    }
+`;
+
+export const FileContentFile = styled.span`
+
+`;
+
+export const FileContentFilesWrapper = styled.div`
+    @media (max-width: 1200px){
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 1rem 0 0 0;
+        border-bottom: 1px solid ${Colors.darkGray};
+        padding: 1rem 0 1rem 0;
+    }
+`;
+
+export const FileContentRemoveFile = styled.span`
+    margin: 0 0 0 1rem;
+    & > svg {
+        cursor: pointer;
+        color: ${Colors.red};
+        transition: .7s;
+        &:hover{
+            transform: scale(1.1);
+        }
+        @media (max-width: 1200px){
+            margin: 1rem 0 0 0;
         }
     }
 `;

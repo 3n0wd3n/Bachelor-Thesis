@@ -41,13 +41,15 @@ export default async function handler(req, res) {
     case 'DELETE':
       try {
         const { adminId, studentId, erasable, difference } = body
-        console.log(difference)
         if (difference === "homework"){
           await updateInfoInUser({ _id: studentId }, { $pull: { homeworks: erasable } })
           await deleteHomework({ _id: erasable })
         }
-        else{
+        if (difference === "summary"){
           await updateInfoInUser({ _id: studentId }, { $pull: { summary: erasable } })
+        }
+        if (difference === "file"){
+          await updateInfoInUser({ _id: studentId }, { $pull: { files: erasable }})
         }
         const userData = await getUser({ _id: adminId })
         res.status(200).json( userData );

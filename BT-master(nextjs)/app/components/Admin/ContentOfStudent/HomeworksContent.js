@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { getCookie } from 'cookies-next';
-import { FaTrash, FaRegEdit, FaPlusSquare, FaMinusSquare } from 'react-icons/fa'
+import { FaTrash, FaPlusSquare, FaMinusSquare } from 'react-icons/fa'
 import { HomeworksContentShowContentEditContainer, HomeworksContentShowTitleItem, HomeworksContentShowMainContainer, HomeworksContentShowContainer } from './HomeworksContentShow.style'
 import HomeworksContentEmpty from './HomeworksContentEmpty'
 import HomeworksContentAdd from './HomeworksContentAdd'
@@ -24,15 +24,15 @@ export default function HomeworksContent({ student, setData, setNotification }) 
             }
         }).then(({ data }) => {
             if (data) setData(data)
-            else alert('Change failed.')
-        })
+            else setNotification('Change failed.')
+        }).finally(() => setNotification("Homework Was Removed ! #goodNotification"))
     }
 
     return (
         <>
             {edit
                 ?
-                <HomeworksContentAdd student={student} setEdit={setEdit} setData={setData} setNotification={setNotification}/>
+                <HomeworksContentAdd student={student} setEdit={setEdit} setData={setData} setNotification={setNotification} />
                 :
                 <HomeworksContentShowMainContainer>
                     {student.homeworks.length > 0

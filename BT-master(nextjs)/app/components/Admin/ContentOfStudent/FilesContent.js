@@ -1,11 +1,31 @@
 import React, { useState } from 'react';
 import axios from 'axios'
-import { FaFolderOpen, FaPlusSquare, FaMinusSquare } from 'react-icons/fa'
-import { FileContentBackButtonContainer, FileContentAddButtonContainer, FileContentUploadButton, FileContentInput, FileContentChooseFile, FileContentItem, FileContentItemContainer, FileContentAddContainer, FileContentContainer } from './FilesContent.style'
+import { getCookie } from 'cookies-next';
+import { FaFolderOpen, FaPlusSquare, FaMinusSquare, FaTrash } from 'react-icons/fa'
+import { FileContentRemoveFile, FileContentFilesWrapper, FileContentFile, FileContentBackButtonContainer, FileContentAddButtonContainer, FileContentUploadButton, FileContentInput, FileContentChooseFile, FileContentItem, FileContentItemContainer, FileContentAddContainer, FileContentContainer } from './FilesContent.style'
 
-export default function FileContent({ data, setData, student }) {
+export default function FileContent({ data, setData, student, setNotification }) {
   const [selectedFile, setSelectedFile] = useState(null);
   const [add, setAdd] = React.useState(false)
+  const id = getCookie('userCookie')
+
+  const removeFile = async (file) => {
+    const test = "a"
+    await axios('http://localhost:3000/api/user.change', {
+      method: 'DELETE',
+      data: {
+        adminId: id,
+        studentId: student.id,
+        erasable: file,
+        difference: "file"
+      }    
+    }
+    ).then(({ data }) => {
+      if (data) setData(data)
+      else setNotification('Change failed.')
+    })
+    .finally(() => setNotification("File Was Removed ! #goodNotification"))
+  }
 
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -17,13 +37,13 @@ export default function FileContent({ data, setData, student }) {
     formData.append('file', selectedFile)
 
     await axios.post(`http://localhost:3000/api/upload.file?id=${student.id}&adminId=${data.id}`, formData, {
-        headers: {
-            "content-type": "multipart/form-data"
-        },
+      headers: {
+        "content-type": "multipart/form-data"
+      },
     }).then(({ data }) => {
       if (data) setData(data)
-      // else setNotification('Change failed.')
-    })
+      else setNotification('Change failed.')
+    }).finally(() => setNotification("File Was Uploaded ! #goodNotification"))
   };
 
   return (
@@ -51,11 +71,16 @@ export default function FileContent({ data, setData, student }) {
           <>
             <FileContentContainer>
               <FileContentItemContainer>
-                <FileContentItem>Files:</FileContentItem>
-                {/* dodělat maping a mazání souboru */}
-                {student.files[0]}
-                <br />
-                {student.files[1]}
+                {/* <FileContentItem>Files:</FileContentItem> */}
+                {student.files.map((file, index) =>
+                  <FileContentFilesWrapper key={index}>
+                    <FileContentFile href={`images/${file}`} target='_blank'>{file}</FileContentFile>
+                    <FileContentRemoveFile onClick={() => removeFile(file)}>
+                      <FaTrash />
+                    </FileContentRemoveFile>
+                  </FileContentFilesWrapper>
+                )}
+
               </FileContentItemContainer>
             </FileContentContainer>
             <FileContentAddButtonContainer onClick={() => setAdd(prevState => !prevState)}>

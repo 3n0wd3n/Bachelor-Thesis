@@ -105,8 +105,7 @@ export const StudentMCFontsSectionItems = styled(FontsThin)`
     display: flex;
     flex-direction: column;
     font-size: ${NormalFontSize}rem;
-    // font-weight: 400; potom nastavit barče
-    color: ${Colors.white}; 
+    color: ${Colors.white};
     text-shadow: -2px 2px 4px rgba(0, 0, 0, 0.25);
     @media (max-width: 1200px) {
         font-size: ${SmallFontSize}rem;
@@ -114,7 +113,13 @@ export const StudentMCFontsSectionItems = styled(FontsThin)`
 `;
 
 export const StudentMCFontsSectionItem = styled.a`
-    
+    color: ${Colors.white};
+    text-decoration: none;
+    font-weight: 400;
+    transition: .6s;
+    &:hover{
+        transform: scale(1.03);
+    }
 `;
 
 export const StudentMCFontsSectionLinkItem = styled.a`
