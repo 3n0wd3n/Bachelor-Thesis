@@ -74,7 +74,7 @@ export default function FileContent({ data, setData, student, setNotification })
                 {/* <FileContentItem>Files:</FileContentItem> */}
                 {student.files.map((file, index) =>
                   <FileContentFilesWrapper key={index}>
-                    <FileContentFile href={`images/${file}`} target='_blank'>{file}</FileContentFile>
+                    <FileContentFile href={`images/${file}`} target='_blank'>{file.slice(14,)}</FileContentFile>
                     <FileContentRemoveFile onClick={() => removeFile(file)}>
                       <FaTrash />
                     </FileContentRemoveFile>

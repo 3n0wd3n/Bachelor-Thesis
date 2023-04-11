@@ -168,7 +168,7 @@ export default function MainContent({ data, setData, isRepresentative, setNotifi
               <StudentMCFilesItems>
                 <StudentMCFontsSectionItems>
                   {data.files.map((file, index) =>
-                    <StudentMCFontsSectionItem key={index} href={`images/${file}`} target='_blank'>{file}</StudentMCFontsSectionItem>
+                    <StudentMCFontsSectionItem key={index} href={`images/${file}`} target='_blank'>{file.slice(14,)}</StudentMCFontsSectionItem>
                   )}
                 </StudentMCFontsSectionItems>
               </StudentMCFilesItems>

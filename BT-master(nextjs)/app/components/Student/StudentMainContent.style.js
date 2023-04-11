@@ -129,7 +129,10 @@ export const StudentMCFontsSectionLinkItem = styled.a`
     text-shadow: -2px 2px 4px rgba(0, 0, 0, 0.25);
     @media (max-width: 1200px) {
         font-size: ${SmallFontSize}rem;
-    }  
+    } 
+    &:visited {
+        color: ${Colors.darkGray};
+    } 
 `;
 
 export const StudentMCHomeworks = styled(CommonDisplayFlexColumn)`
