@@ -17,15 +17,11 @@ _Pokusím se je postupně projít, říct k čemu slouží a jak jsou propojené
 
 Notace:
 
-pole = []
-
-objekt = {}
-
-číslo = int
-
-řetězec = str
-
-pravdivostni hodnota = bool
+    pole = []
+    objekt = {}
+    číslo = int
+    řetězec = str
+    pravdivostni hodnota = bool
 
 **KOLEKCE - USER**
 
