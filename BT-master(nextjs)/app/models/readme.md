@@ -13,15 +13,18 @@ V databázi se nachází 6 kolekcí, kde některé z nich jsou propojené.
 > payments
 > 
 > paymentRequests
-
-Pokusím se je postupně projít, říct k čemu slouží a jak jsou propojené.
+_Pokusím se je postupně projít, říct k čemu slouží a jak jsou propojené._
 
 Notace:
 
 pole = []
+
 objekt = {}
+
 číslo = int
+
 řetězec = str
+
 pravdivostni hodnota = bool
 
 **KOLEKCE - USER**
