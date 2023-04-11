@@ -1,0 +1,57 @@
+# soubor struktura.js
+- návrh na příchozí na poskládání dat různých rolí ze serveru
+# app složka
+- obsahuje celou aplikaci
+
+# použité pluginy -> nejdřív je potřeba stáhnout node.js
+
+npx create-next-app@latest 
+
+npm i styled-components axios
+
+# v app/next.config.js musíme říct, že budeme používat styled componenty
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
+  compiler: {
+    styledComponents: true,
+  }
+}
+
+# spuštění serveru (člověk musí být v app složce)
+    npm run dev, nebo next dev
+    + otevření na localhost:3000 v prohlížeči
+
+# při testování na webu přistupuju skrz URL
+
+základní login -> http://localhost:3000/ 
+
+admin, nebo student podle toho jak se budu přihlašovat -> http://localhost:3000/dashboard
+
+ZAJÍMAJÍ NAS JEN SLOŽKY PUBLIC, PAGES
+
+# public 
+- složka, která zpřístupnuje ostatní věci (hostuje je), ale v zásadě je to složka, která v sobě obsahuje icony, favicony, obrázky apod.
+
+# pages 
+- složka, kde jsou stránky, na které se budeme routovat
+
+# pages/api
+- tady bude běžet náš server
+
+# components
+- tady jsou react componenty se svou strukturou a stylováním, které potom voláme v pages v jednotlových stránkách
+
+(\_/)   (\_/)
+(- -)   (- -)_/
+  V     /|  |
+/|  |\   //\\
+ //\\
+
+ # přidávání icon
+ https://daily-dev-tips.com/posts/how-to-use-react-icons-in-nextjs/
+ https://react-icons.github.io/react-icons
+
+ # installing icons 
+
+  npm install react-icons --save
