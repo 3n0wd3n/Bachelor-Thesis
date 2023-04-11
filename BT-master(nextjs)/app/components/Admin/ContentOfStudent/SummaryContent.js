@@ -24,8 +24,8 @@ export default function SummaryContent({ setData, student, setNotification }) {
             }
         }).then(({ data }) => {
             if (data) setData(data)
-            else alert('Change failed.')
-        })
+            else setNotification('Change failed.')
+        }).finally(() => setNotification("Summary Was Deleted ! #goodNotification"))
     }
 
     async function createSummary(){
