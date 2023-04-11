@@ -25,6 +25,7 @@ objekt = {}
 pravdivostni hodnota = bool
 
 **KOLEKCE - USER**
+
     {
     "_id": {"$oid":"63f0c3f9fa7ab09efe5fd64f"},
     "role": "admin/representative/student",
