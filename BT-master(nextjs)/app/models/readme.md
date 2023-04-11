@@ -32,14 +32,14 @@ Notace:
         "name": str,
         "surname": str,
         "username": str,
-        "phone": str,
+        "phone": str, // když má student zákonného zástupce, tak je v této kolekci i telefonní číslo
         "password": str,
         "students": [str -> {}],
-        "disabled": bool,
-        "lectures": [str -> {}],
-        "legalRepresentative": str -> {},
-        "child": [str -> {}],
-        "homeworks": [str -> {}],
+        "disabled": bool, // když nechceme studenta nadále zobrazovat u admina, ale chceme zachovat data o studentovi v databázi
+        "lectures": [str -> {}], // id odkaz na záznam v kolekci lectures
+        "legalRepresentative": str -> {}, // id zákonného zástupce dítěte
+        "child": [str -> {}], // pole id odkazů na děti v kolekci users daného zákonného zástupce
+        "homeworks": [str -> {}], // pole id odkazu na záznamy o domácích úkolek v kolekci homeworks
         "plan": [str],
         "wordList": str,
         "files": [str],
