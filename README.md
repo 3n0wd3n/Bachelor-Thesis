@@ -71,11 +71,10 @@ Nad technologiemi ještě přemýšlím co by bylo lepší použít. Výhodou je
   > technologie, které budou webovou aplikaci absluhovat jsou na straně clienta REACTJS a na straně serveru NODEJS, EXPRESS (bude běžet na HEROKU) + databáze MONGODB (běží na atlasu)
 - [x] ve Figmě navrhnout design celé stránky (s viditelnou responzivitou a naznačenými klikacími úkony) --> pro možnost sledování průběhu návrhu přikládám odkaz na [PROTOTYP ve Figmě](https://www.figma.com/file/EsdxbekJrScMOYiIbjaQNq/Bachelor-Thesis?node-id=0%3A1)
 - [x] postupně pomocí styled components začít stylovat stránky dle návrhu z figmy
-- [x] nakonfigurovat Express server
+- [x] nakonfigurovat server
 - [x] rozvrhnout databáze
 - [x] propojit databázi s MongoDB ATLAS
 - [x] samotné propojení a naprogramování webové aplikace
-- [ ] ER diagram, UML diagram
 
 **O CO BY SE DALA BAKÁLÁŘKA ROZŠÍŘIT**
 
@@ -95,6 +94,7 @@ Nad technologiemi ještě přemýšlím co by bylo lepší použít. Výhodou je
 - PŘI ZAKLÁDÁNÍ UŽIVATELE ŘÍCT ADMINOVI JESTLI NEDÁVÁ UŽIVATELE NA DATUM, KTERÉ UŽ MÁ NĚJAKÝ STUDENT ZABRANÉ
 - V RODIČOVSKÉM MODU MÍT VŠECHNO V ČEŠTINĚ
 - DODĚLAT UPOZORNĚNÍ KDYŽ SE BUDE JEDNAT O DESTRUKTIVNÍ AKCE (odstranění studenta například)
+- KONTAKTNÍ INFORMACE NA DÍTĚ NEBO NA ZÁKONNÉHO ZÁSTUPCE
 
 **TMP TO DO**
 
