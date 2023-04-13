@@ -110,3 +110,4 @@ Nad technologiemi ještě přemýšlím co by bylo lepší použít. Výhodou je
 - [x] rodič a student starší 18 let budou mít možnost říct, že danou hodinu zaplatili
 - [x] zobrazení omluvenek a plateb
 - [x] vkládání a ukládání souborů
+- [ ] snímky podrobného rozjetí projektu -> github desktop, instalace balíčku a podobně
