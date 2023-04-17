@@ -66,7 +66,7 @@ První příkaz, který je třeba udělat je:
 
 protože budeme instalovat baláčky z __*package.json*__ , které je možné vidět v souboru.
  
-Pro spuštění aplikace je nutné mít stažené všechny potřebné baličky které lze najít v souboru __*package.json*__, který se nachází v adresáří __*~/BT-master(nextjs)/app/package.json*__. Je potřeba stahovat tyto balíčky do cesty 
+Pro spuštění aplikace je nutné mít stažené všechny potřebné baličky které lze najít v souboru __*package.json*__, který se nachází v adresáří __*~/BT-master(nextjs)/app/package.json*__. Je potřeba stahovat tyto balíčky do cesty __*BT-master(nextjs)/app*__
 
 ![image](https://user-images.githubusercontent.com/47132583/230058864-d9761c91-ffa6-43bd-abd0-922f62596e33.png)
 
