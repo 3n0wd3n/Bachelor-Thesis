@@ -64,7 +64,7 @@ První příkaz, který je třeba udělat je:
 
     cd BT-master(nextjs)/app
 
-protože budeme instalovat baláčky u __*package.json*__ , které je možné vidět v souboru.
+protože budeme instalovat baláčky z __*package.json*__ , které je možné vidět v souboru.
  
 Pro spuštění aplikace je nutné mít stažené všechny potřebné baličky které lze najít v souboru __*package.json*__, který se nachází v adresáří __*~/BT-master(nextjs)/app/package.json*__. Je potřeba stahovat tyto balíčky do cesty 
 
