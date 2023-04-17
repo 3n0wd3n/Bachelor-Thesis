@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next start"
   },
   "dependencies": {
     "axios": "^0.27.2",
@@ -23,9 +22,5 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.6.0",
     "styled-components": "^5.3.6"
-  },
-  "devDependencies": {
-    "eslint": "8.24.0",
-    "eslint-config-next": "12.3.1"
   }
 }
