@@ -42,6 +42,7 @@ export default function AdminStudentContent({ data, student, setData, setNotific
     //     },
     //   ]
     // , [student])
+
     const [selectedMenu, setSelectedMenu] = React.useState('info/edit');
 
     return (
@@ -53,33 +54,33 @@ export default function AdminStudentContent({ data, student, setData, setNotific
                 <FaAngleDown />
             </StudentContainer>
             {
-              state
-              &&
-              <DropDown>
-                  <MenuItems>
-                      {/* {menuItems.map((menuItem, key) =>
+                state
+                &&
+                <DropDown>
+                    <MenuItems>
+                        {/* {menuItems.map((menuItem, key) =>
                           <MenuItem
                             key={key}
                             selected={menuItem.title === selectedMenu.title}
                             onClick={() => setSelectedMenu(menuItem)}>{menuItem.title}
                           </MenuItem>
                       )} */}
-                      <MenuItem selected={selectedMenu === 'info/edit'} onClick={() => setSelectedMenu('info/edit')}>info/edit</MenuItem>
-                      <MenuItem selected={selectedMenu === 'lessons change'} onClick={() => setSelectedMenu('lessons change')}>lessons change</MenuItem>
-                      <MenuItem selected={selectedMenu === 'files'} onClick={() => setSelectedMenu('files')}>files</MenuItem>
-                      <MenuItem selected={selectedMenu === 'homeworks'} onClick={() => setSelectedMenu('homeworks')}>homeworks</MenuItem>
-                      <MenuItem selected={selectedMenu === 'lesson summary'} onClick={() => setSelectedMenu('lesson summary')}>lesson summary</MenuItem>
-                      <MenuItem selected={selectedMenu === 'word list'} onClick={() => setSelectedMenu('word list')}>word list</MenuItem>
-                  </MenuItems>
-                  <ContentContainer>
-                    {selectedMenu === 'info/edit' && <InfoContent setData={setData} student={student} setNotification={setNotification}/>}
-                    {selectedMenu === 'lessons change' && <LessonChange data={data} student={student} setData={setData} setNotification={setNotification}/>}
-                    {selectedMenu === 'files' && <FileContent data={data} setData={setData} student={student} setNotification={setNotification}/>}
-                    {selectedMenu === 'homeworks' && <HomeworksContent student={student} setData={setData} setNotification={setNotification} />}
-                    {selectedMenu === 'lesson summary' && <SummaryContent student={student} setData={setData} setNotification={setNotification} />}
-                    {selectedMenu === 'word list' && <WordListContent student={student} setData={setData} setNotification={setNotification}/>}
-                  </ContentContainer>
-              </DropDown>
+                        <MenuItem selected={selectedMenu === 'info/edit'} onClick={() => setSelectedMenu('info/edit')}>info/edit</MenuItem>
+                        <MenuItem selected={selectedMenu === 'lessons change'} onClick={() => setSelectedMenu('lessons change')}>lessons change</MenuItem>
+                        <MenuItem selected={selectedMenu === 'files'} onClick={() => setSelectedMenu('files')}>files</MenuItem>
+                        <MenuItem selected={selectedMenu === 'homeworks'} onClick={() => setSelectedMenu('homeworks')}>homeworks</MenuItem>
+                        <MenuItem selected={selectedMenu === 'lesson summary'} onClick={() => setSelectedMenu('lesson summary')}>lesson summary</MenuItem>
+                        <MenuItem selected={selectedMenu === 'word list'} onClick={() => setSelectedMenu('word list')}>word list</MenuItem>
+                    </MenuItems>
+                    <ContentContainer>
+                        {selectedMenu === 'info/edit' && <InfoContent setData={setData} student={student} setNotification={setNotification} />}
+                        {selectedMenu === 'lessons change' && <LessonChange data={data} student={student} setData={setData} setNotification={setNotification} />}
+                        {selectedMenu === 'files' && <FileContent data={data} setData={setData} student={student} setNotification={setNotification} />}
+                        {selectedMenu === 'homeworks' && <HomeworksContent student={student} setData={setData} setNotification={setNotification} />}
+                        {selectedMenu === 'lesson summary' && <SummaryContent student={student} setData={setData} setNotification={setNotification} />}
+                        {selectedMenu === 'word list' && <WordListContent student={student} setData={setData} setNotification={setNotification} />}
+                    </ContentContainer>
+                </DropDown>
             }
         </>
     )
