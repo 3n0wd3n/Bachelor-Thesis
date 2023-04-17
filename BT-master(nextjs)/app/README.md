@@ -48,7 +48,16 @@ Jedná se o soubory __*.gitignore*__, __*.next.config.js*__, __*package-lock.jso
 
 ![files](https://user-images.githubusercontent.com/47132583/195809618-ff0989c8-9f3b-4125-8640-8c3919b88675.png)
 
-## SPOUŠTĚNÍ APLIKACE
+## SPOUŠTĚNÍ APLIKACE NA LOCALU
+
+> Je potřeba nakolonovat si celý projekt k sobě. Já osobně rád používám GitHub desktop [Instalace GitHub Desktop](https://desktop.github.com/). Naklonovat projekt je potřeba celý, takže půjdeme na stránku celého projektu [PROJEKT](https://github.com/3n0wd3n/Bachelor-Thesis) a stískneme CODE, kde vybereme možnost "Clone with GitHub Desktop" ![image](https://user-images.githubusercontent.com/47132583/232567829-c727d965-1e75-43e5-b7e2-242c2b4e8e47.png)
+>
+> Budeme potřebova potřebovat prostředí, ve kterém si kod zobrazíme. Já jsem celou bakalářskou práci psal ve Visual Studio Code a odkaz na stažení je zde [VS CODE](https://code.visualstudio.com/download) 
+>
+> Teď je potřeba aplikaci otevřít, takže najedeme do GitHub Desktop a vybereme adresář "Batchelor-Thesis" a pravým vybereme "Open in Visual Studio Code" ![image](https://user-images.githubusercontent.com/47132583/232568957-fe49eedf-ac11-460b-b585-acddd0f13a0b.png)
+> 
+>
+
 
 Pro spuštění aplikace je nutné mít stažené všechny potřebné baličky které lze najít v souboru __*package.json*__, která se nachází v adresáří __*~/BT-master(nextjs)/app/package.json*__. 
 
