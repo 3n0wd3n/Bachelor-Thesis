@@ -50,7 +50,7 @@ export default function WordListContent({ student, setData, setNotification }) {
                     <>
                         <WordListContentMainContainer>
                             <WordListContentContainer>
-                                <WordListContentEmptyPhrase>You haven't added any word list!</WordListContentEmptyPhrase>
+                                <WordListContentEmptyPhrase>{`You haven't added any word list!`}</WordListContentEmptyPhrase>
                                 <FaSurprise />
                             </WordListContentContainer>
                         </WordListContentMainContainer>

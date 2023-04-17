@@ -38,24 +38,24 @@ export default function SettingsPage({ data, setData, setSettingsPage, setNotifi
                     <FontsBold>{`student's role:`}</FontsBold><FontsThin>{data.role}</FontsThin>
                 </StudentSettingAttributesContainer>
                 <StudentSettingAttributesContainer>
-                    <FontsBold>student's name:</FontsBold><FontsThin>{data.firstName} {data.lastName}</FontsThin>
+                    <FontsBold>{`student's name:`}</FontsBold><FontsThin>{data.firstName} {data.lastName}</FontsThin>
                 </StudentSettingAttributesContainer>
                 <StudentSettingAttributesContainer>
                     {/*Zeptat se kubu na bezpečnost */}
-                    <FontsBold>student's username:</FontsBold><FontsThin>{data.username}</FontsThin>
+                    <FontsBold>{`student's username:`}</FontsBold><FontsThin>{data.username}</FontsThin>
                 </StudentSettingAttributesContainer>
                 <StudentSettingAttributesContainer>
                     {
                         edit
                             ?
                             <>
-                                <FontsBold>student's passwd:</FontsBold>
+                                <FontsBold>{`student's passwd:`}</FontsBold>
                                 <SettingsKeyInputAttribute ref={passwordRef} defaultValue={"input new passwd"} disabled={!edit} readOnly={!edit} editable={edit} />
                             </>
                             :
                             <>
                                 {/*Zeptat se kubu na bezpečnost */}
-                                <FontsBold>student's passwd:</FontsBold><FontsThin>{"********"}</FontsThin>
+                                <FontsBold>{`student's passwd:`}</FontsBold><FontsThin>{"********"}</FontsThin>
                             </>
                     }
                 </StudentSettingAttributesContainer>

@@ -6,7 +6,7 @@ export default function HomeworksContentEmpty() {
   return (
     <HomeworksContentMainContainer>
         <HomeworksContentContainer>
-            <HomeworksContentEmptyPhrase>You haven't written any homework yet !</HomeworksContentEmptyPhrase>
+            <HomeworksContentEmptyPhrase>{`You haven't written any homework yet !`}</HomeworksContentEmptyPhrase>
             <FaSurprise/>
         </HomeworksContentContainer>
     </HomeworksContentMainContainer>
