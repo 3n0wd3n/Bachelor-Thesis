@@ -2,12 +2,12 @@
 - návrh na příchozí na poskládání dat různých rolí ze serveru
 # app složka
 - obsahuje celou aplikaci
-
-# použité pluginy -> nejdřív je potřeba stáhnout node.js
-
-npx create-next-app@latest 
-
-npm i styled-components axios
+# použité pluginy
+- nejdřív je potřeba stáhnout node.js
+# vytvoření projektu
+- npx create-next-app@latest 
+# instalování styled components a axiosu současně
+- npm i styled-components axios
 
 # v app/next.config.js musíme říct, že budeme používat styled componenty
 const nextConfig = {
@@ -19,12 +19,14 @@ const nextConfig = {
 }
 
 # spuštění serveru (člověk musí být v app složce)
-    npm run dev, nebo next dev
-    + otevření na localhost:3000 v prohlížeči
+- npm run dev, nebo next dev
+# otevření
+- na localhost:3000 (v prohlížeči)
 
 # při testování na webu přistupuju skrz URL
 
-základní login -> http://localhost:3000/ 
+# základní login
+- http://localhost:3000/ 
 
 admin, nebo student podle toho jak se budu přihlašovat -> http://localhost:3000/dashboard
 
@@ -49,9 +51,8 @@ ZAJÍMAJÍ NAS JEN SLOŽKY PUBLIC, PAGES
  //\\
 
  # přidávání icon
- https://daily-dev-tips.com/posts/how-to-use-react-icons-in-nextjs/
- https://react-icons.github.io/react-icons
+ - https://daily-dev-tips.com/posts/how-to-use-react-icons-in-nextjs/
+ - https://react-icons.github.io/react-icons
 
  # installing icons 
-
-  npm install react-icons --save
+ - npm install react-icons --save
