@@ -35,7 +35,7 @@ export default function SettingsPage({ data, setData, setSettingsPage, setNotifi
             <StudentSettingContainer>
                 <FontsHeaderBold>Settings</FontsHeaderBold>
                 <StudentSettingAttributesContainer>
-                    <FontsBold>student's role:</FontsBold><FontsThin>{data.role}</FontsThin>
+                    <FontsBold>{`student's role:`}</FontsBold><FontsThin>{data.role}</FontsThin>
                 </StudentSettingAttributesContainer>
                 <StudentSettingAttributesContainer>
                     <FontsBold>student's name:</FontsBold><FontsThin>{data.firstName} {data.lastName}</FontsThin>
