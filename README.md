@@ -12,6 +12,8 @@ Od začátku školního roku 2021/2022 se moje přítelkyně vydala cestou brig�
 
 [PÍSEMNÁ ČÁST v Overleaf](https://www.overleaf.com/read/btfcyfmwnmxq)
 
+[TESTOVACÍ ODKAZ přes Vercel](https://batchelor-thesis-testing.vercel.app/dashboard)
+
 **Rozdělení**
 
 Do informačního systému by se přihlašovalo skrz standartní login. Žádná registrace by nebyla, protože by správce (Bára) každému novému příchozímu dala jeho přihlašovací jméno a heslo (mohl bych generovat). Po zadání přihlašovacích údajů by se rozeznávali tři typy uživatelů.
