@@ -82,6 +82,23 @@ Potom už jen stačí dostat se na již zmíněnou cestu __*~/BT-master(nextjs)/
 
 a můžeme do webového prohlížeče napsat URL http://localhost:3000, která nám zobrazí naši webovou aplikaci.
 
+**Přihlašovací údaje pro testování**
+
+-Přihlášení do admina-
+
+    username: admin
+    passwd: admin
+
+-Přihlášení do usera-
+
+    username: jakhaj
+    passwd: kuba
+
+-Přihlášení do rodiče-
+
+    phone: 604929978
+    passwd: radka
+
 ---
     SECTION BREAK
 ---
