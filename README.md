@@ -101,6 +101,7 @@ Nad technologiemi ještě přemýšlím co by bylo lepší použít. Výhodou je
 - V RODIČOVSKÉM MODU MÍT VŠECHNO V ČEŠTINĚ
 - DODĚLAT UPOZORNĚNÍ KDYŽ SE BUDE JEDNAT O DESTRUKTIVNÍ AKCE (odstranění studenta například)
 - KONTAKTNÍ INFORMACE NA DÍTĚ NEBO NA ZÁKONNÉHO ZÁSTUPCE
+- PŘI ZMĚNNĚ HODINY KONTAKTOVAT UŽIVATELE O JEJÍ ZMĚNĚ
 
 **TMP TO DO**
 
