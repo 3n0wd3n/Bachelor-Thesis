@@ -8,6 +8,8 @@ import { FontsHeaderBold, FontsThin, FontsBold } from '../CommonStyles'
 
 export const StudentIPFontsHeaderBold = styled(FontsHeaderBold)`
   font-size: 1.6rem;
+  text-shadow: none;
+  font-weight: 500;
 `;
 
 export const StudentIPFontsThin = styled(FontsThin)`

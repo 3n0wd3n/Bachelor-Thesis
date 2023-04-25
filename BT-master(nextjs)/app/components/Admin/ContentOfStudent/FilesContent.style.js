@@ -105,12 +105,15 @@ export const FileContentAddButtonContainer = styled.div`
     & > svg {
         color: ${Colors.lightGreen};
         margin: 1em 0 1em 0;
-        font-size: ${FileContentButtonValue}rem;
+        font-size: ${FileContentButtonValue+0.1}rem;
         cursor: pointer;
         transition: .7s;
         &:hover{
             transform: scale(1.1);
             opacity: 0.7;
+        }
+        @media (max-width: 1200px){
+            margin: 0;
         }
     }
 `;

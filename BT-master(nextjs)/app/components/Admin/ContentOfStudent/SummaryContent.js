@@ -108,7 +108,7 @@ export default function SummaryContent({ setData, student, setNotification }) {
                     :
                     <>
                         <SummaryContentContainer>
-                            <p>{`Summary hasn't been added!`}</p>
+                            <p>{`Summary hasn't been added yet!`}</p>
                             <FaFolderOpen />
 
                         </SummaryContentContainer>

@@ -17,7 +17,7 @@ export default function LogoutPage({setLogoutPage, setData}) {
           <FontsHeaderBold>logout</FontsHeaderBold>
           <StudentContentContainer>
             <StudentButton onClick={() => {setData(null); deleteCookie('userCookie'); Router.push('/')}}><FontsBold>yes,</FontsBold><FontsThin>logout</FontsThin><FaCheckCircle style={styleIconCheck} /></StudentButton>
-            <StudentButton onClick={() => setLogoutPage(false)}><FontsBold>no,</FontsBold> <FontsThin>stay</FontsThin><FaTimesCircle style={styleIconTimes} /></StudentButton>
+            <StudentButton onClick={() => setLogoutPage(false)}><FontsBold>no,</FontsBold><FontsThin>stay</FontsThin><FaTimesCircle style={styleIconTimes} /></StudentButton>
           </StudentContentContainer>   
         </StudentMainContent>
       </StudentLogoutContainer>

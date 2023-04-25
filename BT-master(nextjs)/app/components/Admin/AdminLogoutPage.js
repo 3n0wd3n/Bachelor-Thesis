@@ -17,7 +17,7 @@ export default function LogoutPage({setLogoutPage, setData}) {
           <FontsHeaderBold>logout</FontsHeaderBold>
           <AdminContentContainer>
             <AdminButton onClick={() => {setData(null); deleteCookie('userCookie'); Router.push('/')}}><FontsBold>yes,</FontsBold><FontsThin>logout</FontsThin><FaCheckCircle style={styleIconCheck} /></AdminButton>
-            <AdminButton onClick={() => setLogoutPage(false)}><FontsBold>no,</FontsBold> <FontsThin>stay</FontsThin><FaTimesCircle style={styleIconTimes} /></AdminButton>
+            <AdminButton onClick={() => setLogoutPage(false)}><FontsBold>no,</FontsBold><FontsThin>stay</FontsThin><FaTimesCircle style={styleIconTimes} /></AdminButton>
           </AdminContentContainer>   
         </AdminMainContent>
       </AdminLogoutContainer>

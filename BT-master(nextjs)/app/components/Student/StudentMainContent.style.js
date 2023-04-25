@@ -87,7 +87,8 @@ export const StudentMCFontsSummary = styled(FontsHeaderBold)`
 
 export const StudentMCFontsBold = styled(FontsBold)`
     font-size: 1.5rem;
-    color: white;
+    color: ${Colors.white};
+    color: beige;
     text-shadow: -2px 2px 4px rgba(0, 0, 0, 0.25);
 `;
 

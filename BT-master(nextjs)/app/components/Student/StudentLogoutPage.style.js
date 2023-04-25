@@ -40,6 +40,7 @@ export const StudentButton = styled.button`
     box-shadow: -2px 2px 6px rgba(155, 155, 155, 0.25);
     padding: 1em;
     transition: 0.7s;
+    gap: .5rem;
     @media (max-width: 666px) {
         padding: 0.5em;
     }

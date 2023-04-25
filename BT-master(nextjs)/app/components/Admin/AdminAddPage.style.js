@@ -56,7 +56,7 @@ export const AdminButtonContainer = styled(LoginButtonContainer)`
 `;
 
 export const AdminInputStyled = styled(LoginInputStyled)`
-    // nothing changed yet
+    margin: 0 0 0 1rem;
 `;
 
 export const AdminLabel = styled.label`
@@ -68,6 +68,7 @@ export const AdminCustomFontBold = styled(FontsBold)`
 `;
 
 export const AdminCustomFontThin = styled(FontsThin)`
+    font-weight: 300;
     font-size: 0.9em;
 `;
 

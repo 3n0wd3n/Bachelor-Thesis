@@ -49,7 +49,7 @@ export const ContentContainer = styled(CommonDisplayFlexRow)`
     background-color: ${Colors.creameWhite};
     border-radius: 10px;
     justify-content: space-between;
-    padding: 1em 0 1em 0;
+    padding: 1rem 1rem 1rem 0;
     @media (max-width: 1000px) {
       /* we write media query into constants */
       flex-direction: column;

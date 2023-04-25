@@ -115,7 +115,7 @@ export default function AddPage({ setAddPage, setNotification }) {
           </AdminButtonContainer>
           <AdminButtonContainer>
             <AdminLabel><FontsThin>study plan</FontsThin></AdminLabel>
-            <AdminInputStyled type="text" placeholder="(separate string with commas)" ref={studentPlanRef} onChange={() => studentPlanRef.current.value = studentPlanRef.current.value.split(',')}></AdminInputStyled>
+            <AdminInputStyled type="text" placeholder="(split string by commas)" ref={studentPlanRef} onChange={() => studentPlanRef.current.value = studentPlanRef.current.value.split(',')}></AdminInputStyled>
           </AdminButtonContainer>
           <AdminLabel><FontsThin>count of hours</FontsThin></AdminLabel>
           <AdminLessonsContainer>
@@ -148,7 +148,7 @@ export default function AddPage({ setAddPage, setNotification }) {
           </AdminAddLesson>
           <div>
             <AdminCustomFontThin>
-              <AdminLabel htmlFor="under-age">if student is under aged or need legal representative</AdminLabel>
+              <AdminLabel htmlFor="under-age">student needs representative</AdminLabel>
               <AdminInputStyled type="checkbox" id="under-age" name="under-age" value={isRepresentative} onChange={() => setIsRepresentative(prevState => !prevState)} />
             </AdminCustomFontThin>
           </div>
@@ -177,6 +177,13 @@ export default function AddPage({ setAddPage, setNotification }) {
             <></>}
         </AdminFormContainer>
         <AddSendButton onClick={() => {
+          const plan =  studentPlanRef.current.value.split()
+          let planIsNotCorrect = false;
+          for (i = 0; i < plan.length; i++) {
+            if (plan[i].length > 26) {
+              planIsNotCorrect = true;
+            }
+          }
           if (!(studentNameRef.current.value.length > 0)) {
             setNotification("Name Not Inserted");
           }
@@ -184,7 +191,10 @@ export default function AddPage({ setAddPage, setNotification }) {
             setNotification("Surname Not Inserted");
           }
           else if (!(studentPlanRef.current.value.length > 0)) {
-            setNotification("Plan Not Inserted");
+            setNotification("Plan Is Not Inserted");
+          }
+          else if (planIsNotCorrect) {
+            setNotification("Plan Is Not In Correct Way");
           }
           else if (!(lessonRefs.current[0].day.value.length > 0)) {
             setNotification("Date Is Not Defined");
@@ -207,7 +217,7 @@ export default function AddPage({ setAddPage, setNotification }) {
             }
             else {
               addStudent()
-              setNotification("Student Was Created!");
+              setNotification("Student Was Created! #goodNotification");
               document.location.reload()
             }
           }

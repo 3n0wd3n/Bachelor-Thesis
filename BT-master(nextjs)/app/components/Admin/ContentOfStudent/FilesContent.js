@@ -10,7 +10,6 @@ export default function FileContent({ data, setData, student, setNotification })
   const id = getCookie('userCookie')
 
   const removeFile = async (file) => {
-    const test = "a"
     await axios('http://localhost:3000/api/user.change', {
       method: 'DELETE',
       data: {
@@ -18,13 +17,13 @@ export default function FileContent({ data, setData, student, setNotification })
         studentId: student.id,
         erasable: file,
         difference: "file"
-      }    
+      }
     }
     ).then(({ data }) => {
       if (data) setData(data)
       else setNotification('Change failed.')
     })
-    .finally(() => setNotification("File Was Removed ! #goodNotification"))
+      .finally(() => setNotification("File Was Removed ! #goodNotification"))
   }
 
   const handleFileChange = (event) => {
@@ -90,7 +89,7 @@ export default function FileContent({ data, setData, student, setNotification })
           :
           <>
             <FileContentContainer>
-              <p>You have not imported any file yet!</p>
+              <p>No files have been imported yet!</p>
               <FaFolderOpen />
 
             </FileContentContainer>

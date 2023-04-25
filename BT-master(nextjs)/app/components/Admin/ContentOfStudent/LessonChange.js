@@ -29,7 +29,7 @@ const generateNextLessons = (lessons, weeks) => {
         newEndDate = addDays(newEndDate, -7)
       }
       const dayIndex = newDate.getDay() === 0 ? week.length - 1 : newDate.getDay() - 1
-      
+
       if (newDate.getTime() < new Date().getTime()) return
       if (nextLessons.length === 0 && moment(newDate).isoWeek() !== moment().isoWeek()) {
         newDate = addDays(newDate, -7)
@@ -56,7 +56,7 @@ const generateNextLessons = (lessons, weeks) => {
         const cancelledLessons = lessonsThisDay[1].statuses.map(day => (day.status === 'apologized' || day.status === 'cancelled') && new Date(day.from).getTime())
         isCancelled = cancelledLessons.includes(new Date(lessonsThisDay[1].date).getTime())
       }
-      
+
       formattedWeek.push(lessonsThisDay && !isCancelled ? (new Date(lessonsThisDay[1].date).getTime() > new Date().getTime() ? lessonsThisDay[1] : null) : null)
     })
     formattedNextLessons.push(formattedWeek)
@@ -89,6 +89,10 @@ export default function LessonChange({ data, student, setData, setNotification }
   const [nextWeeks, setNextWeeks] = React.useState(3)
   const [selectedDay, setSelectedDay] = React.useState(null)
   const nextLessons = React.useMemo(() => generateNextLessons(student.lessons, nextWeeks), [nextWeeks, data])
+  if (nextWeeks > 12){
+    setNotification("Maximum Number Of Weeks = 12 ")
+    setNextWeeks(12)
+  }
   const dates = React.useMemo(() => generateDates(nextWeeks), [nextWeeks])
   const lessonRef = React.useRef();
   const id = getCookie('userCookie')
@@ -120,25 +124,25 @@ export default function LessonChange({ data, student, setData, setNotification }
 
     const cancelLesson = async () => {
       const formattedDate = formatDate()
-  
+
       const dateFormat = {
         from: formattedDate.from,
         to: formattedDate.to,
         status: 'cancelled'
       }
       await axios('http://localhost:3000/api/admin.lesson.change', {
-          method: 'POST',
-          data: {
-              adminId: id,
-              studentId,
-              lessonId: selectedDay.id,
-              date: dateFormat,
-          }
+        method: 'POST',
+        data: {
+          adminId: id,
+          studentId,
+          lessonId: selectedDay.id,
+          date: dateFormat,
+        }
       })
-      .then(({ data }) => {
+        .then(({ data }) => {
           if (data) setData(data)
           else setNotification('Change failed.')
-      }).finally(() => setSelectedDay(null))
+        }).finally(() => setSelectedDay(null))
       setNotification("Lesson Was Cancelled ! #goodNotification")
     }
 

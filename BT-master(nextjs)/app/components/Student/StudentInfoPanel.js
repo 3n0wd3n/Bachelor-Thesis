@@ -13,7 +13,13 @@ export default function InfoPanel({ data, setApologizePage }) {
         </StudentIPItemContainer>
         <StudentIPItemContainer>
           <StudentIPFontsThin>role</StudentIPFontsThin>
-          <StudentIPFontsHeaderBold>{data.role}</StudentIPFontsHeaderBold>
+          {
+            data.role == "representative" 
+            ?
+              <StudentIPFontsHeaderBold>guardian</StudentIPFontsHeaderBold>
+            :
+              <StudentIPFontsHeaderBold>{data.role}</StudentIPFontsHeaderBold> 
+          }
         </StudentIPItemContainer>
         <StudentIPItemContainer>
           <StudentIPFontsThin>total count of lessons</StudentIPFontsThin>
