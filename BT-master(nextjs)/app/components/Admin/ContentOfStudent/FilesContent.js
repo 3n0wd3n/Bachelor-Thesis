@@ -57,7 +57,13 @@ export default function FileContent({ data, setData, student, setNotification })
                 <FileContentInput type="file" onChange={handleFileChange} />
               </FileContentChooseFile>
             </FileContentAddContainer>
-            <FileContentUploadButton onClick={handleSubmit}>upload file</FileContentUploadButton>
+            {
+              selectedFile === null
+              ?
+              <></>
+              :
+              <FileContentUploadButton onClick={handleSubmit}>upload file</FileContentUploadButton>
+            }
           </FileContentContainer>
           <FileContentBackButtonContainer onClick={() => setAdd(prevState => !prevState)}>
             <FaMinusSquare />

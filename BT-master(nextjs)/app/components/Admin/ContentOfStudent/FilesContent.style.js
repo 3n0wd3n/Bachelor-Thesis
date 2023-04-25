@@ -129,6 +129,9 @@ export const FileContentBackButtonContainer = styled.div`
             transform: scale(1.1);
             opacity: 0.7;
         }
+        @media (max-width: 1200px){
+            margin: 0;
+        }
     }
 `;
 

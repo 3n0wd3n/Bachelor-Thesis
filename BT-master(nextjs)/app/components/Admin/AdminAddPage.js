@@ -179,7 +179,7 @@ export default function AddPage({ setAddPage, setNotification }) {
         <AddSendButton onClick={() => {
           const plan =  studentPlanRef.current.value.split()
           let planIsNotCorrect = false;
-          for (i = 0; i < plan.length; i++) {
+          for (let i = 0; i < plan.length; i++) {
             if (plan[i].length > 26) {
               planIsNotCorrect = true;
             }
@@ -194,7 +194,7 @@ export default function AddPage({ setAddPage, setNotification }) {
             setNotification("Plan Is Not Inserted");
           }
           else if (planIsNotCorrect) {
-            setNotification("Plan Is Not In Correct Way");
+            setNotification("Plan Is Not In Correct Way! ");
           }
           else if (!(lessonRefs.current[0].day.value.length > 0)) {
             setNotification("Date Is Not Defined");
