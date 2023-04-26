@@ -94,6 +94,7 @@ export default function MainContent({ data, setData, isRepresentative, setNotifi
   const style = { color: Colors.lightGreen, fontSize: "3em" }
   const [edit, setEdit] = React.useState(false)
   const [summaryOpen, summaryOpenEdit] = React.useState(false)
+  const [arr, arrEdit] = React.useState(data.summary)
   const id = getCookie('userCookie')
   const studentId = data.id
   const nextLesson = React.useMemo(() => data.lessons.length > 0 ? getNextLesson(data.lessons) : null, [data])
@@ -191,7 +192,7 @@ export default function MainContent({ data, setData, isRepresentative, setNotifi
               ?
               <StudentMCSummaryFirstPart>
                 {
-                  data.summary.map((summaryItem, idx) =>
+                  arr.map((summaryItem, idx) =>
                     <div key={idx}>
                       <StudentMCSummaryItem>
                         <span>{summaryItem.slice(0, 12)}</span>
@@ -201,7 +202,7 @@ export default function MainContent({ data, setData, isRepresentative, setNotifi
                   )
                 }
                 <StudentMCSummaryColumnContainer>
-                  <StudentMCSummaryButtonContainer editable={summaryOpen} onClick={() => summaryOpenEdit(prevState => !prevState)}>
+                  <StudentMCSummaryButtonContainer editable={summaryOpen} onClick={() => (summaryOpenEdit(prevState => !prevState), arrEdit(data.summary.reverse()))}>
                     <FaChevronCircleUp />
                   </StudentMCSummaryButtonContainer>
                 </StudentMCSummaryColumnContainer>
@@ -210,7 +211,7 @@ export default function MainContent({ data, setData, isRepresentative, setNotifi
               <StudentMCSummarySecondPart>
                 <StudentMCSummaryColumnContainer>
                   <StudentMCFontsSummary>summary of lessons</StudentMCFontsSummary>
-                  <StudentMCSummaryButtonContainer editable={summaryOpen} onClick={() => summaryOpenEdit(prevState => !prevState)}>
+                  <StudentMCSummaryButtonContainer editable={summaryOpen} onClick={() => (summaryOpenEdit(prevState => !prevState), arrEdit(data.summary.reverse()))}>
                     <FaChevronCircleDown />
                   </StudentMCSummaryButtonContainer>
                 </StudentMCSummaryColumnContainer>
