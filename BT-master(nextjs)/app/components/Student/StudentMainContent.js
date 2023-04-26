@@ -2,11 +2,11 @@ import React from 'react'
 import axios from 'axios'
 import moment from 'moment'
 import { getCookie } from 'cookies-next';
-import { FaChevronCircleDown, FaChevronCircleUp, FaCheckCircle, FaRegSmileBeam } from 'react-icons/fa'
+import { FaChevronCircleDown, FaChevronCircleUp, FaCheckCircle, FaRegSmileBeam, FaFile } from 'react-icons/fa'
 import { Colors } from '../../utils/Colors'
 import { addDays } from '../Admin/ContentOfStudent/LessonChange';
 
-import { StudentMCSummaryItem, StudentMCFontsSectionItem, StudentMCSummaryFirstPart, StudentMCFontsSummary, StudentMCSummaryColumnContainer, StudentMCSummaryButtonContainer, StudentMCSummarySecondPart, StudentMCDescription, StudentMCHomeworkDoneContainer, StudentMCFontsSectionLinkItem, StudentUnorderedList, StudentListItem, SimpleContainer, SimpleDiv, StudentMCFilesItems, StudentMCFontsWordList, StudentMCFontsFiles, StudentMCWordList, StudentMCFiles, StudentMCContainer, StudentMCNextLesson, StudentMCFontsDate, StudentMCFontsBold, StudentMCHomeworks, StudentMCFontsHomeworks, StudentMCFontsHomeworksItem, StudentMCFontsSectionItems } from './StudentMainContent.style'
+import { StudentMCFontsSectionItemsContainer, StudentMCSummaryItem, StudentMCFontsSectionItem, StudentMCSummaryFirstPart, StudentMCFontsSummary, StudentMCSummaryColumnContainer, StudentMCSummaryButtonContainer, StudentMCSummarySecondPart, StudentMCDescription, StudentMCHomeworkDoneContainer, StudentMCFontsSectionLinkItem, StudentUnorderedList, StudentListItem, SimpleContainer, SimpleDiv, StudentMCFilesItems, StudentMCFontsWordList, StudentMCFontsFiles, StudentMCWordList, StudentMCFiles, StudentMCContainer, StudentMCNextLesson, StudentMCFontsDate, StudentMCFontsBold, StudentMCHomeworks, StudentMCFontsHomeworks, StudentMCFontsHomeworksItem, StudentMCFontsSectionItems } from './StudentMainContent.style'
 // StudentMC = StudentMainContent
 
 export const getNextLesson = (lessons) => {
@@ -169,7 +169,9 @@ export default function MainContent({ data, setData, isRepresentative, setNotifi
               <StudentMCFilesItems>
                 <StudentMCFontsSectionItems>
                   {data.files.map((file, index) =>
-                    <StudentMCFontsSectionItem key={index} href={`images/${file}`} target='_blank'>{file.slice(14,)}</StudentMCFontsSectionItem>
+                    <StudentMCFontsSectionItemsContainer>
+                      <FaFile /><StudentMCFontsSectionItem key={index} href={`images/${file}`} target='_blank'>{file.slice(14,)}</StudentMCFontsSectionItem>
+                    </StudentMCFontsSectionItemsContainer>
                   )}
                 </StudentMCFontsSectionItems>
               </StudentMCFilesItems>

@@ -25,7 +25,7 @@ export default function ControlPanel({ data, setChildNumber, setPaymentPage, set
         <StudentCPFontsBold onClick={() => setLogoutPage(true)}>logout</StudentCPFontsBold>
         <StudentCPFontsBold onClick={() => setSettingsPage(true)}>settings</StudentCPFontsBold>
         {data.children?.map((child, key) =>
-          <StudentCPChildFontsBold key={key} onClick={() => (setChildNumber(key), handleChildClick(key))} style={{ fontWeight: selectedChild !== key ? 300 : 'normal' }}>{child.firstName}</StudentCPChildFontsBold>
+          <StudentCPChildFontsBold key={key} onClick={() => (setChildNumber(key), handleChildClick(key))} editable={selectedChild !== key} >{child.firstName}</StudentCPChildFontsBold>
         )}
 
       </StudentCPContainer>

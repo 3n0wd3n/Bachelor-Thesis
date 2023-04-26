@@ -32,17 +32,18 @@ export const StudentCPFontsBold = styled(FontsBold)`
     text-shadow: -4px 5px 8px rgba(0, 0, 0, 0.25);
     /* transition: 0.3s; */
     cursor: pointer;
-    font-weight: 100;
+    font-weight: 200;
     :hover{
         font-weight: 500;
     }
 `;
 
 export const StudentCPChildFontsBold = styled(StudentCPFontsBold)`
-    font-size: 1.5rem;
     color: ${Colors.orange};
     /* text-transform: uppercase; */
+    text-transform: lowercase;
+    font-weight: ${({ editable }) => editable ? 200 : 500};
     :hover{
-        /* font-size: 1.55rem; */
+        font-weight: 500;
     }
 `;
