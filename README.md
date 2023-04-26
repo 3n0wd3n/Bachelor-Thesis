@@ -103,6 +103,7 @@ Nad technologiemi ještě přemýšlím co by bylo lepší použít. Výhodou je
 - KONTAKTNÍ INFORMACE NA DÍTĚ NEBO NA ZÁKONNÉHO ZÁSTUPCE
 - PŘI ZMĚNNĚ HODINY KONTAKTOVAT UŽIVATELE O JEJÍ ZMĚNĚ
 - PŘIDAT K INFORMACI O PLATBĚ HODINY DATUM KDY HODINU ČLOVĚK ZAPLATIL (KDY SE ZOBRAZILA INFORMACE O PLATBĚ V POŠTĚ) ABY ADMIN VĚDĚL, NA KTERÉ DATUM SE V BANKOVNICTVÍ ZAMĚŘIT
+- INTEGROVANÉ CHATOVACÍ OKNO 
 
 **TMP TO DO**
 
@@ -119,3 +120,8 @@ Nad technologiemi ještě přemýšlím co by bylo lepší použít. Výhodou je
 - [x] zobrazení omluvenek a plateb
 - [x] vkládání a ukládání souborů
 - [x] snímky podrobného rozjetí projektu -> github desktop, instalace balíčku a podobně
+- [ ] destruktivní akce by měli mít dotazovací okno 
+BAKALÁŘKA TEXT
+- [ ] usecase diagram
+- [ ] ukázat jaké kolekce v databázi jsou
+- [ ] dodělat architekturu
