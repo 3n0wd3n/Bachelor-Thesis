@@ -8,7 +8,7 @@ import Footer from '../components/Footer'
 
 export { getServerSideProps } from '../components/getDataFromCookies'
 
-export default function Home({ data, setData, userData, setNotification }) {
+export default function Home({ data, setData, userData, setNotification, setWarning }) {
   React.useEffect(() => {
     if (userData) setData(userData)
     if (getCookie('userCookie')) Router.push('/dashboard')
@@ -22,7 +22,7 @@ export default function Home({ data, setData, userData, setNotification }) {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <Container>
-          <LoginForm setData={setData} setNotification={setNotification}/>
+          <LoginForm setData={setData} setNotification={setNotification} setWarning={setWarning}/>
         </Container>
         <Footer />
     </>

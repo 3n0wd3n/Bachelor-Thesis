@@ -42,4 +42,7 @@ export const PostContainer = styled.div`
     background-color: ${Colors.red};
     color: ${Colors.white}
   }
+  @media (max-width: 700px) {
+    margin: 0;
+  }
 `;

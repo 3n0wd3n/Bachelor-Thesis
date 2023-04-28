@@ -28,6 +28,9 @@ export const MainHeaderContainer = styled(CommonDisplayFlexRow)`
 export const MainHeaderUser = styled(CommonDisplayFlexRow)`
   gap: 1em;
   height: 10vh;
+  @media (max-width: 1000px) {
+    gap: 0;
+  }
 `
 
 export const MainHeaderRole = styled.div`
@@ -57,6 +60,7 @@ export const MainHeaderTitleRole = styled(FontsThin)`
 export const MainHeaderNextLesson = styled(CommonDisplayFlexColumn)`
   background-color: ${Colors.lightGreen};
   padding: 0.5em 2em 0.5em 2em;
+  margin: 1rem 0 0 0;
   border-radius: 25px;
   color: white;
   transition: 0.7s;

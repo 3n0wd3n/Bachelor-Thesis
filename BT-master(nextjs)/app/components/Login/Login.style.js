@@ -64,7 +64,7 @@ export const LoginLabelStyled = styled.label`
 `;
 
 export const LoginInputCheckboxStyled = styled.input`
-  margin-right: 0.5em;
+  margin: 0 0 0 0.5rem;
 `;
 
 export const LoginButtonStyled = styled.button`

@@ -165,4 +165,7 @@ export const FileContentRemoveFile = styled.span`
             margin: 1rem 0 0 0;
         }
     }
+    @media (max-width: 1200px){
+        margin: 0;
+    }
 `;

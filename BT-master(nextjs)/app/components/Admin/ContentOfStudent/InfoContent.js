@@ -93,7 +93,6 @@ export default function InfoContent({ student, setData, setNotification }) {
 
     const removeStudent = async (studentId) => {
         const id = getCookie('userCookie')
-        console.log(studentId)
         await axios('http://localhost:3000/api/user.remove', {
             method: 'DELETE',
             data: {
@@ -195,7 +194,6 @@ export default function InfoContent({ student, setData, setNotification }) {
                     edit &&
                     <StudentRemoveAttribute >
                         <StudentKeyRemoveAttribute onClick={() => removeStudent(student.id)}>disable</StudentKeyRemoveAttribute>
-
                     </StudentRemoveAttribute>
                 }
             </StudentInfoContainerTwo>

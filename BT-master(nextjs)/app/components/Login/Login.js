@@ -8,7 +8,7 @@ import { setCookie } from 'cookies-next';
 import { FontsHeaderBold, FontsLight, FontsExtraThin, FontsBold } from '../CommonStyles'
 import { LoginButtonStyled, LoginInputStyled, LoginFormStyled, LoginLabelStyled, LoginInputCheckboxStyled, LoginButtonContainer, LoginButtonBottomContainer, LoginContainer } from './Login.style'
 
-export default function LoginForm({ setData, setNotification }) {
+export default function LoginForm({ setData, setNotification, setWarning }) {
     const [isParent, setIsParent] = useState(false);
     const [userName, setUserName] = useState("");
     const [userNumber, setNumber] = useState("");
@@ -46,11 +46,9 @@ export default function LoginForm({ setData, setNotification }) {
 
     return (
         <LoginFormStyled>
-            {/* <LoginContainer> */}
-
-
             <LoginContainer>
                 <FontsHeaderBold >login</FontsHeaderBold >
+                {/* {setWarning("Protect Your Password! ")} */}
                 {isParent
                     ?
                     <LoginButtonContainer>
@@ -72,8 +70,8 @@ export default function LoginForm({ setData, setNotification }) {
                 </LoginButtonBottomContainer>
 
                 <LoginLabelStyled>
-                    <LoginInputCheckboxStyled type="checkbox" value={isParent} onChange={handleChange}></LoginInputCheckboxStyled>
                     <FontsExtraThin>login as representative</FontsExtraThin>
+                    <LoginInputCheckboxStyled type="checkbox" value={isParent} onChange={handleChange}></LoginInputCheckboxStyled>
                 </LoginLabelStyled>
 
                 <LoginButtonStyled onClick={() => sendData()}><FontsBold>login</FontsBold></LoginButtonStyled>
@@ -82,6 +80,7 @@ export default function LoginForm({ setData, setNotification }) {
                     ?
                     <Image
                         src={loading}
+                        alt="loading"
                         width={200}
                         height={200}
                     />
@@ -89,10 +88,6 @@ export default function LoginForm({ setData, setNotification }) {
                     <></>
                 }
             </LoginContainer>
-
-
-
-            {/* </LoginContainer> */}
         </LoginFormStyled>
     )
 }
