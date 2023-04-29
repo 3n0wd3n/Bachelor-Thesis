@@ -63,6 +63,7 @@ export default function InfoContent({ student, setData, setNotification }) {
     const [plan, setPlan] = React.useState(student.plan.map(plan => ({ value: plan, key: randomStringGen() })))
     const nameRef = React.useRef(null)
     const surnameRef = React.useRef(null)
+    const [submit, setSubmit] = React.useState(false)
     
     const addArrayAttribute = () => {
         setPlan(prevPlan => [...prevPlan, { value: 'set plan...', key: randomStringGen() }])
@@ -193,7 +194,17 @@ export default function InfoContent({ student, setData, setNotification }) {
                 {
                     edit &&
                     <StudentRemoveAttribute >
-                        <StudentKeyRemoveAttribute onClick={() => removeStudent(student.id)}>disable</StudentKeyRemoveAttribute>
+                        <StudentKeyRemoveAttribute onClick={() => setSubmit(true)}>disable</StudentKeyRemoveAttribute>
+                        {
+                            submit
+                            ?
+                            <div >
+                                <FaPlusCircle onClick={() => removeStudent(student.id)}/><FaMinusCircle  onClick={() => setSubmit(false)}/>
+                            </div>
+                            :
+                            <></>
+
+                        }
                     </StudentRemoveAttribute>
                 }
             </StudentInfoContainerTwo>

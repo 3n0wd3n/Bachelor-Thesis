@@ -3,7 +3,7 @@ import { WrapperStyled } from './Assurance.style'
 import { FaWindowClose } from 'react-icons/fa'
 
 export default function Assurance({ warning }) {
-    const [hide, setHide] = React.useState(false)
+    const [hide, setHide] = React.useState(true)
 
 
     return (
