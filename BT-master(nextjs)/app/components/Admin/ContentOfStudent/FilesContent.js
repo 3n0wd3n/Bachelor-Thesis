@@ -91,25 +91,25 @@ export default function FileContent({ data, setData, student, setNotification })
 
               </FileContentItemContainer>
             </FileContentContainer>
-                {
-                  submit
-                    ?
-                    <StudentInfoAboveContainer>
-                        <AboveContainerAssurance>
-                            <span>Do you really want to remove this file: <span>{removedFile.slice(14,)}</span></span>
-                        </AboveContainerAssurance>
-                        <AboveContainerChoice>
-                            <div onClick={() => (removeFile(removedFile), setSubmit(false))}>
-                                <span>Yes, </span>I do !<FaPlusCircle />
-                            </div>
-                            <div onClick={() => setSubmit(false)}> 
-                                <span>No, </span>I don't !<FaMinusCircle />
-                            </div>
-                        </AboveContainerChoice>
-                    </StudentInfoAboveContainer>
-                  :
-                    <></>
-                }
+            {
+              submit
+                ?
+                <StudentInfoAboveContainer>
+                    <AboveContainerAssurance>
+                        <span>Do you really want to remove this file: <span>{removedFile.slice(14,)}</span></span>
+                    </AboveContainerAssurance>
+                    <AboveContainerChoice>
+                        <div onClick={() => (removeFile(removedFile), setSubmit(false))}>
+                            <span>Yes, </span>I do !<FaPlusCircle />
+                        </div>
+                        <div onClick={() => setSubmit(false)}> 
+                            <span>No, </span>I don't !<FaMinusCircle />
+                        </div>
+                    </AboveContainerChoice>
+                </StudentInfoAboveContainer>
+              :
+                <></>
+              }
             <FileContentAddButtonContainer onClick={() => setAdd(prevState => !prevState)}>
               <FaPlusSquare />
             </FileContentAddButtonContainer>
