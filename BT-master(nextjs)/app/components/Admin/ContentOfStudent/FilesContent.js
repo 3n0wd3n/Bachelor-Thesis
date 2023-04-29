@@ -103,7 +103,7 @@ export default function FileContent({ data, setData, student, setNotification })
                             <span>Yes, </span>I do !<FaPlusCircle />
                         </div>
                         <div onClick={() => setSubmit(false)}> 
-                            <span>No, </span>I don't !<FaMinusCircle />
+                            <span>No, </span>I do not !<FaMinusCircle />
                         </div>
                     </AboveContainerChoice>
                 </StudentInfoAboveContainer>
