@@ -51,6 +51,9 @@ export const StudentInfoAboveContainer = styled.div`
   text-align: center;
   gap: 1rem;
   border-radius: 15px;
+  @media (max-width: 300px) {
+        padding: .5rem;
+    }
 `;
 
 export const AboveContainerAssurance = styled.div`
@@ -61,13 +64,10 @@ export const AboveContainerAssurance = styled.div`
 
 export const AboveContainerChoice = styled.div`
     display: flex;
-
     &>div>span{
         font-weight: 600;
     }
-    &>div:first-child>svg{
-        color: ${Colors.lightGreen}
-    }
+    cursor: pointer;
     &>div{
         display: flex;
         justify-content: center;
@@ -82,9 +82,16 @@ export const AboveContainerChoice = styled.div`
         color: ${Colors.red};
         margin: 0 0 0 1rem;
         font-size: ${StudentInfoContentValue+0.2}rem;
+        transition: 0.3s;
+        &:hover{
+            font-size: ${StudentInfoContentValue+0.35}rem;
+        }
         @media (max-width: 600px) {
             margin: 0 0 0 .5rem;
         }
+    }
+    &>div:first-child>svg{
+        color: ${Colors.lightGreen}
     }
     gap: 1rem;
     @media (max-width: 600px) {

@@ -30,7 +30,7 @@ export const HomeworksContentShowContainer = styled(CommonDisplayFlexRow)`
             transform: scale(1.1);
         }
         @media (max-width: 1000px) {
-        margin: 0.5em 0em 0em 1em;
+        margin: 0.5em 0em 0em 0em;
         }
     }
     @media (max-width: 1200px) {

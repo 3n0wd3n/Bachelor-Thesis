@@ -146,9 +146,9 @@ export const FileContentFilesWrapper = styled.div`
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        margin: 1rem 0 0 0;
+        // margin: 1rem 0 0 0;
         border-bottom: 1px solid ${Colors.darkGray};
-        padding: 1rem 0 1rem 0;
+        padding: .5rem 0 0.5rem 0;
     }
 `;
 
@@ -162,7 +162,7 @@ export const FileContentRemoveFile = styled.span`
             transform: scale(1.1);
         }
         @media (max-width: 1200px){
-            margin: 1rem 0 0 0;
+            margin: .5rem 0 0 0;
         }
     }
     @media (max-width: 1200px){

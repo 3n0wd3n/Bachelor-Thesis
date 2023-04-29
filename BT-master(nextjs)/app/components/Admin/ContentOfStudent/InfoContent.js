@@ -198,21 +198,21 @@ export default function InfoContent({ student, setData, setNotification }) {
                         {
                             submit
                                 ?
-                                <StudentInfoAboveContainer>
-                                    <AboveContainerAssurance>
-                                        <span>Do you really want to disable this student: <span>{student.firstName}</span></span>
-                                    </AboveContainerAssurance>
-                                    <AboveContainerChoice>
-                                        <div onClick={() => (removeStudent(student.id), setSubmit(false))}>
-                                            <span>Yes, </span>I do !<FaPlusCircle />
-                                        </div>
-                                        <div onClick={() => setSubmit(false)}> 
-                                            <span>No, </span>I don't !<FaMinusCircle />
-                                        </div>
-                                    </AboveContainerChoice>
-                                </StudentInfoAboveContainer>
+                                    <StudentInfoAboveContainer>
+                                        <AboveContainerAssurance>
+                                            <span>Do you really want to disable this student: <span>{student.firstName}</span></span>
+                                        </AboveContainerAssurance>
+                                        <AboveContainerChoice>
+                                            <div onClick={() => (removeStudent(student.id), setSubmit(false))}>
+                                                <span>Yes, </span>I do !<FaPlusCircle />
+                                            </div>
+                                            <div onClick={() => setSubmit(false)}> 
+                                                <span>No, </span>I don't !<FaMinusCircle />
+                                            </div>
+                                        </AboveContainerChoice>
+                                    </StudentInfoAboveContainer>
                                 :
-                                <></>
+                                    <></>
 
                         }
                     </StudentRemoveAttribute>
