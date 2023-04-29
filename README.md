@@ -120,8 +120,10 @@ Nad technologiemi ještě přemýšlím co by bylo lepší použít. Výhodou je
 - [x] zobrazení omluvenek a plateb
 - [x] vkládání a ukládání souborů
 - [x] snímky podrobného rozjetí projektu -> github desktop, instalace balíčku a podobně
-- [ ] destruktivní akce by měli mít dotazovací okno (disablenout studenta, smazání souboru)
-BAKALÁŘKA TEXT
+- [x] destruktivní akce by měli mít dotazovací okno (disablenout studenta, smazání souboru)
+
+TEXT DO BAKALÁŘKY
+
 - [ ] usecase diagram
 - [ ] ukázat jaké kolekce v databázi jsou
 - [ ] dodělat architekturu
