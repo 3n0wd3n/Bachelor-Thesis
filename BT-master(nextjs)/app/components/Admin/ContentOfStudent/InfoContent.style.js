@@ -32,6 +32,66 @@ export const StudentKeyAttribute = styled.span`
     margin: 0em 0 0.5em 0.5em;
 `;
 
+export const StudentInfoAboveContainer = styled.div`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999; /* zajistí, že bude div viditelný nad všemi elementy */
+  font-family: 'Raleway', sans-serif;
+  font-size: ${StudentInfoContentValue+0.1}rem;
+  /* background-color: ${Colors.white}; */
+  background-color: white;
+  box-shadow: -3px 3px 5px rgba(155, 155, 155, 0.25);
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 1rem;
+  border-radius: 15px;
+`;
+
+export const AboveContainerAssurance = styled.div`
+    &>span>span{
+        font-weight: 600;
+    }
+`;
+
+export const AboveContainerChoice = styled.div`
+    display: flex;
+
+    &>div>span{
+        font-weight: 600;
+    }
+    &>div:first-child>svg{
+        color: ${Colors.lightGreen}
+    }
+    &>div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @media (max-width: 600px) {
+            padding: .3rem;
+            border-radius: 10px;
+            border: 1px solid ${Colors.lightGray};
+        }
+    }
+    &>div>svg{
+        color: ${Colors.red};
+        margin: 0 0 0 1rem;
+        font-size: ${StudentInfoContentValue+0.2}rem;
+        @media (max-width: 600px) {
+            margin: 0 0 0 .5rem;
+        }
+    }
+    gap: 1rem;
+    @media (max-width: 600px) {
+      flex-direction: column;
+    }
+`;
+
 export const StudentAttributes = styled.div``;
 
 export const StudentKeyRemoveAttribute = styled(StudentKeyAttribute)`
