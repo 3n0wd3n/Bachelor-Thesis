@@ -125,5 +125,5 @@ Nad technologiemi ještě přemýšlím co by bylo lepší použít. Výhodou je
 TEXT DO BAKALÁŘKY
 
 - [ ] usecase diagram
-- [ ] ukázat jaké kolekce v databázi jsou
-- [ ] dodělat architekturu
+- [x] ukázat jaké kolekce v databázi jsou
+- [x] dodělat architekturu
