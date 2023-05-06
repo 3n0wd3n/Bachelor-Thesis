@@ -122,8 +122,3 @@ Nad technologiemi ještě přemýšlím co by bylo lepší použít. Výhodou je
 - [x] snímky podrobného rozjetí projektu -> github desktop, instalace balíčku a podobně
 - [x] destruktivní akce by měli mít dotazovací okno (disablenout studenta, smazání souboru)
 
-TEXT DO BAKALÁŘKY
-
-- [ ] usecase diagram
-- [x] ukázat jaké kolekce v databázi jsou
-- [x] dodělat architekturu
