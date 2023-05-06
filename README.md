@@ -122,3 +122,11 @@ Nad technologiemi ještě přemýšlím co by bylo lepší použít. Výhodou je
 - [x] snímky podrobného rozjetí projektu -> github desktop, instalace balíčku a podobně
 - [x] destruktivní akce by měli mít dotazovací okno (disablenout studenta, smazání souboru)
 
+**REFACTOR**
+
+- [ ] ve složce public zvážit název složky "images", protože už to není jen pro obrázky, ale pro různé dokumenty
+- [ ] ve složce pages je složka api, která je zodpovědná za serverovou komunikaci, kde používám metody GET, POST, PUT, PATCH, DELETE a bylo by potřeba je trefactorovat, protože některé se nevyužívají úplně podle svého popisu
+- [ ] obecně sjednotit css, protože se dost často opakují některé definice stylů (styled-components umožňují exportovat vyloženě celý nadefinovaný styl, takže by to mohlo opravdu zkrátit významně kod)
+- [ ] v komponentách mám někde holé html tagy a bylo by dobré jim dát strukturu podle styled-components
+- [ ] popsat kod a udělat více komentářů
+- [ ] některé komponenty jsem nerozložil úpně dobře (myslím tím, že by se dalo rozkouskovat je ještě víc)
