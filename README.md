@@ -130,3 +130,5 @@ Nad technologiemi ještě přemýšlím co by bylo lepší použít. Výhodou je
 - [ ] v komponentách mám někde holé html tagy a bylo by dobré jim dát strukturu podle styled-components
 - [ ] popsat kod a udělat více komentářů
 - [ ] některé komponenty jsem nerozložil úpně dobře (myslím tím, že by se dalo rozkouskovat je ještě víc)
+- [ ] sémantika HTML tagů
+- [ ] vyřešit proč nejdou v NEXTJS dobře udělat formuláře
