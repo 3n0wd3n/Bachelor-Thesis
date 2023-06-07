@@ -1,3 +1,4 @@
+
 # soubor struktura.js
 - návrh na příchozí na poskládání dat různých rolí ze serveru
 # app složka
@@ -17,6 +18,9 @@ const nextConfig = {
     styledComponents: true,
   }
 }
+
+# vytvoření app
+- npx create-next-app@latest
 
 # spuštění serveru (člověk musí být v app složce)
 - npm run dev, nebo next dev
