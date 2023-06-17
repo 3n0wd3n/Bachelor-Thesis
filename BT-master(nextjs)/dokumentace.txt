@@ -8,6 +8,7 @@
 # vytvoření projektu
 - npx create-next-app@latest 
 # instalování styled components a axiosu současně
+- npm install styled-components axios react-icons cookies-next mongoose
 - npm i styled-components axios
 
 # v app/next.config.js musíme říct, že budeme používat styled componenty
@@ -24,6 +25,7 @@ const nextConfig = {
 
 # spuštění serveru (člověk musí být v app složce)
 - npm run dev, nebo next dev
+
 # otevření
 - na localhost:3000 (v prohlížeči)
 
@@ -60,3 +62,8 @@ ZAJÍMAJÍ NAS JEN SLOŽKY PUBLIC, PAGES
 
  # installing icons 
  - npm install react-icons --save
+
+
+ html {
+    color-scheme: dark;
+  }
