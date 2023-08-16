@@ -12,6 +12,10 @@ Od začátku školního roku 2021/2022 se moje přítelkyně vydala cestou brig�
 
 [PÍSEMNÁ ČÁST v Overleaf](https://www.overleaf.com/read/btfcyfmwnmxq)
 
+[VERCEL](https://vercel.com/3n0wd3n/batchelor-thesis-testing)
+
+[MONGODB - ATLAS](https://cloud.mongodb.com/v2/6204f3dc0191d10e7ac6c9a2#/metrics/replicaSet/63ef6f8ae72b2571f7006764/explorer/BMEnglish/apologies/find)
+
 **Rozdělení**
 
 Do informačního systému by se přihlašovalo skrz standartní login. Žádná registrace by nebyla, protože by správce (Bára) každému novému příchozímu dala jeho přihlašovací jméno a heslo (mohl bych generovat). Po zadání přihlašovacích údajů by se rozeznávali tři typy uživatelů.
